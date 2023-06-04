@@ -1,0 +1,15 @@
+<ul>
+    <li
+        *ngFor = 'let project of projectList'
+        (click) = 'selectProject(project)'
+    >
+        <dl>
+            <dt>
+                عنوان
+            </dt>
+            <dd>
+                {{project.title}}
+            </dd>
+        </dl>
+    </li>
+</ul>

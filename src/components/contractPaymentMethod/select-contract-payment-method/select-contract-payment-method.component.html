@@ -1,0 +1,15 @@
+<ul>
+    <li
+        *ngFor = 'let contractPaymentMehod of contractPaymentMehodList'
+        (click) = 'selectContractPaymentMehod(contractPaymentMehod)'
+    >
+        <dl>
+            <dt>
+                عنوان
+            </dt>
+            <dd>
+                {{contractPaymentMehod.title}}
+            </dd>
+        </dl>
+    </li>
+</ul>

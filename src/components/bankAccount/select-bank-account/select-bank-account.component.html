@@ -1,0 +1,15 @@
+<ul>
+    <li
+        *ngFor = 'let bankAccount of bankAccountList'
+        (click) = 'selectBankAccount(bankAccount)'
+    >
+        <dl>
+            <dt>
+                عنوان
+            </dt>
+            <dd>
+                {{bankAccount.title}}
+            </dd>
+        </dl>
+    </li>
+</ul>

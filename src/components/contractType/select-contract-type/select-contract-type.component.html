@@ -1,0 +1,15 @@
+<ul>
+    <li
+        *ngFor = 'let contractType of contractTypeList'
+        (click) = 'selectContractType(contractType)'
+    >
+        <dl>
+            <dt>
+                عنوان
+            </dt>
+            <dd>
+                {{contractType.title}}
+            </dd>
+        </dl>
+    </li>
+</ul>
