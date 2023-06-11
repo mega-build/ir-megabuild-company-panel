@@ -1,9 +1,24 @@
 <form>
     <legend>
-        پیش نویس قرارداد
+        اطلاعات اولیه
     </legend>
     <fieldset>
         <ul>
+            <li>
+                <label
+                    for="txtContractNumber"
+                >
+                    شماره قرارداد
+                </label>
+
+                <input
+                    type="text"
+                    id="txtContractNumber"
+                    name="txtContractNumber"
+                    [(ngModel)]="contract.contractNumber"
+                >
+            </li>
+
             <li>
                 <label
                     for="cmpSelectContractType"
@@ -13,41 +28,46 @@
 
                 <select-contract-type
                     id="cmpSelectContractType"
+                    (setContractType) = "setContractType($event)"
                 ></select-contract-type>
             </li>
 
             <li>
                 <label
-                    for="cmpSelectProject"
+                    for="txtContractDate"
                 >
-                    پروژه
+                    تاریخ قرارداد
                 </label>
 
-                <select-project
-                    id="cmpSelectProject"
-                ></select-project>
+                <input
+                    type="datetime-local"
+                    id="txtContractDate"
+                    name="txtContractDate"
+                    [(ngModel)]="contract.contractDate"
+                >
             </li>
 
             <li>
                 <label
-                    for="txtConttractNumber"
+                    for="txtContractFinishDate"
                 >
-                    شماره قرارداد
+                    تاریخ قرارداد
                 </label>
 
                 <input
-                    type="text"
-                    id="txtConttractNumber"
+                    type="datetime-local"
+                    id="txtContractFinishDate"
+                    name="txtContractFinishDate"
+                    [(ngModel)]="contract.contractFinishDate"
                 >
             </li>
-
-            
 
         </ul>
         <ul>
             <li>
                 <button
                     type="button"
+                    (click)="draftContract()"
                 >
                     ثبت پیش نویس
                 </button>

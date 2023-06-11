@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ContractTypeService } from 'src/services/contractType/contract-type.service';
 
 @Component(
 	{
@@ -8,26 +9,48 @@ import { Component, EventEmitter, Output } from '@angular/core';
 	}
 )
 
-export class SelectContractTypeComponent {
+export class SelectContractTypeComponent implements OnInit
+	{
 
-	@Output() setContractType = new EventEmitter<any>();
+		@Output() setContractType = new EventEmitter<any>();
 
-	contractTypeList: any[]= [
-		{
-			_id: "6477369739a5055a5148044e",
-			title: "پیش فروش"
-		},
-		{
-			_id: "647736a739a5055a5148044f",
-			title: "فروش"
-		}
-	];
+		contractTypeList: any[]= [];
+			
+		constructor
+		(
+			private contractTypeService: ContractTypeService
+		)
+			{}
+				
+		ngOnInit
+		(): void 
+			{
+				this.getAllContractTypeList();
+			}
 
-	selectContractType
-	(
-		contractType:any
-	):void
-		{
-			this.setContractType.emit(contractType);
-		}
-}
+		getAllContractTypeList
+			(): void
+				{
+					this.contractTypeService
+						.getAll()
+						.subscribe(
+							(data: any) => 
+								{
+									console.log(data.contractTypeList);
+									this.contractTypeList = data.contractTypeList;
+									
+								}
+						)
+				}
+
+
+		
+
+		selectContractType
+		(
+			contractType:any
+		):void
+			{
+				this.setContractType.emit(contractType);
+			}
+	}

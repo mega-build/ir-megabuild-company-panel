@@ -1,0 +1,26 @@
+<section>
+    <ul>
+        <li
+            *ngFor = 'let contractPayment of contractPaymentList'
+        >
+            <dl>
+                <dt>
+                    شماره حساب
+                </dt>
+                <dd>
+                    {{contractPayment.bankAccount.accounNumber}}
+                </dd>
+
+                <dt>
+                    نوع پرداخت
+                </dt>
+                <dd>
+                    {{contractPayment.contractPaymentMethod.title}}
+                </dd>
+            </dl>
+        </li>
+    </ul>
+</section>
+<section>
+    <add-contract-payment></add-contract-payment>
+</section>

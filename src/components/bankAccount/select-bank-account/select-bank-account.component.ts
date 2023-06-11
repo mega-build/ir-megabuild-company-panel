@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { BankAccountService } from 'src/services/bankAccount/bank-account.service';
 
 @Component(
 	{
@@ -8,25 +9,44 @@ import { Component, EventEmitter, Output } from '@angular/core';
 	}
 )
 
-export class SelectBankAccountComponent {
-	@Output() setBankAccount = new EventEmitter<any>();
+export class SelectBankAccountComponent implements OnInit
+	{
+		@Output() setBankAccount = new EventEmitter<any>();
 
-	bankAccountList: any[]= [
-		{
-			_id: "6477369739a5055a5148044e",
-			title: "پیش فروش"
-		},
-		{
-			_id: "647736a739a5055a5148044f",
-			title: "فروش"
-		}
-	];
+		bankAccountList: any[]= [];
 
-	selectBankAccount
-	(
-		bankAccount:any
-	):void
-		{
-			this.setBankAccount.emit(bankAccount);
-		}
-}
+		constructor
+			(
+				private bankAccountService: BankAccountService
+			)
+				{}
+			
+		ngOnInit
+		(): void 
+			{
+				this.getAllProjectTypeList();
+			}
+
+		getAllProjectTypeList
+			(): void
+				{
+					this.bankAccountService
+						.getAll()
+						.subscribe(
+							(data: any) => 
+								{
+									console.log(data.bankAccountList);
+									this.bankAccountList = data.bankAccountList;
+									
+								}
+						)
+				}
+
+		selectBankAccount
+		(
+			bankAccount:any
+		):void
+			{
+				this.setBankAccount.emit(bankAccount);
+			}
+	}

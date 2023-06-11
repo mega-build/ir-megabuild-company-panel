@@ -19,6 +19,8 @@
                 <input
                     type="text"
                     id="txtBlock"
+                    name="txtBlock"
+                    [(ngModel)]= "residentialProjectItem.block"
                 >
             </li>
 
@@ -29,8 +31,10 @@
                     طبقه:
                 </label>
                 <input
-                    type="text"
+                    type="number"
                     id="txtFloor"
+                    name="txtFloor"
+                    [(ngModel)]= "residentialProjectItem.floor"
                 >
             </li>
 
@@ -43,6 +47,8 @@
                 <input
                     type="text"
                     id="txtUnit"
+                    name="txtUnit"
+                    [(ngModel)]= "residentialProjectItem.unit"
                 >
             </li>
 
@@ -53,8 +59,10 @@
                     زیربنا:
                 </label>
                 <input
-                    type="text"
+                    type="number"
                     id="txtBuildupArea"
+                    name="txtBuildupArea"
+                    [(ngModel)]= "residentialProjectItem.buildupArea"
                 >
             </li>
             
@@ -66,8 +74,10 @@
                     مبلغ واحد:
                 </label>
                 <input
-                    type="text"
+                    type="number"
                     id="txtUnitPrice"
+                    name="txtUnitPrice"
+                    [(ngModel)]= "residentialProjectItem.unitPrice"
                 >
             </li>
 
@@ -78,6 +88,7 @@
             <li>
                 <button
                     type="button"
+                    (click)="saveProjectItem()"
                 >
                     ثبت
                 </button>

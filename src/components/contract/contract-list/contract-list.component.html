@@ -1,0 +1,9 @@
+<ul>
+    <li
+        *ngFor = 'let contract of contractList'
+    >
+        <contract-list-item
+            [contract]="contract"
+        ></contract-list-item>
+    </li>
+</ul>

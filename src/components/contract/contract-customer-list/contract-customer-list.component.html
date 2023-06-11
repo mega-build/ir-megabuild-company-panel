@@ -1,0 +1,40 @@
+<section>
+    <ul>
+        <li
+            *ngFor = 'let contractCustomer of contractCustomerList'
+        >
+            <dl>
+                <dt>
+                    نام
+                </dt>
+                <dd>
+                    {{contractCustomer.customer.firstname}}
+                </dd>
+
+                <dt>
+                    نام خانوادگی
+                </dt>
+                <dd>
+                    {{contractCustomer.customer.lastname}}
+                </dd>
+            </dl>
+        </li>
+    </ul>
+</section>
+<section>
+    <add-contract-customer
+        (onSelectedCustomer) = 'selectCustomer($event)'
+    ></add-contract-customer>
+</section>
+
+<nav>
+    <ul>
+        <li>
+            <button
+                type="button"
+            >
+                ادامه
+            </button>
+        </li>
+    </ul>
+</nav>

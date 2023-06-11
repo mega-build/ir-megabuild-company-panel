@@ -1,26 +1,53 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ProjectService } from 'src/services/project/project.service';
 
-@Component({
-  selector: 'select-project',
-  templateUrl: './select-project.component.html',
-  styleUrls: ['./select-project.component.css']
-})
+@Component(
+	{
+		selector: 'select-project',
+		templateUrl: './select-project.component.html',
+		styleUrls: ['./select-project.component.css']
+	}
+)
 
-export class SelectProjectComponent {
-	@Output() setProject = new EventEmitter<any>();
+export class SelectProjectComponent implements OnInit
+	{
+		@Output() setProject = new EventEmitter<any>();
 
-	projectList: any[]= [
-		{
-			_id: "647615ae6e8bc9cf0e8ae675",
-			title: "پروژه 1"
-		}
-	];
+		projectList: any[]= [];
 
-	selectProject
-	(
-		project:any
-	):void
-		{
-			this.setProject.emit(project);
-		}
-}
+		constructor
+		(
+			private projectService: ProjectService
+		)
+			{}
+					
+		ngOnInit
+		(): void 
+			{
+				this.getAllProjectList();
+			}
+
+		getAllProjectList
+			(): void
+				{
+					this.projectService
+						.getAll()
+						.subscribe(
+							(data: any) => 
+								{
+									console.log(data.projectList);
+									this.projectList = data.projectList;
+									
+								}
+						)
+				}
+
+
+		selectProject
+		(
+			project:any
+		):void
+			{
+				this.setProject.emit(project);
+			}
+	}

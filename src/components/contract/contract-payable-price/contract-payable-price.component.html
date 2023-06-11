@@ -1,0 +1,48 @@
+<form>
+    <legend>
+        ثبت قیمت نهایی قرارداد
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label
+                    for="txtDiscount"
+                >
+                مبلغ تخفیف:
+                </label>
+
+                <input
+                    type="number"
+                    id="txtDiscount"
+                    name="txtDiscount"
+                    [(ngModel)]="discount"
+                >
+            </li>
+            <li>
+                <label
+                    for="txtPayablePrice"
+                >
+                مبلغ نهایی
+                </label>
+
+                <input
+                    type="number"
+                    id="txtPayablePrice"
+                    name="txtPayablePrice"
+                    [(ngModel)]="payablePrice"
+                >
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="setPayablePrice()"
+                >
+                    ثبت
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

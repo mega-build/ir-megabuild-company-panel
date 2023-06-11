@@ -1,0 +1,64 @@
+<form>
+    <legend>
+        پروژه جدید
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label
+                    for="txtTitle"
+                >
+                    عنوان
+                </label>
+
+                <input
+                    type="text"
+                    id="txtTitle"
+                    name="txtTitle"
+                    [(ngModel)]= "project.title"
+                >
+            </li>
+
+            <li>
+                <label
+                    for="cmpProjectType"
+                >
+                    نوع پروژه
+                </label>
+
+                <select-project-type
+                    id="cmpProjectType"
+                    (setProjectType)="setProjectType($event)"
+                ></select-project-type>
+            </li>
+
+            <li>
+                <label
+                    for="txtAddress"
+                >
+                    آدرس:
+                </label>
+
+                <textarea
+                    id="txtAddress"
+                    name="txtAddress"
+                    [(ngModel)]= "project.address"
+                ></textarea>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="save()"
+                >
+                    ثبت
+                </button>
+
+                <a href="/projectManagement">
+                    انصراف
+                </a>
+            </li>
+        </ul>
+    </fieldset>
+</form>

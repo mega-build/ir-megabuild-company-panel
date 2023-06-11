@@ -1,4 +1,8 @@
-<form>
+<form
+    id="frmAddContractPayment"
+    name="frmAddContractPayment"
+>
+
     <legend>
         ثبت پرداخت
     </legend>
@@ -12,6 +16,8 @@
                 </label>
                 <select-contract-payment-method
                     id="cmpSelectContractPaymentMethod"
+                    name="cmpSelectContractPaymentMethod"
+                    (setContractPaymentMethod)= "setContractPaymentMethod($event)"
                 ></select-contract-payment-method>
             </li>
 
@@ -24,6 +30,8 @@
                 </label>
                 <select-bank-account
                     id="cmpSelectBankAccount"
+                    name="cmpSelectBankAccount"
+                    (setBankAccount) = "setBankAccount($event)"
                 ></select-bank-account>
             </li>
 
@@ -37,8 +45,27 @@
                 <input
                     type="text"
                     id="txtPrice"
+                    name="txtPrice"
+                    [ngModel]= 'contract.price'
                 >
             </li>
+
+            <li>
+                <label
+                    for="txtDueDate"
+                >
+                    تاریخ سررسید:
+                </label>
+                
+                <input
+                    type="text"
+                    id="txtDueDate"
+                >
+            </li>
+
+            <add-contract-payment-deposit></add-contract-payment-deposit>
+            <add-contract-payment-cheque></add-contract-payment-cheque>
+            <add-contract-payment-dicker></add-contract-payment-dicker>
         </ul>
 
         <ul>

@@ -1,0 +1,20 @@
+<a
+    href="/projectManagement/add"
+>
+    پروژه جدید
+</a>
+
+<ul>
+    <li
+        *ngFor = 'let project of projectList'
+    >
+        <dl>
+            <dt>
+                عنوان
+            </dt>
+            <dd>
+                {{project.title}}
+            </dd>
+        </dl>
+    </li>
+</ul>

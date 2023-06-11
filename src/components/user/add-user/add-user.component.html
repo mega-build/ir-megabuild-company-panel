@@ -1,0 +1,79 @@
+<form>
+    <legend>
+        ثبت اطلاعات خریدار
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label
+                    for="txtFirstname"
+                >
+                    نام:
+                </label>
+
+                <input
+                    type="text"
+                    id="txtFirstname"
+                    name="txtFirstname"
+                    [(ngModel)]="user.firstname"
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtLastname"
+                >
+                    نام خانوادگی:
+                </label>
+
+                <input
+                    type="text"
+                    id="txtLastname"
+                    name="txtLastname"
+                    [(ngModel)]="user.lastname"
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtUsername"
+                >
+                    نام کاربری:
+                </label>
+
+                <input
+                    type="text"
+                    id="txtUsername"
+                    name="txtUsername"
+                    [(ngModel)]="user.username"
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtPassword"
+                >
+                    رمز عبوری
+                </label>
+
+                <input
+                    type="text"
+                    id="txtPassword"
+                    name="txtPassword"
+                    [(ngModel)]="user.password"
+                >
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="createUser()"
+                >
+                    ثبت
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

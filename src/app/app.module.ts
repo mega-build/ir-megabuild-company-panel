@@ -16,9 +16,36 @@ import { AppRoutingModule } from './app-routing.module';
 import { AddResidentialProjectItemComponent } from 'src/components/projectItem/add-residential-project-item/add-residential-project-item.component';
 import { SetContractProjectItemComponent } from './set-contract-project-item/set-contract-project-item.component';
 import { AddCustomerComponent } from '../components/customer/add-customer/add-customer.component';
-import { SetContractCustomerListComponent } from './set-contract-customer-list/set-contract-customer-list.component';
 import { SetContractPaymentLisComponent } from './set-contract-payment-lis/set-contract-payment-lis.component';
 import { AddContractPaymentComponent } from 'src/components/contract-payment/add-contract-payment/add-contract-payment.component';
+import { ShareModule } from 'src/share/share.module';
+import { ContractDetailComponent } from '../components/contract/contract-detail/contract-detail.component';
+import { EditContractComponent } from './edit-contract/edit-contract.component';
+import { ContractPayablePriceComponent } from '../components/contract/contract-payable-price/contract-payable-price.component';
+import { ContractCustomerListComponent } from '../components/contract/contract-customer-list/contract-customer-list.component';
+import { FindCustomerByNationalCodeComponent } from '../components/customer/find-customer-by-national-code/find-customer-by-national-code.component';
+import { AddContractCustomerComponent } from '../components/contractCustomer/add-contract-customer/add-contract-customer.component';
+import { ContractPaymentListComponent } from '../components/contract/contract-payment-list/contract-payment-list.component';
+import { AddContractPaymentDepositComponent } from '../components/contract-payment/add-contract-payment-deposit/add-contract-payment-deposit.component';
+import { AddContractPaymentChequeComponent } from '../components/contract-payment/add-contract-payment-cheque/add-contract-payment-cheque.component';
+import { AddContractPaymentDickerComponent } from '../components/contract-payment/add-contract-payment-dicker/add-contract-payment-dicker.component';
+
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContractPanelComponent } from 'src/components/contract/contract-panel/contract-panel.component';
+import { ContractProjectItemComponent } from '../components/contract/contract-project-item/contract-project-item.component';
+import { ProjectItemDetailComponent } from '../components/projectItem/project-item-detail/project-item-detail.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { UserPanelComponent } from '../components/user/user-panel/user-panel.component';
+import { AddUserComponent } from '../components/user/add-user/add-user.component';
+import { SetUserAccessComponent } from '../components/user/set-user-access/set-user-access.component';
+import { PanelNavigationComponent } from '../components/share/panel-navigation/panel-navigation.component';
+import { ProjectManagementComponent } from './project-management/project-management.component';
+import { ProjectPanelComponent } from '../components/project/project-panel/project-panel.component';
+import { AddProjectComponent } from '../components/project/add-project/add-project.component';
+import { ContractManagementComponent } from './contract-management/contract-management.component';
+import { ContractFilterComponent } from '../components/contract/contract-filter/contract-filter.component';
+import { ContractListComponent } from '../components/contract/contract-list/contract-list.component';
+import { ContractListItemComponent } from '../components/contract/contract-list-item/contract-list-item.component';
 
 
 
@@ -37,14 +64,40 @@ import { AddContractPaymentComponent } from 'src/components/contract-payment/add
     AddResidentialProjectItemComponent,
     SetContractProjectItemComponent,
     AddCustomerComponent,
-    SetContractCustomerListComponent,
     SetContractPaymentLisComponent,
-    AddContractPaymentComponent
+    AddContractPaymentComponent,
+    ContractDetailComponent,
+    EditContractComponent,
+    ContractPayablePriceComponent,
+    ContractCustomerListComponent,
+    FindCustomerByNationalCodeComponent,
+    AddContractCustomerComponent,
+    ContractPaymentListComponent,
+    AddContractPaymentDepositComponent,
+    AddContractPaymentChequeComponent,
+    AddContractPaymentDickerComponent,
+    ContractPanelComponent,
+    DashboardComponent,
+    ContractProjectItemComponent,
+    ProjectItemDetailComponent,
+    UserManagementComponent,
+    UserPanelComponent,
+    AddUserComponent,
+    SetUserAccessComponent,
+    PanelNavigationComponent,
+    ProjectManagementComponent,
+    ProjectPanelComponent,
+    AddProjectComponent,
+    ContractManagementComponent,
+    ContractFilterComponent,
+    ContractListComponent,
+    ContractListItemComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ShareModule
   ],
   providers: [],
   bootstrap: [AppComponent]

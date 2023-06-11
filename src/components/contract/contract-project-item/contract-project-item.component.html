@@ -1,0 +1,57 @@
+
+<section
+    *ngIf="!isLoading && projectItem"
+>
+    <project-item-detail
+        [projectItem]="projectItem"
+    ></project-item-detail>
+    <button
+        type="button"
+        (click)="removeProjectItem()"
+    >
+        حذف
+    </button>
+</section>
+
+<section
+    *ngIf="!isLoading && !projectItem"
+>
+
+    <li>
+        <label
+            for="cmpSelectProject"
+        >
+            پروژه
+        </label>
+
+        <select-project
+            id="cmpSelectProject"
+            (setProject)="setProject($event)"
+        ></select-project>
+    </li>
+
+    <add-residential-project-item
+        *ngIf="!isLoading && isResidentailProjectItem() && project._id"
+        (onProjectItemAdded)= "setNewProjectItem($event)"
+        [projectId]="project._id"
+    ></add-residential-project-item>
+
+</section>
+
+<nav>
+    <ul>
+        <li>
+           <button
+            type="button"
+            (click)="setContractProjectItem()"
+           >
+                ادامه
+           </button>
+        </li>
+        <li>
+            <a href="">
+                برگشت
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,38 @@
+<ul>
+    <li
+        *ngFor = 'let user of userList'
+    >
+        <dl>
+            <dt>
+                نام
+            </dt>
+            <dd>
+                {{user.firstname}}
+            </dd>
+
+            <dt>
+                نام خانوادگی
+            </dt>
+            <dd>
+                {{user.lastname}}
+            </dd>
+
+            <dt>
+                نام کاربری
+            </dt>
+            <dd>
+                {{user.username}}
+            </dd>
+        </dl>
+
+        <ul>
+            <li>
+                ویرایش
+            </li>
+
+            <li>
+                دسترسی
+            </li>
+        </ul>
+    </li>
+</ul>

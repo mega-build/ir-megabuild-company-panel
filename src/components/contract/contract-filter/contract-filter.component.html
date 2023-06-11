@@ -1,0 +1,67 @@
+<form>
+    <legend>
+        فیلتر پروژه
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label
+                    for="cmpSelectProject"
+                >
+                    پروژه
+                </label>
+        
+                <select-project
+                    id="cmpSelectProject"
+                    (setProject)="setProject($event)"
+                ></select-project>
+            </li>
+
+            <li>
+                <label
+                    for="rbtnSortBy"
+                >
+                    مرتب شده بر اساس تاریخ قرارداد
+                </label>
+                <input
+                    type="radio"
+                    id = 'rbtnSortBy'
+                    name = 'rbtnSortBy'
+                    value = 'contractDate'
+                >
+            </li>
+
+            <li>
+                <label
+                    for="rbtnSortBy"
+                >
+                    مرتب شده بر اساس تاریخ تحویل
+                </label>
+                
+                <input
+                    type="radio"
+                    id = 'rbtnSortBy'
+                    name = 'rbtnSortBy'
+                    value = 'contractFinishDate'
+                >
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <button
+                    type="button"
+                >
+                    فیلتر
+                </button>
+            </li>
+
+            <li>
+                <button
+                    type="button"
+                >
+                    حذف فیلتر
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

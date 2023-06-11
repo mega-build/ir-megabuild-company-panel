@@ -1,0 +1,65 @@
+<form
+    id="frmAddContractPaymentCheque"
+    name="frmAddContractPaymentCheque"
+>
+
+    <legend>
+        ثبت پرداخت چک
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label
+                    for="cmpSelectBankAccount"
+                >
+                    شماره حساب:
+                </label>
+                <select-bank-account
+                    id="cmpSelectBankAccount"
+                    name="cmpSelectBankAccount"
+                ></select-bank-account>
+            </li>
+
+            <li>
+                <label
+                    for="txtDueDate"
+                >
+                    تاریخ سررسید:
+                </label>
+                
+                <input
+                    type="text"
+                    id="txtDueDate"
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtChequeNumber"
+                >
+                    شماره چک
+                </label>
+                
+                <input
+                    type="text"
+                    id="txtChequeNumber"
+                >
+            </li>
+
+            <li>
+                <label
+                    for="cmbBank"
+                >
+                    بانک
+                </label>
+                
+                <select-bank
+                    id="cmbBank"
+                    name="cmbBank"
+                ></select-bank>
+            </li>
+
+        </ul>
+
+    </fieldset>
+</form>

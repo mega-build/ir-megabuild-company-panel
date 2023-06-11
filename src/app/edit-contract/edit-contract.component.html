@@ -1,0 +1,6 @@
+<panel-navigation></panel-navigation>
+<contract-detail
+    *ngIf="!isLoading && contract"
+    [contract]= "contract"
+></contract-detail>
+<router-outlet></router-outlet>

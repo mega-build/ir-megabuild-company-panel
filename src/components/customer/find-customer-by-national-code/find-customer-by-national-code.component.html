@@ -1,0 +1,34 @@
+<form>
+    <legend>
+        جستجوی مشتری با کد ملی
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label
+                    for="txtNationalCode"
+                >
+                    کدملی:
+                </label>
+
+                <input
+                    type="text"
+                    id="txtNationalCode"
+                >
+            </li>
+        </ul>
+
+        <ul>
+            <ul>
+                <li>
+                    <button
+                        type="button"
+                        (onclick)="getByNationalCode()"
+                    >
+                        جستجو
+                    </button>
+                </li>
+            </ul>
+        </ul>
+    </fieldset>
+</form>

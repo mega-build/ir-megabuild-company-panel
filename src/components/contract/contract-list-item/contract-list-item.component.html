@@ -1,0 +1,55 @@
+<dl>
+    <dt>
+        بلوک
+    </dt>
+    <dd>
+        {{contract.projectItem.block}}
+    </dd>
+
+    <dt>
+        طبقه
+    </dt>
+    <dd>
+        {{contract.projectItem.floor}}
+    </dd>
+
+    <dt>
+        واحد
+    </dt>
+    <dd>
+        {{contract.projectItem.unit}}
+    </dd>
+
+    <dt>
+        شماره قرارداد
+    </dt>
+    <dd>
+        {{contract.contractNumber}}
+    </dd>
+
+    <dt>
+        تاریخ قرارداد
+    </dt>
+    <dd>
+        {{contract.createDateTime}}
+    </dd>
+
+    <dt>
+        مبلغ قرارداد
+    </dt>
+    <dd>
+        {{contract.payablePrice}}
+    </dd>
+</dl>
+
+<ul
+    class="listItemActionMenu"
+>
+    <li>
+        <a
+            href= "/editContract;contractId={{contract._id}}"
+        >
+            ویرایش
+        </a>
+    </li>
+</ul>

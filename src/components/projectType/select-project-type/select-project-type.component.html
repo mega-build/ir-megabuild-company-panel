@@ -1,1 +1,15 @@
-<p>select-project-type works!</p>
+<ul>
+    <li
+        *ngFor = 'let projectType of projectTypeList'
+        (click) = 'selectProjectType(projectType)'
+    >
+        <dl>
+            <dt>
+                عنوان
+            </dt>
+            <dd>
+                {{projectType.title}}
+            </dd>
+        </dl>
+    </li>
+</ul>

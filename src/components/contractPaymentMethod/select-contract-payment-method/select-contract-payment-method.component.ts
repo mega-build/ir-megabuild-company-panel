@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ContractPaymentMethodService } from 'src/services/contractPaymentMethod/contract-payment-method.service';
 
 @Component(
 	{
@@ -8,29 +9,43 @@ import { Component, EventEmitter, Output } from '@angular/core';
 	}
 )
 
-export class SelectContractPaymentMethodComponent {
-	@Output() setContractPaymentMethod = new EventEmitter<any>();
+export class SelectContractPaymentMethodComponent implements OnInit
+	{
+		@Output() setContractPaymentMethod = new EventEmitter<any>();
 
-	contractPaymentMehodList: any[]= [
-		{
-			_id: "6478c456bc098039ca4f379a",
-			title: "نقدی"
-		},
-		{
-			_id: "6478c467bc098039ca4f379b",
-			title: "چک"
-		},
-		{
-			_id: "6478c472bc098039ca4f379c",
-			title: "تهاتر"
-		}
-	];
+		contractPaymentMehodList: any[]=[]
+		
+		constructor
+		(
+			private contractPaymentMethodService: ContractPaymentMethodService
+		)
+			{}
 
-	selectContractPaymentMehod
-	(
-		contractPaymentMehod:any
-	):void
-		{
-			this.setContractPaymentMethod.emit(contractPaymentMehod);
+		ngOnInit(): void {
+			this.getAllContractPaymentMethodList();
 		}
-}
+
+		getAllContractPaymentMethodList
+		(): void
+			{
+				this.contractPaymentMethodService
+					.getAll()
+					.subscribe(
+						(data: any) => 
+							{
+								console.log(data.contractPaymentMethodList);
+								this.contractPaymentMehodList = data.contractPaymentMethodList;
+								
+							}
+					)
+			}
+
+
+		selectContractPaymentMehod
+		(
+			contractPaymentMehod:any
+		):void
+			{
+				this.setContractPaymentMethod.emit(contractPaymentMehod);
+			}
+	}

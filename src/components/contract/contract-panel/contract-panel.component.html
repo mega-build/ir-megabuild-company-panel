@@ -1,0 +1,13 @@
+<contract-filter
+    (setFilter) = 'setFilter($event)'
+></contract-filter>
+<contract-list
+    *ngIf="contractList.length > 0"
+    [contractList]="contractList"
+></contract-list>
+
+<div
+    *ngIf="contractList.length == 0"
+>
+    قراردادی برای این پروژه وجود ندارد
+</div>

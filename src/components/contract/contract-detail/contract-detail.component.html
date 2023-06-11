@@ -1,0 +1,48 @@
+<dl>
+
+    <dt>
+        شماره قرارداد
+    </dt>
+    <dd>
+        {{contract.contractNumber}}
+    </dd>
+    
+</dl>
+
+<nav>
+    <ul>
+        <li>
+            <a
+                href= "/editContract;contractId={{contract._id}}/customerList"
+            >
+                خریدار
+            </a>
+        </li>
+
+        <li>
+            <a 
+                href= "/editContract;contractId={{contract._id}}/projectItem"
+            >
+                ایتم فروش
+            </a>
+        </li>
+
+        <li>
+            <a
+                href= "/editContract;contractId={{contract._id}}/paymentList"
+            >
+                پرداخت 
+            </a>
+        </li>
+
+        <li>
+            <a
+                href= "/editContract;contractId={{contract._id}}/payablePrice"
+            >
+                مبلغ قابل پرداخت 
+            </a>
+        </li>
+
+    </ul>
+</nav>
+
