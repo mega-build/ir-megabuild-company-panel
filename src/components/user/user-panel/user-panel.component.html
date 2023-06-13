@@ -1,3 +1,8 @@
+<a
+    href="/userManagement/add"
+>
+    کاربر جدید
+</a>
 <ul>
     <li
         *ngFor = 'let user of userList'
@@ -31,7 +36,9 @@
             </li>
 
             <li>
-                دسترسی
+                <a href="/userManagement/setAccess;userId={{user._id}}">
+                    دسترسی
+                </a>
             </li>
         </ul>
     </li>

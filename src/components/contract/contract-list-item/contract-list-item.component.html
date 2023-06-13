@@ -48,8 +48,18 @@
     <li>
         <a
             href= "/editContract;contractId={{contract._id}}"
+            *ngIf="contract.isDraft"
         >
             ویرایش
         </a>
     </li>
+    <li>
+        <a
+            href="/contractManagement/requestReview;contractId={{contract._id}}"
+        >
+            درخواست بررسی
+        </a>
+        
+    </li>
 </ul>
+

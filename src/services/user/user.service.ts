@@ -8,13 +8,30 @@ import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-int
 export class UserService
 	{
 
+		private URL_USER_GET: string = 'http://localhost:2001/user';
 		private URL_USER_GETALL: string = 'http://localhost:2001/user';
 		private URL_USER_ADD: string = 'http://localhost:2001/user';
+		private URL_USER_SET_ACCESS: string = 'http://localhost:2001/user/setAccess';
 
 		constructor
 		(
 			private httpInteceptor: AuthHttpInterceptorService,
 		) { }
+
+
+		get(
+			userId:string
+		):any
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+
+				const url = `${this.URL_USER_GET}/${userId}` 
+
+				return this.httpInteceptor.getWithAuth(
+					url,
+					headers
+				);
+			}
 
 		getAll
 		(): any
@@ -44,6 +61,36 @@ export class UserService
 				};
 				return this.httpInteceptor.postWithAuth(
 					this.URL_USER_ADD,
+					headers,
+					body
+				);
+			}
+
+		setAccess
+		(
+			userId:string,
+            isAddContract:boolean,
+			isUserManager:boolean,
+			isCustomerManager:boolean,
+			isContractManager:boolean,
+			isContractPaymentManager:boolean,
+			isContractReviwer:boolean,
+			isActive:boolean
+		):any
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+				let body: any = {
+					userId:userId,
+					isAddContract: isAddContract,
+					isUserManager: isUserManager,
+					isCustomerManager: isCustomerManager,
+					isContractManager: isContractManager,
+					isContractPaymentManager: isContractPaymentManager,
+					isContractReviwer: isContractReviwer,
+					isActive: isActive
+				};
+				return this.httpInteceptor.postWithAuth(
+					this.URL_USER_SET_ACCESS,
 					headers,
 					body
 				);

@@ -2,39 +2,129 @@
     <legend>
         سطح دسترسی کاربر
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
-                ثبت قرارداد
+                <label
+                    for="chkAddContract"
+                >
+                    ثبت قرارداد
+                </label>
+                <input
+                    type="checkbox"
+                    id = "chkAddContract"
+                    name = "chkAddContract"
+                    [(ngModel)]= "user.isAddContract"
+                >
             </li>
             
             <li>
-                مدیریت کاربران
+                
+                <label
+                    for="chkUserManagement"
+                >
+                    مدیریت کاربران
+                </label>
+                <input
+                    type="checkbox"
+                    id = "chkUserManagement"
+                    name = "chkUserManagement"
+                    [(ngModel)]= "user.isUserManager"
+                >
             </li>
 
             <li>
-                مشاهده لیست خریداران
+                
+                <label
+                    for="chkCustomerManagement"
+                >
+                    مشاهده لیست خریداران
+                </label>
+                <input
+                    type="checkbox"
+                    id = "chkCustomerManagement"
+                    name = "chkCustomerManagement"
+                    [(ngModel)]= "user.isCustomerManager"
+                >
             </li>
             
             <li>
-                مشاهده لیست قراردادها
+                <label
+                    for="chkViewContractList"
+                >
+                    مشاهده لیست قراردادها   
+                </label>
+                <input
+                    type="checkbox"
+                    id = "chkViewContractList"
+                    name = "chkViewContractList"
+                    [(ngModel)]= "user.isContractManager"
+                >
+                
             </li>
 
             <li>
-                مشاهده لیست پرداخت ها
+                <label
+                    for="chkViewContractPaymentList"
+                >
+                    مشاهده لیست پرداخت ها   
+                </label>
+                <input
+                    type="checkbox"
+                    id = "chkViewContractPaymentList"
+                    name = "chkViewContractPaymentList"
+                    [(ngModel)]= "user.isContractPaymentManager"
+                >
+                
             </li>
 
             <li>
-                فقط بررسی قرارداد
+                <label
+                    for="chkJustReviewContract"
+                >
+                    فقط بررسی قرارداد   
+                </label>
+                <input
+                    type="checkbox"
+                    id = "chkJustReviewContract"
+                    name = "chkJustReviewContract"
+                    [(ngModel)]= "user.isContractReviwer"
+                >
+                
             </li>
 
             <li>
-                فعال/غیرفعال
+                <label
+                    for="chkIsAvctive"
+                >
+                    فعال/غیرفعال   
+                </label>
+                <input
+                    type="checkbox"
+                    id = "chkIsAvctive"
+                    name = "chkIsAvctive"
+                    [(ngModel)]= "user.isActive"
+                >
+                
             </li>
         </ul>
 
         <ul>
-
+            <li>
+                <button
+                    type="button"
+                    (click)="save()"
+                >
+                    ثبت
+                </button>
+            </li>
+            <li>
+                <a href="/userManagement">
+                    انصراف
+                </a>
+            </li>
         </ul>
     </fieldset>
 </form>

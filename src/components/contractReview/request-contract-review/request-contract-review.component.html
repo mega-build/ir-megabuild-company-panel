@@ -1,0 +1,23 @@
+<form>
+    <legend>
+        درخواست بررسی قرارداد
+    </legend>
+    <fieldset>
+        <select-user-list
+            (onSelectedUserChanged)= "selectedUserChanged($event)"
+        ></select-user-list>
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="requestReview()"
+                >
+                    ثبت درخواست 
+                </button>
+            </li>
+            <li>
+                انصراف
+            </li>
+        </ul>
+    </fieldset>
+</form>

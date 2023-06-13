@@ -1,0 +1,23 @@
+<contract-review-detail
+    *ngIf="!isLoading && contractReview"
+    [contractReview]="contractReview"
+></contract-review-detail>
+
+<ul>
+    <li>
+        <button
+            type="button"
+            (click)="approve()"
+        >
+            تایید
+        </button>
+    </li>
+    <li>
+        <button
+            type="button"
+            (click)="reject()"
+        >
+            رد
+        </button>
+    </li>
+</ul>

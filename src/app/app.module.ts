@@ -46,6 +46,14 @@ import { ContractManagementComponent } from './contract-management/contract-mana
 import { ContractFilterComponent } from '../components/contract/contract-filter/contract-filter.component';
 import { ContractListComponent } from '../components/contract/contract-list/contract-list.component';
 import { ContractListItemComponent } from '../components/contract/contract-list-item/contract-list-item.component';
+import { RequestContractReviewComponent } from '../components/contractReview/request-contract-review/request-contract-review.component';
+import { SelectUserListComponent } from '../components/user/select-user-list/select-user-list.component';
+import { ContractReviewManagementComponent } from './contract-review-management/contract-review-management.component';
+import { ContractReviewPanelComponent } from '../components/contractReview/contract-review-panel/contract-review-panel.component';
+import { ContractReviewListComponent } from '../components/contractReview/contract-review-list/contract-review-list.component';
+import { ContractReviewListItemComponent } from 'src/components/contractReview/contract-review-list-item/contract-review-list-item.component';
+import { ContractReviewDetailComponent } from '../components/contractReview/contract-review-detail/contract-review-detail.component';
+import { ReviewContractReviewComponent } from './review-contract-review/review-contract-review.component';
 
 
 
@@ -91,7 +99,15 @@ import { ContractListItemComponent } from '../components/contract/contract-list-
     ContractManagementComponent,
     ContractFilterComponent,
     ContractListComponent,
-    ContractListItemComponent
+    ContractListItemComponent,
+    RequestContractReviewComponent,
+    SelectUserListComponent,
+    ContractReviewManagementComponent,
+    ContractReviewPanelComponent,
+    ContractReviewListComponent,
+    ContractReviewListItemComponent,
+    ContractReviewDetailComponent,
+    ReviewContractReviewComponent
   ],
   imports: [
     BrowserModule,

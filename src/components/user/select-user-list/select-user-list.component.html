@@ -1,0 +1,19 @@
+<ul>
+    <li
+        *ngFor = 'let user of userList'
+    >
+        <label
+            for= "chkUser{{user._id}}"
+        >
+            {{user.firstname}} {{user.lastname}}
+        </label>
+        <input
+            #refEl
+            type="checkbox"
+            id="chkUser{{user._id}}"
+            name="chkUser{{user._id}}"
+            [value]="user._id"
+            (change)="selectedUserChanged(refEl,user)"
+        >
+    </li>
+</ul>

@@ -31,13 +31,13 @@ export class EditContractComponent implements OnInit
 				this.route.params.subscribe(params => 
 					{
 						this.contractId = params['contractId']; 
-						this.getAllProjectTypeList();
+						this.getContract();
 					}
 				);
 				
 			}
 
-		getAllProjectTypeList
+			getContract
 		(): void
 			{
 				this.isLoading = true;

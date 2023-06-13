@@ -14,6 +14,9 @@ import { AddUserComponent } from 'src/components/user/add-user/add-user.componen
 import { ProjectManagementComponent } from './project-management/project-management.component';
 import { AddProjectComponent } from 'src/components/project/add-project/add-project.component';
 import { ContractManagementComponent } from './contract-management/contract-management.component';
+import { RequestContractReviewComponent } from 'src/components/contractReview/request-contract-review/request-contract-review.component';
+import { ContractReviewManagementComponent } from './contract-review-management/contract-review-management.component';
+import { ReviewContractReviewComponent } from './review-contract-review/review-contract-review.component';
 
 export const routes: Routes = [
     {
@@ -29,7 +32,26 @@ export const routes: Routes = [
         ]
     },
     {
+        path:'contractReviewManagement', component: ContractReviewManagementComponent,
+    },
+    {
+        path:'reviewContractReview',
+        component: ReviewContractReviewComponent,
+        data:{
+            contractReviewId:undefined
+        },
+    },
+    {
         path:'contractManagement', component: ContractManagementComponent,
+        children:[
+            {
+                path: 'requestReview',
+                component: RequestContractReviewComponent,
+                data:{
+                    contractId:undefined
+                },
+            }
+        ]
     },
     {
         path:'userManagement', component: UserManagementComponent,

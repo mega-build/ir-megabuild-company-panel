@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { UserService } from 'src/services/user/user.service';
 
 @Component(
@@ -11,6 +11,8 @@ import { UserService } from 'src/services/user/user.service';
 
 export class AddUserComponent
 	{
+
+		@Output() onUserAdded = new EventEmitter<any>();
 
 		user:any = {};
 		isLoading:boolean = false;
@@ -39,6 +41,7 @@ export class AddUserComponent
 							this.user._id = data.userId
 							//this.onProjectItemAdded.emit(this.residentialProjectItem);
 							this.isLoading = false;
+							this.onUserAdded.emit(this.user);
 						}
 				)
 			}
