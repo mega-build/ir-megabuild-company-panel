@@ -21,51 +21,15 @@
                 ></select-contract-payment-method>
             </li>
 
-            
-            <li>
-                <label
-                    for="cmpSelectBankAccount"
-                >
-                    شماره حساب:
-                </label>
-                <select-bank-account
-                    id="cmpSelectBankAccount"
-                    name="cmpSelectBankAccount"
-                    (setBankAccount) = "setBankAccount($event)"
-                ></select-bank-account>
-            </li>
-
-            <li>
-                <label
-                    for="txtPrice"
-                >
-                    مبلغ:
-                </label>
-                
-                <input
-                    type="text"
-                    id="txtPrice"
-                    name="txtPrice"
-                    [ngModel]= 'contract.price'
-                >
-            </li>
-
-            <li>
-                <label
-                    for="txtDueDate"
-                >
-                    تاریخ سررسید:
-                </label>
-                
-                <input
-                    type="text"
-                    id="txtDueDate"
-                >
-            </li>
-
-            <add-contract-payment-deposit></add-contract-payment-deposit>
-            <add-contract-payment-cheque></add-contract-payment-cheque>
-            <add-contract-payment-dicker></add-contract-payment-dicker>
+            <add-contract-payment-deposit
+                [contractId]="contractId"
+            ></add-contract-payment-deposit>
+            <add-contract-payment-cheque
+                [contractId]="contractId"
+            ></add-contract-payment-cheque>
+            <add-contract-payment-dicker
+                [contractId]="contractId"
+            ></add-contract-payment-dicker>
         </ul>
 
         <ul>

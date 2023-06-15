@@ -36,7 +36,7 @@ export class ContractPanelComponent implements OnInit
 		ngOnInit
 		(): void 
 			{
-				//this.getAllContractList();
+				this.getAllContractList();
 			}
 
 		getAllContractList

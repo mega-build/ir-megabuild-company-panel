@@ -20,6 +20,8 @@
                     type="text"
                     id="txtBlock"
                     name="txtBlock"
+                    maxlength="10"
+                    placeholder="بلوک"
                     [(ngModel)]= "residentialProjectItem.block"
                 >
             </li>
@@ -34,6 +36,8 @@
                     type="number"
                     id="txtFloor"
                     name="txtFloor"
+                    max="999"
+                    placeholder="شماره طبقه"
                     [(ngModel)]= "residentialProjectItem.floor"
                 >
             </li>
@@ -48,6 +52,8 @@
                     type="text"
                     id="txtUnit"
                     name="txtUnit"
+                    maxlength="10"
+                    placeholder="شماره واحد"
                     [(ngModel)]= "residentialProjectItem.unit"
                 >
             </li>
@@ -62,6 +68,8 @@
                     type="number"
                     id="txtBuildupArea"
                     name="txtBuildupArea"
+                    max="9999"
+                    placeholder = "متراژ زیربنا به مترمربع"
                     [(ngModel)]= "residentialProjectItem.buildupArea"
                 >
             </li>
@@ -77,6 +85,8 @@
                     type="number"
                     id="txtUnitPrice"
                     name="txtUnitPrice"
+                    max="999999999999"
+                    placeholder="مبلغ واحد را به ریال وارد کنید"
                     [(ngModel)]= "residentialProjectItem.unitPrice"
                 >
             </li>

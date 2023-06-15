@@ -12,7 +12,7 @@ export class ProjectService
 	{
 
 		private URL_PROJECT_GETALL: string = 'http://localhost:2001/project/list';
-		private URL_PROJECT_GET: string = 'http://localhost:2001/project/byId';
+		private URL_PROJECT_GET: string = 'http://localhost:2001/project';
 		private URL_PROJECT_ADD: string = 'http://localhost:2001/project';
 
 		constructor
@@ -36,14 +36,12 @@ export class ProjectService
 			projectId: string
 		): any
 			{
-				let headers: HttpHeaders = new HttpHeaders(
-					{
-						projectId: projectId
-					}
-				);
+				let headers: HttpHeaders = new HttpHeaders();
+
+				let url = `${this.URL_PROJECT_GET}/${projectId}`;
 
 				return this.httpInteceptor.getWithAuth(
-					this.URL_PROJECT_GET,
+					url,
 					headers
 				);
 			}

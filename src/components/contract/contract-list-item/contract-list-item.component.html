@@ -1,26 +1,5 @@
 <dl>
     <dt>
-        بلوک
-    </dt>
-    <dd>
-        {{contract.projectItem.block}}
-    </dd>
-
-    <dt>
-        طبقه
-    </dt>
-    <dd>
-        {{contract.projectItem.floor}}
-    </dd>
-
-    <dt>
-        واحد
-    </dt>
-    <dd>
-        {{contract.projectItem.unit}}
-    </dd>
-
-    <dt>
         شماره قرارداد
     </dt>
     <dd>
@@ -34,10 +13,57 @@
         {{contract.createDateTime}}
     </dd>
 
+
+    <dt>
+        خریدار
+    </dt>
+    <dd
+        *ngIf="contract.customers"
+    >
+        <customer-label
+            *ngFor = 'let customer of contract.customers'
+            [customer]="customer"
+        ></customer-label>
+    </dd>
+    
+    <dt
+    >
+        بلوک
+    </dt>
+    <dd
+        *ngIf="contract.projectItem && contract.projectItem.block"
+    >
+        {{contract.projectItem.block}}
+    </dd>
+
+    <dt
+        
+    >
+        طبقه
+    </dt>
+    <dd
+        *ngIf="contract.projectItem && contract.projectItem.floor"
+    >
+        {{contract.projectItem.floor}}
+    </dd>
+
+    <dt>
+        واحد
+    </dt>
+    <dd
+        *ngIf="contract.projectItem && contract.projectItem.unit"
+    >
+        {{contract.projectItem.unit}}
+    </dd>
+
+    
+
     <dt>
         مبلغ قرارداد
     </dt>
-    <dd>
+    <dd
+        *ngIf="contract.payablePrice"
+    >
         {{contract.payablePrice}}
     </dd>
 </dl>

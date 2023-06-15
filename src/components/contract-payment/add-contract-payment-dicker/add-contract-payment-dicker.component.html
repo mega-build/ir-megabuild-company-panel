@@ -1,0 +1,36 @@
+<form>
+    <legend>
+        ثبت پرداخت تهاتر
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label
+                    for="txtPrice"
+                >
+                    مبلغ:
+                </label>
+                
+                <input
+                    type="number"
+                    id="txtPrice"
+                    name="txtPrice"
+                    max = "999999999"
+                    [(ngModel)]= 'contractPayment.price'
+                >
+            </li>
+            
+        </ul>
+
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="save()"
+                >
+                    ثبت
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

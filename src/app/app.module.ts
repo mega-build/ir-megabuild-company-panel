@@ -54,6 +54,7 @@ import { ContractReviewListComponent } from '../components/contractReview/contra
 import { ContractReviewListItemComponent } from 'src/components/contractReview/contract-review-list-item/contract-review-list-item.component';
 import { ContractReviewDetailComponent } from '../components/contractReview/contract-review-detail/contract-review-detail.component';
 import { ReviewContractReviewComponent } from './review-contract-review/review-contract-review.component';
+import { CustomerLabelComponent } from '../components/customer/customer-label/customer-label.component';
 
 
 
@@ -107,7 +108,8 @@ import { ReviewContractReviewComponent } from './review-contract-review/review-c
     ContractReviewListComponent,
     ContractReviewListItemComponent,
     ContractReviewDetailComponent,
-    ReviewContractReviewComponent
+    ReviewContractReviewComponent,
+    CustomerLabelComponent
   ],
   imports: [
     BrowserModule,

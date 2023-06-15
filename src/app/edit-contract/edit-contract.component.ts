@@ -37,7 +37,7 @@ export class EditContractComponent implements OnInit
 				
 			}
 
-			getContract
+		getContract
 		(): void
 			{
 				this.isLoading = true;

@@ -6,12 +6,29 @@
         <ul>
             <li>
                 <label
+                    for="txtPrice"
+                >
+                    مبلغ:
+                </label>
+                
+                <input
+                    type="number"
+                    id="txtPrice"
+                    name="txtPrice"
+                    max = "999999999"
+                    [(ngModel)]= 'contractPayment.price'
+                >
+            </li>
+
+            <li>
+                <label
                     for="cmpSelectBankAccount"
                 >
                     شماره حساب:
                 </label>
                 <select-bank-account
                     id="cmpSelectBankAccount"
+                    (setBankAccount)= "setBankAccount($event)"
                 ></select-bank-account>
             </li>
 
@@ -23,8 +40,10 @@
                 </label>
                 
                 <input
-                    type="text"
+                    type="date"
                     id="txtDueDate"
+                    name="txtDueDate"
+                    [(ngModel)]= 'contractPayment.dueDate'
                 >
             </li>
 
@@ -34,6 +53,7 @@
             <li>
                 <button
                     type="button"
+                    (click)="save()"
                 >
                     ثبت
                 </button>

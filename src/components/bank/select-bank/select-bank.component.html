@@ -1,1 +1,15 @@
-<p>select-bank works!</p>
+<ul>
+    <li
+        *ngFor = 'let bank of bankList'
+        (click) = 'selectBank(bank)'
+    >
+        <dl>
+            <dt>
+                عنوان
+            </dt>
+            <dd>
+                {{bank.title}}
+            </dd>
+        </dl>
+    </li>
+</ul>
