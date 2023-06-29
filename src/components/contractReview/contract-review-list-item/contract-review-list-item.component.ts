@@ -11,4 +11,39 @@ import { Component, Input } from '@angular/core';
 export class ContractReviewListItemComponent
 	{
 		@Input() contractReview: any={};
+
+		getStatusValue
+		():string
+			{
+				if
+				(
+					this.contractReview.isReviewed == true &&
+					this.contractReview.isApproved == true &&
+					this.contractReview.isRejected == false 
+				)
+					{
+						return "تایید شده"
+					}
+				else if
+				(
+					this.contractReview.isReviewed == true &&
+					this.contractReview.isApproved == false &&
+					this.contractReview.isRejected ==  true
+				)
+					{
+						return "رد شده"
+					}
+				else if
+				(
+					!this.contractReview.isReviewed
+				)
+					{
+						return "در انتظار بررسی"
+					}
+				else
+					{
+						return "نامشخص"
+					}
+				
+			}
 	}

@@ -37,4 +37,58 @@ export class AddContractPaymentComponent
 		save
 		():void
 			{}
+
+		isChequePaymentMethod
+		():boolean
+			{
+				if
+				(
+					this.contract.contractPaymentMethod &&
+					this.contract.contractPaymentMethod.componentName == "CHEQUE"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						//return false;
+						return true;
+					}
+			}
+
+		isDepositPaymentMethod
+		():boolean
+			{
+				if
+				(
+					this.contract.contractPaymentMethod &&
+					this.contract.contractPaymentMethod.componentName == "DIPOSIT"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						//return false;
+						return true;
+					}
+			}
+
+		isDickerPaymentMethod
+		():boolean
+			{
+				if
+				(
+					this.contract.contractPaymentMethod &&
+					this.contract.contractPaymentMethod.componentName == "DICKER"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						//return false;
+						return true;
+					}
+			}
 	}

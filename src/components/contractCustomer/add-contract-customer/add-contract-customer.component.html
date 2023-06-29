@@ -1,5 +1,10 @@
-<find-customer-by-national-code></find-customer-by-national-code>
+<find-customer-by-national-code
+    (onCustomerSelected)= "selectCustomer($event)"
+    (onRequestAddNewCustomerWithNationalCode) ="addNewCustomerWithNationalCode($event)"
+></find-customer-by-national-code>
 
 <add-customer
+    *ngIf="newNationalCode"
     (onCustomerAdded)= "selectCustomer($event)"
+    [newNationalCode] = "newNationalCode"
 ></add-customer>

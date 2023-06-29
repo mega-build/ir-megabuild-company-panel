@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProjectService } from 'src/services/project/project.service';
 
 @Component(
@@ -12,6 +12,7 @@ import { ProjectService } from 'src/services/project/project.service';
 export class SelectProjectComponent implements OnInit
 	{
 		@Output() setProject = new EventEmitter<any>();
+		@Input() selectedProject:any ={};
 
 		projectList: any[]= [];
 
@@ -48,6 +49,7 @@ export class SelectProjectComponent implements OnInit
 			project:any
 		):void
 			{
-				this.setProject.emit(project);
+				this.selectedProject = project;
+				this.setProject.emit(this.selectedProject);
 			}
 	}

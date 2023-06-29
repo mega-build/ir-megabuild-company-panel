@@ -1,15 +1,21 @@
 <ul>
     <li
         *ngFor = 'let contractType of contractTypeList'
-        (click) = 'selectContractType(contractType)'
+        
     >
-        <dl>
-            <dt>
-                عنوان
-            </dt>
-            <dd>
-                {{contractType.title}}
-            </dd>
-        </dl>
+        <input
+            type="radio"
+            name = 'contractType'
+            [attr.id]="contractType._id"
+            value="{{contractType._id}}"
+            (change)="selectContractType(contractType)"
+            [checked]="contractType._id == selectedContractType._id"
+            (input)="selectedContractType"
+        >
+        <label
+            [attr.for] = "contractType"
+        >
+            {{contractType.title}}
+        </label>
     </li>
 </ul>

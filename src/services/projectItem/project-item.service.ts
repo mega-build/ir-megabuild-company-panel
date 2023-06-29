@@ -1,6 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-interceptor.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable(
 	{
@@ -11,10 +12,12 @@ import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-int
 export class ProjectItemService
 	{
 
-		private URL_PROJECT_ITEM_GETALL: string = 'http://localhost:2001/projectItem';
-		private URL_PROJECT_ITEM_GET: string = 'http://localhost:2001/projectItem';
-		private URL_PROJECT_ITEM_GET_BY_CONTRACT_ID: string = 'http://localhost:2001/projectItem/byContractId';
-		private URL_PROJECT_ITEM_ADD: string = 'http://localhost:2001/projectItem';
+		private URL_PROJECT_ITEM_GETALL: string = `${environment.API_URL}/projectItem`;
+		private URL_PROJECT_ITEM_GET: string = `${environment.API_URL}/projectItem`;;
+		private URL_PROJECT_ITEM_GET_BY_CONTRACT_ID: string = `${environment.API_URL}/projectItem/byContractId`;
+		private URL_PROJECT_ITEM_ADD_RESIDENTIAL: string = `${environment.API_URL}/projectItem/residential`;
+		private URL_PROJECT_ITEM_ADD_LAND_PACEL: string = `${environment.API_URL}/projectItem/landParcel`;
+		
 
 		constructor
 		(
@@ -62,7 +65,7 @@ export class ProjectItemService
 				);
 			}
 
-		create
+		createResidential
 		(
 			projectId:string,
 			unit:string,
@@ -73,6 +76,7 @@ export class ProjectItemService
 		):any
 			{
 				let headers: HttpHeaders = new HttpHeaders();
+
 				let body: any = {
 					projectId: projectId,
 					unit: unit,
@@ -81,6 +85,34 @@ export class ProjectItemService
 					floor: floor,
 					buildupArea: buildupArea
 				};
-				return this.httpInteceptor.postWithAuth(this.URL_PROJECT_ITEM_ADD, headers, body);
+
+				return this.httpInteceptor.postWithAuth(
+					this.URL_PROJECT_ITEM_ADD_RESIDENTIAL,
+					headers,
+					body
+				);
 			}
+
+		createLandParcel
+		(
+			projectId:string,
+			unit:string,
+			unitPrice: number,
+			area: number
+		):any
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+				let body: any = {
+					projectId: projectId,
+					unit: unit,
+					unitPrice: unitPrice,
+					area: area
+				};
+				return this.httpInteceptor.postWithAuth(
+					this.URL_PROJECT_ITEM_ADD_LAND_PACEL,
+					headers,
+					body
+				);
+			}
+			
 	}

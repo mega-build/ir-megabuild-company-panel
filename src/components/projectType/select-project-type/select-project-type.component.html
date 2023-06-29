@@ -1,15 +1,20 @@
 <ul>
     <li
         *ngFor = 'let projectType of projectTypeList'
-        (click) = 'selectProjectType(projectType)'
     >
-        <dl>
-            <dt>
-                عنوان
-            </dt>
-            <dd>
-                {{projectType.title}}
-            </dd>
-        </dl>
+        <input
+            type="radio"
+            name = 'projectType'
+            [attr.id]="projectType._id"
+            value="{{projectType._id}}"
+            (change)="selectProjectType(projectType)"
+            [checked]="projectType._id == selectedProjectType._id"
+            (input)="selectedProjectType"
+        >
+        <label
+            [attr.for] = "projectType"
+        >
+            {{projectType.title}}
+        </label>
     </li>
 </ul>

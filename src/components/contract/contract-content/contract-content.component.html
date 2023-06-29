@@ -1,0 +1,26 @@
+<select-contract-template
+></select-contract-template>
+
+<!-- <p
+    *ngIf="!isLoading && contract"
+>
+    {{getContent()}}
+</p> -->
+
+<div
+    *ngIf="!isLoading && contract"
+    [innerHTML]="getContent()"
+>
+
+</div>
+ 
+
+<textarea
+    *ngIf="!isLoading && contract"
+    name=""
+    id=""
+    cols="30"
+    rows="10"
+    [value]="getContent()"
+></textarea>
+

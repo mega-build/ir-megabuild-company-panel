@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContractTypeService } from 'src/services/contractType/contract-type.service';
 
 @Component(
@@ -13,8 +13,10 @@ export class SelectContractTypeComponent implements OnInit
 	{
 
 		@Output() setContractType = new EventEmitter<any>();
+		@Input() selectedContractType:any ={};
 
 		contractTypeList: any[]= [];
+		
 			
 		constructor
 		(
@@ -51,6 +53,7 @@ export class SelectContractTypeComponent implements OnInit
 			contractType:any
 		):void
 			{
+				this.selectedContractType = contractType;
 				this.setContractType.emit(contractType);
 			}
 	}

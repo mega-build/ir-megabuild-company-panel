@@ -1,6 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-interceptor.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable(
 	{
@@ -12,10 +13,10 @@ export class ContractReviewService
 	{
 
 		private URL_CONTRACT_CUSTOMER_GETALL_BY_CONTRACT: string = 'http://localhost:2001/contractCustomer';
-		private URL_CONTRACT_REVIEW_ADD: string = 'http://localhost:2001/contractReview';
-		private URL_CONTRACT_REVIEW_GET: string = 'http://localhost:2001/contractReview';
-		private URL_CONTRACT_REVIEW_GET_ALL: string = 'http://localhost:2001/contractReview';
-		private URL_CONTRACT_REVIEW_SET_REVIEW_RESULT: string = 'http://localhost:2001/contractReview/setReviewResult';
+		private URL_CONTRACT_REVIEW_ADD: string = `${environment.API_URL}/contractReview`;
+		private URL_CONTRACT_REVIEW_GET: string = `${environment.API_URL}/contractReview`;
+		private URL_CONTRACT_REVIEW_GET_ALL: string = `${environment.API_URL}/contractReview`;
+		private URL_CONTRACT_REVIEW_SET_REVIEW_RESULT: string = `${environment.API_URL}/contractReview/setReviewResult`;
 
 		constructor(
 			private httpInteceptor: AuthHttpInterceptorService,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CustomerService } from 'src/services/customer/customer.service';
 
 @Component(
@@ -12,8 +12,11 @@ import { CustomerService } from 'src/services/customer/customer.service';
 export class FindCustomerByNationalCodeComponent
 	{
 
+		@Output() onCustomerSelected = new EventEmitter<any>();
+		@Output() onRequestAddNewCustomerWithNationalCode = new EventEmitter<any>();
+
 		isLoading:boolean = false;
-		nationalCode:string = "0080122957";
+		nationalCode:string = "";
 		customer:any={};
 
 		constructor
@@ -39,5 +42,17 @@ export class FindCustomerByNationalCodeComponent
 								
 							}
 					)
+			}
+
+		selectCustomer
+		():void
+			{
+				this.onCustomerSelected.emit(this.customer);
+			}
+
+		addNewCustomerWithNationalCode
+		():void
+			{
+				this.onRequestAddNewCustomerWithNationalCode.emit(this.nationalCode);
 			}
 	}

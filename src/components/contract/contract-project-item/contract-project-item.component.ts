@@ -86,7 +86,40 @@ export class ContractProjectItemComponent implements OnInit{
 	isResidentailProjectItem
 	():boolean
 		{
-			return true;
+			if
+			(
+				this.project &&
+				this.project.projectType&&
+				this.project.projectType.componentName == "RESIDENTIAL"
+			)
+				{
+					return true;
+				}
+			else
+				{
+					//return false;
+					return true;
+				}
+			
+		}
+
+	isLandParcelProjectItem
+	():boolean
+		{
+			if
+			(
+				this.project &&
+				this.project.projectType&&
+				this.project.projectType.componentName == "LANDPARCEL"
+			)
+				{
+					return true;
+				}
+			else
+				{
+					//return false;
+					return true;
+				}
 		}
 	ngOnInit
 	(): void

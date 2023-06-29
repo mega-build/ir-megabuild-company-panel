@@ -55,6 +55,16 @@ import { ContractReviewListItemComponent } from 'src/components/contractReview/c
 import { ContractReviewDetailComponent } from '../components/contractReview/contract-review-detail/contract-review-detail.component';
 import { ReviewContractReviewComponent } from './review-contract-review/review-contract-review.component';
 import { CustomerLabelComponent } from '../components/customer/customer-label/customer-label.component';
+import { CustomerDetailComponent } from '../components/customer/customer-detail/customer-detail.component';
+import { AddLandParcelProjectItemComponent } from '../components/projectItem/add-land-parcel-project-item/add-land-parcel-project-item.component';
+import { SelectContractTemplateComponent } from '../components/contractTemplate/select-contract-template/select-contract-template.component';
+import { ContractTemplateEditorComponent } from '../components/contractTemplate/contract-template-editor/contract-template-editor.component';
+import { ContractContentComponent } from '../components/contract/contract-content/contract-content.component';
+import { SelectCompanyComponent } from '../components/company/select-company/select-company.component';
+import { SelectUserCompanyAccessComponent } from '../components/userCompanyAccess/select-user-company-access/select-user-company-access.component';
+import { ContractPaymentManagementComponent } from './contract-payment-management/contract-payment-management.component';
+import { ContractPaymentPanelComponent } from 'src/components/contract-payment/contract-payment-panel/contract-payment-panel.component';
+
 
 
 
@@ -109,7 +119,16 @@ import { CustomerLabelComponent } from '../components/customer/customer-label/cu
     ContractReviewListItemComponent,
     ContractReviewDetailComponent,
     ReviewContractReviewComponent,
-    CustomerLabelComponent
+    CustomerLabelComponent,
+    CustomerDetailComponent,
+    AddLandParcelProjectItemComponent,
+    SelectContractTemplateComponent,
+    ContractTemplateEditorComponent,
+    ContractContentComponent,
+    SelectCompanyComponent,
+    SelectUserCompanyAccessComponent,
+    ContractPaymentPanelComponent,
+    ContractPaymentManagementComponent,
   ],
   imports: [
     BrowserModule,

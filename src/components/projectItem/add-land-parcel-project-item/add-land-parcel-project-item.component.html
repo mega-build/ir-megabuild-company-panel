@@ -1,0 +1,86 @@
+<section>
+    اطلاعات پروژه
+</section>
+
+<form>
+    <legend>
+        ثبت مورد قرارداد
+    </legend>
+    <fieldset>
+        <ul>
+            
+            <li>
+                <label
+                    for="txtUnit"
+                >
+                    واحد:
+                </label>
+                <input
+                    type="text"
+                    id="txtUnit"
+                    name="txtUnit"
+                    maxlength="10"
+                    placeholder="واحد"
+                    [(ngModel)]= "landParcelProjectItem.unit"
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtArea"
+                >
+                    مساخت:
+                </label>
+                <input
+                    type="number"
+                    id="txtArea"
+                    name="txtArea"
+                    max="9999"
+                    placeholder = "مساحت به مترمربع"
+                    [(ngModel)]= "landParcelProjectItem.area"
+                >
+            </li>
+            
+
+            <li>
+                <label
+                    for="txtUnitPrice"
+                >
+                    مبلغ واحد:
+                </label>
+                <input
+                    type="number"
+                    id="txtUnitPrice"
+                    name="txtUnitPrice"
+                    max="999999999999"
+                    placeholder="مبلغ واحد را به ریال وارد کنید"
+                    [(ngModel)]= "landParcelProjectItem.unitPrice"
+                >
+            </li>
+
+            
+        </ul>
+
+        <section>
+            <dl>
+                <dt>
+                    مجموع قیمت
+                </dt>
+                <dd>
+                    {{calculateTotalPrice()}}
+                </dd>
+            </dl>
+        </section>
+
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="saveProjectItem()"
+                >
+                    ثبت
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

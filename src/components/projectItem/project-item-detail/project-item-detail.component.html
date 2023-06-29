@@ -5,35 +5,45 @@
     <dt>
         واحد
     </dt>
-    <dd>
+    <dd
+        *ngIf="projectItem.unit"
+    >
         {{projectItem.unit}}
     </dd>
 
     <dt>
         بلوک
     </dt>
-    <dd>
+    <dd
+        *ngIf="projectItem.block"
+    >
         {{projectItem.block}}
     </dd>
 
     <dt>
         طبقه
     </dt>
-    <dd>
+    <dd
+        *ngIf="projectItem.floor"
+    >
         {{projectItem.floor}}
     </dd>
 
     <dt>
         زیربنا
     </dt>
-    <dd>
+    <dd
+        *ngIf="projectItem.buildupArea"
+    >
         {{projectItem.buildupArea}}
     </dd>
 
     <dt>
         مبلغ واحد
     </dt>
-    <dd>
+    <dd
+        *ngIf="projectItem.unitPrice"
+    >
         {{projectItem.unitPrice}}
     </dd>
     

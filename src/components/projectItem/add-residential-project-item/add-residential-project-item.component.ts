@@ -12,7 +12,7 @@ import { ProjectItemService } from 'src/services/projectItem/project-item.servic
 export class AddResidentialProjectItemComponent
 	{
 
-		@Input() projectId :string = "647615ae6e8bc9cf0e8ae675";
+		@Input() projectId :string = "";
 		
 		@Output() onProjectItemAdded = new EventEmitter<any>();
 
@@ -31,7 +31,7 @@ export class AddResidentialProjectItemComponent
 		():void
 			{
 				this.projectItemService
-				.create(
+				.createResidential(
 					this.projectId,
 					this.residentialProjectItem.unit,
 					this.residentialProjectItem.unitPrice,
@@ -50,6 +50,12 @@ export class AddResidentialProjectItemComponent
 							this.isLoading = false;
 						}
 				)
+			}
+
+		calculateTotalPrice():string
+			{
+				let totalPriceNumber = this.residentialProjectItem.buildupArea * this.residentialProjectItem.unitPrice;
+				return totalPriceNumber + "ريال";
 			}
 		
 	}

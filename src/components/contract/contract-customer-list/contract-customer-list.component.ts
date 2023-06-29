@@ -58,9 +58,7 @@ export class ContractCustomerListComponent implements OnInit
 					.subscribe(
 						(data: any) => 
 							{
-								console.log(data.contractCustomerList);
-								this.contractCustomerList = data.contractCustomerList;
-								this.isLoading = false;
+								this.getAllContractCustomerList()
 							}
 					)
 			}
@@ -93,5 +91,23 @@ export class ContractCustomerListComponent implements OnInit
 				
 				this.selectedCustomer = customer;
 				this.addCustomer();
+			}
+
+		removeContractCustomer
+		(
+			contractCustomer:any
+		):void
+			{
+				this.isLoading = true;
+				this.contractCustomerService
+					.remove(
+						contractCustomer._id
+					)
+					.subscribe(
+						(data: any) => 
+							{
+								this.getAllContractCustomerList()
+							}
+					)
 			}
 	}

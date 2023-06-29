@@ -14,6 +14,7 @@ export class AddContractCustomerComponent
 		@Output() onSelectedCustomer = new EventEmitter<any>();
 
 		selectedCustomer:any = {};
+		newNationalCode: string ="";
 
 		selectCustomer
 		(
@@ -24,5 +25,13 @@ export class AddContractCustomerComponent
 				
 				this.selectedCustomer = customer;
 				this.onSelectedCustomer.emit(this.selectedCustomer)
+			}
+
+		addNewCustomerWithNationalCode
+		(
+			nationalCode:string
+		):void
+			{
+				this.newNationalCode = nationalCode;
 			}
 	}

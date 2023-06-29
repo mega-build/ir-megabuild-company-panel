@@ -1,0 +1,20 @@
+<ul>
+    <li
+        *ngFor = 'let company of companyList'
+    >
+        <input
+            type="radio"
+            name = 'company'
+            [attr.id]="company._id"
+            value="{{company._id}}"
+            (change)="selectCompany(company)"
+            [checked]="company._id == selectedCompany._id"
+            (input)="selectedCompany"
+        >
+        <label
+            [attr.for] = "company"
+        >
+            {{company.title}}
+        </label>
+    </li>
+</ul>

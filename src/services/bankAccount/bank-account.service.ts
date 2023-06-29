@@ -1,6 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-interceptor.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable(
 	{
@@ -11,7 +12,7 @@ import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-int
 export class BankAccountService
 	{
 
-		private URL_BANK_ACCOUNT_GETALL: string = 'http://localhost:2001/bankAccount';
+		private URL_BANK_ACCOUNT_GETALL: string = `${environment.API_URL}/bankAccount`;
 
 		constructor
 		(

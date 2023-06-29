@@ -23,17 +23,47 @@ export class AuthHttpInterceptorService
 		): HttpHeaders
 			{
 				const localStorageToken = this.localStorageService.getAuthToken();
+				const localStorageUserCompanyAccess = this.localStorageService.getUserCompanyAccess();
+
+				console.log(localStorageUserCompanyAccess);
+				
+
+				
+
 				if
 				(
 					localStorageToken &&
-					localStorageToken.toString().trim() != ""
+					localStorageToken.toString().trim() != "" &&
+					!localStorageUserCompanyAccess
 				)
 					{
-						let headerWithAuth:HttpHeaders = headers.append(
-							"token",
-							localStorageToken
-						);
+						let headerWithAuth:HttpHeaders = headers
+							.append(
+								"token",
+								localStorageToken
+							);
+						
+						return headerWithAuth;
+					}
+				else if
+				(
+					localStorageToken &&
+					localStorageToken.toString().trim() != "" &&
+					localStorageUserCompanyAccess
+				)
+					{
+						const localStorageUserCompanyAccessId = localStorageUserCompanyAccess._id;
 
+						let headerWithAuth:HttpHeaders = headers
+							.append(
+								"token",
+								localStorageToken
+							)
+							.append(
+								"usercompanyaccessid",
+								localStorageUserCompanyAccessId
+							);
+						
 						return headerWithAuth;
 					}
 				else
@@ -68,5 +98,18 @@ export class AuthHttpInterceptorService
 							headers: this.getAuthHeader(headers)
 						}
 					);
+			}
+
+		deleteWithAuth(
+			url: string,
+			headers: HttpHeaders,
+			body: any
+		): any
+			{
+				return this.http
+					.delete(url,{
+						headers:this.getAuthHeader(headers),
+						body: body
+					});
 			}
 	}

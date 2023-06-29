@@ -10,5 +10,5 @@ import { Component, Input } from '@angular/core';
 
 export class ProjectItemDetailComponent
 	{
-		@Input() projectItem: any;
+		@Input() projectItem: any = {};
 	}

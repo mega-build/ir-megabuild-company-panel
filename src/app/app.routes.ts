@@ -17,6 +17,9 @@ import { ContractManagementComponent } from './contract-management/contract-mana
 import { RequestContractReviewComponent } from 'src/components/contractReview/request-contract-review/request-contract-review.component';
 import { ContractReviewManagementComponent } from './contract-review-management/contract-review-management.component';
 import { ReviewContractReviewComponent } from './review-contract-review/review-contract-review.component';
+import { ContractContentComponent } from 'src/components/contract/contract-content/contract-content.component';
+import { ContractPanelComponent } from 'src/components/contract/contract-panel/contract-panel.component';
+import { ContractPaymentManagementComponent } from './contract-payment-management/contract-payment-management.component';
 
 export const routes: Routes = [
     {
@@ -45,8 +48,19 @@ export const routes: Routes = [
         path:'contractManagement', component: ContractManagementComponent,
         children:[
             {
+                path: 'list',
+                component: ContractPanelComponent
+            },
+            {
                 path: 'requestReview',
                 component: RequestContractReviewComponent,
+                data:{
+                    contractId:undefined
+                },
+            },
+            {
+                path: 'editContent',
+                component: ContractContentComponent,
                 data:{
                     contractId:undefined
                 },
@@ -103,6 +117,9 @@ export const routes: Routes = [
     },
     {
         path:'setContractPaymentList', component: SetContractPaymentLisComponent,
+    },
+    {
+        path:'contractManagementManagement', component: ContractPaymentManagementComponent,
     },
 
 

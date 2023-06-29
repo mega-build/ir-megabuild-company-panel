@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CustomerService } from 'src/services/customer/customer.service';
 
 @Component(
@@ -9,9 +9,10 @@ import { CustomerService } from 'src/services/customer/customer.service';
 	}
 )
 
-export class AddCustomerComponent
+export class AddCustomerComponent implements OnInit
 	{
 		@Output() onCustomerAdded = new EventEmitter<any>();
+		@Input() newNationalCode :string = "";
 		
 		customer: any = {};
 		isLoading:boolean = false;
@@ -21,6 +22,12 @@ export class AddCustomerComponent
 			private customerService: CustomerService
 		)
 			{}
+
+		ngOnInit
+		(): void 
+			{
+				this.customer.nationalCode = this.newNationalCode;
+			}
 
 		save
 		():void
@@ -48,3 +55,5 @@ export class AddCustomerComponent
 				)
 			}
 	}
+
+

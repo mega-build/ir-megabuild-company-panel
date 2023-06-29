@@ -22,12 +22,15 @@
             </li>
 
             <add-contract-payment-deposit
+                *ngIf="isDepositPaymentMethod()"
                 [contractId]="contractId"
             ></add-contract-payment-deposit>
             <add-contract-payment-cheque
+                *ngIf="isChequePaymentMethod()"
                 [contractId]="contractId"
             ></add-contract-payment-cheque>
             <add-contract-payment-dicker
+                *ngIf="isDickerPaymentMethod()"
                 [contractId]="contractId"
             ></add-contract-payment-dicker>
         </ul>

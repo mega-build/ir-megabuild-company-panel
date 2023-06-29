@@ -3,21 +3,19 @@
         <li
             *ngFor = 'let contractCustomer of contractCustomerList'
         >
-            <dl>
-                <dt>
-                    نام
-                </dt>
-                <dd>
-                    {{contractCustomer.customer.firstname}}
-                </dd>
-
-                <dt>
-                    نام خانوادگی
-                </dt>
-                <dd>
-                    {{contractCustomer.customer.lastname}}
-                </dd>
-            </dl>
+            <customer-detail
+                [customer] = "contractCustomer.customer"
+            ></customer-detail>
+            <ul>
+                <li>
+                    <button
+                        type="button"
+                        (click) = "removeContractCustomer(contractCustomer)"
+                    >
+                        حذف
+                    </button>
+                </li>
+            </ul>
         </li>
     </ul>
 </section>

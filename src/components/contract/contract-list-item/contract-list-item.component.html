@@ -1,3 +1,4 @@
+
 <dl>
     <dt>
         شماره قرارداد
@@ -25,38 +26,6 @@
             [customer]="customer"
         ></customer-label>
     </dd>
-    
-    <dt
-    >
-        بلوک
-    </dt>
-    <dd
-        *ngIf="contract.projectItem && contract.projectItem.block"
-    >
-        {{contract.projectItem.block}}
-    </dd>
-
-    <dt
-        
-    >
-        طبقه
-    </dt>
-    <dd
-        *ngIf="contract.projectItem && contract.projectItem.floor"
-    >
-        {{contract.projectItem.floor}}
-    </dd>
-
-    <dt>
-        واحد
-    </dt>
-    <dd
-        *ngIf="contract.projectItem && contract.projectItem.unit"
-    >
-        {{contract.projectItem.unit}}
-    </dd>
-
-    
 
     <dt>
         مبلغ قرارداد
@@ -66,6 +35,13 @@
     >
         {{contract.payablePrice}}
     </dd>
+    
+    <project-item-detail
+        *ngIf="contract.projectItem"
+        [projectItem] = "contract.projectItem"
+    ></project-item-detail>
+
+    
 </dl>
 
 <ul
@@ -85,7 +61,16 @@
         >
             درخواست بررسی
         </a>
-        
     </li>
+    <li>
+        <a
+            href="/contractManagement/editContent;contractId={{contract._id}}"
+        >
+            ویرایش متن
+        </a>
+    </li>
+
+    
+
 </ul>
 

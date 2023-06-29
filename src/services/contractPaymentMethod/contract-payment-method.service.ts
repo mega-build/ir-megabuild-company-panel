@@ -1,6 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-interceptor.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable(
 	{
@@ -10,7 +11,7 @@ import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-int
 
 export class ContractPaymentMethodService {
 
-	private URL_CONTRACT_PAYMENT_METHOD_GETALL: string = 'http://localhost:2001/contractPaymentMethod';
+	private URL_CONTRACT_PAYMENT_METHOD_GETALL: string = `${environment.API_URL}/contractPaymentMethod`;
 
   	constructor
 	(

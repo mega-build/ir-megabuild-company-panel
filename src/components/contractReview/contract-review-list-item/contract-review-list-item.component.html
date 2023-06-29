@@ -14,25 +14,16 @@
     </dd>
 
     <dt>
-        بلوک
+        وضعیت بررسی
     </dt>
     <dd>
-        {{contractReview.projectItem.block}}
+        {{getStatusValue()}}
     </dd>
 
-    <dt>
-        طبقه
-    </dt>
-    <dd>
-        {{contractReview.projectItem.floor}}
-    </dd>
 
-    <dt>
-        واحد
-    </dt>
-    <dd>
-        {{contractReview.projectItem.unit}}
-    </dd>
+    <project-item-detail
+        [projectItem] = "contractReview.projectItem"
+    ></project-item-detail>
 </dl>
 <ul>
     <li>

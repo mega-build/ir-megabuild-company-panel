@@ -1,6 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-interceptor.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,10 @@ import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-int
 export class UserService
 	{
 
-		private URL_USER_GET: string = 'http://localhost:2001/user';
-		private URL_USER_GETALL: string = 'http://localhost:2001/user';
-		private URL_USER_ADD: string = 'http://localhost:2001/user';
-		private URL_USER_SET_ACCESS: string = 'http://localhost:2001/user/setAccess';
+		private URL_USER_GET: string = `${environment.API_URL}/user`;
+		private URL_USER_GETALL: string = `${environment.API_URL}/user`;
+		private URL_USER_ADD: string = `${environment.API_URL}/user`;
+		private URL_USER_SET_ACCESS: string = `${environment.API_URL}/user/setAccess`;
 
 		constructor
 		(

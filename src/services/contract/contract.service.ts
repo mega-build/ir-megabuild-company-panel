@@ -1,6 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-interceptor.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable(
 	{
@@ -10,12 +11,12 @@ import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-int
 
 export class ContractService {
 
-	private URL_CONTRACT_GET: string = 'http://localhost:2001/contract';
-	private URL_CONTRACT_GET_BY_PROJECT: string = 'http://localhost:2001/contract/byProject';
-	private URL_CONTRACT_ADD: string = 'http://localhost:2001/contract';
-	private URL_CONTRACT_SET_PAYABEL_PRICE: string = 'http://localhost:2001/contract/setPayablePrice';
-	private URL_CONTRACT_REMOVE_PROJECT_ITEM: string = 'http://localhost:2001/contract/removeProjectItem';
-	private URL_CONTRACT_SET_PROJECT_AND_PROJECTITEM: string = 'http://localhost:2001/contract/setProjectAndProjectItem';
+	private URL_CONTRACT_GET: string =  `${environment.API_URL}/contract`;
+	private URL_CONTRACT_GET_BY_PROJECT: string = `${environment.API_URL}/contract/byProject`;
+	private URL_CONTRACT_ADD: string = `${environment.API_URL}/contract`;
+	private URL_CONTRACT_SET_PAYABEL_PRICE: string = `${environment.API_URL}/contract/setPayablePrice`;
+	private URL_CONTRACT_REMOVE_PROJECT_ITEM: string = `${environment.API_URL}/contract/removeProjectItem`;
+	private URL_CONTRACT_SET_PROJECT_AND_PROJECTITEM: string = `${environment.API_URL}/contract/setProjectAndProjectItem`;
 
 	constructor
 	(

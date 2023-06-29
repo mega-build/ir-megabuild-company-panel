@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-interceptor.service';
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContractPaymentService
 	{
-		private URL_CONTRACT_PAYMENT_GETALL_BY_CONTRACT: string = 'http://localhost:2001/contractPayment';
-		private URL_CONTRACT_PAYMENT_ADD_DIPOSIT: string = 'http://localhost:2001/contractPayment/deposit';
-		private URL_CONTRACT_PAYMENT_ADD_CHEQUE: string = 'http://localhost:2001/contractPayment/cheque';
-		private URL_CONTRACT_PAYMENT_ADD_DICKER: string = 'http://localhost:2001/contractPayment/dicker';
+		private URL_CONTRACT_PAYMENT_GETALL_BY_CONTRACT: string = `${environment.API_URL}/contractPayment`;
+		private URL_CONTRACT_PAYMENT_ADD_DIPOSIT: string = `${environment.API_URL}/contractPayment/deposit`;
+		private URL_CONTRACT_PAYMENT_ADD_CHEQUE: string = `${environment.API_URL}/contractPayment/cheque`;
+		private URL_CONTRACT_PAYMENT_ADD_DICKER: string = `${environment.API_URL}/contractPayment/dicker`;
 
 		constructor(
 			private httpInteceptor: AuthHttpInterceptorService,

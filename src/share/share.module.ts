@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { LocalStorageService } from './services/local-storage/local-storage.service';
 import { HttpClientModule } from '@angular/common/http';
 
+
 // import { ConfirmCodeInputComponent } from './component/confirm-code-input/confirm-code-input.component';
 // import { LoadingComponent } from './component/loading/loading.component';
 // import { MobileNumberInputComponent } from './component/mobile-number-input/mobile-number-input.component';
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     CommonModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   exports:[
     CommonModule,
