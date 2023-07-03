@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DateHelper } from 'src/helper/dateHelper';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
 @Component(
@@ -18,7 +19,8 @@ export class AddContractPaymentChequeComponent
 
 		constructor
 		(
-			private contractPaymentService: ContractPaymentService
+			private contractPaymentService: ContractPaymentService,
+			private dateHelper:DateHelper
 		)
 			{}
 
@@ -36,6 +38,34 @@ export class AddContractPaymentChequeComponent
 				this.contractPayment.bankAccount = bankAccount;
 			}
 
+		setPrice
+		(
+			price:number
+		):void
+			{
+				this.contractPayment.price = price;
+			}
+
+		setDueDate
+		(
+			contractPaymentDueDate:any
+		):void
+			{
+				console.log('contractPaymentDueDate');
+				console.log(contractPaymentDueDate);
+				
+				this.contractPayment.dueDate = this.dateHelper.getDateTehranTimeZoneDate(
+					contractPaymentDueDate.year,
+					contractPaymentDueDate.month,
+					contractPaymentDueDate.day
+				);
+				
+				this.contractPayment.dueDateShamsi = this.dateHelper.getDateTehranTimeZoneDateString(
+					contractPaymentDueDate.year,
+					contractPaymentDueDate.month,
+					contractPaymentDueDate.day
+				);
+			}
 		save
 		():void
 			{
@@ -44,6 +74,7 @@ export class AddContractPaymentChequeComponent
 					this.contractPayment.price,
 					this.contractPayment.bankAccount._id,
 					this.contractPayment.dueDate,
+					this.contractPayment.dueDateShamsi,
 					this.contractPayment.chequeNumber,
 					this.contractPayment.bank._id
 				).subscribe(

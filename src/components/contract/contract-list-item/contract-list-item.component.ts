@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { PriceHelper } from 'src/helper/priceHelper';
 
 @Component(
 	{
@@ -10,4 +11,24 @@ import { Component, Input } from '@angular/core';
 export class ContractListItemComponent
 	{
 		@Input() contract: any={};
+
+		constructor(
+			private priceHelper:PriceHelper
+		){}
+
+		getPaymentPrice
+		():string
+			{
+				return this.priceHelper.priceWithCommas(
+					this.contract.payablePrice
+				)
+			}
+
+		getPaymentPriceInWord
+		():string
+			{
+				return this.priceHelper.priceToWord(
+					this.contract.payablePrice
+				)
+			}
 	}

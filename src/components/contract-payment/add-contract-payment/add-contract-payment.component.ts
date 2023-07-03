@@ -91,4 +91,22 @@ export class AddContractPaymentComponent
 						return true;
 					}
 			}
+
+		isDeedPaymentMethod
+		():boolean
+			{
+				if
+				(
+					this.contract.contractPaymentMethod &&
+					this.contract.contractPaymentMethod.componentName == "DEED"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						//return false;
+						return true;
+					}
+			}
 	}

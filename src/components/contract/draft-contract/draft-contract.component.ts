@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DateHelper } from 'src/helper/dateHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
@@ -19,7 +20,8 @@ export class DraftContractComponent
 		constructor
 		(
 			private router: Router,
-			private contractService: ContractService
+			private contractService: ContractService,
+			private dateHelper:DateHelper
 		)
 			{}
 
@@ -32,6 +34,49 @@ export class DraftContractComponent
 				console.log(this.contract);
 			}
 
+		setContractDate
+		(
+			contractDate:any
+		):void
+			{
+				console.log('contractDate');
+				console.log(contractDate);
+				
+				
+				this.contract.contractDate = this.dateHelper.getDateTehranTimeZoneDate(
+					contractDate.year,
+					contractDate.month,
+					contractDate.day
+				);
+
+				this.contract.contractDateShamsi = this.dateHelper.getDateTehranTimeZoneDateString(
+					contractDate.year,
+					contractDate.month,
+					contractDate.day
+				);
+			}
+
+		setcontractFinishDate
+		(
+			contractFinishDate:any
+		):void
+			{
+				console.log('contractFinishDate');
+				console.log(contractFinishDate);
+				
+				this.contract.contractFinishDate = this.dateHelper.getDateTehranTimeZoneDate(
+					contractFinishDate.year,
+					contractFinishDate.month,
+					contractFinishDate.day
+				);
+				
+				this.contract.contractFinishDateShamsi = this.dateHelper.getDateTehranTimeZoneDateString(
+					contractFinishDate.year,
+					contractFinishDate.month,
+					contractFinishDate.day
+				);
+			}
+
 		draftContract
 		():void
 			{
@@ -41,7 +86,9 @@ export class DraftContractComponent
 					this.contract.contractType._id,
 					this.contract.contractNumber,
 					this.contract.contractDate,
+					this.contract.contractDateShamsi,
 					this.contract.contractFinishDate,
+					this.contract.contractFinishDateShamsi,
 				)
 				.subscribe(
 					(data: any) => 

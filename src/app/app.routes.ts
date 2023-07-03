@@ -5,7 +5,6 @@ import { SetContractPaymentLisComponent } from './set-contract-payment-lis/set-c
 import { EditContractComponent } from './edit-contract/edit-contract.component';
 import { ContractPayablePriceComponent } from 'src/components/contract/contract-payable-price/contract-payable-price.component';
 import { ContractCustomerListComponent } from '../components/contract/contract-customer-list/contract-customer-list.component';
-import { ContractPaymentListComponent } from 'src/components/contract/contract-payment-list/contract-payment-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContractProjectItemComponent } from 'src/components/contract/contract-project-item/contract-project-item.component';
 import { UserManagementComponent } from './user-management/user-management.component';
@@ -20,10 +19,18 @@ import { ReviewContractReviewComponent } from './review-contract-review/review-c
 import { ContractContentComponent } from 'src/components/contract/contract-content/contract-content.component';
 import { ContractPanelComponent } from 'src/components/contract/contract-panel/contract-panel.component';
 import { ContractPaymentManagementComponent } from './contract-payment-management/contract-payment-management.component';
+import { LoginComponent } from './auth/login/login.component';
+import { ContractPaymentPanelComponent } from 'src/components/contract-payment/contract-payment-panel/contract-payment-panel.component';
+import { ContractContractPaymentListComponent } from 'src/components/contract/contract-contract-payment-list/contract-contract-payment-list.component';
 
 export const routes: Routes = [
     {
-        path:'', component: DashboardComponent,
+        path:'',
+        component: LoginComponent,
+    },
+    {
+        path:'home',
+        component: DashboardComponent,
     },
     {
         path:'projectManagement', component: ProjectManagementComponent,
@@ -96,7 +103,7 @@ export const routes: Routes = [
         children:[
             {
                 path: 'paymentList',
-                component: ContractPaymentListComponent
+                component: ContractContractPaymentListComponent
             },
             {
                 path: 'customerList',
@@ -119,7 +126,13 @@ export const routes: Routes = [
         path:'setContractPaymentList', component: SetContractPaymentLisComponent,
     },
     {
-        path:'contractManagementManagement', component: ContractPaymentManagementComponent,
+        path:'contractPaymentManagement', component: ContractPaymentManagementComponent,
+        children:[
+            {
+                path: 'list',
+                component: ContractPaymentPanelComponent
+            }
+        ]
     },
 
 

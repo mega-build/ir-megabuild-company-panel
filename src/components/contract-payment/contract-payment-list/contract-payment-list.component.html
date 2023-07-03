@@ -1,0 +1,9 @@
+<ol>
+    <li
+        *ngFor = 'let contractPayment of contractPaymentList'
+    >
+        <contract-payment-list-item
+            [contractPayment] = "contractPayment"
+        ></contract-payment-list-item>
+    </li>
+</ol>

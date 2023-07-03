@@ -21,6 +21,13 @@ export class AddContractPaymentDickerComponent
 		)
 			{}
 
+		setPrice
+		(
+			price:number
+		):void
+			{
+				this.contractPayment.price = price;
+			}
 		save
 		():void
 			{

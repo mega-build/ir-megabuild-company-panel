@@ -11,7 +11,14 @@
         تاریخ قرارداد
     </dt>
     <dd>
-        {{contract.createDateTime}}
+        {{contract.contractDateShamsi}}
+    </dd>
+
+    <dt>
+        تاریخ تحویل
+    </dt>
+    <dd>
+        {{contract.contractFinishDateShamsi}}
     </dd>
 
 
@@ -28,19 +35,25 @@
     </dd>
 
     <dt>
-        مبلغ قرارداد
+        مبلغ قرارداد(ريال)
     </dt>
     <dd
         *ngIf="contract.payablePrice"
     >
-        {{contract.payablePrice}}
+        <price-label
+            [price]="contract.payablePrice"
+        ></price-label>
     </dd>
-    
-    <project-item-detail
-        *ngIf="contract.projectItem"
-        [projectItem] = "contract.projectItem"
-    ></project-item-detail>
 
+    <dt>
+        مورد قرارداد
+    </dt>
+    <dd>
+        <project-item-abbreviation
+            *ngIf="contract.projectItem"
+            [projectItem] = "contract.projectItem"
+        ></project-item-abbreviation>
+    </dd>
     
 </dl>
 
@@ -69,8 +82,6 @@
             ویرایش متن
         </a>
     </li>
-
-    
 
 </ul>
 

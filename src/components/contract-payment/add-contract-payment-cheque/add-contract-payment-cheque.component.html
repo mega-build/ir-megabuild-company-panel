@@ -15,13 +15,12 @@
                     مبلغ:
                 </label>
                 
-                <input
-                    type="number"
-                    id="txtPrice"
-                    name="txtPrice"
-                    max = "999999999"
-                    [(ngModel)]= 'contractPayment.price'
-                >
+                <price-input
+                    id = 'txtPrice'
+                    name = 'txtPrice'
+                    (setPrice)="setPrice($event)"
+                ></price-input>
+
             </li>
 
             <li>
@@ -39,17 +38,16 @@
 
             <li>
                 <label
-                    for="txtDueDate"
+                    for="cmpDueDate"
                 >
                     تاریخ سررسید:
                 </label>
                 
-                <input
-                    type="date"
-                    id="txtDueDate"
-                    name="txtDueDate"
-                    [(ngModel)]= 'contractPayment.dueDate'
-                >
+                <shmasi-date-picker
+                    id="cmpDueDate"
+                    name="cmpDueDate"
+                    (setSelectedDate)="setDueDate($event)"
+                ></shmasi-date-picker>
             </li>
 
             <li>

@@ -39,12 +39,9 @@
                     تاریخ قرارداد
                 </label>
 
-                <input
-                    type="date"
-                    id="txtContractDate"
-                    name="txtContractDate"
-                    [(ngModel)]="contract.contractDate"
-                >
+                <shmasi-date-picker
+                    (setSelectedDate)="setContractDate($event)"
+                ></shmasi-date-picker>
             </li>
 
             <li>
@@ -54,12 +51,9 @@
                     تاریخ تحویل
                 </label>
 
-                <input
-                    type="date"
-                    id="txtContractFinishDate"
-                    name="txtContractFinishDate"
-                    [(ngModel)]="contract.contractFinishDate"
-                >
+                <shmasi-date-picker
+                    (setSelectedDate)="setcontractFinishDate($event)"
+                ></shmasi-date-picker>
             </li>
 
         </ul>

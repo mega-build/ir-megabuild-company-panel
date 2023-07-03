@@ -81,14 +81,12 @@
                 >
                     مبلغ واحد:
                 </label>
-                <input
-                    type="number"
-                    id="txtUnitPrice"
-                    name="txtUnitPrice"
-                    max="999999999999"
-                    placeholder="مبلغ واحد را به ریال وارد کنید"
-                    [(ngModel)]= "residentialProjectItem.unitPrice"
-                >
+                
+                <price-input
+                    id = 'txtPrice'
+                    name = 'txtPrice'
+                    (setPrice)="setPrice($event)"
+                ></price-input>
             </li>
 
             

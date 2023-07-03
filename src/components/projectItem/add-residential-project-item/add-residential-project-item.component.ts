@@ -26,6 +26,13 @@ export class AddResidentialProjectItemComponent
 		)
 			{}
 
+		setPrice
+		(
+			price:number
+		):void
+			{
+				this.residentialProjectItem.unitPrice = price;
+			}
 		
 		saveProjectItem
 		():void

@@ -25,7 +25,6 @@ import { ContractPayablePriceComponent } from '../components/contract/contract-p
 import { ContractCustomerListComponent } from '../components/contract/contract-customer-list/contract-customer-list.component';
 import { FindCustomerByNationalCodeComponent } from '../components/customer/find-customer-by-national-code/find-customer-by-national-code.component';
 import { AddContractCustomerComponent } from '../components/contractCustomer/add-contract-customer/add-contract-customer.component';
-import { ContractPaymentListComponent } from '../components/contract/contract-payment-list/contract-payment-list.component';
 import { AddContractPaymentDepositComponent } from '../components/contract-payment/add-contract-payment-deposit/add-contract-payment-deposit.component';
 import { AddContractPaymentChequeComponent } from '../components/contract-payment/add-contract-payment-cheque/add-contract-payment-cheque.component';
 import { AddContractPaymentDickerComponent } from '../components/contract-payment/add-contract-payment-dicker/add-contract-payment-dicker.component';
@@ -64,6 +63,17 @@ import { SelectCompanyComponent } from '../components/company/select-company/sel
 import { SelectUserCompanyAccessComponent } from '../components/userCompanyAccess/select-user-company-access/select-user-company-access.component';
 import { ContractPaymentManagementComponent } from './contract-payment-management/contract-payment-management.component';
 import { ContractPaymentPanelComponent } from 'src/components/contract-payment/contract-payment-panel/contract-payment-panel.component';
+import { AddContractPaymentDeedComponent } from '../components/contract-payment/add-contract-payment-deed/add-contract-payment-deed.component';
+import { LoginComponent } from './auth/login/login.component';
+import { LoginWithEmailPasswordComponent } from './auth/components/login-with-email-password/login-with-email-password.component';
+import { ShmasiDatePickerComponent } from '../components/share/shmasi-date-picker/shmasi-date-picker.component';
+import { PriceInputComponent } from '../components/share/price-input/price-input.component';
+import { ProjectItemAbbreviationComponent } from '../components/projectItem/project-item-abbreviation/project-item-abbreviation.component';
+import { ContractPaymentListItemComponent } from 'src/components/contract-payment/contract-payment-list-item/contract-payment-list-item.component';
+import { ContractContractPaymentListComponent } from '../components/contract/contract-contract-payment-list/contract-contract-payment-list.component';
+import { ContractPaymentListComponent } from 'src/components/contract-payment/contract-payment-list/contract-payment-list.component';
+import { PriceLabelComponent } from '../components/share/price-label/price-label.component';
+
 
 
 
@@ -91,7 +101,6 @@ import { ContractPaymentPanelComponent } from 'src/components/contract-payment/c
     ContractCustomerListComponent,
     FindCustomerByNationalCodeComponent,
     AddContractCustomerComponent,
-    ContractPaymentListComponent,
     AddContractPaymentDepositComponent,
     AddContractPaymentChequeComponent,
     AddContractPaymentDickerComponent,
@@ -129,12 +138,22 @@ import { ContractPaymentPanelComponent } from 'src/components/contract-payment/c
     SelectUserCompanyAccessComponent,
     ContractPaymentPanelComponent,
     ContractPaymentManagementComponent,
+    AddContractPaymentDeedComponent,
+    LoginComponent,
+    LoginWithEmailPasswordComponent,
+    ShmasiDatePickerComponent,
+    PriceInputComponent,
+    ProjectItemAbbreviationComponent,
+    ContractPaymentListComponent,
+    ContractPaymentListItemComponent,
+    ContractContractPaymentListComponent,
+    PriceLabelComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    ShareModule
+    ShareModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,13 @@
+<input
+    type="number"
+    minlength="1"
+    min="0"
+    max = "999999999"
+    maxlength="10"
+    [(ngModel)]= 'price'
+    placeholder="مبلغ را به ریال وارد کنید"
+    (input)="onChanged($event.target)"
+>
+<b>
+    {{getPriceInString()}} ريال
+</b>

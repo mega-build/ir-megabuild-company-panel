@@ -1,0 +1,46 @@
+<form>
+    <legend>
+        ثبت پرداخت سر سند
+    </legend>
+    <fieldset>
+        <ul>
+            <li>
+                <label
+                    for="txtPrice"
+                >
+                    مبلغ:
+                </label>
+                
+                <price-input
+                    id = 'txtPrice'
+                    name = 'txtPrice'
+                    (setPrice)="setPrice($event)"
+                ></price-input>
+            </li>
+
+            <li>
+                <label
+                    for="cmpSelectBankAccount"
+                >
+                    شماره حساب:
+                </label>
+                <select-bank-account
+                    id="cmpSelectBankAccount"
+                    (setBankAccount)= "setBankAccount($event)"
+                ></select-bank-account>
+            </li>
+            
+        </ul>
+
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="save()"
+                >
+                    ثبت
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

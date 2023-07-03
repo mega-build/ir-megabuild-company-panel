@@ -11,13 +11,11 @@
                     مبلغ:
                 </label>
                 
-                <input
-                    type="number"
-                    id="txtPrice"
-                    name="txtPrice"
-                    max = "999999999"
-                    [(ngModel)]= 'contractPayment.price'
-                >
+                <price-input
+                    id = 'txtPrice'
+                    name = 'txtPrice'
+                    (setPrice)="setPrice($event)"
+                ></price-input>
             </li>
             
         </ul>

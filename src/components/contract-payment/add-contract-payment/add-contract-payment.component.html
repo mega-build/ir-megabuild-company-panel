@@ -33,6 +33,12 @@
                 *ngIf="isDickerPaymentMethod()"
                 [contractId]="contractId"
             ></add-contract-payment-dicker>
+
+            <add-contract-payment-deed
+                *ngIf="isDeedPaymentMethod()"
+                [contractId]="contractId"
+            ></add-contract-payment-deed>
+
         </ul>
 
         <ul>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ChequeContractPaymentHelper } from 'src/helper/contractPayment/chequeContractPaymentHelper';
+import { DeedContractPaymentHelper } from 'src/helper/contractPayment/deedContractPaymentHelper';
+import { DipositContractPaymentHelper } from 'src/helper/contractPayment/dipositContractPaymentHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 
@@ -104,7 +107,10 @@ export class ContractContentComponent implements OnInit
 		constructor
 			(
 				private route: ActivatedRoute,
-				private contractService: ContractService
+				private contractService: ContractService,
+				private chequeContractPaymentHelper: ChequeContractPaymentHelper,
+				private dipositContractPaymentHelper: DipositContractPaymentHelper,
+				private deedContractPaymentHelper: DeedContractPaymentHelper
 			)
 				{}
 
@@ -183,7 +189,7 @@ export class ContractContentComponent implements OnInit
 			projectItem:any
 		):string
 			{
-				return `بهای موضوع قرارداد از قرار هر مترمربع ${this.priceWithCommas(projectItem.unitPrice)} ريال که با توجه مساحت تقریبی موضوع قرارداد(${projectItem.buildupArea} متر مربع)، جمعا  ${this.priceWithCommas(projectItem.buildupArea*projectItem.unitPrice)} ريال میباشد که با احتساب ${this.priceWithCommas(contract.discount)} ريال تخفیف، به شرح آتی پرداخت میگردد.`
+				return `بهای موضوع قرارداد از قرار هر مترمربع ${this.priceWithCommas(projectItem.unitPrice)} (${this.priceToWord(projectItem.unitPrice)} ريال) که با توجه مساحت تقریبی موضوع قرارداد(${projectItem.buildupArea} متر مربع)، جمعا  ${this.priceWithCommas(projectItem.buildupArea*projectItem.unitPrice)} ريال میباشد که با احتساب ${this.priceWithCommas(contract.discount)} ريال تخفیف، به شرح آتی پرداخت میگردد.`
 			}
 
 		getPaymentListContent
@@ -201,21 +207,30 @@ export class ContractContentComponent implements OnInit
 								currentContractPayment.paymentMethod.componentName == "CHEQUE"
 							)
 								{
-									return `بخشی از بهای موضوع قرارداد به مبلغ ${this.priceWithCommas(currentContractPayment.price)} (${this.priceToWord(currentContractPayment.price)}) ريال طی چک شماره ${currentContractPayment.chequeNumber} مورخ ${currentContractPayment.dueDate} عهده ی ${currentContractPayment.bank.title_fa} به فروشنده تحویل میگردد.`
+									return this.chequeContractPaymentHelper.getContractContent(
+										currentContractPayment
+									);
+									//return `بخشی از بهای موضوع قرارداد به مبلغ ${this.priceWithCommas(currentContractPayment.price)} (${this.priceToWord(currentContractPayment.price)}) ريال طی چک شماره ${currentContractPayment.chequeNumber} مورخ ${currentContractPayment.dueDate} عهده ی ${currentContractPayment.bank.title_fa} به فروشنده تحویل میگردد.`
 								}
 							else if
 							(
 								currentContractPayment.paymentMethod.componentName == "DIPOSIT"
 							)
 								{
-									return `بخشی از بهای موضوع قرارداد به مبلغ ${this.priceWithCommas(currentContractPayment.price)} ريال در تاریخ ${currentContractPayment.dueDate} پرداخت میگردد.`
+									return this.dipositContractPaymentHelper.getContractContent(
+										currentContractPayment
+									);
+									//return `بخشی از بهای موضوع قرارداد به مبلغ ${this.priceWithCommas(currentContractPayment.price)} ريال در تاریخ ${currentContractPayment.dueDate} پرداخت میگردد.`
 								}
 							else if
 							(
 								currentContractPayment.paymentMethod.componentName == "DEED"
 							)
 								{
-									return `باقیمانده بهای موضوع قرارداد به مبلغ ${this.priceWithCommas(currentContractPayment.price)} در روز انتقال سند واگذاری و قبل از واگذاری پرداخت میگردد.`
+									return this.deedContractPaymentHelper.getContractContent(
+										currentContractPayment
+									);
+									//return `باقیمانده بهای موضوع قرارداد به مبلغ ${this.priceWithCommas(currentContractPayment.price)} در روز انتقال سند واگذاری و قبل از واگذاری پرداخت میگردد.`
 								}
 							else
 								{

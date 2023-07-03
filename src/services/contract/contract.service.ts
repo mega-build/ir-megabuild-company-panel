@@ -54,17 +54,27 @@ export class ContractService {
 		contractTypeId:string,
 		contractNumber:string,
 		contractDate: Date,
-		contractFinishDate:Date
+		contractDateShamsi: string,
+		contractFinishDate:Date,
+		contractFinishDateShamsi: string
 	):any
 		{
 			let headers: HttpHeaders = new HttpHeaders();
+
 			let body: any = {
 				contractTypeId: contractTypeId,
 				contractNumber: contractNumber,
 				contractDate: contractDate,
+				contractDateShamsi: contractDateShamsi,
 				contractFinishDate: contractFinishDate,
+				contractFinishDateShamsi: contractFinishDateShamsi
 			};
-			return this.httpInteceptor.postWithAuth(this.URL_CONTRACT_ADD, headers, body);
+
+			return this.httpInteceptor.postWithAuth(
+				this.URL_CONTRACT_ADD,
+				headers,
+				body
+			);
 		}
 
 	setPayablePrice

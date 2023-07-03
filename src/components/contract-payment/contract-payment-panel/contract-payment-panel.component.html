@@ -1,1 +1,4 @@
-<p>contract-payment-panel works!</p>
+<contract-payment-list
+    *ngIf="contractPaymentList.length > 0"
+    [contractPaymentList] = 'contractPaymentList'
+></contract-payment-list>

@@ -25,7 +25,13 @@ export class AddLandParcelProjectItemComponent
 		)
 			{}
 
-		
+		setPrice
+		(
+			price:number
+		):void
+			{
+				this.landParcelProjectItem.unitPrice = price;
+			}
 		saveProjectItem
 		():void
 			{

@@ -11,13 +11,12 @@
                 مبلغ تخفیف:
                 </label>
 
-                <input
-                    type="number"
-                    id="txtDiscount"
-                    name="txtDiscount"
-                    [(ngModel)]="discount"
-                    max = "999999999"
-                >
+                <price-input
+                    id = 'txtDiscount'
+                    name = 'txtDiscount'
+                    (setPrice)="setDiscount($event)"
+                ></price-input>
+
             </li>
             <li>
                 <label
@@ -26,13 +25,12 @@
                 مبلغ نهایی
                 </label>
 
-                <input
-                    type="number"
-                    id="txtPayablePrice"
-                    name="txtPayablePrice"
-                    [(ngModel)]="payablePrice"
-                    max = "999999999"
-                >
+
+                <price-input
+                    id = 'txtPayablePrice'
+                    name = 'txtPayablePrice'
+                    (setPrice)="setPayablePrice($event)"
+                ></price-input>
             </li>
         </ul>
 
@@ -40,7 +38,7 @@
             <li>
                 <button
                     type="button"
-                    (click)="setPayablePrice()"
+                    (click)="save()"
                 >
                     ثبت
                 </button>
