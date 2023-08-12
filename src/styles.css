@@ -2,42 +2,47 @@
 /* You can add global styles to this file, and also import other style files */
 
 @font-face {
-  font-family: NunitoSans;
-  src: url("assets/fonts/NunitoSans-Regular.ttf");
+  font-family: IRANSansWeb;
+  src: url("assets/fonts/IRANSansWeb.woff2");
 }
 body {
-  font-family: NunitoSans;
+  font-family: IRANSansWeb;
   margin: 0;
 }
 
 @font-face {
-  font-family: NunitoSans;
+  font-family: IRANSansWeb;
   font-style: normal;
   font-weight: bold;
-  src: url("assets/fonts/NunitoSans-ExtraBold.ttf");
+  src: url("assets/fonts/IRANSansWeb_Bold.woff2");
 }
 @font-face {
-  font-family: NunitoSans;
+  font-family: IRANSansWeb;
   font-style: normal;
   font-weight: 500;
-  src: url("assets/fonts/NunitoSans-Regular.ttf");
+  src: url("assets/fonts/IRANSansWeb.woff2");
 }
 @font-face {
-  font-family: NunitoSans;
+  font-family: IRANSansWeb;
   font-style: normal;
   font-weight: 300;
-  src: url("assets/fonts/NunitoSans-Light.ttf");
+  src: url("assets/fonts/IRANSansWeb.woff2");
 }
 @font-face {
-  font-family: NunitoSans;
+  font-family: IRANSansWeb;
   font-style: normal;
   font-weight: 200;
-  src: url("assets/fonts/NunitoSans-ExtraLight.ttf");
+  src: url("assets/fonts/IRANSansWeb.woff2");
+}
+
+@font-face {
+  font-family: IRANSansWeb;
+  src: url("assets/fonts/IRANSansWebNum.woff2");
 }
 
 html,
 body {
-  font-family: NunitoSans, serif;
+  font-family: IRANSansWeb;
   overflow-x: hidden;
 }
 
@@ -93,21 +98,6 @@ form fieldset {
   z-index: 6;
 }
 
-input {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-textarea {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 .popup {
   animation: popup 0.5s;
 }
@@ -138,27 +128,7 @@ textarea {
   left: 0;
   z-index: 4;
 }
-form {
-  fieldset:disabled {
-    label {
-      color: #b2b8c2 !important;
-    }
-    input {
-      border: solid 1px #ced5e0 !important;
-      &::placeholder {
-        color: #b2b8c2 !important;
-      }
-    }
-    textarea {
-      border: solid 1px #ced5e0 !important;
-      color: #b2b8c2 !important;
-    }
-    button {
-      background-color: #ced5e0 !important;
-      color: #fff !important;
-    }
-  }
-}
+
 a {
   text-decoration: none;
 }
@@ -168,35 +138,7 @@ a {
     font-family: NunitoSans, serif !important;
   }
 }
-input {
-  font-size: 14px;
-  font-family: NunitoSans, serif !important;
-}
-textarea {
-  font-size: 14px;
-  font-family: NunitoSans, serif !important;
-}
 
-input:focus {
-  outline: none !important;
-  border-color: #3f8cff !important;
-  box-shadow: 0px 0px 3px -1px #3f8cff !important;
-}
-textarea:focus {
-  outline: none !important;
-  border-color: #3f8cff !important;
-  box-shadow: 0px 0px 3px -1px #3f8cff !important;
-}
-
-select:focus {
-  outline: none !important;
-  border-color: #3f8cff !important;
-  box-shadow: 0px 0px 3px -1px #3f8cff !important;
-}
-
-input[type="search"] {
-  -webkit-appearance: none;
-}
 ul {
   list-style: none;
 }
@@ -213,8 +155,50 @@ select {
     opacity: 0.7;
   }
 }
-body,h1,p,legend,ul,li,ol{
+body,
+h1,
+p,
+legend,
+ul,
+li,
+ol,fieldset {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Inputs Style  */
+
+label {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: #101828;
+  display: block;
+  margin-bottom: 8px;
+}
+input {
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  padding: 8px 0;
+  width: 100%;
+}
+
+input:focus {
+  outline: 0 none;
+
+  border-color: #7f56d9;
+}
+
+button{
+  border-radius: 8px;
+  font-size: 14px;
+}
+input[type="radio"]{
+  border: none;
+  box-shadow: none;
+  accent-color: #7F56D9;
+
 }
