@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ContractPaymentService
 	{
-		private URL_CONTRACT_PAYMENT_GETALL_BY_CONTRACT: string = `${environment.API_URL}/contractPayment`;
+		private URL_CONTRACT_PAYMENT_GETALL_BY_CONTRACT: string = `${environment.API_URL}/contractPayment/byContractId`;
 		private URL_CONTRACT_PAYMENT_GETALL_BY_FROM_DATE_AND_TO_DATE: string = `${environment.API_URL}/contractPayment/fromDateAndToDate`;
 		private URL_CONTRACT_PAYMENT_ADD_DIPOSIT: string = `${environment.API_URL}/contractPayment/deposit`;
 		private URL_CONTRACT_PAYMENT_ADD_CHEQUE: string = `${environment.API_URL}/contractPayment/cheque`;
@@ -55,7 +55,8 @@ export class ContractPaymentService
 			dueDate: Date,
 			dueDateShamsi: string,
 			chequeNumber: string,
-			bankId: string
+			bankId: string,
+			drawer: string
 		):any
 			{
 				let headers: HttpHeaders = new HttpHeaders();
@@ -66,7 +67,8 @@ export class ContractPaymentService
 					dueDate: dueDate,
 					dueDateShamsi: dueDateShamsi,
 					chequeNumber: chequeNumber,
-					bankId: bankId
+					bankId: bankId,
+					drawer: drawer
 				};
 				return this.httpInteceptor.postWithAuth(
 					this.URL_CONTRACT_PAYMENT_ADD_CHEQUE,

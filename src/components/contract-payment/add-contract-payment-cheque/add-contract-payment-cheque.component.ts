@@ -76,7 +76,9 @@ export class AddContractPaymentChequeComponent
 					this.contractPayment.dueDate,
 					this.contractPayment.dueDateShamsi,
 					this.contractPayment.chequeNumber,
-					this.contractPayment.bank._id
+					this.contractPayment.bank._id,
+					this.contractPayment.drawer
+					
 				).subscribe(
 					(data: any) => 
 						{

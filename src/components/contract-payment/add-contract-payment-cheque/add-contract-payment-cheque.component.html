@@ -80,6 +80,22 @@
                 ></select-bank>
             </li>
 
+            <li>
+                <label
+                    for="txtDrawer "
+                >
+                نام و نام خانوادگی صاحب چک
+                </label>
+                
+                <input
+                    type="text"
+                    id="txtDrawer"
+                    name="txtDrawer"
+                    maxlength="50"
+                    [(ngModel)]= 'contractPayment.drawer'
+                >
+            </li>
+
         </ul>
 
         <ul>

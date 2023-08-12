@@ -1,77 +1,8 @@
 <section>
-    <ul>
-        <li
-            *ngFor = 'let contractPayment of contractPaymentList'
-        >
-            <dl>
-                <dt>
-                    نوع پرداخت
-                </dt>
-                <dd>
-                    {{contractPayment.contractPaymentMethod.title}}
-                </dd>
-
-
-                <dt
-                    *ngIf="contractPayment.price"
-                >
-                    مبلغ
-                </dt>
-                <dd
-                    *ngIf="contractPayment.price"
-                >
-                    {{contractPayment.price}}
-                </dd>
-
-                <dt
-                    *ngIf="contractPayment.bankAccount"
-                >
-                    شماره حساب
-                </dt>
-                <dd
-                    *ngIf="contractPayment.bankAccount"
-                >
-                    {{contractPayment.bankAccount.accounNumber}}
-                </dd>
-
-                <dt
-                    *ngIf="contractPayment.dueDate"
-                >
-                    تاریخ پرداخت
-                </dt>
-                <dd
-                    *ngIf="contractPayment.dueDate"
-                >
-                    {{contractPayment.dueDate}}
-                </dd>
-
-                <dt
-                    *ngIf="contractPayment.chequeNumber"
-                >
-                    شماره چک
-                </dt>
-                <dd
-                    *ngIf="contractPayment.chequeNumber"
-                >
-                    {{contractPayment.chequeNumber}}
-                </dd>
-
-                <dt
-                    *ngIf="contractPayment.bank"
-                >
-                    بانک
-                </dt>
-                <dd
-                    *ngIf="contractPayment.bank"
-                >
-                    {{contractPayment.bank.title_fa}}
-                </dd>
-
-
-                
-            </dl>
-        </li>
-    </ul>
+    <contract-payment-list
+        *ngIf="contractPaymentList && contractPaymentList.length > 0"
+        [contractPaymentList]="contractPaymentList"
+    ></contract-payment-list>
 </section>
 <section>
     <add-contract-payment

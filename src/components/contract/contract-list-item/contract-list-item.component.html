@@ -54,6 +54,21 @@
             [projectItem] = "contract.projectItem"
         ></project-item-abbreviation>
     </dd>
+
+    <dt>
+        وضعیت بررسی
+    </dt>
+    <dd>
+        <ul>
+            <li
+            *ngFor = 'let contractReview of contract.contractReviews'
+            >
+                <contract-review-icon
+                    [contractReview] = "contractReview"
+                ></contract-review-icon>
+            </li>
+        </ul>
+    </dd>
     
 </dl>
 

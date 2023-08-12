@@ -73,6 +73,7 @@ import { ContractPaymentListItemComponent } from 'src/components/contract-paymen
 import { ContractContractPaymentListComponent } from '../components/contract/contract-contract-payment-list/contract-contract-payment-list.component';
 import { ContractPaymentListComponent } from 'src/components/contract-payment/contract-payment-list/contract-payment-list.component';
 import { PriceLabelComponent } from '../components/share/price-label/price-label.component';
+import { ContractReviewIconComponent } from '../components/contractReview/contract-review-icon/contract-review-icon.component';
 
 
 
@@ -148,6 +149,7 @@ import { PriceLabelComponent } from '../components/share/price-label/price-label
     ContractPaymentListItemComponent,
     ContractContractPaymentListComponent,
     PriceLabelComponent,
+    ContractReviewIconComponent,
   ],
   imports: [
     BrowserModule,
