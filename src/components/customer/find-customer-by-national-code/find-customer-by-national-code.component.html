@@ -1,4 +1,4 @@
-<form>
+<form class="container">
     <legend>
         جستجوی مشتری با کد ملی
     </legend>
@@ -27,6 +27,7 @@
                     <button
                         type="button"
                         (click)="getByNationalCode()"
+                        class="primary"
                     >
                         جستجو
                     </button>
@@ -38,6 +39,7 @@
 
 <section
     *ngIf="customer"
+    class="container"
 >
     <customer-label
         [customer]="customer"
@@ -56,7 +58,8 @@
     <button
         type="button"
         (click)="addNewCustomerWithNationalCode()"
+        class="add-new-customer"
     >
-        ثبت کاربر جدید
+    افزودن به عنوان خریدار جدید
     </button>
 </section>

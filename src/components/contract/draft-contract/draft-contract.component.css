@@ -1,0 +1,12 @@
+button {
+  padding: 12px 30px;
+  float: left;
+}
+fieldset ul:first-child {
+  border-bottom: 1px solid #eaecf0;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
