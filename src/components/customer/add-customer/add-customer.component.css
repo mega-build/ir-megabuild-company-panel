@@ -1,0 +1,8 @@
+fieldset ul:first-child {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 16px;
+}
+fieldset ul:first-child li:last-child{
+    grid-column: span 2;
+}

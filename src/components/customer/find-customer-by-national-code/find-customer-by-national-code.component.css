@@ -1,0 +1,10 @@
+.add-new-customer {
+  border: none;
+  background-color: #fff;
+  color: #7f56d9;
+  display: flex;
+  gap: 6px;
+}
+.add-new-customer::before {
+  content: url("../../../assets/images/icons/plus-circle.svg");
+}
