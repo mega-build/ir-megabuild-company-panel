@@ -1,0 +1,24 @@
+ul .contract-customer {
+  border-radius: 11px;
+  border: 1px solid #eaecf0;
+  padding: 12px;
+  position: relative;
+}
+.contract-customer button {
+  text-indent: -9000px;
+  overflow: hidden;
+  border: none;
+  background: none;
+  position: absolute;
+  left: 8px;
+  top: -20px;
+}
+.contract-customer button::after {
+  content: "";
+  background: url("../../../assets/images/icons/trash-03.svg");
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,66 @@
+.add-new-user {
+  font-size: 14px;
+  font-family: IRANSansWeb;
+  background: #7f56d9;
+  color: #fff;
+  border: none;
+  transition: all 0.4s;
+  display: flex;
+  gap: 6px;
+  width: fit-content;
+}
+.add-new-user::before {
+  content: url("../../../assets/images/icons/plus.svg");
+  height: 20px;
+}
+.add-new-user:hover {
+  background: #6941c6;
+  transition: all 0.4s;
+}
+ul li dt {
+  display: none;
+}
+
+.user-panel {
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+}
+.user-panel-header {
+  background-color: #eaecf0;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  padding: 12px;
+  flex-basis: 100%;
+}
+.user-panel-header li {
+  color: #667085;
+  font-size: 12px;
+  width: 100%;
+  text-align: right;
+  display: block;
+}
+ul li dl dd {
+  color: #101828;
+  font-size: 14px;
+}
+
+.user-info {
+  display: flex;
+  flex-basis: 50%;
+}
+.user-info dl {
+  display: flex;
+}
+.user-info ul {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: end;
+}
+.user-info ul li {
+  color: #101828;
+  font-size: 14px;
+}
