@@ -2,7 +2,17 @@ fieldset ul:first-child {
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 16px;
+  margin-bottom: 70px;
+
 }
 fieldset ul:first-child li:last-child{
     grid-column: span 2;
+}
+.primary{
+  padding: 8px 26px;
+}
+textarea{
+  height: 100%;
+  text-indent: 12px;
+  padding: 12px 0;
 }

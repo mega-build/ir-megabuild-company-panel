@@ -1,0 +1,10 @@
+dl{
+    display: flex;
+    flex-wrap: wrap;
+}
+dl dt{
+    flex-basis: 50%;
+}
+dl dd{
+    flex-basis: 50%;
+}

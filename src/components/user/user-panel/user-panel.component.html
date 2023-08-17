@@ -1,11 +1,19 @@
 <a
     href="/userManagement/add"
+    class="add-new-user"
 >
-    کاربر جدید
+افزودن کاربر
 </a>
-<ul>
+<ul class="user-panel container">
+    <ul class="user-panel-header">
+        <li>نام و نام خانوادگی</li>
+        <li>ایمیل</li>
+        <li>سطح دسترسی</li>
+        <li>فعال / غیرفعال</li>
+    </ul>
     <li
         *ngFor = 'let user of userList'
+        class="user-info"
     >
         <dl>
             <dt>

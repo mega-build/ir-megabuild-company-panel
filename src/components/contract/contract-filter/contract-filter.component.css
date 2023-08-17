@@ -1,0 +1,18 @@
+.sort-filter {
+  display: flex;
+}
+.sort-filter label {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.sort-filter label::before{
+    content: url("../../../assets/images/icons/filter-lines.svg");
+    height: 21px;
+}
+.sort-filter input {
+  margin: 0;
+  padding: 0;
+  display: none;
+}
