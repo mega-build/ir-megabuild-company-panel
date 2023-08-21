@@ -1,0 +1,31 @@
+fieldset ul:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+textarea {
+  padding: 12px;
+  box-sizing: border-box;
+  margin-bottom: 24px;
+}
+fieldset ul:last-child li {
+  display: flex;
+  justify-content: space-between;
+}
+
+fieldset ul:last-child li a {
+  color: #344054;
+  background: #fff;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: IRANSansWeb;
+  padding: 8px 10px;
+  width: 25%;
+  text-align: center;
+}
+
+fieldset ul:last-child li button {
+  width: 25%;
+}

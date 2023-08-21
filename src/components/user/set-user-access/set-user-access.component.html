@@ -1,11 +1,11 @@
-<form>
+<form class="container">
     <legend>
         سطح دسترسی کاربر
     </legend>
     <fieldset
         [disabled]="isLoading"
     >
-        <ul>
+        <ul class="user-access-form">
             <li>
                 <label
                     for="chkAddContract"
@@ -116,12 +116,13 @@
                 <button
                     type="button"
                     (click)="save()"
+                    class="primary"
                 >
                     ثبت
                 </button>
             </li>
             <li>
-                <a href="/userManagement">
+                <a href="/userManagement" class="secondary">
                     انصراف
                 </a>
             </li>

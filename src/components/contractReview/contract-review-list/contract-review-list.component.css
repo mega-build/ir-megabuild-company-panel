@@ -1,0 +1,22 @@
+contract-review-list-item {
+  display: flex;
+}
+.contract-review-header {
+  background-color: #f9fafb;
+  border-radius: 12px 12px 0 0;
+  border: 1px solid #eaecf0;
+  color: #667085;
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 12px;
+}
+.contract-review-header li {
+  flex: 1 0 13.7%;
+  max-width: 13.7%;
+}
+.contract-review-header li:first-child {
+  opacity: 0;
+  flex: 1 0 3%;
+  max-width: 3%;
+}

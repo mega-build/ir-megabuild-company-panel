@@ -1,0 +1,52 @@
+form {
+  margin-top: 24px;
+}
+fieldset input {
+  border: none;
+  box-shadow: none;
+}
+
+.user-access-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.user-access-form li {
+  display: flex;
+  align-items: flex-start;
+  flex: 1 0 25%;
+  max-width: 25%;
+  gap: 8px;
+}
+.user-access-form label {
+  cursor: pointer;
+}
+
+fieldset ul:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+fieldset ul:nth-child(2) li {
+  flex: 1 0 50%;
+  max-width: 50%;
+}
+fieldset ul:nth-child(2) li button {
+  width: 25%;
+}
+
+fieldset ul:nth-child(2) li a {
+  width: 25%;
+  color: #344054;
+  background: #fff;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: IRANSansWeb;
+  padding: 8px 10px;
+  display: block;
+  text-align: center;
+  float: left;
+}

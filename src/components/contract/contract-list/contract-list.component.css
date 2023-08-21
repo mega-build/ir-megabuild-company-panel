@@ -1,0 +1,32 @@
+ol {
+  list-style: none;
+  border: 2px solid #eaecf0;
+  border-radius: 8px;
+  padding: 0;
+}
+.contract-list-header {
+  display: flex;
+  background-color: #f9fafb;
+  font-size: 12px;
+  color: #667085;
+  padding: 12px;
+  flex-wrap: nowrap;
+}
+.contract-list-header li {
+  flex: 0 0 12.5%;
+  max-width: 12.5%;
+}
+ol .contract-list-item {
+  display: flex;
+}
+contract-list-item{
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  flex: 1 0 100%;
+}
+
+/* ol li {
+  border: 2px solid #eaecf0;
+  border-radius: 8px;
+} */

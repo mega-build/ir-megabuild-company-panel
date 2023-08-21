@@ -1,0 +1,20 @@
+legend {
+  margin: 24px 0;
+}
+ul li button {
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+ul li a {
+  color: #344054;
+  background: #fff;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: IRANSansWeb;
+  padding: 8px 0;
+  width: 100%;
+  display: block;
+  text-align: center;
+}

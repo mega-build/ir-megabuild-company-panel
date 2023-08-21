@@ -1,0 +1,12 @@
+dt {
+  display: none;
+}
+dl {
+  display: flex;
+}
+dl dd {
+  font-size: 14px;
+  color: #101828;
+  flex: 1 0 13.7%;
+  max-width: 13.7%;
+}

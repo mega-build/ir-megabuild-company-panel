@@ -1,10 +1,32 @@
-dl{
-    display: flex;
-    flex-wrap: wrap;
+div{
+  display: flex;
+  flex-wrap: nowrap;
 }
-dl dt{
-    flex-basis: 50%;
+dl {
+  display: flex;
+  max-width: 87.5%;
+  flex: 1 0 87.5%;
+  margin: 0 12px 0 0;
 }
-dl dd{
-    flex-basis: 50%;
+
+dl dt {
+  display: none;
+}
+
+dl dd {
+  color: #101828;
+  font-size: 14px;
+  font-weight: 400;
+  flex: 1 0 14%;
+  max-width: 14%;
+}
+dl ul {
+  display: flex;
+}
+.listItemActionMenu {
+  display: flex;
+  flex: 1 0 12.5%;
+  max-width: 12.5%;
+  font-size: 9px;
+  margin-right: -21px;
 }
