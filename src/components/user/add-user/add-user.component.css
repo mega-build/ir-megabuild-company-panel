@@ -1,0 +1,26 @@
+button {
+  width: 100%;
+}
+form {
+  margin-top: 34px;
+}
+
+fieldset ul:nth-child(1) {
+  margin-bottom: 34px;
+  box-sizing: border-box;
+}
+
+fieldset ul:nth-child(1) li:nth-child(1) {
+  display: inline-block;
+  width: 50%;
+}
+
+fieldset ul:nth-child(1) li:nth-child(2) {
+  display: inline-block;
+  width: 47%;
+  float: left;
+}
+
+fieldset ul:nth-child(1) li:nth-child(3) {
+  margin: 12px 0;
+}

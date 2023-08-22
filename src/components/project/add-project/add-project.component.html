@@ -1,4 +1,4 @@
-<form>
+<form class="container">
     <legend>
         پروژه جدید
     </legend>
@@ -43,6 +43,7 @@
                     id="txtAddress"
                     name="txtAddress"
                     [(ngModel)]= "project.address"
+                    rows="6"
                 ></textarea>
             </li>
         </ul>
@@ -51,11 +52,12 @@
                 <button
                     type="button"
                     (click)="save()"
+                    class="primary"
                 >
                     ثبت
                 </button>
 
-                <a href="/projectManagement">
+                <a href="/projectManagement" class="secondary">
                     انصراف
                 </a>
             </li>

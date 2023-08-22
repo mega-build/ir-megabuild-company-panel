@@ -220,11 +220,12 @@ input {
   padding: 8px 0;
   width: 100%;
   text-indent: 12px;
+  font-size: 14px;
+  font-family:IRANSansWeb ;
 }
 
 input:focus {
   outline: 0 none;
-
   border-color: #7f56d9;
 }
 
@@ -233,11 +234,23 @@ input[type="radio"] {
   box-shadow: none;
   accent-color: #7f56d9;
 }
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  clip-path: circle(64% at 50% 50%); 
+}
+input[type="checkbox"]:checked {
+  accent-color: #7F56D9;
+}
 textarea {
   width: 100%;
   border-radius: 8px;
   border: 1px solid #d0d5dd;
   background: #fff;
+  font-size: 14px;
+  font-family:IRANSansWeb;
+  padding: 12px;
+  box-sizing: border-box;
 }
 /* Inputs Style End */
 

@@ -1,6 +1,17 @@
 <ol class="container">
+    <ul class="contract-list-header">
+        <li>شماره قرارداد</li>
+        <li>تاریخ قرارداد</li>
+        <li>تاریخ تحویل</li>
+        <li>خریدار</li>
+        <li>مبلغ قرارداد(ريال)</li>
+        <li>مورد قرارداد</li>
+        <li>وضعیت بررسی</li>
+        <li>وضعیت بررسی</li>
+    </ul>
     <li
         *ngFor = 'let contract of contractList'
+        class="contract-list-item"
     >
         <contract-list-item
             [contract]="contract"

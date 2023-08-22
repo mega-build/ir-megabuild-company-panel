@@ -1,0 +1,42 @@
+dl dt {
+  display: none;
+}
+dl {
+  display: flex;
+  flex: 1 0 86.3%;
+  max-width: 86.3%;
+  margin-right: 12px;
+}
+ul {
+  display: flex;
+}
+dl dd:first-child{
+    flex: 1 0 3%;
+    max-width: 3%;
+}
+dl dd {
+  font-size: 14px;
+  color: #101828;
+  flex: 1 0 13.7%;
+  max-width: 13.7%;
+}
+.contract-review-header li {
+  flex: 1 0 13.7%;
+  max-width: 13.7%;
+}
+.contract-review-header li:first-child {
+  opacity: 0;
+  flex: 1 0 3%;
+  max-width: 3%;
+}
+
+ul {
+  flex: 1 0 13.7%;
+  max-width: 13.7%;
+  margin-right: -21px;
+}
+
+dl dd:nth-child(2){
+    flex: 1 0 3%;
+    max-width: 3%;
+}

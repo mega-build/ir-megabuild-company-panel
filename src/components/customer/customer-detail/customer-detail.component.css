@@ -1,16 +1,19 @@
 dl {
-  display: grid;
+  /* display: grid; */
   align-items: center;
   /* grid-template-columns: minmax(min-content, max-content) minmax(min-content, max-content); */
   /* gap: 6px; */
-  grid-template-columns: min-content min-content;
+  /* grid-template-columns: min-content min-content; */
+  display: flex;
+  flex-wrap: wrap;
 }
 dl dt {
   color: #667085;
   font-size: 14px;
-  
+  flex: 1 0 auto;
 }
 dl dd {
   color: #101828;
   font-size: 14px;
+  flex: 1 0 auto;
 }

@@ -8,6 +8,10 @@
   display: flex;
   gap: 6px;
   width: fit-content;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: IRANSansWeb;
+  padding: 8px 10px;
 }
 .add-new-user::before {
   content: url("../../../assets/images/icons/plus.svg");
@@ -27,21 +31,22 @@ ul li dt {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
 .user-panel-header {
   background-color: #eaecf0;
   border-radius: 12px 12px 0 0;
   display: flex;
   padding: 12px;
-  flex-basis: 100%;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 .user-panel-header li {
   color: #667085;
   font-size: 12px;
-  width: 100%;
   text-align: right;
-  display: block;
+  flex: 1 0 25%;
+  max-width: 25%;
 }
 ul li dl dd {
   color: #101828;
@@ -50,15 +55,25 @@ ul li dl dd {
 
 .user-info {
   display: flex;
-  flex-basis: 50%;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 .user-info dl {
   display: flex;
+  flex-wrap: nowrap;
+  flex: 1 0 75%;
+  max-width: 75%;
+  margin-right: 12px;
+}
+.user-info dl dd {
+  flex: 1 0 33%;
+  max-width: 33%;
 }
 .user-info ul {
   display: flex;
-  flex-basis: 50%;
-  justify-content: end;
+  flex: 1 0 25%;
+  max-width: 25%;
+  margin-right: -21px;
 }
 .user-info ul li {
   color: #101828;
