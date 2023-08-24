@@ -1,48 +1,56 @@
-<dl>
-
-    <dt>
-        واحد
-    </dt>
-    <dd
-        *ngIf="projectItem.unit"
-    >
-        {{projectItem.unit}}
-    </dd>
-
-    <dt>
-        بلوک
-    </dt>
-    <dd
-        *ngIf="projectItem.block"
-    >
-        {{projectItem.block}}
-    </dd>
-
-    <dt>
-        طبقه
-    </dt>
-    <dd
-        *ngIf="projectItem.floor"
-    >
-        {{projectItem.floor}}
-    </dd>
-
-    <dt>
-        زیربنا
-    </dt>
-    <dd
-        *ngIf="projectItem.buildupArea"
-    >
-        {{projectItem.buildupArea}}
-    </dd>
-
-    <dt>
-        مبلغ واحد
-    </dt>
-    <dd
-        *ngIf="projectItem.unitPrice"
-    >
-        {{projectItem.unitPrice}}
-    </dd>
+<section>
+    <ul>
+        <li>واحد</li>
+        <li>بلوک</li>
+        <li>طبقه</li>
+        <li>زیربنا</li>
+        <li>مبلغ واحد</li>
+    </ul>
+    <dl>
+        <dt>
+            واحد
+        </dt>
+        <dd
+            *ngIf="projectItem.unit"
+        >
+            {{projectItem.unit}}
+        </dd>
     
-</dl>
+        <dt>
+            بلوک
+        </dt>
+        <dd
+            *ngIf="projectItem.block"
+        >
+            {{projectItem.block}}
+        </dd>
+    
+        <dt>
+            طبقه
+        </dt>
+        <dd
+            *ngIf="projectItem.floor"
+        >
+            {{projectItem.floor}}
+        </dd>
+    
+        <dt>
+            زیربنا
+        </dt>
+        <dd
+            *ngIf="projectItem.buildupArea"
+        >
+            {{projectItem.buildupArea}}
+        </dd>
+    
+        <dt>
+            مبلغ واحد
+        </dt>
+        <dd
+            *ngIf="projectItem.unitPrice"
+        >
+            {{projectItem.unitPrice}}
+        </dd>
+        
+    </dl>
+</section>

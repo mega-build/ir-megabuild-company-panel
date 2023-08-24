@@ -3,6 +3,7 @@ ul .contract-customer {
   border: 1px solid #eaecf0;
   padding: 12px;
   position: relative;
+  margin-bottom: 20px;
 }
 .contract-customer button {
   text-indent: -9000px;

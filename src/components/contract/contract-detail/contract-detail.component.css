@@ -1,0 +1,21 @@
+dl {
+  display: flex;
+  background: #f9fafb;
+  border-radius: 12px 12px 0 0;
+  gap: 16px;
+  border: 2px solid #eaecf0;
+  border-bottom: none;
+  padding: 12px;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #eaecf0;
+  padding: 12px;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 24px;
+}
+nav ul li a {
+  color: #101828;
+  font-size: 14px;
+}

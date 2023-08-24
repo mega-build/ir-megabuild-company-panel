@@ -1,23 +1,34 @@
-<contract-review-detail
-    *ngIf="!isLoading && contractReview"
-    [contractReview]="contractReview"
-></contract-review-detail>
-
-<ul>
-    <li>
-        <button
-            type="button"
-            (click)="approve()"
-        >
-            تایید
-        </button>
-    </li>
-    <li>
-        <button
-            type="button"
-            (click)="reject()"
-        >
-            رد
-        </button>
-    </li>
-</ul>
+<section class="container">   
+    <ul class="contract-review-header">
+        <li>عنوان</li>
+        <li>پروژه</li>
+        <li>بلوک</li>
+        <li>طبقه</li>
+        <li>واحد</li>
+    </ul>
+    <contract-review-detail
+        *ngIf="!isLoading && contractReview"
+        [contractReview]="contractReview"
+    ></contract-review-detail>
+    
+    <ul>
+        <li>
+            <button
+                type="button"
+                (click)="approve()"
+                class="primary"
+            >
+                تایید
+            </button>
+        </li>
+        <li>
+            <button
+                type="button"
+                (click)="reject()"
+                class="secondary"
+            >
+                رد
+            </button>
+        </li>
+    </ul>
+</section>

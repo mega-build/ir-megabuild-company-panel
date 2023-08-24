@@ -1,6 +1,7 @@
 
 <section
     *ngIf="!isLoading && projectItem"
+    class="container"
 >
     <project-item-detail
         [projectItem]="projectItem"
@@ -44,7 +45,8 @@
 
 </section>
 
-<nav>
+<nav     class="container"
+>
     <ul>
         <li>
            <button
