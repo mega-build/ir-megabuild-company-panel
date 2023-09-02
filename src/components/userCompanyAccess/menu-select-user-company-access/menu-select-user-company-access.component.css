@@ -1,0 +1,50 @@
+ul {
+    width: 342px;
+    padding: 12px;
+    margin-top: 20px;
+  }
+  ul li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+  }
+  ul li input[type="radio"] {
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+  }
+  ul li:first-child {
+    border-bottom: 1px solid #eaecf0;
+    margin-bottom: 26px;
+    padding-bottom: 26px;
+  }
+  ul li:first-child::after {
+    background: url("../../../assets/images/compony-logo-1.svg");
+      background-size: 50px;
+  
+  }
+  ul li:last-child::after {
+    background: url("../../../assets/images/compony-logo-2.svg");
+    background-size: 34px;
+  }
+  ul li:last-child::after,
+  ul li:first-child::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    border: 1px solid #eaecf0;
+    border-radius: 4px;
+    padding: 4px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 56px;
+    width: 56px;
+  }
+  ul li label {
+    color: #101828;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+  

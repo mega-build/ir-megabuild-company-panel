@@ -74,6 +74,8 @@ import { ContractContractPaymentListComponent } from '../components/contract/con
 import { ContractPaymentListComponent } from 'src/components/contract-payment/contract-payment-list/contract-payment-list.component';
 import { PriceLabelComponent } from '../components/share/price-label/price-label.component';
 import { ContractReviewIconComponent } from '../components/contractReview/contract-review-icon/contract-review-icon.component';
+import { MenuSelectUserCompanyAccessComponent } from 'src/components/userCompanyAccess/menu-select-user-company-access/menu-select-user-company-access.component';
+
 
 
 
@@ -150,6 +152,7 @@ import { ContractReviewIconComponent } from '../components/contractReview/contra
     ContractContractPaymentListComponent,
     PriceLabelComponent,
     ContractReviewIconComponent,
+    MenuSelectUserCompanyAccessComponent,
   ],
   imports: [
     BrowserModule,

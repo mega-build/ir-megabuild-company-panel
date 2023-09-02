@@ -1,0 +1,27 @@
+<details>
+
+    <summary>
+        تغییر شرکت
+    </summary>
+
+    <ul>
+        <li
+            *ngFor = 'let userCompanyAccess of userCompanyAccessList'
+        >
+            <input
+                type="radio"
+                name = 'userCompanyAccess'
+                [attr.id]="userCompanyAccess._id"
+                value="{{userCompanyAccess._id}}"
+                (change)="selectUserCompanyAccess(userCompanyAccess)"
+                [checked]="userCompanyAccess._id == selectedUserCompanyAccess._id"
+                (input)="selectedUserCompanyAccess"
+            >
+            <label
+                [attr.for] = "userCompanyAccess._id"
+            >
+                {{userCompanyAccess.company.title}}
+            </label>
+        </li>
+    </ul>
+</details>
