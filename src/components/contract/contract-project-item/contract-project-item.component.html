@@ -16,6 +16,7 @@
 
 <section
     *ngIf="!isLoading && !projectItem"
+    class="container"
 >
 
     <li>
@@ -52,12 +53,13 @@
            <button
             type="button"
             (click)="setContractProjectItem()"
+            class="primary"
            >
                 ادامه
            </button>
         </li>
         <li>
-            <a href="">
+            <a href="" class="secondary">
                 برگشت
             </a>
         </li>
