@@ -1,15 +1,81 @@
-<ul>
-    <li
-        *ngFor = 'let bankAccount of bankAccountList'
-        (click) = 'selectBankAccount(bankAccount)'
+<section
+    *ngIf="selectedBankAccount.bank"
+>
+    <dl
+        
     >
-        <dl>
-            <dt>
-                عنوان
-            </dt>
-            <dd>
-                {{bankAccount.bank.title_fa}}({{bankAccount.accounNumber}})
-            </dd>
-        </dl>
-    </li>
-</ul>
+        <dt>
+            لوگو بانک
+        </dt>
+
+        <dt
+            [ngClass]="'bank_'+ selectedBankAccount.bank.title"
+        >
+
+        </dt>
+        <dt>
+            عنوان
+        </dt>
+        <dd>
+            {{selectedBankAccount.bank.title_fa}}
+        </dd>
+
+        <dt>
+            شماره حساب
+        </dt>
+
+        <dd>
+            {{selectedBankAccount.accounNumber}}
+        </dd>
+    </dl>
+
+    <button
+        type="button"
+        (click)="remove()"
+    >
+        حذف
+    </button>
+</section>
+
+<details
+    *ngIf="!selectedBankAccount.bank"
+>
+    <summary>
+        انتخاب کنید
+    </summary>
+   
+    <ul>
+        <li
+            *ngFor = 'let bankAccount of bankAccountList'
+            (click) = 'selectBankAccount(bankAccount)'
+        >
+            <dl>
+                <dt>
+                    لوگو بانک
+                </dt>
+
+                <dt
+                    [ngClass]="'bank_'+ bankAccount.bank.title"
+                >
+
+                </dt>
+                <dt>
+                    عنوان
+                </dt>
+                <dd>
+                    {{bankAccount.bank.title_fa}}
+                </dd>
+
+                <dt>
+                    شماره حساب
+                </dt>
+
+                <dd>
+                    {{bankAccount.accounNumber}}
+                </dd>
+
+                
+            </dl>
+        </li>
+    </ul>
+</details>

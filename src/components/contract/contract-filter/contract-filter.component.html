@@ -17,6 +17,33 @@
                 ></select-project>
             </li>
 
+            <li>
+                <label
+                    for="cmpFilteStartDate"
+                >
+                    از تاریخ
+                </label>
+                <shmasi-date-picker
+                    id="cmpFilteStartDate"
+                    name="cmpFilteStartDate"
+                    (setSelectedDate)="setStartDate($event)"
+                >
+                </shmasi-date-picker>
+
+            </li>
+            <li>
+                <label
+                    for="cmpFilteEndDate"
+                >
+                    تا تاریخ
+                </label>
+                <shmasi-date-picker
+                    id="cmpFilteEndDate"
+                    name="cmpFilteEndDate"
+                    (setSelectedDate)="setEndDate($event)"
+                ></shmasi-date-picker>
+            </li>
+
             <li class="sort-filter">
                 <label
                     for="rbtnSortBy"
@@ -51,19 +78,12 @@
                 <button
                     type="button"
                     class="secondary"
+                    (click)="filter()"
                 >
                     فیلتر
                 </button>
             </li>
 
-            <li>
-                <button
-                    type="button"
-                    class="secondary"
-                >
-                    حذف فیلتر
-                </button>
-            </li>
         </ul>
     </fieldset>
 </form>

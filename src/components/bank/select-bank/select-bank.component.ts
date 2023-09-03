@@ -14,6 +14,7 @@ export class SelectBankComponent implements OnInit
 		@Output() setBank = new EventEmitter<any>();
 
 		bankList: any[]= [];
+		selectedBank: any = {};
 
 		constructor
 		(
@@ -42,12 +43,19 @@ export class SelectBankComponent implements OnInit
 						)
 				}
 
+		remove
+		():void
+			{
+				this.selectedBank = {};
+				this.setBank.emit(undefined);
+			}
 
 		selectBank
 		(
 			bank:any
 		):void
 			{
+				this.selectedBank = bank;
 				this.setBank.emit(bank);
 			}
 	}

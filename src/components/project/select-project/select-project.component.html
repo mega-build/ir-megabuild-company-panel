@@ -1,20 +1,49 @@
-<ul>
-    <li
-        *ngFor = 'let project of projectList'
+<section
+    *ngIf= "selectedProject.title"
+>
+    <dl
+        
     >
-        <input
-            type="radio"
-            name = 'project'
-            [attr.id]="project._id"
-            value="{{project._id}}"
-            (change)="selectProject(project)"
-            [checked]="project._id == selectedProject._id"
-            (input)="selectedProject"
+        <dt>
+            عنوان
+        </dt>
+        <dd>
+            {{selectedProject.title}}
+        </dd>
+
+    </dl>
+
+    <button
+        type="button"
+        (click)="remove()"
+    >
+        حذف
+    </button>
+</section>
+<details
+    *ngIf="!selectedProject.title"
+>
+    <summary>
+        انتخاب کنید
+    </summary>
+    <ul>
+        <li
+            *ngFor = 'let project of projectList'
         >
-        <label
-            [attr.for] = "project._id"
-        >
-            {{project.title}}
-        </label>
-    </li>
-</ul>
+            <input
+                type="radio"
+                name = 'project'
+                [attr.id]="project._id"
+                value="{{project._id}}"
+                (change)="selectProject(project)"
+                [checked]="project._id == selectedProject._id"
+                (input)="selectedProject"
+            >
+            <label
+                [attr.for] = "project._id"
+            >
+                {{project.title}}
+            </label>
+        </li>
+    </ul>
+</details>

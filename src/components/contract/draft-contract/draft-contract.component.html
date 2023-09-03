@@ -34,12 +34,14 @@
 
             <li>
                 <label
-                    for="txtContractDate"
+                    for="cmpContractDate"
                 >
                     تاریخ قرارداد
                 </label>
 
                 <shmasi-date-picker
+                    id="cmpContractDate"
+                    name="cmpContractDate"
                     (setSelectedDate)="setContractDate($event)"
                 ></shmasi-date-picker>
             </li>

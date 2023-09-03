@@ -44,6 +44,13 @@ export class SelectProjectComponent implements OnInit
 				}
 
 
+		remove
+		():void
+			{
+				this.selectedProject = {};
+				this.setProject.emit(undefined);
+			}
+
 		selectProject
 		(
 			project:any
