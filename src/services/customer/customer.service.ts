@@ -18,22 +18,24 @@ export class CustomerService {
 		private httpInteceptor: AuthHttpInterceptorService,
 	) { }
 
-	findByNationalCode
+	async findByNationalCode
 	(
 		nationalCode:string
-	):any
+	):Promise<any>
 		{
 			let headers: HttpHeaders = new HttpHeaders();
 
 			let url = `${this.URL_CUSTOMER_GET}/${nationalCode}`;
 
-			return this.httpInteceptor.getWithAuth(
+			const result = await this.httpInteceptor.getWithAuth_(
 				url,
 				headers
 			);
+			
+			return result;
 		}
 
-	add
+	async add
 	(
 		firstname: string,
 		lastname: string,
@@ -42,7 +44,7 @@ export class CustomerService {
 		phoneNumber: string,
 		postalCode: string,
 		address: string
-	):any
+	):Promise<any>
 		{
 			let headers: HttpHeaders = new HttpHeaders();
 			let body: any = {
@@ -54,10 +56,13 @@ export class CustomerService {
 				postalCode: postalCode,
 				address: address
 			};
-			return this.httpInteceptor.postWithAuth(
+			
+			const result = await this.httpInteceptor.postWithAuth_(
 				this.URL_CUSTOMER_ADD,
 				headers,
 				body
 			);
+
+			return result;
 		}
 }

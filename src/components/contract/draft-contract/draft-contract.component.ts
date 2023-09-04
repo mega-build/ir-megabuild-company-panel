@@ -83,21 +83,21 @@ export class DraftContractComponent
 				this.isLoading = true;
 
 				try 
-				{
-					const data = await this.contractService
-						.draft(
-							this.contract.contractType._id,
-							this.contract.contractNumber,
-							this.contract.contractDate,
-							this.contract.contractDateShamsi,
-							this.contract.contractFinishDate,
-							this.contract.contractFinishDateShamsi,
-						);
-					
-					this.contractId = data.contractId
-					this.isLoading = false;
-					this.navigateToAddCustomer();
-				}
+					{
+						const data = await this.contractService
+							.draft(
+								this.contract.contractType._id,
+								this.contract.contractNumber,
+								this.contract.contractDate,
+								this.contract.contractDateShamsi,
+								this.contract.contractFinishDate,
+								this.contract.contractFinishDateShamsi,
+							);
+						
+						this.contractId = data.contractId
+						this.isLoading = false;
+						this.navigateToAddCustomer();
+					}
 				catch
 				(
 					error: any
@@ -117,10 +117,6 @@ export class DraftContractComponent
 								alert(error)
 							}
 					}
-				
-
-				
-				
 			}
 
 		navigateToAddCustomer

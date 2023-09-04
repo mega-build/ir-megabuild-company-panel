@@ -22,47 +22,53 @@ export class ProjectItemService
 		constructor
 		(
 			private httpInteceptor: AuthHttpInterceptorService,
-		) { }
+		){}
 
-		get
+		async get
 		(
 			projectItemId: string
-		): any
+		): Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
 				let url = `${this.URL_PROJECT_ITEM_GET}/${projectItemId}`;
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					url,
 					headers
 				);
+
+				return result;
 			}
 
-		getByContractId
+		async getByContractId
 		(
 			contractId: string
-		): any
+		): Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
 				let url = `${this.URL_PROJECT_ITEM_GET_BY_CONTRACT_ID}/${contractId}`;
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await  this.httpInteceptor.getWithAuth_(
 					url,
 					headers
 				);
+
+				return result;
 			}
 
-		getAll
-		(): any
+		async getAll
+		(): Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					this.URL_PROJECT_ITEM_GETALL,
 					headers
 				);
+
+				return result;
 			}
 
 		async createResidential

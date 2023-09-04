@@ -16,15 +16,13 @@ export class ContractContractPaymentListComponent implements OnInit
 		@Input() contractId: string = "";
 
 		contractPaymentList: any[]=[]
-
 		isLoading:boolean = false;
 
 		constructor
-			(
-				private route: ActivatedRoute,
-				private contractPaymentService: ContractPaymentService
-			)
-				{}
+		(
+			private route: ActivatedRoute,
+			private contractPaymentService: ContractPaymentService
+		){}
 		
 		async getAllContractPaymentList
 		(): Promise<void>
@@ -47,8 +45,19 @@ export class ContractContractPaymentListComponent implements OnInit
 					error:any
 				)
 					{
-						this.isLoading = false;		
-						alert(error.error)	
+						this.isLoading = false;
+							if
+							(
+								error.error &&
+								error.error.message
+							)
+								{
+									alert(error.error.message);
+								}
+							else
+								{
+									alert(error)
+								}
 					}
 				
 			}
@@ -68,8 +77,6 @@ export class ContractContractPaymentListComponent implements OnInit
 							}
 						);
 					}
-				
-				
 			}
 
 	}

@@ -2,7 +2,9 @@
     <legend>
         ثبت اطلاعات خریدار
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label
@@ -81,6 +83,7 @@
                     id="txtMobileNumber"
                     name="txtMobileNumber"
                     maxlength="11"
+                    minlength="11"
                     [(ngModel)]= "customer.mobileNumber"
                 >
             </li>
@@ -116,6 +119,9 @@
             </li>
         </ul>
 
+        <loading
+            *ngIf="isLoading"
+        ></loading>
         <ul>
             <li>
                 <button

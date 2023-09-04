@@ -13,6 +13,7 @@ export class UserPanelComponent implements OnInit
 	{
 
 		userList: any[] = [];
+		isLoading: boolean = false;
 
 		constructor
 		(
@@ -24,19 +25,39 @@ export class UserPanelComponent implements OnInit
 			this.getAllUsers();
 		}
 
-		getAllUsers
-		():void
+		async getAllUsers
+		():Promise<void>
 			{
-				this.userService
-				.getAll()
-				.subscribe(
-					(data: any) => 
-						{
-							console.log(data.userList);
-							this.userList = data.userList;
-							
-						}
+				this.isLoading = true;
+
+				try 
+					{
+						const data = await this.userService.getAll();
+						
+						console.log(data.userList);
+						this.userList = data.userList;
+						this.isLoading = false;
+					}
+				catch
+				(
+					error: any
 				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
+				
 			}
 
 	}

@@ -81,6 +81,7 @@ import { ContractPaymentByContractListComponent } from 'src/components/contract-
 import { ContractPaymentByContractPanelComponent } from 'src/components/contract-payment/contract-payment-by-contract-panel/contract-payment-by-contract-panel.component';
 import { ContractPaymentFilterComponent } from '../components/contract-payment/contract-payment-filter/contract-payment-filter.component';
 import { LoadingComponent } from 'src/components/share/loading/loading.component';
+import { ValidationResultComponent } from 'src/components/share/validation-result/validation-result.component';
 
 
 
@@ -164,7 +165,8 @@ import { LoadingComponent } from 'src/components/share/loading/loading.component
     ContractPaymentByContractListComponent,
     ContractPaymentByContractListItemComponent,
     ContractPaymentFilterComponent,
-    LoadingComponent
+    LoadingComponent,
+    ValidationResultComponent
   ],
   imports: [
     BrowserModule,

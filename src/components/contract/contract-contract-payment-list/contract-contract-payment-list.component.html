@@ -1,11 +1,24 @@
 <section>
+    <loading
+        *ngIf="isLoading"
+    ></loading>
     <contract-payment-by-contract-list
-        *ngIf="contractPaymentList && contractPaymentList.length > 0"
+        *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
         [contractPaymentList]="contractPaymentList"
     ></contract-payment-by-contract-list>
+
+    <div
+        *ngIf="!isLoading && contractPaymentList && contractPaymentList.length == 0"
+        class="container empty"
+    >
+        پرداختی  برای این قرارداد وجود ندارد
+    </div>
 </section>
+
 <section class="container">
     <add-contract-payment
         [contractId] = "contractId"
     ></add-contract-payment>
 </section>
+
+

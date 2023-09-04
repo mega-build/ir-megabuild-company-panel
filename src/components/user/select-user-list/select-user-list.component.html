@@ -1,4 +1,9 @@
-<ul>
+<loading
+    *ngIf="isLoading"
+></loading>
+<ul
+    *ngIf="!isLoading"
+>
     <li
         *ngFor = 'let user of userList'
     >
@@ -12,9 +17,9 @@
             (change)="selectedUserChanged(refEl,user)"
         >
         <label
-        for= "chkUser{{user._id}}"
-    >
-        {{user.firstname}} {{user.lastname}}
-    </label>
+            for= "chkUser{{user._id}}"
+        >
+            {{user.firstname}} {{user.lastname}}
+        </label>
     </li>
 </ul>

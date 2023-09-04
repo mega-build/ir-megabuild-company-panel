@@ -1,4 +1,10 @@
-<ul>
+<loading
+    *ngIf="isLoading"
+></loading>
+
+<ul
+    *ngIf="!isLoading"
+>
     <li
         *ngFor = 'let projectType of projectTypeList'
     >

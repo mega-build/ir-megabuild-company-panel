@@ -2,9 +2,15 @@
     href="/userManagement/add"
     class="add-new-user"
 >
-افزودن کاربر
+    افزودن کاربر
 </a>
-<ul class="user-panel container">
+<loading
+    *ngIf="isLoading"
+></loading>
+<ul
+    *ngIf="!isLoading"
+    class="user-panel container"
+>
     <ul class="user-panel-header">
         <li>نام و نام خانوادگی</li>
         <li>ایمیل</li>

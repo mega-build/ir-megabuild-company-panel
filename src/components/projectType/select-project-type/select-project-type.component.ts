@@ -16,6 +16,7 @@ export class SelectProjectTypeComponent implements OnInit
 		@Input() selectedProjectType:any ={};
 
 		projectTypeList: any[]=[]
+		isLoading: boolean = false;
 		
 		constructor
 			(
@@ -29,20 +30,37 @@ export class SelectProjectTypeComponent implements OnInit
 				this.getAllProjectTypeList();
 			}
 
-		getAllProjectTypeList
-			(): void
-				{
-					this.projectTypeService
-						.getAll()
-						.subscribe(
-							(data: any) => 
-								{
-									console.log(data.projectTypeList);
-									this.projectTypeList = data.projectTypeList;
-									
-								}
+		async getAllProjectTypeList
+		(): Promise<void>
+			{
+				try
+					{
+						this.isLoading = true;
+						const data = await this.projectTypeService.getAll();
+						console.log(data.projectTypeList);
+						this.projectTypeList = data.projectTypeList;
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
 						)
-				}
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
+			}
 
 		selectProjectType
 		(

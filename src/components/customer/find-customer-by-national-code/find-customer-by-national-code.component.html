@@ -2,7 +2,9 @@
     <legend>
         جستجوی مشتری با کد ملی
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label
@@ -12,7 +14,7 @@
                 </label>
 
                 <input
-                    type="text"
+                    type="search"
                     id="txtNationalCode"
                     name="txtNationalCode"
                     [(ngModel)]="nationalCode"
@@ -20,25 +22,25 @@
                 >
             </li>
         </ul>
-
+        <loading
+            *ngIf="isLoading"
+        ></loading>
         <ul>
-            <ul>
-                <li>
-                    <button
-                        type="button"
-                        (click)="getByNationalCode()"
-                        class="primary"
-                    >
-                        جستجو
-                    </button>
-                </li>
-            </ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="getByNationalCode()"
+                    class="primary"
+                >
+                    جستجو
+                </button>
+            </li>
         </ul>
     </fieldset>
 </form>
 
 <section
-    *ngIf="customer"
+    *ngIf="customer && customer.nationalCode"
     class="container"
 >
     <customer-label
@@ -55,11 +57,14 @@
 <section
     *ngIf="!customer && !isLoading"
 >
+    <b>
+        چیزی یافت نشد!
+    </b>
     <button
         type="button"
         (click)="addNewCustomerWithNationalCode()"
         class="add-new-customer"
     >
-    افزودن به عنوان خریدار جدید
+        افزودن به عنوان خریدار جدید
     </button>
 </section>

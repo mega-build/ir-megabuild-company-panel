@@ -42,23 +42,42 @@ export class SetUserAccessComponent implements OnInit
 					}
 			}
 
-		getUser
-		(): void
+		async getUser
+		(): Promise<void>
 			{
 				this.isLoading = true;
-				this.userService
-					.get(
-						this.userId
-					)
-					.subscribe(
-						(data: any) => 
+
+				try 
+					{
+						const data = await this.userService
+							.get(
+								this.userId
+							);
+						
+						console.log(data.user);
+						this.user = data.user;
+						this.isLoading = false;
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								console.log(data.user);
-								this.user = data.user;
-								this.isLoading = false;
-								
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
+
 			}
 
 		save

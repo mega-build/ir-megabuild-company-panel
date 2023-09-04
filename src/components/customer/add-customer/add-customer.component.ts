@@ -29,30 +29,47 @@ export class AddCustomerComponent implements OnInit
 				this.customer.nationalCode = this.newNationalCode;
 			}
 
-		save
-		():void
+		async save
+		():Promise<void>
 			{
-				this.isLoading = true;
-				this.customerService
-				.add(
-					this.customer.firstname,
-					this.customer.lastname,
-					this.customer.nationalCode,
-					this.customer.mobileNumber,
-					this.customer.phoneNumber,
-					this.customer.postalCode,
-					this.customer.address
+				try
+					{
+						this.isLoading = true;
+						const data = await this.customerService
+							.add(
+								this.customer.firstname,
+								this.customer.lastname,
+								this.customer.nationalCode,
+								this.customer.mobileNumber,
+								this.customer.phoneNumber,
+								this.customer.postalCode,
+								this.customer.address
+							);
+
+						console.log(data.customerId);
+						this.customer._id = data.customerId
+						this.isLoading = false;
+						this.onCustomerAdded.emit(this.customer);
+					}
+				catch
+				(
+					error:any
 				)
-				.subscribe(
-					(data: any) => 
-						{
-							console.log(data.customerId);
-							this.customer._id = data.customerId
-							this.isLoading = false;
-							this.onCustomerAdded.emit(this.customer);
-							
-						}
-				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
 			}
 	}
 

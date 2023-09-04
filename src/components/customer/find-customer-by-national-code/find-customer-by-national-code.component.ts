@@ -22,32 +22,50 @@ export class FindCustomerByNationalCodeComponent
 		constructor
 		(
 			private customerService: CustomerService
-		)
-			{}
+		){}
 
-		getByNationalCode
-		():void
+		async getByNationalCode
+		():Promise<void>
 			{
-				this.isLoading = true;
-				this.customerService
-					.findByNationalCode(
-						this.nationalCode
-					)
-					.subscribe(
-						(data: any) => 
+				try
+					{
+						this.isLoading = true;
+						const data = await this.customerService
+							.findByNationalCode(
+								this.nationalCode
+							)
+						console.log(data.customer);
+						this.customer = data.customer;
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								console.log(data.customer);
-								this.customer = data.customer;
-								this.isLoading = false;
-								
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
+				
 			}
 
 		selectCustomer
 		():void
 			{
 				this.onCustomerSelected.emit(this.customer);
+				this.nationalCode = "";
+				this.customer = {};
 			}
 
 		addNewCustomerWithNationalCode

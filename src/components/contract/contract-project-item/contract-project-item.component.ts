@@ -25,33 +25,52 @@ export class ContractProjectItemComponent implements OnInit{
 		)
 			{}
 	
-	getProjectItemByContractId
-	(): void
+	async getProjectItemByContractId
+	(): Promise<void>
 		{
 			this.isLoading = true;
-			this.projectItemService
-				.getByContractId(
-					this.contractId
-				)
-				.subscribe(
-					(data: any) => 
+
+			try 
+				{
+					const data = await this.projectItemService
+						.getByContractId(
+							this.contractId
+						);
+					
+					console.log(data.projectItem);
+					if
+					(
+						!data.projectItem._id
+					)
 						{
-							console.log(data.projectItem);
-							if
-							(
-								!data.projectItem._id
-							)
-								{
-									this.projectItem = undefined;
-								}
-							else
-								{
-									this.projectItem = data.projectItem;
-								}
-							
-							this.isLoading = false;
+							this.projectItem = undefined;
 						}
-				)
+					else
+						{
+							this.projectItem = data.projectItem;
+						}
+					
+					this.isLoading = false;
+				}
+			catch
+			(
+				error: any
+			)
+				{
+					this.isLoading = false;
+					if
+					(
+						error.error &&
+						error.error.message
+					)
+						{
+							alert(error.error.message);
+						}
+					else
+						{
+							alert(error)
+						}
+				}
 		}
 
 	setProject

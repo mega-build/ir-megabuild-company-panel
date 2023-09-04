@@ -10,63 +10,84 @@ import { UserService } from 'src/services/user/user.service';
 )
 
 export class SelectUserListComponent implements OnInit
-{
+	{
 
-	@Output() onSelectedUserChanged = new EventEmitter<any>();
+		@Output() onSelectedUserChanged = new EventEmitter<any>();
 
-	selectedUserList: any[]=[];
+		selectedUserList: any[]=[];
 
-	userList: any[] = [];
+		userList: any[] = [];
+		isLoading: boolean = false;
 
-	constructor
-	(
-		private userService: UserService
-	)
-		{}
+		constructor
+		(
+			private userService: UserService
+		)
+			{}
 
-	ngOnInit(): void {
-		this.getAllUsers();
-	}
+		ngOnInit(): void {
+			this.getAllUsers();
+		}
 
-	getAllUsers
-	():void
-		{
-			this.userService
-			.getAll()
-			.subscribe(
-				(data: any) => 
+		async getAllUsers
+		():Promise<void>
+			{
+				
+				this.isLoading = true;
+
+					try 
+						{
+							const data = await this.userService.getAll()
+							
+							console.log(data.userList);
+							this.userList = data.userList;
+							this.isLoading = false;
+						}
+					catch
+					(
+						error: any
+					)
+						{
+							this.isLoading = false;
+							if
+							(
+								error.error &&
+								error.error.message
+							)
+								{
+									alert(error.error.message);
+								}
+							else
+								{
+									alert(error)
+								}
+						}
+			}
+
+		selectedUserChanged
+		(
+			element:HTMLInputElement,
+			user:any
+		):void
+			{
+				console.log(element);
+
+				if
+				(
+					element.checked == true
+				)
 					{
-						console.log(data.userList);
-						this.userList = data.userList;
+						this.selectedUserList.push(user);
 						
 					}
-			)
-		}
-
-	selectedUserChanged
-	(
-		element:HTMLInputElement,
-		user:any
-	):void
-		{
-			console.log(element);
-
-			if
-			(
-				element.checked == true
-			)
-				{
-					this.selectedUserList.push(user);
-					
-				}
-			else
-				{
-					this.selectedUserList.splice(
-						this.selectedUserList.indexOf(user),
-						1
-					);
-				}
-			
-			this.onSelectedUserChanged.emit(this.selectedUserList);
-		}
-}
+				else
+					{
+						this.selectedUserList.splice(
+							this.selectedUserList.indexOf(user),
+							1
+						);
+					}
+				
+				this.onSelectedUserChanged.emit(this.selectedUserList);
+			}
+	}

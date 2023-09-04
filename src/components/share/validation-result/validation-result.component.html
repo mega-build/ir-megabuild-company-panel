@@ -1,0 +1,10 @@
+<ul
+    *ngIf="validationResult.messageList && validationResult.messageList.length > 0"
+>
+    <li
+        *ngFor = 'let messsage of validationResult.messageList'
+    >
+        {{messsage}}
+    </li>
+    
+</ul>

@@ -3,9 +3,12 @@ import { Injectable } from '@angular/core';
 import { AuthHttpInterceptorService } from '../authHttpInterceptor/auth-http-interceptor.service';
 import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable(
+	{
+		providedIn: 'root'
+	}
+)
+
 export class UserService
 	{
 
@@ -17,32 +20,36 @@ export class UserService
 		constructor
 		(
 			private httpInteceptor: AuthHttpInterceptorService,
-		) { }
+		){}
 
 
-		get(
+		async get(
 			userId:string
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
 				const url = `${this.URL_USER_GET}/${userId}` 
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					url,
 					headers
 				);
+
+				return result;
 			}
 
-		getAll
-		(): any
+		async getAll
+		(): Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					this.URL_USER_GETALL,
 					headers
 				);
+				
+				return result;
 			}
 
 		create
