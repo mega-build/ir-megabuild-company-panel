@@ -6,7 +6,9 @@
     <legend>
         ثبت مورد قرارداد
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             
             <li>
@@ -72,9 +74,13 @@
             </dl>
         </section>
 
+        <loading
+            *ngIf="isLoading"
+        ></loading>
         <ul>
             <li>
-                <button class="primary"
+                <button
+                    class="primary"
                     type="button"
                     (click)="saveProjectItem()"
                 >

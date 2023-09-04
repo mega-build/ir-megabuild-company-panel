@@ -19,6 +19,7 @@ export class AddResidentialProjectItemComponent
 		residentialProjectItem:any = {};
 		projectItemId: string="";
 		isLoading:boolean = false;
+		validationResult: any ={};
 
 		constructor
 		(
@@ -34,40 +35,92 @@ export class AddResidentialProjectItemComponent
 				this.residentialProjectItem.unitPrice = price;
 			}
 		
+		validate
+		(
+			residentialProjectItem: any
+		): any
+			{
+				let validationResult: any ={
+					hasError: false,
+					messageList: []
+				};
+			
+				if (!residentialProjectItem.unit){
+					validationResult.hasError = true;
+					validationResult.messageList.push("بخش واحد را وارد کنید.");
+				}
+			
+				if(!residentialProjectItem.unitPrice){
+					validationResult.hasError = true;
+					validationResult.messageList.push("بخش واحد را وارد کنید.");
+				}
+			
+			
+				if(!residentialProjectItem.block){
+					validationResult.hasError = true;
+					validationResult.messageList.push("بخش بلوک را وارد کنید.");
+				}
+
+				if(!residentialProjectItem.floor){
+					validationResult.hasError = true;
+					validationResult.messageList.push("بخش طبقه را وارد کنید.");
+				}
+
+				if(!residentialProjectItem.buildupArea){
+					validationResult.hasError = true;
+					validationResult.messageList.push("بخش زیربنا را وارد کنید.");
+				}
+			
+				return validationResult;
+			}
+
 		async saveProjectItem
 		():Promise<void>
 			{
-				try
-					{
+				
+				const validationResult = this.validate(this.residentialProjectItem);
 
-						this.isLoading = true;
-
-						const data = await this.projectItemService
-							.createResidential(
-								this.projectId,
-								this.residentialProjectItem.unit,
-								this.residentialProjectItem.unitPrice,
-								this.residentialProjectItem.block,
-								this.residentialProjectItem.floor,
-								this.residentialProjectItem.buildupArea
-							);
-
-						console.log(data.projectItemId);
-						this.projectItemId = data.projectItemId;
-						this.residentialProjectItem._id = data.projectItemId
-						this.onProjectItemAdded.emit(this.residentialProjectItem);
-						
-						this.isLoading = false;
-					}
-				catch
+				if
 				(
-					error:any
+					!validationResult.hasError
 				)
 					{
-						this.isLoading = false;
-						alert(error.error);
+						try
+							{
+		
+								this.isLoading = true;
+		
+								const data = await this.projectItemService
+									.createResidential(
+										this.projectId,
+										this.residentialProjectItem.unit,
+										this.residentialProjectItem.unitPrice,
+										this.residentialProjectItem.block,
+										this.residentialProjectItem.floor,
+										this.residentialProjectItem.buildupArea
+									);
+		
+								console.log(data.projectItemId);
+								this.projectItemId = data.projectItemId;
+								this.residentialProjectItem._id = data.projectItemId
+								this.onProjectItemAdded.emit(this.residentialProjectItem);
+								
+								this.isLoading = false;
+							}
+						catch
+						(
+							error:any
+						)
+							{
+								this.isLoading = false;
+								alert(error.error);
+							}
 					}
-				
+				else
+					{
+						this.validationResult = validationResult;
+					}
+
 			}
 
 		calculateTotalPrice

@@ -61,7 +61,18 @@ export class AddLandParcelProjectItemComponent
 				)
 					{
 						this.isLoading = false;
-						alert(error.error);
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
 					}
 				
 			}
