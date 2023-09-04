@@ -1,0 +1,49 @@
+<form  class="container">
+    <legend>
+        فیلتر پرداخت ها
+    </legend>
+    <fieldset>
+        <ul>
+           
+            <li>
+                <label
+                    for="cmpFilteStartDate"
+                >
+                    از تاریخ
+                </label>
+                <shmasi-date-picker
+                    id="cmpFilteStartDate"
+                    name="cmpFilteStartDate"
+                    (setSelectedDate)="setStartDate($event)"
+                >
+                </shmasi-date-picker>
+
+            </li>
+            <li>
+                <label
+                    for="cmpFilteEndDate"
+                >
+                    تا تاریخ
+                </label>
+                <shmasi-date-picker
+                    id="cmpFilteEndDate"
+                    name="cmpFilteEndDate"
+                    (setSelectedDate)="setEndDate($event)"
+                ></shmasi-date-picker>
+            </li>
+
+        </ul>
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    class="secondary"
+                    (click)="filter()"
+                >
+                    فیلتر
+                </button>
+            </li>
+
+        </ul>
+    </fieldset>
+</form>

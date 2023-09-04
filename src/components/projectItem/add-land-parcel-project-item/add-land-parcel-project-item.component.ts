@@ -32,32 +32,56 @@ export class AddLandParcelProjectItemComponent
 			{
 				this.landParcelProjectItem.unitPrice = price;
 			}
-		saveProjectItem
-		():void
+			
+		async saveProjectItem
+		():Promise<void>
 			{
-				this.projectItemService
-				.createLandParcel(
-					this.projectId,
-					this.landParcelProjectItem.unit,
-					this.landParcelProjectItem.unitPrice,
-					this.landParcelProjectItem.area
+				try
+					{
+						this.isLoading = true;
+						
+						const data = await this.projectItemService
+							.createLandParcel(
+								this.projectId,
+								this.landParcelProjectItem.unit,
+								this.landParcelProjectItem.unitPrice,
+								this.landParcelProjectItem.area
+							)
+						
+						console.log(data.projectItemId);
+						this.projectItemId = data.projectItemId;
+						this.landParcelProjectItem._id = data.projectItemId
+						this.onProjectItemAdded.emit(this.landParcelProjectItem);
+						
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
 				)
-				.subscribe(
-					(data: any) => 
-						{
-							console.log(data.projectItemId);
-							this.projectItemId = data.projectItemId;
-							this.landParcelProjectItem._id = data.projectItemId
-							this.onProjectItemAdded.emit(this.landParcelProjectItem);
-							
-							this.isLoading = false;
-						}
-				)
+					{
+						this.isLoading = false;
+						alert(error.error);
+					}
+				
 			}
 
-		calculateTotalPrice():string
+		calculateTotalPrice
+		():number
 			{
-				let totalPriceNumber = this.landParcelProjectItem.area * this.landParcelProjectItem.unitPrice;
-				return totalPriceNumber + "ريال";
+				if
+				(
+					this.landParcelProjectItem.area &&
+					this.landParcelProjectItem.unitPrice
+				)
+					{
+						const totalPriceNumber = this.landParcelProjectItem.area * this.landParcelProjectItem.unitPrice;
+						return totalPriceNumber;
+					}
+				else
+					{
+						return 0
+					}
+				
 			}
 	}

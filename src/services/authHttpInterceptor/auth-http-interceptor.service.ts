@@ -86,6 +86,21 @@ export class AuthHttpInterceptorService
 					);
 			}
 
+		async getWithAuth_
+		(
+			url: string, headers: HttpHeaders
+		):Promise<any>
+			{
+				const result = await this.http
+					.get(url,
+						{
+							headers: this.getAuthHeader(headers)
+						}
+					).toPromise();
+
+				return result;
+			}
+
 		postWithAuth(
 			url: string,
 			headers: HttpHeaders,
@@ -98,6 +113,22 @@ export class AuthHttpInterceptorService
 							headers: this.getAuthHeader(headers)
 						}
 					);
+			}
+
+		async postWithAuth_(
+			url: string,
+			headers: HttpHeaders,
+			body: any
+		): Promise<any>
+			{
+				const reuslt = await this.http
+					.post(url,body,
+						{
+							headers: this.getAuthHeader(headers)
+						}
+					).toPromise();
+
+				return reuslt;
 			}
 
 		deleteWithAuth(

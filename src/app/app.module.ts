@@ -75,6 +75,12 @@ import { ContractPaymentListComponent } from 'src/components/contract-payment/co
 import { PriceLabelComponent } from '../components/share/price-label/price-label.component';
 import { ContractReviewIconComponent } from '../components/contractReview/contract-review-icon/contract-review-icon.component';
 import { MenuSelectUserCompanyAccessComponent } from 'src/components/userCompanyAccess/menu-select-user-company-access/menu-select-user-company-access.component';
+import { ProjectLabelComponent } from '../components/project/project-label/project-label.component';
+import { ContractPaymentByContractListItemComponent } from 'src/components/contract-payment/contract-payment-by-contract-list-item/contract-payment-by-contract-list-item.component';
+import { ContractPaymentByContractListComponent } from 'src/components/contract-payment/contract-payment-by-contract-list/contract-payment-by-contract-list.component';
+import { ContractPaymentByContractPanelComponent } from 'src/components/contract-payment/contract-payment-by-contract-panel/contract-payment-by-contract-panel.component';
+import { ContractPaymentFilterComponent } from '../components/contract-payment/contract-payment-filter/contract-payment-filter.component';
+import { LoadingComponent } from 'src/components/share/loading/loading.component';
 
 
 
@@ -153,6 +159,12 @@ import { MenuSelectUserCompanyAccessComponent } from 'src/components/userCompany
     PriceLabelComponent,
     ContractReviewIconComponent,
     MenuSelectUserCompanyAccessComponent,
+    ProjectLabelComponent,
+    ContractPaymentByContractPanelComponent,
+    ContractPaymentByContractListComponent,
+    ContractPaymentByContractListItemComponent,
+    ContractPaymentFilterComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+ol {
+    border-radius: 12px;
+    border: 2px solid #eaecf0;
+    padding:0 0 16px 0;
+  }
+  ol .contract-payment-list-item {
+    display: flex;
+    border-bottom: 1px solid #eaecf0;
+    border-top: 1px solid #eaecf0;
+    padding:8px 16px 18px 16px;
+  }
+  contract-payment-list-item {
+    display: grid;
+    grid-template-columns: 95% 5%;
+    width: 100%;
+  }
+  ol .contract-payment-list-item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  ol .contract-payment-list-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  ul {
+    display: flex;
+    background-color: #f9fafb;
+    padding: 16px;
+    justify-content: space-between;
+  }
+  ul li {
+    color: #667085;
+    font-size: 12px;
+  }
+  

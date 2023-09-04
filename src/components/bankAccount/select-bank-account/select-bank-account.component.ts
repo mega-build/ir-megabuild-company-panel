@@ -15,6 +15,7 @@ export class SelectBankAccountComponent implements OnInit
 
 		bankAccountList: any[]= [];
 		selectedBankAccount:any = {};
+		isLoading: boolean = false;
 
 		constructor
 			(
@@ -28,19 +29,26 @@ export class SelectBankAccountComponent implements OnInit
 				this.getAllProjectTypeList();
 			}
 
-		getAllProjectTypeList
-			(): void
+		async getAllProjectTypeList
+			(): Promise<void>
 				{
-					this.bankAccountService
-						.getAll()
-						.subscribe(
-							(data: any) => 
-								{
-									console.log(data.bankAccountList);
-									this.bankAccountList = data.bankAccountList;
-									
-								}
-						)
+					try
+						{
+							this.isLoading = true;
+							const data = await this.bankAccountService.getAll()
+							console.log(data.bankAccountList);
+							this.bankAccountList = data.bankAccountList;
+							this.isLoading = false;
+						}
+					catch
+					(
+						error:any
+					)
+						{
+							this.isLoading = false;
+							alert(error.error);
+						}
+					
 				}
 
 		remove

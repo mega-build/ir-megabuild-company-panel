@@ -20,7 +20,10 @@
         پروژه
     </dt>
     <dd>
-        {{contractPayment.contract.project.title}}
+        <project-label
+        [project]="contractPayment.contract.project"
+        ></project-label>
+        
     </dd>
 
     <dt>

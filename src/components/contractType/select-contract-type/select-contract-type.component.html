@@ -1,4 +1,9 @@
-<ul>
+<loading
+    *ngIf="isLoading"
+></loading>
+<ul
+    *ngIf="!isLoading"
+>
     <li
         *ngFor = 'let contractType of contractTypeList'
         

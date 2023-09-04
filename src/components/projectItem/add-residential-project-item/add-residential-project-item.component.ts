@@ -34,35 +34,58 @@ export class AddResidentialProjectItemComponent
 				this.residentialProjectItem.unitPrice = price;
 			}
 		
-		saveProjectItem
-		():void
+		async saveProjectItem
+		():Promise<void>
 			{
-				this.projectItemService
-				.createResidential(
-					this.projectId,
-					this.residentialProjectItem.unit,
-					this.residentialProjectItem.unitPrice,
-					this.residentialProjectItem.block,
-					this.residentialProjectItem.floor,
-					this.residentialProjectItem.buildupArea
+				try
+					{
+
+						this.isLoading = true;
+
+						const data = await this.projectItemService
+							.createResidential(
+								this.projectId,
+								this.residentialProjectItem.unit,
+								this.residentialProjectItem.unitPrice,
+								this.residentialProjectItem.block,
+								this.residentialProjectItem.floor,
+								this.residentialProjectItem.buildupArea
+							);
+
+						console.log(data.projectItemId);
+						this.projectItemId = data.projectItemId;
+						this.residentialProjectItem._id = data.projectItemId
+						this.onProjectItemAdded.emit(this.residentialProjectItem);
+						
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
 				)
-				.subscribe(
-					(data: any) => 
-						{
-							console.log(data.projectItemId);
-							this.projectItemId = data.projectItemId;
-							this.residentialProjectItem._id = data.projectItemId
-							this.onProjectItemAdded.emit(this.residentialProjectItem);
-							
-							this.isLoading = false;
-						}
-				)
+					{
+						this.isLoading = false;
+						alert(error.error);
+					}
+				
 			}
 
-		calculateTotalPrice():string
+		calculateTotalPrice
+		():number
 			{
-				let totalPriceNumber = this.residentialProjectItem.buildupArea * this.residentialProjectItem.unitPrice;
-				return totalPriceNumber + "ريال";
+				if
+				(
+					this.residentialProjectItem.buildupArea &&
+					this.residentialProjectItem.unitPrice
+				)
+					{
+						const totalPriceNumber = this.residentialProjectItem.buildupArea * this.residentialProjectItem.unitPrice;
+						return totalPriceNumber;
+					}
+				else
+					{
+						return 0
+					}
 			}
 		
 	}

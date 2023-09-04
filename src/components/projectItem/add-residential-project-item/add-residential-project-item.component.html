@@ -98,7 +98,9 @@
                     مجموع قیمت
                 </dt>
                 <dd>
-                    {{calculateTotalPrice()}}
+                    <price-label
+                        [price]="calculateTotalPrice()"
+                    ></price-label>
                 </dd>
             </dl>
         </section>

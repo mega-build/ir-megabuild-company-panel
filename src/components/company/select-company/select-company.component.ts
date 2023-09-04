@@ -16,6 +16,7 @@ export class SelectCompanyComponent implements OnInit
 	@Input() selectedCompany:any ={};
 
 	companyList: any[]= [];
+	isLoading: boolean = false;
 	
 		
 	constructor
@@ -30,19 +31,27 @@ export class SelectCompanyComponent implements OnInit
 			this.getAllCompanyList();
 		}
 
-		getAllCompanyList
-		(): void
+		async getAllCompanyList
+		(): Promise<void>
 			{
-				this.companyService
-					.getAll()
-					.subscribe(
-						(data: any) => 
-							{
-								console.log(data.companyList);
-								this.companyList = data.companyList;
-								
-							}
-					)
+				try
+					{
+						this.isLoading = true;
+						const data = await this.companyService.getAll();
+						console.log(data.companyList);
+						this.companyList = data.companyList;
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						alert(error.error)	
+					}
+				
+					
 			}
 
 

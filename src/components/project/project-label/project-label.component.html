@@ -1,0 +1,10 @@
+<b
+    *ngIf="project && project.title"
+>
+    {{project.title}}
+</b>
+<b
+    *ngIf="!project || !project.title"
+>
+    نامشخص
+</b>

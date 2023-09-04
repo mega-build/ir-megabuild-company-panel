@@ -16,6 +16,7 @@ export class SelectContractTypeComponent implements OnInit
 		@Input() selectedContractType:any ={};
 
 		contractTypeList: any[]= [];
+		isLoading: boolean = false;
 		
 			
 		constructor
@@ -30,19 +31,37 @@ export class SelectContractTypeComponent implements OnInit
 				this.getAllContractTypeList();
 			}
 
-		getAllContractTypeList
-			(): void
+		async getAllContractTypeList
+			(): Promise<void>
 				{
-					this.contractTypeService
-						.getAll()
-						.subscribe(
-							(data: any) => 
+					try
+						{
+							this.isLoading = true;
+							const data = await this.contractTypeService.getAll();
+							console.log(data.contractTypeList);
+							this.contractTypeList = data.contractTypeList;
+							this.isLoading = false;
+						}
+					catch
+					(
+						error:any
+					)
+						{
+							this.isLoading = false;
+							if
+							(
+								error.error &&
+								error.error.message
+							)
 								{
-									console.log(data.contractTypeList);
-									this.contractTypeList = data.contractTypeList;
-									
+									alert(error.error.message);
 								}
-						)
+							else
+								{
+									alert(error)
+								}
+						}
+					
 				}
 
 

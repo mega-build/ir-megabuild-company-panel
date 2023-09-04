@@ -117,19 +117,21 @@ export class ContractPaymentService
 					body
 				);
 			}
-		getAllByContract
+		async getAllByContract
 		(
 			contractId: string
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
 				let url = `${this.URL_CONTRACT_PAYMENT_GETALL_BY_CONTRACT}/${contractId}`;
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					url,
 					headers
 				);
+
+				return result;
 			}
 
 		getAllFromDateToDate

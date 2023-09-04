@@ -43,8 +43,13 @@
     <summary>
         انتخاب کنید
     </summary>
+    <loading
+        *ngIf="isLoading"
+    ></loading>
    
-    <ul>
+    <ul
+        *ngIf="!isLoading"
+    >
         <li
             *ngFor = 'let bankAccount of bankAccountList'
             (click) = 'selectBankAccount(bankAccount)'

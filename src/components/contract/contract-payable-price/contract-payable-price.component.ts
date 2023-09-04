@@ -79,23 +79,31 @@ export class ContractPayablePriceComponent implements OnInit
 				
 			}
 
-		getContract
-		(): void
-			{
-				this.isLoading = true;
-				this.contractService
-					.get(
-						this.contractId
+		async getContract
+			(): Promise<void>
+				{
+
+					try
+						{
+							this.isLoading = true;
+							const data = await this.contractService
+								.get(
+									this.contractId
+								);
+							console.log(data.contract);
+							const contract = data.contract;
+							this.discount = contract.discount;
+							this.payablePrice = contract.payablePrice;
+							this.isLoading = false;
+						}
+					catch
+					(
+						error: any
 					)
-					.subscribe(
-						(data: any) => 
-							{
-								console.log(data.contract);
-								let contract = data.contract;
-								this.discount = contract.discount;
-								this.payablePrice = contract.payablePrice;
-								this.isLoading = false;
-							}
-					)
-			}
+						{
+							this.isLoading = false;
+							alert(error.error);
+						}
+					
+				}
 	}

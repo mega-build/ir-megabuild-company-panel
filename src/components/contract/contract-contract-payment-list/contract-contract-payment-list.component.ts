@@ -26,22 +26,31 @@ export class ContractContractPaymentListComponent implements OnInit
 			)
 				{}
 		
-		getAllContractPaymentList
-		(): void
+		async getAllContractPaymentList
+		(): Promise<void>
 			{
-				this.isLoading = true;
-				this.contractPaymentService
-					.getAllByContract(
-						this.contractId
-					)
-					.subscribe(
-						(data: any) => 
-							{
-								console.log(data.contractPaymentList);
-								this.contractPaymentList = data.contractPaymentList;
-								this.isLoading = false;
-							}
-					)
+				try
+					{
+						this.isLoading = true;
+						const data = await this.contractPaymentService
+							.getAllByContract(
+								this.contractId
+							)
+
+						console.log(data.contractPaymentList);
+						this.contractPaymentList = data.contractPaymentList;
+						this.isLoading = false;		
+
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;		
+						alert(error.error)	
+					}
+				
 			}
 
 		ngOnInit

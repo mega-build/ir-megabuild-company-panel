@@ -20,10 +20,20 @@ export class ContractPaymentPanelComponent implements OnInit
 			)
 				{}
 
+		setFilter
+		(
+			filterOptions:any
+		):void
+			{
+				console.log(filterOptions);
+				
+				this.getAllContractPaymentListFromDateToDate();
+			}
+
 		ngOnInit
 		(): void 
 			{
-				this.getAllContractPaymentListFromDateToDate();
+				//this.getAllContractPaymentListFromDateToDate();
 			}
 
 		getAllContractPaymentListFromDateToDate

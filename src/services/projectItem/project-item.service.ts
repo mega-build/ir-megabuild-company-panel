@@ -65,7 +65,7 @@ export class ProjectItemService
 				);
 			}
 
-		createResidential
+		async createResidential
 		(
 			projectId:string,
 			unit:string,
@@ -73,7 +73,7 @@ export class ProjectItemService
 			block:string,
 			floor: number,
 			buildupArea: number
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
@@ -86,20 +86,22 @@ export class ProjectItemService
 					buildupArea: buildupArea
 				};
 
-				return this.httpInteceptor.postWithAuth(
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_PROJECT_ITEM_ADD_RESIDENTIAL,
 					headers,
 					body
 				);
+
+				return result;
 			}
 
-		createLandParcel
+		async createLandParcel
 		(
 			projectId:string,
 			unit:string,
 			unitPrice: number,
 			area: number
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 				let body: any = {
@@ -108,11 +110,13 @@ export class ProjectItemService
 					unitPrice: unitPrice,
 					area: area
 				};
-				return this.httpInteceptor.postWithAuth(
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_PROJECT_ITEM_ADD_LAND_PACEL,
 					headers,
 					body
 				);
+
+				return result;
 			}
 			
 	}

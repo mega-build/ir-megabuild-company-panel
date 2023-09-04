@@ -1,5 +1,5 @@
 <i
-    *ngIf="projectItem.unit"
+    *ngIf="projectItem && projectItem.unit"
     title="واحد"
 >
     و {{projectItem.unit}}, 
@@ -7,7 +7,7 @@
 
 
 <i
-    *ngIf="projectItem.floor"
+    *ngIf="projectItem &&  projectItem.floor"
     title="طبقه"
 >
     ط {{projectItem.floor}}, 
@@ -15,8 +15,15 @@
 
 
 <i
-    *ngIf="projectItem.block"
+    *ngIf="projectItem && projectItem.block"
     title="بلوک"
 >
     ب {{projectItem.block}}
+</i>
+
+<i
+    *ngIf="!projectItem"
+    title = "اطلاعات مرتبط ثبت نشده است"
+>
+    نامشخص
 </i>

@@ -77,28 +77,50 @@ export class DraftContractComponent
 				);
 			}
 
-		draftContract
-		():void
+		async draftContract
+		():Promise<void>
 			{
 				this.isLoading = true;
-				this.contractService
-				.draft(
-					this.contract.contractType._id,
-					this.contract.contractNumber,
-					this.contract.contractDate,
-					this.contract.contractDateShamsi,
-					this.contract.contractFinishDate,
-					this.contract.contractFinishDateShamsi,
+
+				try 
+				{
+					const data = await this.contractService
+						.draft(
+							this.contract.contractType._id,
+							this.contract.contractNumber,
+							this.contract.contractDate,
+							this.contract.contractDateShamsi,
+							this.contract.contractFinishDate,
+							this.contract.contractFinishDateShamsi,
+						);
+					
+					this.contractId = data.contractId
+					this.isLoading = false;
+					this.navigateToAddCustomer();
+				}
+				catch
+				(
+					error: any
 				)
-				.subscribe(
-					(data: any) => 
-						{
-							console.log(data.contractId);
-							this.contractId = data.contractId
-							this.isLoading = false;
-							this.navigateToAddCustomer();
-						}
-				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
+				
+
+				
+				
 			}
 
 		navigateToAddCustomer

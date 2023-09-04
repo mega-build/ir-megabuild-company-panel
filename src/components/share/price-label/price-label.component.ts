@@ -30,6 +30,6 @@ export class PriceLabelComponent
 			{
 				return this.priceHelper.priceToWord(
 					this.price
-				)+ ' ريال'
+				)
 			}
 	}

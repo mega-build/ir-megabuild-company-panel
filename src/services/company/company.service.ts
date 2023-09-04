@@ -18,14 +18,16 @@ export class CompanyService
 		private httpInteceptor: AuthHttpInterceptorService,
 	) { }
 
-	getAll
-	(): any
+	async getAll
+	(): Promise<any>
 		{
 			let headers: HttpHeaders = new HttpHeaders();
 
-			return this.httpInteceptor.getWithAuth(
+			const result = await this.httpInteceptor.getWithAuth_(
 				this.URL_COMPANY_GETALL,
 				headers
 			);
+
+			return result;
 		}
 }

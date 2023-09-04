@@ -29,7 +29,7 @@
                 <label
                     for="txtArea"
                 >
-                    مساخت:
+                    مساحت:
                 </label>
                 <input
                     type="number"
@@ -65,7 +65,9 @@
                     مجموع قیمت
                 </dt>
                 <dd>
-                    {{calculateTotalPrice()}}
+                    <price-label
+                        [price]="calculateTotalPrice()"
+                    ></price-label>
                 </dd>
             </dl>
         </section>

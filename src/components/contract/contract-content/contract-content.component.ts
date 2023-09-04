@@ -127,22 +127,30 @@ export class ContractContentComponent implements OnInit
 			
 			}
 
-		getContract
-		(): void
+		async getContract
+		(): Promise<void>
 			{
-				this.isLoading = true;
-				this.contractService
-					.get(
-						this.contractId
-					)
-					.subscribe(
-						(data: any) => 
-							{
-								console.log(data.contract);
-								this.contract = data.contract;
-								this.isLoading = false;
-							}
-					)
+
+				try
+					{
+						this.isLoading = true;
+						const data = await this.contractService
+							.get(
+								this.contractId
+							);
+						console.log(data.contract);
+						this.contract = data.contract;
+						this.isLoading = false;
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						alert(error.error);
+					}
+				
 			}
 
 		getTitle

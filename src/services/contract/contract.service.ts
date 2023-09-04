@@ -23,19 +23,21 @@ export class ContractService {
 		private httpInteceptor: AuthHttpInterceptorService,
 	) { }
 
-	get
+	async get
 		(
 			contractId: string
-		): any
+		): Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
 				let url = `${this.URL_CONTRACT_GET}/${contractId}`;
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					url,
 					headers
 				);
+
+				return result;
 			}
 
 	getAll
@@ -49,7 +51,7 @@ export class ContractService {
 			);
 		};
 
-	draft
+	async draft
 	(
 		contractTypeId:string,
 		contractNumber:string,
@@ -57,7 +59,7 @@ export class ContractService {
 		contractDateShamsi: string,
 		contractFinishDate:Date,
 		contractFinishDateShamsi: string
-	):any
+	):Promise<any>
 		{
 			let headers: HttpHeaders = new HttpHeaders();
 
@@ -70,11 +72,13 @@ export class ContractService {
 				contractFinishDateShamsi: contractFinishDateShamsi
 			};
 
-			return this.httpInteceptor.postWithAuth(
+			const result =  await this.httpInteceptor.postWithAuth_(
 				this.URL_CONTRACT_ADD,
 				headers,
 				body
 			);
+
+			return result;
 		}
 
 	setPayablePrice

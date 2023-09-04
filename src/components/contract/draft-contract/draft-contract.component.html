@@ -2,7 +2,9 @@
     <legend>
         اطلاعات اولیه
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label
@@ -28,6 +30,7 @@
 
                 <select-contract-type
                     id="cmpSelectContractType"
+                    name="cmpSelectContractType"
                     (setContractType) = "setContractType($event)"
                 ></select-contract-type>
             </li>
@@ -48,17 +51,22 @@
 
             <li>
                 <label
-                    for="txtContractFinishDate"
+                    for="cmpContractFinishDate"
                 >
                     تاریخ تحویل
                 </label>
 
                 <shmasi-date-picker
+                    id = 'cmpContractFinishDate'
+                    name = 'cmpContractFinishDate'
                     (setSelectedDate)="setcontractFinishDate($event)"
                 ></shmasi-date-picker>
             </li>
 
         </ul>
+        <loading
+            *ngIf="isLoading"
+        ></loading>
         <ul>
             <li>
                 <button
