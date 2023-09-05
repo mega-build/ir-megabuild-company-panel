@@ -2,18 +2,20 @@
     <legend>
         ثبت پرداخت سر سند
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label
-                    for="txtPrice"
+                    for="cmpPrice"
                 >
                     مبلغ:
                 </label>
                 
                 <price-input
-                    id = 'txtPrice'
-                    name = 'txtPrice'
+                    id = 'cmpPrice'
+                    name = 'cmpPrice'
                     (setPrice)="setPrice($event)"
                 ></price-input>
             </li>
@@ -24,13 +26,24 @@
                 >
                     شماره حساب:
                 </label>
+
                 <select-bank-account
                     id="cmpSelectBankAccount"
+                    name="cmpSelectBankAccount"
                     (setBankAccount)= "setBankAccount($event)"
                 ></select-bank-account>
             </li>
             
         </ul>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
 
         <ul>
             <li>

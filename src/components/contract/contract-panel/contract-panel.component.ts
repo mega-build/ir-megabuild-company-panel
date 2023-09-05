@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
@@ -9,11 +9,13 @@ import { ContractService } from 'src/services/contract/contract.service';
 	}
 )
 
-export class ContractPanelComponent implements OnInit
+export class ContractPanelComponent
 	{
 		contractList: any[]=[];
+		filterOptions: any ={};
 		selectedProject:any ={};
 		selectedSort:string="";
+		isLoading: boolean = false;
 
 
 		setFilter
@@ -22,6 +24,7 @@ export class ContractPanelComponent implements OnInit
 		):void
 			{
 				console.log(filterOptions);
+				this.filterOptions = filterOptions;
 				
 				this.selectedProject = filterOptions.project;
 				this.getAllContractListByProject();
@@ -30,42 +33,46 @@ export class ContractPanelComponent implements OnInit
 		constructor
 			(
 				private contractService: ContractService
-			)
-				{}
+			){}
 			
-		ngOnInit
-		(): void 
-			{
-				this.getAllContractList();
-			}
 
-		getAllContractList
-			(): void
-				{
-					this.contractService
-						.getAll()
-						.subscribe(
-							(data: any) => 
-								{
-									console.log(data.contractList);
-									this.contractList = data.contractList;
-								}
+		async getAllContractListByProject
+		(): Promise<void>
+			{
+
+				try
+					{
+						this.isLoading = true;
+						
+						const data = await this.contractService
+							.getAllByProject(
+								this.selectedProject._id
+							);
+						
+						console.log(data.contractList);
+						this.contractList = data.contractList;
+						
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
 						)
-				}
-
-		getAllContractListByProject
-		(): void
-			{
-				this.contractService
-					.getAllByProject(
-						this.selectedProject._id
-					)
-					.subscribe(
-						(data: any) => 
 							{
-								console.log(data.contractList);
-								this.contractList = data.contractList;
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
+				
 			}
 	}

@@ -2,7 +2,9 @@
     <legend>
         ثبت پرداخت تهاتر
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label
@@ -19,6 +21,15 @@
             </li>
             
         </ul>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
 
         <ul>
             <li>

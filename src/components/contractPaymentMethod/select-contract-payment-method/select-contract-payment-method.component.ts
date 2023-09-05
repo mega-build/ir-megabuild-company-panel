@@ -14,6 +14,7 @@ export class SelectContractPaymentMethodComponent implements OnInit
 		@Output() setContractPaymentMethod = new EventEmitter<any>();
 
 		contractPaymentMehodList: any[]=[]
+		isLoading: boolean = false;
 		
 		constructor
 		(
@@ -25,19 +26,29 @@ export class SelectContractPaymentMethodComponent implements OnInit
 			this.getAllContractPaymentMethodList();
 		}
 
-		getAllContractPaymentMethodList
-		(): void
+		async getAllContractPaymentMethodList
+		(): Promise<void>
 			{
-				this.contractPaymentMethodService
-					.getAll()
-					.subscribe(
-						(data: any) => 
-							{
-								console.log(data.contractPaymentMethodList);
-								this.contractPaymentMehodList = data.contractPaymentMethodList;
-								
-							}
-					)
+				try
+					{
+						this.isLoading = true;
+
+						const data = await this.contractPaymentMethodService.getAll();
+
+						console.log(data.contractPaymentMethodList);
+						this.contractPaymentMehodList = data.contractPaymentMethodList;
+
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						alert(error.error);
+					}
+			
 			}
 
 

@@ -14,6 +14,7 @@ export class ContractPaymentFilterComponent
 		@Output() setFilter = new EventEmitter<any>();
 
 		filterOptions:any = {}
+		validationResult: any ={};
 		
 		constructor
 		(
@@ -60,9 +61,54 @@ export class ContractPaymentFilterComponent
 				);
 			}
 
+		validate
+		(
+			filterOptions: any
+		): any
+			{
+				let validationResult: any ={
+					hasError: false,
+					messageList: []
+				};
+			
+				
+				if
+				(
+					!filterOptions.startDate
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("تاریخ شروع فیلتر را وارد کنید.");
+					}
+			
+				if
+				(
+					!filterOptions.endDate
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("تاریخ پایان فیلتر را وارد کنید.");
+					}
+			
+			
+				return validationResult;
+			}
+
 		filter
 		():void
 			{
-				this.setFilter.emit(this.filterOptions);
+				this.validationResult = this.validate(this.filterOptions);
+
+				if
+				(
+					this.validationResult.hasError
+				)
+					{
+						return;
+					}
+				else
+					{
+						this.setFilter.emit(this.filterOptions);
+					}
 			}
 	}

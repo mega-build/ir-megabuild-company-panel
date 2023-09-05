@@ -122,7 +122,9 @@ export class AuthHttpInterceptorService
 		): Promise<any>
 			{
 				const reuslt = await this.http
-					.post(url,body,
+					.post(
+						url,
+						body,
 						{
 							headers: this.getAuthHeader(headers)
 						}

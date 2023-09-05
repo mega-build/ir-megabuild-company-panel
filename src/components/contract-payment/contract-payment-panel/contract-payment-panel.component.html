@@ -2,7 +2,28 @@
     (setFilter) = 'setFilter($event)'
 ></contract-payment-filter>
 
+
+
+<div
+    *ngIf="!filterOptions.startDate || !filterOptions.endDate"
+    class="container empty"
+>
+    فیلتر نمایش لیست پرداخت را تکمیل کنید.
+</div>
+
+<loading
+    *ngIf="isLoading"
+></loading>
+
 <contract-payment-list 
-    *ngIf="contractPaymentList.length > 0"
+    *ngIf="!isLoading && contractPaymentList.length > 0"
     [contractPaymentList] = 'contractPaymentList'
 ></contract-payment-list>
+
+<div
+    *ngIf="filterOptions.project && !isLoading && contractPaymentList.length == 0"
+    class="container empty"
+    
+>
+    پرداختی در بازه ی فیلتر وجود ندارد
+</div>

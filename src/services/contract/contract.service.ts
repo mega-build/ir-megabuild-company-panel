@@ -40,15 +40,17 @@ export class ContractService {
 				return result;
 			}
 
-	getAll
-	(): any
+	async getAll
+	(): Promise<any>
 		{
 			let headers: HttpHeaders = new HttpHeaders();
 
-			return this.httpInteceptor.getWithAuth(
+			const result = await this.httpInteceptor.getWithAuth_(
 				this.URL_CONTRACT_GET,
 				headers
 			);
+
+			return result;
 		};
 
 	async draft
@@ -145,18 +147,20 @@ export class ContractService {
 			);
 		}
 
-	getAllByProject
+	async getAllByProject
 	(
 		projectId:string
-	): any
+	): Promise<any>
 		{
 			let headers: HttpHeaders = new HttpHeaders();
 
 			const url = `${this.URL_CONTRACT_GET_BY_PROJECT}/${projectId}`;
 
-			return this.httpInteceptor.getWithAuth(
+			const result = await this.httpInteceptor.getWithAuth_(
 				url,
 				headers
 			);
+
+			return result;
 		};
 }

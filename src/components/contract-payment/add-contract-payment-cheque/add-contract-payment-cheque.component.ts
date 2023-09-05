@@ -16,13 +16,13 @@ export class AddContractPaymentChequeComponent
 		@Input() contractId:string = "";
 		contractPayment:any ={};
 		isLoading:boolean = false;
+		validationResult: any ={};
 
 		constructor
 		(
 			private contractPaymentService: ContractPaymentService,
 			private dateHelper:DateHelper
-		)
-			{}
+		){}
 
 		setBank(
 			bank:any
@@ -66,26 +66,108 @@ export class AddContractPaymentChequeComponent
 					contractPaymentDueDate.day
 				);
 			}
-		save
-		():void
+
+		validate
+		(
+			contractPayment: any
+		): any
 			{
-				this.contractPaymentService.addCheque(
-					this.contractId,
-					this.contractPayment.price,
-					this.contractPayment.bankAccount._id,
-					this.contractPayment.dueDate,
-					this.contractPayment.dueDateShamsi,
-					this.contractPayment.chequeNumber,
-					this.contractPayment.bank._id,
-					this.contractPayment.drawer
-					
-				).subscribe(
-					(data: any) => 
-						{
-							console.log(data.contractPaymentId);
-							this.contractPayment._id = data.contractPaymentId
-							this.isLoading = false;
-						}
+				let validationResult: any ={
+					hasError: false,
+					messageList: []
+				};
+			
+				if (!contractPayment.price){
+					validationResult.hasError = true;
+					validationResult.messageList.push("بخش مبلغ را وارد کنید.");
+				}
+			
+				if(!contractPayment.bankAccount){
+					validationResult.hasError = true;
+					validationResult.messageList.push("شماره حساب را انتخاب کنید.");
+				}
+			
+			
+				if(!contractPayment.dueDate){
+					validationResult.hasError = true;
+					validationResult.messageList.push("تاریخ سررسید را وارد کنید.");
+				}
+
+				if(!contractPayment.chequeNumber){
+					validationResult.hasError = true;
+					validationResult.messageList.push("شماره چک را وارد کنید.");
+				}
+
+				if(!contractPayment.bank){
+					validationResult.hasError = true;
+					validationResult.messageList.push("بانک صادر کننده ی چک را انتخاب کنید.");
+				}
+
+				if(!contractPayment.drawer){
+					validationResult.hasError = true;
+					validationResult.messageList.push("نام و نام خانوادگی صاحب چک را وارد کنید.");
+				}
+
+			
+				return validationResult;
+			}
+
+		async save
+		():Promise<void>
+			{
+				this.validationResult  = this.validate(this.contractPayment);
+
+				if
+				(
+					this.validationResult .hasError
 				)
+					{
+						return;
+					}
+				else
+					{
+						try
+							{
+		
+								this.isLoading = true;
+		
+								const data = await this.contractPaymentService.addCheque(
+									this.contractId,
+									this.contractPayment.price,
+									this.contractPayment.bankAccount._id,
+									this.contractPayment.dueDate,
+									this.contractPayment.dueDateShamsi,
+									this.contractPayment.chequeNumber,
+									this.contractPayment.bank._id,
+									this.contractPayment.drawer
+								);
+		
+								console.log(data.contractPaymentId);
+								this.contractPayment._id = data.contractPaymentId
+							
+								this.isLoading = false;
+							}
+						catch
+						(
+							error:any
+						)
+							{
+								this.isLoading = false;
+								
+								if
+								(
+									error.error &&
+									error.error.message
+								)
+									{
+										alert(error.error.message);
+									}
+								else
+									{
+										alert(error)
+									}
+							}
+					}
+				
 			}
 	}

@@ -78,12 +78,16 @@ export class AddResidentialProjectItemComponent
 		():Promise<void>
 			{
 				
-				const validationResult = this.validate(this.residentialProjectItem);
+				this.validationResult  = this.validate(this.residentialProjectItem);
 
 				if
 				(
-					!validationResult.hasError
+					this.validationResult .hasError
 				)
+					{
+						return;
+					}
+				else
 					{
 						try
 							{
@@ -113,12 +117,20 @@ export class AddResidentialProjectItemComponent
 						)
 							{
 								this.isLoading = false;
-								alert(error.error);
+								
+								if
+								(
+									error.error &&
+									error.error.message
+								)
+									{
+										alert(error.error.message);
+									}
+								else
+									{
+										alert(error)
+									}
 							}
-					}
-				else
-					{
-						this.validationResult = validationResult;
 					}
 
 			}

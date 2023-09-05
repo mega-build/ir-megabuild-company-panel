@@ -12,7 +12,7 @@ export class ContractPaymentService
 		private URL_CONTRACT_PAYMENT_GETALL_BY_FROM_DATE_AND_TO_DATE: string = `${environment.API_URL}/contractPayment/fromDateAndToDate`;
 		private URL_CONTRACT_PAYMENT_ADD_DIPOSIT: string = `${environment.API_URL}/contractPayment/deposit`;
 		private URL_CONTRACT_PAYMENT_ADD_CHEQUE: string = `${environment.API_URL}/contractPayment/cheque`;
-		private URL_CONTRACT_PAYMENT_ADD_DICKER: string = `${environment.API_URL}/contractPayment/dicker`;
+		private URL_CONTRACT_PAYMENT_ADD_DICKER: string = `${environment.API_URL}/contractPayment/d_icker`;
 		private URL_CONTRACT_PAYMENT_ADD_DEED: string = `${environment.API_URL}/contractPayment/deed`;
 		
 
@@ -21,14 +21,14 @@ export class ContractPaymentService
 			private httpInteceptor: AuthHttpInterceptorService,
 		) { }
 
-		addDeposit
+		async addDeposit
 		(
 			contractId: string,
 			price:number,
 			bankAccountId: string,
 			dueDate: Date,
 			dueDateShamsi: string,
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
@@ -40,14 +40,16 @@ export class ContractPaymentService
 					dueDateShamsi: dueDateShamsi
 				};
 
-				return this.httpInteceptor.postWithAuth(
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_CONTRACT_PAYMENT_ADD_DIPOSIT,
 					headers,
 					body
 				);
+
+				return result;
 			}
 
-		addCheque
+		async addCheque
 		(
 			contractId: string,
 			price:number,
@@ -57,9 +59,10 @@ export class ContractPaymentService
 			chequeNumber: string,
 			bankId: string,
 			drawer: string
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
+
 				let body: any = {
 					contractId: contractId,
 					price: price,
@@ -70,38 +73,43 @@ export class ContractPaymentService
 					bankId: bankId,
 					drawer: drawer
 				};
-				return this.httpInteceptor.postWithAuth(
+
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_CONTRACT_PAYMENT_ADD_CHEQUE,
 					headers,
 					body
 				);
+
+				return result;
 			}
-		addDicker
+		async addDicker
 		(
 			contractId: string,
 			price:number
-		):any
+		):Promise<any>
 			{
-				console.log('hh');
-				
 				let headers: HttpHeaders = new HttpHeaders();
+
 				let body: any = {
 					contractId: contractId,
 					price: price
 				};
-				return this.httpInteceptor.postWithAuth(
+				
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_CONTRACT_PAYMENT_ADD_DICKER,
 					headers,
 					body
 				);
+
+				return result;
 			}
 
-		addDeed
+		async addDeed
 		(
 			contractId: string,
 			price:number,
 			bankAccountId: string,
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
@@ -111,11 +119,13 @@ export class ContractPaymentService
 					bankAccountId: bankAccountId
 				};
 
-				return this.httpInteceptor.postWithAuth(
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_CONTRACT_PAYMENT_ADD_DEED,
 					headers,
 					body
 				);
+
+				return result;
 			}
 		async getAllByContract
 		(
@@ -134,11 +144,11 @@ export class ContractPaymentService
 				return result;
 			}
 
-		getAllFromDateToDate
+		async getAllFromDateToDate
 		(
 			fromDate:Date,
 			toDate:Date
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
@@ -147,11 +157,13 @@ export class ContractPaymentService
 					toDate: toDate
 				};
 
-				return this.httpInteceptor.postWithAuth(
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_CONTRACT_PAYMENT_GETALL_BY_FROM_DATE_AND_TO_DATE,
 					headers,
 					body
 				);
+
+				return result;
 			}
 
 	}

@@ -1,4 +1,10 @@
-<ul>
+<loading
+    *ngIf="isLoading"
+></loading>
+
+<ul
+    *ngIf="!isLoading"
+>
     <li
         *ngFor = 'let contractPaymentMehod of contractPaymentMehodList'
         (click) = 'selectContractPaymentMehod(contractPaymentMehod)'

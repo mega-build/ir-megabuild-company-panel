@@ -1,13 +1,25 @@
 <contract-filter
     (setFilter) = 'setFilter($event)'
 ></contract-filter>
+
+<div
+    *ngIf="!filterOptions.project"
+    class="container empty"
+    
+>
+    فیلتر نمایش لیست قراردها را تکمیل کنید.
+</div>
+
+<loading
+    *ngIf="isLoading"
+></loading>
 <contract-list
-    *ngIf="contractList.length > 0"
+    *ngIf="!isLoading && contractList.length > 0"
     [contractList]="contractList"
 ></contract-list>
 
 <div
-    *ngIf="contractList.length == 0"
+    *ngIf="filterOptions.project && !isLoading && contractList.length == 0"
     class="container empty"
     
 >

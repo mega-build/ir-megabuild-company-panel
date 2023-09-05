@@ -23,6 +23,7 @@
                 >
                     از تاریخ
                 </label>
+
                 <shmasi-date-picker
                     id="cmpFilteStartDate"
                     name="cmpFilteStartDate"
@@ -37,6 +38,7 @@
                 >
                     تا تاریخ
                 </label>
+
                 <shmasi-date-picker
                     id="cmpFilteEndDate"
                     name="cmpFilteEndDate"
@@ -73,6 +75,12 @@
                 >
             </li>
         </ul>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
+
         <ul>
             <li>
                 <button

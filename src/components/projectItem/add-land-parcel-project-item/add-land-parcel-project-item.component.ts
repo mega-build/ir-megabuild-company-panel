@@ -78,12 +78,16 @@ export class AddLandParcelProjectItemComponent
 		async saveProjectItem
 		():Promise<void>
 			{
-				const validationResult = this.validate(this.landParcelProjectItem);
+				this.validationResult = this.validate(this.landParcelProjectItem);
 
 				if
 				(
-					!validationResult.hasError
+					this.validationResult.hasError
 				)
+					{
+						return;
+					}
+				else
 					{
 						try
 							{
@@ -124,13 +128,7 @@ export class AddLandParcelProjectItemComponent
 									}
 							}
 					}
-				else
-					{
-						this.validationResult = validationResult;
-					}
 
-				
-				
 			}
 
 		calculateTotalPrice

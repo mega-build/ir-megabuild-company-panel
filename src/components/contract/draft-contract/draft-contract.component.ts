@@ -16,6 +16,7 @@ export class DraftContractComponent
 		contract: any = {};
 		isLoading:boolean = false;
 		contractId: string = "";
+		validationResult: any ={};
 
 		constructor
 		(
@@ -77,46 +78,108 @@ export class DraftContractComponent
 				);
 			}
 
+		validate
+		(
+			contract: any
+		): any
+			{
+				let validationResult: any ={
+					hasError: false,
+					messageList: []
+				};
+
+				if
+				(
+					!contract.contractNumber
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش شماره قرارداد را وارد کنید.");
+					}
+			
+				if
+				(
+					!contract.contractType
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("نوع قرارداد را انتخاب کنید.");
+					}
+			
+				if
+				(
+					!contract.contractDate
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش تاریخ قرارداد را وارد کنید.");
+					}
+
+				if
+				(
+					!contract.contractFinishDate
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش تاریخ تحویل را وارد کنید.");
+					}
+
+				return validationResult;
+			}
+
 		async draftContract
 		():Promise<void>
 			{
-				this.isLoading = true;
+				this.validationResult = this.validate(this.contract);
 
-				try 
-					{
-						const data = await this.contractService
-							.draft(
-								this.contract.contractType._id,
-								this.contract.contractNumber,
-								this.contract.contractDate,
-								this.contract.contractDateShamsi,
-								this.contract.contractFinishDate,
-								this.contract.contractFinishDateShamsi,
-							);
-						
-						this.contractId = data.contractId
-						this.isLoading = false;
-						this.navigateToAddCustomer();
-					}
-				catch
+				if
 				(
-					error: any
+					this.validationResult.hasError
 				)
 					{
-						this.isLoading = false;
-						if
+						return;
+					}
+				else
+					{
+						this.isLoading = true;
+
+						try 
+							{
+								const data = await this.contractService
+									.draft(
+										this.contract.contractType._id,
+										this.contract.contractNumber,
+										this.contract.contractDate,
+										this.contract.contractDateShamsi,
+										this.contract.contractFinishDate,
+										this.contract.contractFinishDateShamsi,
+									);
+								
+								this.contractId = data.contractId
+								this.isLoading = false;
+								this.navigateToAddCustomer();
+							}
+						catch
 						(
-							error.error &&
-							error.error.message
+							error: any
 						)
 							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
+								this.isLoading = false;
+								if
+								(
+									error.error &&
+									error.error.message
+								)
+									{
+										alert(error.error.message);
+									}
+								else
+									{
+										alert(error)
+									}
 							}
 					}
+				
 			}
 
 		navigateToAddCustomer

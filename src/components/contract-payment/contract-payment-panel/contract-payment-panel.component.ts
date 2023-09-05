@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
 @Component(
@@ -8,17 +8,16 @@ import { ContractPaymentService } from 'src/services/contractPayment/contract-pa
 		styleUrls: ['./contract-payment-panel.component.css']
 	}
 )
-export class ContractPaymentPanelComponent implements OnInit
+export class ContractPaymentPanelComponent
 	{
 		contractPaymentList: any[]=[];
-		selectedFromDate:any =new Date();
-		selectedToDate:any =new Date();
+		isLoading: boolean = false;
+		filterOptions: any ={};
 		
 		constructor
 			(
 				private contractPaymentService: ContractPaymentService
-			)
-				{}
+			){}
 
 		setFilter
 		(
@@ -26,31 +25,49 @@ export class ContractPaymentPanelComponent implements OnInit
 		):void
 			{
 				console.log(filterOptions);
-				
+				this.filterOptions = filterOptions;
 				this.getAllContractPaymentListFromDateToDate();
 			}
 
-		ngOnInit
-		(): void 
-			{
-				//this.getAllContractPaymentListFromDateToDate();
-			}
-
-		getAllContractPaymentListFromDateToDate
-			(): void
+		async getAllContractPaymentListFromDateToDate
+			(): Promise<void>
 				{
-					this.contractPaymentService
-						.getAllFromDateToDate(
-							this.selectedFromDate,
-							this.selectedToDate
-						)
-						.subscribe(
-							(data: any) => 
+
+					try
+						{
+							this.isLoading = true;
+							
+							const data = await this.contractPaymentService
+								.getAllFromDateToDate(
+									this.filterOptions.startDate,
+									this.filterOptions.endDate
+								);
+							
+							console.log(data.contractPaymentList);
+							this.contractPaymentList = data.contractPaymentList;
+							
+							this.isLoading = false;
+						}
+					catch
+					(
+						error:any
+					)
+						{
+							this.isLoading = false;
+							if
+							(
+								error.error &&
+								error.error.message
+							)
 								{
-									console.log(data.contractPaymentList);
-									this.contractPaymentList = data.contractPaymentList;
+									alert(error.error.message);
 								}
-						)
+							else
+								{
+									alert(error)
+								}
+						}
+
 				}
 
 	}
