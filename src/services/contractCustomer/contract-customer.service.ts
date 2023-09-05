@@ -20,11 +20,11 @@ export class ContractCustomerService
 			private httpInteceptor: AuthHttpInterceptorService,
 		) { }
 
-		add
+		async add
 		(
 			contractId: string,
 			customerId: string
-		):any
+		):Promise<any>
 			{
 				{
 					let headers: HttpHeaders = new HttpHeaders();
@@ -32,43 +32,50 @@ export class ContractCustomerService
 						contractId: contractId,
 						customerId: customerId
 					};
-					return this.httpInteceptor.postWithAuth(
+					const result = await this.httpInteceptor.postWithAuth_(
 						this.URL_CONTRACT_CUSTOMER_ADD,
 						headers,
 						body
 					);
+
+					return result;
 				}
 			}
 
-		getAllByContract
+		async getAllByContract
 		(
 			contractId: string
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
 				let url = `${this.URL_CONTRACT_CUSTOMER_GETALL_BY_CONTRACT}/${contractId}`;
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await  this.httpInteceptor.getWithAuth_(
 					url,
 					headers
 				);
+
+				return result;
 			}
 
-		remove
+		async remove
 		(
 			contractCustomerId: string
-		):any
+		):Promise<any>
 			{
 				{
 					let headers: HttpHeaders = new HttpHeaders();
 					
-					const url = `${this.URL_CONTRACT_CUSTOMER_REMOVE}/${contractCustomerId}`
-					return this.httpInteceptor.deleteWithAuth(
+					const url = `${this.URL_CONTRACT_CUSTOMER_REMOVE}/${contractCustomerId}`;
+					
+					const result = await this.httpInteceptor.deleteWithAuth_(
 						url,
 						headers,
 						{}
 					);
+
+					return result;
 				}
 			}
 	}

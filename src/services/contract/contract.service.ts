@@ -81,12 +81,12 @@ export class ContractService {
 			return result;
 		}
 
-	setPayablePrice
+	async setPayablePrice
 	(
 		contractId:string,
 		payablePrice:number,
 		discount:number
-	):any
+	):Promise<any>
 		{
 			let headers: HttpHeaders = new HttpHeaders();
 
@@ -96,11 +96,13 @@ export class ContractService {
 				payablePrice: payablePrice
 			};
 			
-			return this.httpInteceptor.postWithAuth(
+			const result = await this.httpInteceptor.postWithAuth_(
 				this.URL_CONTRACT_SET_PAYABEL_PRICE,
 				headers,
 				body
 			);
+
+			return result;
 		}
 
 	removeProjectItem

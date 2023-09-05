@@ -33,13 +33,13 @@
     </li>
 
     <add-residential-project-item
-        *ngIf="!isLoading && isResidentailProjectItem() && project._id"
+        *ngIf="!isLoading && isResidentailProjectItem() && project && project._id"
         (onProjectItemAdded)= "setNewProjectItem($event)"
         [projectId]="project._id"
     ></add-residential-project-item>
 
     <add-land-parcel-project-item
-        *ngIf="!isLoading && isLandParcelProjectItem() && project._id"
+        *ngIf="!isLoading && isLandParcelProjectItem() && project && project._id"
         [projectId]="project._id"
         (onProjectItemAdded)= "setNewProjectItem($event)"
     ></add-land-parcel-project-item>

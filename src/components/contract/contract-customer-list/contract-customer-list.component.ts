@@ -28,39 +28,79 @@ export class ContractCustomerListComponent implements OnInit
 			)
 				{}
 		
-		getAllContractCustomerList
-		(): void
+		async getAllContractCustomerList
+		(): Promise<void>
 			{
-				this.isLoading = true;
-				this.contractCustomerService
-					.getAllByContract(
-						this.contractId
-					)
-					.subscribe(
-						(data: any) => 
+				try
+					{
+						this.isLoading = true;
+						const data = await this.contractCustomerService
+							.getAllByContract(
+								this.contractId
+							);
+						console.log(data.contractCustomerList);
+						this.contractCustomerList = data.contractCustomerList;
+						this.isLoading = false;
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								console.log(data.contractCustomerList);
-								this.contractCustomerList = data.contractCustomerList;
-								this.isLoading = false;
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
 			}
 
-		addCustomer
-		():void
+		async addCustomer
+		():Promise<void>
 			{
-				this.isLoading = true;
-				this.contractCustomerService
-					.add(
-						this.contractId,
-						this.selectedCustomer._id
-					)
-					.subscribe(
-						(data: any) => 
+
+				try
+					{
+						this.isLoading = true;
+
+						const data = await this.contractCustomerService
+							.add(
+								this.contractId,
+								this.selectedCustomer._id
+							);
+
+						this.isLoading = false;
+						
+						await this.getAllContractCustomerList()
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								this.getAllContractCustomerList()
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
+
 			}
 
 		ngOnInit
@@ -93,21 +133,41 @@ export class ContractCustomerListComponent implements OnInit
 				this.addCustomer();
 			}
 
-		removeContractCustomer
+		async removeContractCustomer
 		(
 			contractCustomer:any
-		):void
+		):Promise<void>
 			{
-				this.isLoading = true;
-				this.contractCustomerService
-					.remove(
-						contractCustomer._id
-					)
-					.subscribe(
-						(data: any) => 
+				try
+					{
+						this.isLoading = true;
+
+						const data = await this.contractCustomerService
+							.remove(
+								contractCustomer._id
+							);
+
+						this.isLoading = false;
+						await this.getAllContractCustomerList()
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								this.getAllContractCustomerList()
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
 			}
 	}

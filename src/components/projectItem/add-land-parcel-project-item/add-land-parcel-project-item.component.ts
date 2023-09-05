@@ -18,6 +18,7 @@ export class AddLandParcelProjectItemComponent
 		landParcelProjectItem:any = {};
 		projectItemId: string="";
 		isLoading:boolean = false;
+		validationResult: any ={};
 
 		constructor
 		(
@@ -32,48 +33,103 @@ export class AddLandParcelProjectItemComponent
 			{
 				this.landParcelProjectItem.unitPrice = price;
 			}
+
+		validate
+		(
+			landParcelProjectItem: any
+		): any
+			{
+				let validationResult: any ={
+					hasError: false,
+					messageList: []
+				};
+			
+				if
+				(
+					!landParcelProjectItem.unit
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش واحد را وارد کنید.");
+					}
+			
+				if
+				(
+					!landParcelProjectItem.unitPrice
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش واحد را وارد کنید.");
+					}
+			
+			
+				if
+				(
+					!landParcelProjectItem.area
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش مساحت را وارد کنید.");
+					}
+
+				return validationResult;
+			}
 			
 		async saveProjectItem
 		():Promise<void>
 			{
-				try
-					{
-						this.isLoading = true;
-						
-						const data = await this.projectItemService
-							.createLandParcel(
-								this.projectId,
-								this.landParcelProjectItem.unit,
-								this.landParcelProjectItem.unitPrice,
-								this.landParcelProjectItem.area
-							)
-						
-						console.log(data.projectItemId);
-						this.projectItemId = data.projectItemId;
-						this.landParcelProjectItem._id = data.projectItemId
-						this.onProjectItemAdded.emit(this.landParcelProjectItem);
-						
-						this.isLoading = false;
-					}
-				catch
+				const validationResult = this.validate(this.landParcelProjectItem);
+
+				if
 				(
-					error:any
+					!validationResult.hasError
 				)
 					{
-						this.isLoading = false;
-						if
+						try
+							{
+								this.isLoading = true;
+								
+								const data = await this.projectItemService
+									.createLandParcel(
+										this.projectId,
+										this.landParcelProjectItem.unit,
+										this.landParcelProjectItem.unitPrice,
+										this.landParcelProjectItem.area
+									)
+								
+								console.log(data.projectItemId);
+								this.projectItemId = data.projectItemId;
+								this.landParcelProjectItem._id = data.projectItemId
+								this.onProjectItemAdded.emit(this.landParcelProjectItem);
+								
+								this.isLoading = false;
+							}
+						catch
 						(
-							error.error &&
-							error.error.message
+							error:any
 						)
 							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
+								this.isLoading = false;
+								if
+								(
+									error.error &&
+									error.error.message
+								)
+									{
+										alert(error.error.message);
+									}
+								else
+									{
+										alert(error)
+									}
 							}
 					}
+				else
+					{
+						this.validationResult = validationResult;
+					}
+
+				
 				
 			}
 

@@ -19,13 +19,14 @@ export class ContractPayablePriceComponent implements OnInit
 		discount: number = 0;
 
 		isLoading:boolean = false;
+		validationResult: any ={};
 
 		constructor
-			(
-				private route: ActivatedRoute,
-				private contractService: ContractService
-			)
-				{}
+		(
+			private route: ActivatedRoute,
+			private contractService: ContractService
+		)
+			{}
 
 		setDiscount
 		(
@@ -42,24 +43,87 @@ export class ContractPayablePriceComponent implements OnInit
 			{
 				this.payablePrice = price;
 			}
-		
-		save():void
+
+		validate
+		(): any
 			{
-				this.isLoading = true;
-				this.contractService
-				.setPayablePrice(
-					this.contractId,
-					this.payablePrice,
-					this.discount
+				let validationResult: any ={
+					hasError: false,
+					messageList: []
+				};
+			
+				if
+				(
+					!this.payablePrice
 				)
-				.subscribe(
-					(data: any) => 
-						{
-							console.log(data);
-							this.isLoading = false;
-						}
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش مبلغ نهایی را وارد کنید.");
+					}
+			
+				if
+				(
+					typeof this.discount !== 'number'
 				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش تخفیف را وارد کنید.");
+					}
+			
+				return validationResult;
 			}
+		
+		async save
+		():Promise<void>
+			{
+				const validationResult = this.validate();
+
+				if
+				(
+					!validationResult.hasError
+				)
+					{
+						try
+							{
+								this.isLoading = true;
+								const data = await this.contractService
+									.setPayablePrice(
+										this.contractId,
+										this.payablePrice,
+										this.discount
+									);
+
+								console.log(data);
+								this.isLoading = false;
+							}
+						catch
+						(
+							error: any
+						)
+							{
+								this.isLoading = false;
+								if
+								(
+									error.error &&
+									error.error.message
+								)
+									{
+										alert(error.error.message);
+									}
+								else
+									{
+										alert(error)
+									}
+							}
+
+					}
+				else
+					{
+						this.validationResult = validationResult;
+					}
+				
+			}
+			
 		ngOnInit
 		(): void
 			{
@@ -102,7 +166,18 @@ export class ContractPayablePriceComponent implements OnInit
 					)
 						{
 							this.isLoading = false;
-							alert(error.error);
+							if
+							(
+								error.error &&
+								error.error.message
+							)
+								{
+									alert(error.error.message);
+								}
+							else
+								{
+									alert(error)
+								}
 						}
 					
 				}

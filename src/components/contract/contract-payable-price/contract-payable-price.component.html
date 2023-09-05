@@ -2,37 +2,47 @@
     <legend>
         ثبت قیمت نهایی قرارداد
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label
-                    for="txtDiscount"
+                    for="cmpDiscount"
                 >
-                مبلغ تخفیف:
+                    مبلغ تخفیف
                 </label>
 
                 <price-input
-                    id = 'txtDiscount'
-                    name = 'txtDiscount'
+                    id = 'cmpDiscount'
+                    name = 'cmpDiscount'
                     (setPrice)="setDiscount($event)"
                 ></price-input>
 
             </li>
             <li>
                 <label
-                    for="txtPayablePrice"
+                    for="cmpPayablePrice"
                 >
-                مبلغ نهایی
+                    مبلغ نهایی
                 </label>
 
-
                 <price-input
-                    id = 'txtPayablePrice'
-                    name = 'txtPayablePrice'
+                    id = 'cmpPayablePrice'
+                    name = 'cmpPayablePrice'
                     (setPrice)="setPayablePrice($event)"
                 ></price-input>
             </li>
         </ul>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
 
         <ul>
             <li>

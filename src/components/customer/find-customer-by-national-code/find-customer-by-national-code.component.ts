@@ -18,45 +18,92 @@ export class FindCustomerByNationalCodeComponent
 		isLoading:boolean = false;
 		nationalCode:string = "";
 		customer:any={};
+		validationResult: any ={};
 
 		constructor
 		(
 			private customerService: CustomerService
 		){}
 
+		validate
+		(): any
+			{
+				let validationResult: any ={
+					hasError: false,
+					messageList: []
+				};
+			
+				if
+				(
+					!this.nationalCode
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش کدملی را وارد کنید.");
+					}
+				else
+					{
+						if
+						(
+							this.nationalCode.toString().trim().length != 10
+						)
+							{
+								validationResult.hasError = true;
+								validationResult.messageList.push("کد ملی باید 10 رقم باشد");
+							}
+
+					}
+
+				return validationResult;
+			}
+
 		async getByNationalCode
 		():Promise<void>
 			{
-				try
-					{
-						this.isLoading = true;
-						const data = await this.customerService
-							.findByNationalCode(
-								this.nationalCode
-							)
-						console.log(data.customer);
-						this.customer = data.customer;
-						this.isLoading = false;
-					}
-				catch
+				this.validationResult = this.validate();
+
+				if
 				(
-					error:any
+					this.validationResult.hasError
 				)
 					{
-						this.isLoading = false;
-						if
+						 return
+					}
+				else
+					{
+						try
+							{
+								this.isLoading = true;
+								const data = await this.customerService
+									.findByNationalCode(
+										this.nationalCode
+									)
+								console.log(data.customer);
+								this.customer = data.customer;
+								this.isLoading = false;
+							}
+						catch
 						(
-							error.error &&
-							error.error.message
+							error:any
 						)
 							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
+								this.isLoading = false;
+								if
+								(
+									error.error &&
+									error.error.message
+								)
+									{
+										alert(error.error.message);
+									}
+								else
+									{
+										alert(error)
+									}
 							}
 					}
+
+				
 				
 			}
 

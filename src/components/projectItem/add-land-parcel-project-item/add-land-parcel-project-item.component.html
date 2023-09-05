@@ -24,6 +24,7 @@
                     maxlength="10"
                     placeholder="واحد"
                     [(ngModel)]= "landParcelProjectItem.unit"
+                    required
                 >
             </li>
 
@@ -40,6 +41,7 @@
                     max="9999"
                     placeholder = "مساحت به مترمربع"
                     [(ngModel)]= "landParcelProjectItem.area"
+                    required
                 >
             </li>
             
@@ -77,6 +79,12 @@
         <loading
             *ngIf="isLoading"
         ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
+
         <ul>
             <li>
                 <button

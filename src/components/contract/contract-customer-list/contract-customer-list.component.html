@@ -1,11 +1,15 @@
-<section class="container">
+<section
+    class="container"
+>
     <ul>
-        <li class="contract-customer"
+        <li
+            class="contract-customer"
             *ngFor = 'let contractCustomer of contractCustomerList'
         >
             <customer-detail
                 [customer] = "contractCustomer.customer"
             ></customer-detail>
+
             <ul>
                 <li>
                     <button
@@ -19,6 +23,7 @@
         </li>
     </ul>
 </section>
+
 <section>
     <add-contract-customer
         (onSelectedCustomer) = 'selectCustomer($event)'

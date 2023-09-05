@@ -143,4 +143,23 @@ export class AuthHttpInterceptorService
 						body: body
 					});
 			}
+
+		async deleteWithAuth_(
+			url: string,
+			headers: HttpHeaders,
+			body: any
+		): Promise<any>
+			{
+				const result = await this.http
+					.delete(
+						url,
+						{
+							headers:this.getAuthHeader(headers),
+							body: body
+						}
+					)
+					.toPromise();
+
+				return result;
+			}
 	}

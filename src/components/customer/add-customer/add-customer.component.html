@@ -17,8 +17,9 @@
                     type="text"
                     id="txtFirstname"
                     name="txtFirstname"
-                    maxlength="100"
+                    maxlength="200"
                     [(ngModel)]="customer.firstname"
+                    required
                 >
             </li>
 
@@ -33,8 +34,9 @@
                     type="text"
                     id="txtLastname"
                     name="txtLastname"
-                    maxlength="100"
+                    maxlength="200"
                     [(ngModel)]="customer.lastname"
+                    required
                 >
             </li>
 
@@ -46,11 +48,13 @@
                 </label>
 
                 <input
-                    type="text"
+                    type="tel"
                     id="txtNatinalCode"
                     name="txtNatinalCode"
                     maxlength="10"
+                    minlength="10"
                     [(ngModel)]="customer.nationalCode"
+                    required
                 >
             </li>
 
@@ -62,11 +66,13 @@
                 </label>
 
                 <input
-                    type="text"
+                    type="number"
                     id="txtPostalCode"
                     name="txtPostalCode"
                     maxlength="10"
+                    minlength="10"
                     [(ngModel)]= "customer.postalCode"
+                    required
 
                 >
             </li>
@@ -79,12 +85,13 @@
                 </label>
 
                 <input
-                    type="text"
+                    type="tel"
                     id="txtMobileNumber"
                     name="txtMobileNumber"
                     maxlength="11"
                     minlength="11"
                     [(ngModel)]= "customer.mobileNumber"
+                    required
                 >
             </li>
 
@@ -96,10 +103,13 @@
                 </label>
 
                 <input
-                    type="text"
+                    type="tel"
                     id="txtPhoneNumber"
                     name="txtPhoneNumber"
+                    maxlength="11"
+                    minlength="11"
                     [(ngModel)]= "customer.phoneNumber"
+                    required
                 >
             </li>
 
@@ -115,6 +125,7 @@
                     name="txtAddress"
                     [(ngModel)]= "customer.address"
                     column="4"
+                    required
                 ></textarea>
             </li>
         </ul>
@@ -122,6 +133,12 @@
         <loading
             *ngIf="isLoading"
         ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
+
         <ul>
             <li>
                 <button
