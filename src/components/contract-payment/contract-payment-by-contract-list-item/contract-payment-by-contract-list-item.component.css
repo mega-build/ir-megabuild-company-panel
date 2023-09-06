@@ -1,28 +1,31 @@
+section{
+  display: flex;
+  flex-wrap: wrap;
+}
 dl {
-    display: flex;
-    flex-wrap: nowrap;
-    position: relative;
-  }
-  dl dt {
-    display: none;
-  }
-  ul {
-    display: flex;
-  }
-  dl dd {
-    color: #101828;
-    font-size: 14px;
-  }
-  
-  dl dd {
-    -ms-flex-preferred-size: 0;
-    flex-basis: 0;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    max-width: 100%;
-  }
-  .bank-account{
-    position: absolute;
-    bottom: -16px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 80%;
+  position: relative;
+}
+dl dt {
+  display: none;
+}
+ul {
+  display: flex;
+  flex: 0 0 20%;
+
+}
+dl dd {
+  color: #101828;
+  font-size: 14px;
+}
+dl dd{
+  flex: 0 0 25%;
+}
+
+
+.bank-account {
+  position: absolute;
+  bottom: -16px;
+}

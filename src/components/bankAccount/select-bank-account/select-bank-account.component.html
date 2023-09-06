@@ -8,25 +8,27 @@
             لوگو بانک
         </dt>
 
-        <dt
+        <dd
             [ngClass]="'bank_'+ selectedBankAccount.bank.title"
+            class="bank-logo"
         >
 
-        </dt>
+    </dd>
+    <dt>
+        شماره حساب
+    </dt>
+
+    <dd class="bank-account">
+        {{selectedBankAccount.accounNumber}}
+    </dd>
         <dt>
             عنوان
         </dt>
-        <dd>
+        <dd class="bank-title">
             {{selectedBankAccount.bank.title_fa}}
         </dd>
 
-        <dt>
-            شماره حساب
-        </dt>
-
-        <dd>
-            {{selectedBankAccount.accounNumber}}
-        </dd>
+ 
     </dl>
 
     <button
@@ -59,27 +61,26 @@
                     لوگو بانک
                 </dt>
 
-                <dt
+                <dd
                     [ngClass]="'bank_'+ bankAccount.bank.title"
+                    class="bank-logo"
+
                 >
-
-                </dt>
-                <dt>
-                    عنوان
-                </dt>
-                <dd>
-                    {{bankAccount.bank.title_fa}}
-                </dd>
-
+                 </dd>
+                 
                 <dt>
                     شماره حساب
                 </dt>
 
-                <dd>
+                <dd class="bank-account">
                     {{bankAccount.accounNumber}}
                 </dd>
-
-                
+                <dt>
+                    عنوان
+                </dt>
+                <dd class="bank-title">
+                    {{bankAccount.bank.title_fa}}
+                </dd>
             </dl>
         </li>
     </ul>

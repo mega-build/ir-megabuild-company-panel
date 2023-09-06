@@ -8,15 +8,16 @@
             لوگو بانک
         </dt>
 
-        <dt
+        <dd
             [ngClass]="'bank_'+ selectedBank.title"
+            class="bank-logo"
         >
 
-        </dt>
+    </dd>
         <dt>
             عنوان
         </dt>
-        <dd>
+        <dd class="bank-title">
             {{selectedBank.title_fa}}
         </dd>
 
@@ -51,14 +52,15 @@
                     لوگو بانک
                 </dt>
         
-                <dt
+                <dd
                     [ngClass]="'bank_'+ bank.title"
+                    class="bank-logo"
                 >
-
+                   </dd>   
                 <dt>
                     عنوان
                 </dt>
-                <dd>
+                <dd class="bank-title">
                     {{bank.title_fa}}
                 </dd>
             </dl>

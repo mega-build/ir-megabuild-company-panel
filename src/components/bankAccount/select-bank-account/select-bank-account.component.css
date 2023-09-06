@@ -1,15 +1,87 @@
-.bank_sina{
-    background: url("/assets/images/bank_logo/sina/logo.png");
+dt {
+  display: none;
+}
+details::before {
+  content: url("../../../assets/images/icons/chevron-down.svg");
+  position: absolute;
+  left: 15px;
+  top: 45px;
+  transform: rotate(180deg);
+  transition: all 0.3s;
+  width: 20px;
+  height: 20px;
+}
+details[open]::before {
+  transform: rotate(360deg);
+  transition: all 0.3s;
 }
 
-.bank_maskan{
-    background: url("/assets/images/bank_logo/maskan/logo.png");
+details summary {
+  color: #667085;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  padding: 10px 14px;
+}
+details[open] summary {
+  border-radius: 8px;
+  border: 1px solid #d6bbfb;
+  background: #fff;
+  box-shadow: 0px 0px 0px 4px #f4ebff, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+ul {
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  padding: 10px 6px;
+  margin-top: 6px;
+  max-height: 250px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: all 0.5s;
+}
+ul li {
+  cursor: pointer;
 }
 
-.bank_resalat{
-    background: url("/assets/images/bank_logo/resalat/logo.png");
+dl {
+  margin-right: 8px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 16px;
+}
+dl .bank-title {
+  color: #101828;
+  font-size: 12px;
+  grid-column: span 2;
+  margin-right: 62px;
+  margin-top: -30px;
+}
+dl .bank-account {
+  color: #101828;
+  font-size: 16px;
+}
+.bank-logo {
+  grid-row: span 2;
+  place-self: end;
+  width: 48px;
+  height: 48px;
+}
+details[open] summary ~ * {
+  animation: sweep 0.5s;
 }
 
-.bank_mellat{
-    background: url("/assets/images/bank_logo/mellat/logo.png");
+@keyframes sweep {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 250px;
+  }
+}
+section {
+  position: relative;
 }
