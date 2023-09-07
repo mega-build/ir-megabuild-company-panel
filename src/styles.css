@@ -221,7 +221,7 @@ input {
   width: 100%;
   text-indent: 12px;
   font-size: 14px;
-  font-family:IRANSansWeb ;
+  font-family: IRANSansWeb;
 }
 
 input:focus {
@@ -237,10 +237,10 @@ input[type="radio"] {
 input[type="checkbox"] {
   width: 20px;
   height: 20px;
-  clip-path: circle(64% at 50% 50%); 
+  clip-path: circle(64% at 50% 50%);
 }
 input[type="checkbox"]:checked {
-  accent-color: #7F56D9;
+  accent-color: #7f56d9;
 }
 textarea {
   width: 100%;
@@ -248,7 +248,7 @@ textarea {
   border: 1px solid #d0d5dd;
   background: #fff;
   font-size: 14px;
-  font-family:IRANSansWeb;
+  font-family: IRANSansWeb;
   padding: 12px;
   box-sizing: border-box;
 }
@@ -287,3 +287,83 @@ button {
 }
 
 /* Buttons Style End*/
+
+/* Summary Details Style */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details summary {
+  cursor: pointer;
+}
+
+/* Summary Details Style End */
+
+/* Bank Logo */
+
+.bank-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.bank_ansar {
+  background: url("assets/images/bank_logo/Ansar.svg") center no-repeat;
+  background-size: contain;
+}
+.bank_ayandeh {
+  background: url("assets/images/bank_logo/Ayandeh.svg") center no-repeat;
+  background-size: contain;
+}
+.bank_bank_markazi {
+  background: url("assets/images/bank_logo/Bank_Markazi.svg") center no-repeat;
+  background-size: contain;
+}
+.bank_caspian {
+  background: url("assets/images/bank_logo/Caspian.svg") center no-repeat;
+  background-size: contain;
+}
+.bank_dey {
+  background: url("assets/images/bank_logo/Dey.svg") center no-repeat;
+  background-size: contain;
+}
+
+.bank_eghtesad_novin {
+  background: url("assets/images/bank_logo/Eghtesad_Novin.svg") center no-repeat;
+  background-size: contain;
+}
+.bank_futurebank {
+  background: url("assets/images/bank_logo/Futurebank.svg") center no-repeat;
+  background-size: contain;
+}
+.bank_sina {
+  background: url("assets/images/bank_logo/Sina.svg") center no-repeat;
+  background-size: contain;
+}
+
+.bank_maskan {
+  background: url("assets/images/bank_logo/Maskan.svg") center no-repeat;
+  background-size: contain;
+}
+
+.bank_resalat {
+  background: url("assets/images/bank_logo/Resalat.svg") center no-repeat;
+  background-size: contain;
+}
+
+.bank_mellat {
+  background: url("assets/images/bank_logo/Mellat.svg") center no-repeat;
+  background-size: contain;
+}
+
+.bank_tejarat {
+  background: url("assets/images/bank_logo/Tejarat.svg") center no-repeat;
+  background-size: contain;
+}
+.bank_melli {
+  background: url("assets/images/bank_logo/Melli.svg") center no-repeat;
+  background-size: contain;
+}
+
+/* Bank Logo End*/
