@@ -82,6 +82,8 @@ import { ContractPaymentByContractPanelComponent } from 'src/components/contract
 import { ContractPaymentFilterComponent } from '../components/contract-payment/contract-payment-filter/contract-payment-filter.component';
 import { LoadingComponent } from 'src/components/share/loading/loading.component';
 import { ValidationResultComponent } from 'src/components/share/validation-result/validation-result.component';
+import { ProjectListComponent } from '../components/project/project-list/project-list.component';
+import { ProjectListItemComponent } from '../components/project/project-list-item/project-list-item.component';
 
 
 
@@ -166,7 +168,9 @@ import { ValidationResultComponent } from 'src/components/share/validation-resul
     ContractPaymentByContractListItemComponent,
     ContractPaymentFilterComponent,
     LoadingComponent,
-    ValidationResultComponent
+    ValidationResultComponent,
+    ProjectListComponent,
+    ProjectListItemComponent
   ],
   imports: [
     BrowserModule,

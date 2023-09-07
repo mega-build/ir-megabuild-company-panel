@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
 @Component(
@@ -12,6 +12,8 @@ import { ContractPaymentService } from 'src/services/contractPayment/contract-pa
 export class AddContractPaymentDeedComponent
 	{
 		@Input() contractId:string = "";
+		@Output() onItemAdded = new EventEmitter<any>();
+		
 		contractPayment:any ={};
 		isLoading:boolean = false;
 		validationResult: any ={};
@@ -90,6 +92,8 @@ export class AddContractPaymentDeedComponent
 								this.contractPayment._id = data.contractPaymentId
 							
 								this.isLoading = false;
+
+								this.onItemAdded.emit(this.contractPayment);
 							}
 						catch
 						(

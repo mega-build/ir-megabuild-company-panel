@@ -14,9 +14,9 @@ export class ShmasiDatePickerComponent
 		@Output() setSelectedDate = new EventEmitter<any>()
 		constructor(){}
 
-		year:number = 1402;
-		month: number = 1;
-		day:number = 1;
+		year!:number;// = 1402;
+		month!: number;// = 1;
+		day!:number;// = 1;
 
 		onYearChanged
 		(
@@ -51,13 +51,21 @@ export class ShmasiDatePickerComponent
 		onDateChanged
 		():void
 			{
-				const result = {
-					year : this.year,
-					month: this.month,
-					day: this.day
-				}
-
-				this.setSelectedDate.emit(result);
+				if
+				(
+					this.year &&
+					this.month &&
+					this.day
+				)
+					{
+						const result = {
+							year : this.year,
+							month: this.month,
+							day: this.day
+						}
+		
+						this.setSelectedDate.emit(result);
+					}
 			}
 
 		

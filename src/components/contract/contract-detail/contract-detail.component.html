@@ -14,7 +14,7 @@
         <ul>
             <li>
                 <a
-                    href= "/editContract;contractId={{contract._id}}/customerList"
+                    [routerLink]="['customerList']"
                 >
                     خریدار
                 </a>
@@ -22,27 +22,29 @@
     
             <li>
                 <a 
-                    href= "/editContract;contractId={{contract._id}}/projectItem"
+                    [routerLink]="['projectItem']"
                 >
                     ایتم فروش
                 </a>
             </li>
-    
+
             <li>
                 <a
-                    href= "/editContract;contractId={{contract._id}}/paymentList"
-                >
-                    پرداخت 
-                </a>
-            </li>
-    
-            <li>
-                <a
-                    href= "/editContract;contractId={{contract._id}}/payablePrice"
+                    [routerLink]="['payablePrice']"
                 >
                     مبلغ قابل پرداخت 
                 </a>
             </li>
+    
+            <li>
+                <a
+                    [routerLink]="['paymentList']"
+                >
+                    پرداخت ها
+                </a>
+            </li>
+    
+           
     
         </ul>
     </nav>

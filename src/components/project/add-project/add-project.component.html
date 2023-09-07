@@ -1,8 +1,12 @@
-<form class="container">
+<form
+    class="container"
+>
     <legend>
         پروژه جدید
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label
@@ -15,7 +19,9 @@
                     type="text"
                     id="txtTitle"
                     name="txtTitle"
+                    maxlength="200"
                     [(ngModel)]= "project.title"
+                    required
                 >
             </li>
 
@@ -28,6 +34,7 @@
 
                 <select-project-type
                     id="cmpProjectType"
+                    name="cmpProjectType"
                     (setProjectType)="setProjectType($event)"
                 ></select-project-type>
             </li>
@@ -44,9 +51,20 @@
                     name="txtAddress"
                     [(ngModel)]= "project.address"
                     rows="6"
+                    required
                 ></textarea>
             </li>
         </ul>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
+        
         <ul>
             <li>
                 <button
@@ -57,10 +75,14 @@
                     ثبت
                 </button>
 
-                <a href="/projectManagement" class="secondary">
+                <a
+                    [routerLink]="['..']"
+                    class="secondary"
+                >
                     انصراف
                 </a>
             </li>
         </ul>
+
     </fieldset>
 </form>

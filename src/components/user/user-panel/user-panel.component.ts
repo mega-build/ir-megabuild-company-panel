@@ -18,8 +18,7 @@ export class UserPanelComponent implements OnInit
 		constructor
 		(
 			private userService: UserService
-		)
-			{}
+		){}
 
 		ngOnInit(): void {
 			this.getAllUsers();
@@ -28,14 +27,17 @@ export class UserPanelComponent implements OnInit
 		async getAllUsers
 		():Promise<void>
 			{
-				this.isLoading = true;
+				
 
 				try 
 					{
+						this.isLoading = true;
+
 						const data = await this.userService.getAll();
 						
 						console.log(data.userList);
 						this.userList = data.userList;
+						
 						this.isLoading = false;
 					}
 				catch

@@ -12,6 +12,7 @@
     >
         <contract-payment-by-contract-list-item
             [contractPayment] = "contractPayment"
+            (onRemove)="onItemRemoved($event)"
         ></contract-payment-by-contract-list-item>
     </li>
 </ol>

@@ -15,6 +15,7 @@ export class SelectProjectComponent implements OnInit
 		@Input() selectedProject:any ={};
 
 		projectList: any[]= [];
+		isLoading: boolean = false;
 
 		constructor
 		(
@@ -28,19 +29,40 @@ export class SelectProjectComponent implements OnInit
 				this.getAllProjectList();
 			}
 
-		getAllProjectList
-			(): void
+		async getAllProjectList
+			(): Promise<void>
 				{
-					this.projectService
-						.getAll()
-						.subscribe(
-							(data: any) => 
-								{
-									console.log(data.projectList);
-									this.projectList = data.projectList;
-									
-								}
+
+					try
+					{
+						this.isLoading = true;
+
+						const data = await this.projectService.getAll();
+						console.log(data.projectList);
+						this.projectList = data.projectList;
+
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
 						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
+
 				}
 
 

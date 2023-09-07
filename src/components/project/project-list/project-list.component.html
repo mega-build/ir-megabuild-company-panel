@@ -1,0 +1,22 @@
+<ol
+    class="container"
+>
+
+    <ul>
+        <li>
+            عنوان
+        </li>
+        <li>
+            آدرس
+        </li>
+    </ul>
+
+    <li
+        *ngFor = 'let project of projectList'
+    >
+        <project-list-item
+            [project]="project"
+        ></project-list-item>
+    </li>
+
+</ol>

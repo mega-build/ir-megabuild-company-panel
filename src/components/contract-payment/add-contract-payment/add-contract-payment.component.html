@@ -24,19 +24,25 @@
             <add-contract-payment-deposit
                 *ngIf="isDepositPaymentMethod()"
                 [contractId]="contractId"
+                (onItemAdded)="itemAdded($event)"
             ></add-contract-payment-deposit>
+
             <add-contract-payment-cheque
                 *ngIf="isChequePaymentMethod()"
                 [contractId]="contractId"
+                (onItemAdded)="itemAdded($event)"
             ></add-contract-payment-cheque>
+
             <add-contract-payment-dicker
                 *ngIf="isDickerPaymentMethod()"
                 [contractId]="contractId"
+                (onItemAdded)="itemAdded($event)"
             ></add-contract-payment-dicker>
 
             <add-contract-payment-deed
                 *ngIf="isDeedPaymentMethod()"
                 [contractId]="contractId"
+                (onItemAdded)="itemAdded($event)"
             ></add-contract-payment-deed>
 
         </ul>

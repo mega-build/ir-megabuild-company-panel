@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component(
 	{
@@ -12,6 +12,8 @@ export class AddContractPaymentComponent
 	{
 
 		@Input() contractId= "";
+		@Output() onItemAdded = new EventEmitter<any>();
+
 		contract:any = {};
 
 		setBankAccount
@@ -109,4 +111,13 @@ export class AddContractPaymentComponent
 						return true;
 					}
 			}
+
+		itemAdded
+		(
+			addedContractPayment: any
+		):void
+			{
+				this.onItemAdded.emit(addedContractPayment);
+			}
+
 	}

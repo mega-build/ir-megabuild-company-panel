@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
+import { ContractPaymentByContractPanelComponent } from 'src/components/contract-payment/contract-payment-by-contract-panel/contract-payment-by-contract-panel.component';
 
 @Component(
 	{
@@ -18,50 +18,14 @@ export class ContractContractPaymentListComponent implements OnInit
 		contractPaymentList: any[]=[]
 		isLoading:boolean = false;
 
+		@ViewChild(ContractPaymentByContractPanelComponent)
+		private contractPaymentByContractPanel!: ContractPaymentByContractPanelComponent;
+
 		constructor
 		(
-			private route: ActivatedRoute,
-			private contractPaymentService: ContractPaymentService
+			private route: ActivatedRoute
 		){}
 		
-		async getAllContractPaymentList
-		(): Promise<void>
-			{
-				try
-					{
-						this.isLoading = true;
-						const data = await this.contractPaymentService
-							.getAllByContract(
-								this.contractId
-							)
-
-						console.log(data.contractPaymentList);
-						this.contractPaymentList = data.contractPaymentList;
-						this.isLoading = false;		
-
-					}
-				catch
-				(
-					error:any
-				)
-					{
-						this.isLoading = false;
-							if
-							(
-								error.error &&
-								error.error.message
-							)
-								{
-									alert(error.error.message);
-								}
-							else
-								{
-									alert(error)
-								}
-					}
-				
-			}
-
 		ngOnInit
 		(): void
 			{
@@ -73,10 +37,18 @@ export class ContractContractPaymentListComponent implements OnInit
 						this.route.parent.params.subscribe(params => 
 							{
 								this.contractId = params['contractId']; 
-								this.getAllContractPaymentList();
+								//this.getAllContractPaymentList();
 							}
 						);
 					}
+			}
+
+		newContractPaymentAdded
+		(
+			contractPayment:any
+		):void
+			{
+				this.contractPaymentByContractPanel.getAllContractPaymentList();
 			}
 
 	}

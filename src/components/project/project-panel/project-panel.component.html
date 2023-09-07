@@ -1,20 +1,21 @@
 <a
-    href="/projectManagement/add"
+    [routerLink]="['add']"
 >
     پروژه جدید
 </a>
 
-<ul class="container">
-    <li
-        *ngFor = 'let project of projectList'
-    >
-        <dl>
-            <dt>
-                عنوان
-            </dt>
-            <dd>
-                {{project.title}}
-            </dd>
-        </dl>
-    </li>
-</ul>
+<loading
+    *ngIf="isLoading"
+></loading>
+
+<project-list
+    *ngIf="!isLoading && projectList && projectList.length > 0"
+    [projectList] = "projectList"
+></project-list>
+
+<div
+    *ngIf="!isLoading && projectList.length == 0"
+    class="container empty"
+>
+    پروژه ای وجود ندارد.
+</div>

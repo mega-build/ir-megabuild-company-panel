@@ -78,7 +78,7 @@
 >
     <li>
         <a
-            href= "/editContract;contractId={{contract._id}}"
+            [routerLink]="['../../editContract','contractId',contract._id]"
             *ngIf="contract.isDraft"
         >
             ویرایش
@@ -86,14 +86,14 @@
     </li>
     <li>
         <a
-            href="/contractManagement/requestReview;contractId={{contract._id}}"
+            [routerLink]="['contractManagement','requestReview','contractId',contract._id]"
         >
             درخواست بررسی
         </a>
     </li>
     <li>
         <a
-            href="/contractManagement/editContent;contractId={{contract._id}}"
+            [routerLink]="['contractManagement','editContent','contractId',contract._id]"
         >
             ویرایش متن
         </a>

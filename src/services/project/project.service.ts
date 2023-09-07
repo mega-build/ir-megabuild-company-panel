@@ -21,38 +21,42 @@ export class ProjectService
 			private httpInteceptor: AuthHttpInterceptorService,
 		) { }
 
-		getAll
-		(): any
+		async getAll
+		(): Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					this.URL_PROJECT_GETALL,
 					headers
 				);
+
+				return result;
 			}
 
-		get
+		async get
 		(
 			projectId: string
-		): any
+		): Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
 				let url = `${this.URL_PROJECT_GET}/${projectId}`;
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					url,
 					headers
 				);
+
+				return result;
 			}
 		
-		add
+		async add
 		(
 			title: string,
 			projectTypeId: string,
 			address: string
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 				let body: any = {
@@ -60,10 +64,12 @@ export class ProjectService
 					projectTypeId: projectTypeId,
 					address: address
 				};
-				return this.httpInteceptor.postWithAuth(
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_PROJECT_ADD,
 					headers,
 					body
 				);
+
+				return result;
 			}
 	}

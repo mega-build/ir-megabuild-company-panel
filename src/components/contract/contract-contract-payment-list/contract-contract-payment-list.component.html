@@ -1,23 +1,17 @@
 <section class="container">
-    <loading
-        *ngIf="isLoading"
-    ></loading>
-    <contract-payment-by-contract-list
-        *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
-        [contractPaymentList]="contractPaymentList"
-    ></contract-payment-by-contract-list>
 
-    <div
-        *ngIf="!isLoading && contractPaymentList && contractPaymentList.length == 0"
-        class="container empty"
-    >
-        پرداختی  برای این قرارداد وجود ندارد
-    </div>
+    <contract-payment-by-contract-panel
+        #contractPaymentByContractPanel
+        [contractId] = "contractId"
+        
+    ></contract-payment-by-contract-panel>
+
 </section>
 
 <section class="container">
     <add-contract-payment
         [contractId] = "contractId"
+        (onItemAdded)="newContractPaymentAdded($event)"
     ></add-contract-payment>
 </section>
 

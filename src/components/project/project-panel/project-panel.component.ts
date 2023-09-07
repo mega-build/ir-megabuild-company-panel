@@ -14,6 +14,7 @@ export class ProjectPanelComponent implements OnInit
 	@Output() setProject = new EventEmitter<any>();
 
 	projectList: any[]= [];
+	isLoading: boolean = false;
 
 	constructor
 	(
@@ -27,19 +28,39 @@ export class ProjectPanelComponent implements OnInit
 			this.getAllProjectList();
 		}
 
-	getAllProjectList
-		(): void
+	async getAllProjectList
+		(): Promise<void>
 			{
-				this.projectService
-					.getAll()
-					.subscribe(
-						(data: any) => 
+				try
+					{
+						this.isLoading = true;
+
+						const data = await this.projectService.getAll();
+						console.log(data.projectList);
+						this.projectList = data.projectList;
+
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								console.log(data.projectList);
-								this.projectList = data.projectList;
-								
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
+
 			}
 
 }

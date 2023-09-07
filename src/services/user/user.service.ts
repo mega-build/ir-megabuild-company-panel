@@ -52,26 +52,30 @@ export class UserService
 				return result;
 			}
 
-		create
+		async create
 		(
 			firstname:string,
 			lastname:string,
 			username: number,
 			password:string
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
+				
 				let body: any = {
 					firstname: firstname,
 					lastname: lastname,
 					username: username,
 					password: password
 				};
-				return this.httpInteceptor.postWithAuth(
+
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_USER_ADD,
 					headers,
 					body
 				);
+
+				return result;
 			}
 
 		setAccess

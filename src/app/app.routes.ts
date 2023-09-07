@@ -95,11 +95,8 @@ export const routes: Routes = [
     },
 
     {
-        path: 'editContract',
+        path: 'editContract/contractId/:contractId',
         component: EditContractComponent,
-        data:{
-            contractId:undefined
-        },
         children:[
             {
                 path: 'paymentList',
