@@ -1,0 +1,9 @@
+ul:last-child {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #eaecf0;
+}
+
+ul:last-child li button {
+  width: 15%;
+}

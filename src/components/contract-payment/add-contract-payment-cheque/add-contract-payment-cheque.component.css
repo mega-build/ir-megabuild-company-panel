@@ -1,3 +1,13 @@
-li{
-    position: relative;
+li {
+  position: relative;
+}
+ul:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.primary {
+  width: 100%;
+  margin: 32px 0 64px 0;
 }
