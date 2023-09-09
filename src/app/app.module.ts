@@ -84,10 +84,7 @@ import { LoadingComponent } from 'src/components/share/loading/loading.component
 import { ValidationResultComponent } from 'src/components/share/validation-result/validation-result.component';
 import { ProjectListComponent } from '../components/project/project-list/project-list.component';
 import { ProjectListItemComponent } from '../components/project/project-list-item/project-list-item.component';
-
-
-
-
+import { DraftContractPanelComponent } from 'src/components/contract/draft-contract-panel/draft-contract-panel.component';
 
 
 
@@ -170,7 +167,8 @@ import { ProjectListItemComponent } from '../components/project/project-list-ite
     LoadingComponent,
     ValidationResultComponent,
     ProjectListComponent,
-    ProjectListItemComponent
+    ProjectListItemComponent,
+    DraftContractPanelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+<loading
+    *ngIf="isLoading"
+></loading>
+<contract-list
+    *ngIf="!isLoading && contractList.length > 0"
+    [contractList]="contractList"
+></contract-list>
+
+<div
+    *ngIf="!isLoading && contractList.length == 0"
+    class="container empty"
+    
+>
+    قرارداد در حال تکمیل وجود ندارد
+</div>
