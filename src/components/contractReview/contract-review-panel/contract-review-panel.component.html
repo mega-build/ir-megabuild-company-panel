@@ -1,3 +1,8 @@
+<loading
+    *ngIf="isLoading"
+></loading>
+
 <contract-review-list
+    *ngIf="!isLoading"
     [contractReviewList]="contractReviewList"
 ></contract-review-list>

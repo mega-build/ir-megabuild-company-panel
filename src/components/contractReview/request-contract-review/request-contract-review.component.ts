@@ -18,6 +18,7 @@ export class RequestContractReviewComponent implements OnInit
 		contractId:string = "";
 		contract: any= {};
 		selectedUserList: any[] = [];
+		contractReviewList: any[]= [];
 
 
 		constructor
@@ -25,8 +26,7 @@ export class RequestContractReviewComponent implements OnInit
 				private route: ActivatedRoute,
 				private contractService: ContractService,
 				private contractReviewService: ContractReviewService
-			)
-				{}
+			){}
 
 		ngOnInit
 		(): void 
@@ -35,9 +35,49 @@ export class RequestContractReviewComponent implements OnInit
 					{
 						this.contractId = params['contractId']; 
 						this.getContract();
+						this.getAllContractReviewByContract(this.contractId);
 					}
 				);
 				
+			}
+
+		async getAllContractReviewByContract
+		(
+			contractId: string
+		):Promise<void>
+			{
+				try
+					{
+						this.isLoading = true;
+
+						const data = await this.contractReviewService
+							.getAllByContract(
+								contractId
+							);
+
+						this.contractReviewList = data.contractReviewList;
+
+						this.isLoading = false;
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
 			}
 
 		async getContract
@@ -47,12 +87,14 @@ export class RequestContractReviewComponent implements OnInit
 				try
 					{
 						this.isLoading = true;
+
 						const data = await this.contractService
 							.get(
 								this.contractId
 							);
 						console.log(data.contract);
 						this.contract = data.contract;
+
 						this.isLoading = false;
 					}
 				catch
@@ -61,7 +103,18 @@ export class RequestContractReviewComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						alert(error.error);
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
 					}
 				
 			}
@@ -78,25 +131,49 @@ export class RequestContractReviewComponent implements OnInit
 		requestReview
 		():void
 			{
-				console.log(this.selectedUserList);
-				this.selectedUserList.forEach(
-					(
-						user:any
-					)=>
-						{
-							this.contractReviewService
-								.add(
-									this.contract._id,
-									user._id
-								)
-								.subscribe(
-									(data: any) => 
-										{
-											console.log(data);
-										}
-								)
+				try
+					{
 
-						}
-				);
+						this.isLoading = true;
+
+						this.selectedUserList.forEach(
+							async (
+								user:any
+							)=>
+								{
+									const data = await this.contractReviewService
+										.add(
+											this.contract._id,
+											user._id
+										)
+
+									console.log(data);
+
+								}
+						);
+
+						this.isLoading = false;
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
+
+				
 			}
 	}

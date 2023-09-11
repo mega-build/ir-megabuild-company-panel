@@ -1,0 +1,39 @@
+<dl>
+    <dt>
+        نوع پرداخت
+    </dt>
+    <dd>
+        {{deedContractPayment.contractPaymentMethod.title}}
+    </dd>
+
+    <dt>
+        حساب
+    </dt>
+    <dd
+        *ngIf="deedContractPayment.bankAccount"
+        class="bank-account"
+    >
+        <bank-account-label
+            [bankAccount]="deedContractPayment.bankAccount"
+        ></bank-account-label>
+    </dd>
+
+    <dt>
+        مبلغ
+    </dt>
+    <dd>
+        <price-label
+            [price]="deedContractPayment.price"
+        ></price-label>
+    </dd>
+
+    <dt>
+        سررسید
+    </dt>
+    <dd
+        *ngIf="deedContractPayment.dueDateShamsi"
+    >
+        {{deedContractPayment.dueDateShamsi}}
+    </dd>
+
+</dl>

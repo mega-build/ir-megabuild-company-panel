@@ -1,0 +1,30 @@
+dl {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    flex: 0 0 83%;
+  }
+  dl dt {
+    display: none;
+  }
+  
+  dl dd {
+    color: #101828;
+    font-size: 14px;
+  }
+  
+  dl dd {
+    flex: 0 0 20%;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  ul li {
+    flex-direction: 1 0 17%;
+  }
+  .bank-account {
+    position: absolute;
+    bottom: -16px;
+  }
+  

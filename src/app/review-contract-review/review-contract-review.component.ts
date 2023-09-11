@@ -56,41 +56,83 @@ export class ReviewContractReviewComponent implements OnInit
 					)
 			}
 
-		approve
-		():void
+		async approve
+		():Promise<void>
 			{
-				this.isLoading = true;
-				this.contractReviewService
-					.setReviewResult(
-						this.contractReviewId,
-						true,
-						false
-					)
-					.subscribe(
-						(data: any) => 
+				try
+					{
+
+						this.isLoading = true;
+
+						const data = await this.contractReviewService
+						.setReviewResult(
+							this.contractReviewId,
+							true,
+							false
+						)
+
+						console.log(data);
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								console.log(data);
-								this.isLoading = false;
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
 			}
-		reject
-		():void
+		async reject
+		():Promise<void>
 			{
-				this.isLoading = true;
-				this.contractReviewService
-					.setReviewResult(
-						this.contractReviewId,
-						false,
-						true
-					)
-					.subscribe(
-						(data: any) => 
+				try
+					{
+
+						this.isLoading = true;
+
+						const data = await this.contractReviewService
+						.setReviewResult(
+							this.contractReviewId,
+							false,
+							true
+						)
+
+						console.log(data);
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								console.log(data);
-								this.isLoading = false;
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
 			}
 		
 	}

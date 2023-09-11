@@ -1,61 +1,26 @@
-    <dl>
-        <dt>
-            نوع پرداخت
-        </dt>
-        <dd>
-            {{contractPayment.contractPaymentMethod.title}}
-        </dd>
-    
-        <dt>
-            حساب
-        </dt>
-        <dd
-            *ngIf="contractPayment.bankAccount"
-            class="bank-account"
-        >
-            {{contractPayment.bankAccount.accounNumber}}
-        </dd>
-    
-        <dt>
-            مبلغ
-        </dt>
-        <dd>
-            <price-label
-                [price]="contractPayment.price"
-            ></price-label>
-        </dd>
-    
-        <dt>
-            به نام
-        </dt>
-        <dd
-            *ngIf="contractPayment.drawer"
-        >
-            {{contractPayment.drawer}}
-        </dd>
-        
-    
-        <dt>
-            سررسید
-        </dt>
-        <dd
-            *ngIf="contractPayment.dueDateShamsi"
-        >
-            {{contractPayment.dueDateShamsi}}
-        </dd>
-    
-    </dl>
+<contract-payment-by-contract-cheque-list-item
+    *ngIf="isChequePaymentMethod()"
+    [chequeContractPayment]="contractPayment"
+></contract-payment-by-contract-cheque-list-item>
+
+<contract-payment-by-contract-deed-list-item
+    *ngIf="isDeedPaymentMethod()"
+    [deedContractPayment]="contractPayment"
+></contract-payment-by-contract-deed-list-item>
+
+<contract-payment-by-contract-deposit-list-item
+    *ngIf="isDepositPaymentMethod()"
+    [depositContractPayment]="contractPayment"
+></contract-payment-by-contract-deposit-list-item>
+
+<contract-payment-by-contract-dicker-list-item
+    *ngIf="isDickerPaymentMethod()"
+    [dickerContractPayment]="contractPayment"
+></contract-payment-by-contract-dicker-list-item>
     
     <ul
         class="listItemActionMenu"
     >
-        <li>
-            <a
-                href= "/editContractPayment;contractPaymentId={{contractPayment._id}}"
-            >
-                ویرایش
-            </a>
-        </li>
         <li>
             <button
                 type="button"

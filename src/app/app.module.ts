@@ -85,6 +85,17 @@ import { ValidationResultComponent } from 'src/components/share/validation-resul
 import { ProjectListComponent } from '../components/project/project-list/project-list.component';
 import { ProjectListItemComponent } from '../components/project/project-list-item/project-list-item.component';
 import { DraftContractPanelComponent } from 'src/components/contract/draft-contract-panel/draft-contract-panel.component';
+import { BankAccountLabelComponent } from '../components/bankAccount/bank-account-label/bank-account-label.component';
+import { BankLabelComponent } from '../components/bank/bank-label/bank-label.component';
+import { ContractPaymentByContractChequeListItemComponent } from 'src/components/contract-payment/contract-payment-by-contract-cheque-list-item/contract-payment-by-contract-cheque-list-item.component';
+import { ContractPaymentByContractDeedListItemComponent } from 'src/components/contract-payment/contract-payment-by-contract-deed-list-item/contract-payment-by-contract-deed-list-item.component';
+import { ContractPaymentByContractDepositListItemComponent } from 'src/components/contract-payment/contract-payment-by-contract-deposit-list-item/contract-payment-by-contract-deposit-list-item.component';
+import { ContractPaymentByContractDickerListItemComponent } from 'src/components/contract-payment/contract-payment-by-contract-dicker-list-item/contract-payment-by-contract-dicker-list-item.component';
+import { ContractPaymentChequeListItemComponent } from 'src/components/contract-payment/contract-payment-cheque-list-item/contract-payment-cheque-list-item.component';
+import { ContractPaymentDeedListItemComponent } from 'src/components/contract-payment/contract-payment-deed-list-item/contract-payment-deed-list-item.component';
+import { ContractPaymentDepositListItemComponent } from 'src/components/contract-payment/contract-payment-deposit-list-item/contract-payment-deposit-list-item.component';
+import { ContractPaymentDickerListItemComponent } from 'src/components/contract-payment/contract-payment-dicker-list-item/contract-payment-dicker-list-item.component';
+
 
 
 
@@ -168,7 +179,17 @@ import { DraftContractPanelComponent } from 'src/components/contract/draft-contr
     ValidationResultComponent,
     ProjectListComponent,
     ProjectListItemComponent,
-    DraftContractPanelComponent
+    DraftContractPanelComponent,
+    ContractPaymentChequeListItemComponent,
+    ContractPaymentDeedListItemComponent,
+    ContractPaymentDepositListItemComponent,
+    ContractPaymentDickerListItemComponent,
+    BankAccountLabelComponent,
+    BankLabelComponent,
+    ContractPaymentByContractDeedListItemComponent,
+    ContractPaymentByContractChequeListItemComponent,
+    ContractPaymentByContractDepositListItemComponent,
+    ContractPaymentByContractDickerListItemComponent
   ],
   imports: [
     BrowserModule,

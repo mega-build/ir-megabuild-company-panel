@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PriceHelper } from 'src/helper/priceHelper';
 
 @Component(
@@ -12,9 +12,8 @@ import { PriceHelper } from 'src/helper/priceHelper';
 export class PriceInputComponent
 	{
 
+		@Input() price:number = 0;
 		@Output() setPrice = new EventEmitter<any>();
-
-		price:number = 0;
 
 		constructor(
 			private priceHelper: PriceHelper

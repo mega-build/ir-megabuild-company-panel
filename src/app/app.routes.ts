@@ -43,7 +43,18 @@ export const routes: Routes = [
         ]
     },
     {
-        path:'contractReviewManagement', component: ContractReviewManagementComponent,
+        path:'contractReviewManagement',
+        children:[
+            {
+                path:'list/pending',
+                component: ContractReviewManagementComponent,
+            },
+            {
+                path:'detail/contractReviewId/:contractReviewId',
+                component: ReviewContractReviewComponent,
+            }
+        ]
+        
     },
     {
         path:'reviewContractReview',
@@ -69,18 +80,19 @@ export const routes: Routes = [
                 ]
             },
             {
-                path: 'requestReview',
+                path: 'detail/contractId/:contractId',
                 component: RequestContractReviewComponent,
-                data:{
-                    contractId:undefined
-                },
+                children:[
+                    {
+                        path: 'requestReview',
+                        component: RequestContractReviewComponent
+                    }
+                ]
             },
+            
             {
-                path: 'editContent',
-                component: ContractContentComponent,
-                data:{
-                    contractId:undefined
-                },
+                path: 'editContent/contractId/:contractId',
+                component: ContractContentComponent
             },
             {
                 path: 'editContract/contractId/:contractId',

@@ -17,6 +17,7 @@
                     id = 'cmpDiscount'
                     name = 'cmpDiscount'
                     (setPrice)="setDiscount($event)"
+                    [price]="discount"
                 ></price-input>
 
             </li>
@@ -31,6 +32,7 @@
                     id = 'cmpPayablePrice'
                     name = 'cmpPayablePrice'
                     (setPrice)="setPayablePrice($event)"
+                    [price]="payablePrice"
                 ></price-input>
             </li>
         </ul>

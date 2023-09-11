@@ -2,10 +2,16 @@
     <legend>
         درخواست بررسی قرارداد
     </legend>
-    <fieldset>
+    <fieldset
+        [disabled]="isLoading"
+    >
         <select-user-list
             (onSelectedUserChanged)= "selectedUserChanged($event)"
         ></select-user-list>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
         <ul>
             <li>
                 <button

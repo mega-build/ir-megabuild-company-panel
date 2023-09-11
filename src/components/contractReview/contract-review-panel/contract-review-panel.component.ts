@@ -12,6 +12,7 @@ import { ContractReviewService } from 'src/services/contractReview/contract-revi
 export class ContractReviewPanelComponent implements OnInit
 	{
 		contractReviewList: any[]=[];
+		isLoading: boolean = false;
 
 		
 		constructor
@@ -26,18 +27,44 @@ export class ContractReviewPanelComponent implements OnInit
 				this.getAll();
 			}
 
-		getAll
-			(): void
+		async getAll
+			(): Promise<void>
 				{
-					this.contractReviewService
-						.getAll()
-						.subscribe(
-							(data: any) => 
+
+					try
+						{
+							this.isLoading = true;
+							
+							const data = await this.contractReviewService.getAll()
+							
+							console.log(data.contractReviewList);
+							this.contractReviewList = data.contractReviewList;
+							
+							this.isLoading = false;
+						}
+					catch
+					(
+						error:any
+					)
+						{
+							this.isLoading = false;
+							if
+							(
+								error.error &&
+								error.error.message
+							)
 								{
-									console.log(data.contractReviewList);
-									this.contractReviewList = data.contractReviewList;
+									alert(error.error.message);
 								}
-						)
+							else
+								{
+									alert(error)
+								}
+						}
+
+					
+					
+					
 				}
 
 	}

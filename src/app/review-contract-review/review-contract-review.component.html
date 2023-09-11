@@ -1,16 +1,12 @@
 <section class="container">   
-    <ul class="contract-review-header">
-        <li>عنوان</li>
-        <li>پروژه</li>
-        <li>بلوک</li>
-        <li>طبقه</li>
-        <li>واحد</li>
-    </ul>
     <contract-review-detail
         *ngIf="!isLoading && contractReview"
         [contractReview]="contractReview"
     ></contract-review-detail>
     
+    <loading
+        *ngIf="isLoading"
+    ></loading>
     <ul>
         <li>
             <button

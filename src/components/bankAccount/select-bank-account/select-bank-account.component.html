@@ -4,23 +4,22 @@
     <dl
         
     >
+    
         <dt>
             لوگو بانک
         </dt>
-
         <dd
             [ngClass]="'bank_'+ selectedBankAccount.bank.title"
             class="bank-logo"
-        >
+        ></dd>
 
-    </dd>
-    <dt>
-        شماره حساب
-    </dt>
+        <dt>
+            شماره حساب
+        </dt>
+        <dd class="bank-account">
+            {{selectedBankAccount.accounNumber}}
+        </dd>
 
-    <dd class="bank-account">
-        {{selectedBankAccount.accounNumber}}
-    </dd>
         <dt>
             عنوان
         </dt>

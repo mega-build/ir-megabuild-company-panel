@@ -16,6 +16,7 @@ export class ContractReviewService
 		private URL_CONTRACT_REVIEW_ADD: string = `${environment.API_URL}/contractReview`;
 		private URL_CONTRACT_REVIEW_GET: string = `${environment.API_URL}/contractReview`;
 		private URL_CONTRACT_REVIEW_GET_ALL: string = `${environment.API_URL}/contractReview`;
+		private URL_CONTRACT_REVIEW_GET_ALL_BY_CONTRACT: string = `${environment.API_URL}/contractReview/byContract`;
 		private URL_CONTRACT_REVIEW_SET_REVIEW_RESULT: string = `${environment.API_URL}/contractReview/setReviewResult`;
 
 		constructor(
@@ -23,11 +24,11 @@ export class ContractReviewService
 		) { }
 		
 
-		add
+		async add
 		(
 			contractId: string,
 			userId: string
-		):any
+		):Promise<any>
 			{
 				{
 					let headers: HttpHeaders = new HttpHeaders();
@@ -37,23 +38,44 @@ export class ContractReviewService
 						userId: userId
 					};
 
-					return this.httpInteceptor.postWithAuth(
+					const result = await  this.httpInteceptor.postWithAuth_(
 						this.URL_CONTRACT_REVIEW_ADD,
 						headers,
 						body
 					);
+
+					return result;
 				}
 			}
 
-		getAll
-		(): any
+		async getAll
+		(): Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 	
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					this.URL_CONTRACT_REVIEW_GET_ALL,
 					headers
 				);
+
+				return result;
+			};
+
+		async getAllByContract
+		(
+			contractId: string
+		): Promise<any>
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+
+				let url = `${this.URL_CONTRACT_REVIEW_GET_ALL_BY_CONTRACT}/${contractId}`;
+	
+				const result = await this.httpInteceptor.getWithAuth_(
+					url,
+					headers
+				);
+
+				return result;
 			};
 
 		get
@@ -71,12 +93,12 @@ export class ContractReviewService
 				);
 			}
 
-		setReviewResult
+		async setReviewResult
 		(
 			contractReviewId: string,
 			isApproved:boolean,
 			isRejected:boolean
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
@@ -86,11 +108,13 @@ export class ContractReviewService
 					isRejected: isRejected,
 				};
 
-				return this.httpInteceptor.postWithAuth(
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_CONTRACT_REVIEW_SET_REVIEW_RESULT,
 					headers,
 					body
 				);
+
+				return result;
 			}
 		
 	}

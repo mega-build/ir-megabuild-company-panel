@@ -1,79 +1,19 @@
-<dl>
-    <dt>
-        نوع پرداخت
-    </dt>
-    <dd>
-        {{contractPayment.contractPaymentMethod.title}}
-    </dd>
+<contract-payment-cheque-list-item
+    *ngIf="isChequePaymentMethod()"
+    [chequeContractPayment]="contractPayment"
+></contract-payment-cheque-list-item>
 
-    <dt>
-        حساب
-    </dt>
-    <dd
-        *ngIf="contractPayment.bankAccount"
-        class="bank-account"
-    >
-        {{contractPayment.bankAccount.accounNumber}}
-    </dd>
+<contract-payment-deed-list-item
+    *ngIf="isDeedPaymentMethod()"
+    [deedContractPayment]="contractPayment"
+></contract-payment-deed-list-item>
 
-    <dt>
-        پروژه
-    </dt>
-    <dd>
-        <project-label
-        [project]="contractPayment.contract.project"
-        ></project-label>
-        
-    </dd>
+<contract-payment-deposit-list-item
+    *ngIf="isDepositPaymentMethod()"
+    [depositContractPayment]="contractPayment"
+></contract-payment-deposit-list-item>
 
-    <dt>
-        مورد فروش
-    </dt>
-    <dd>
-        <project-item-abbreviation
-            [projectItem]="contractPayment.contract.projectItem"
-        ></project-item-abbreviation>
-    </dd>
-
-    <dt>
-        مبلغ
-    </dt>
-    <dd>
-        <price-label
-            [price]="contractPayment.price"
-        ></price-label>
-    </dd>
-
-    <dt>
-        به نام
-    </dt>
-    <dd
-        *ngIf="contractPayment.drawer"
-    >
-        {{contractPayment.drawer}}
-    </dd>
-    
-
-    <dt>
-        سررسید
-    </dt>
-    <dd
-        *ngIf="contractPayment.dueDateShamsi"
-    >
-        {{contractPayment.dueDateShamsi}}
-    </dd>
-
-</dl>
-
-<ul
-    class="listItemActionMenu"
->
-    <li>
-        <a
-            href= "/editContractPayment;contractPaymentId={{contractPayment._id}}"
-        >
-            ویرایش
-        </a>
-    </li>
-
-</ul>
+<contract-payment-dicker-list-item
+    *ngIf="isDickerPaymentMethod()"
+    [dickerContractPayment]="contractPayment"
+></contract-payment-dicker-list-item>

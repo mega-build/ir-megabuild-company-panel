@@ -1,36 +1,36 @@
-<dl>
-    <dt>
-        عنوان
-    </dt>
-    <dd>
-        {{contractReview.contract.contractNumber}}
-    </dd>
+<section
+    id="secContractInfo"
+>
+    <dl>
+        <dt>
+            عنوان
+        </dt>
+        <dd>
+            {{contractReview.contract.contractNumber}}
+        </dd>
 
-    <dt>
-        پروژه
-    </dt>
-    <dd>
-        {{contractReview.project.title}}
-    </dd>
+        <dt>
+            پروژه
+        </dt>
+        <dd>
+            {{contractReview.contract.project.title}}
+        </dd>
 
-    <dt>
-        بلوک
-    </dt>
-    <dd>
-        {{contractReview.projectItem.block}}
-    </dd>
+        <dt>
+            مورد قرارداد
+        </dt>
+        <dd>
+            <project-item-detail
+                [projectItem]="contractReview.contract.projectItem"
+            ></project-item-detail>
+        </dd>
+    </dl>
+</section>
+<section
+    id="secContractPaymentInfo"
+>
+    <contract-payment-by-contract-panel
+        [contractId]="contractReview.contract._id"
+    ></contract-payment-by-contract-panel>
+</section>
 
-    <dt>
-        طبقه
-    </dt>
-    <dd>
-        {{contractReview.projectItem.floor}}
-    </dd>
-
-    <dt>
-        واحد
-    </dt>
-    <dd>
-        {{contractReview.projectItem.unit}}
-    </dd>
-</dl>

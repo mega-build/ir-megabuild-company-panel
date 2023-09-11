@@ -1,0 +1,51 @@
+<dl>
+    <dt>
+        نوع پرداخت
+    </dt>
+    <dd>
+        {{dickerContractPayment.contractPaymentMethod.title}}
+    </dd>
+
+
+    <dt>
+        پروژه
+    </dt>
+    <dd>
+        <project-label
+            [project]="dickerContractPayment.contract.project"
+        ></project-label>
+        
+    </dd>
+
+    <dt>
+        مورد فروش
+    </dt>
+    <dd>
+        <project-item-abbreviation
+            [projectItem]="dickerContractPayment.contract.projectItem"
+        ></project-item-abbreviation>
+    </dd>
+
+    <dt>
+        مبلغ
+    </dt>
+    <dd>
+        <price-label
+            [price]="dickerContractPayment.price"
+        ></price-label>
+    </dd>
+
+</dl>
+
+<ul
+    class="listItemActionMenu"
+>
+    <li>
+        <a
+            href= "/editContractPayment;contractPaymentId={{dickerContractPayment._id}}"
+        >
+            ویرایش
+        </a>
+    </li>
+
+</ul>

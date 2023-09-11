@@ -11,4 +11,80 @@ import { Component, Input } from '@angular/core';
 export class ContractPaymentListItemComponent
 	{
 		@Input() contractPayment: any={};
+
+		isChequePaymentMethod
+		():boolean
+			{
+				if
+				(
+					this.contractPayment &&
+					this.contractPayment.contractPaymentMethod &&
+					this.contractPayment.contractPaymentMethod.componentName &&
+					this.contractPayment.contractPaymentMethod.componentName == "CHEQUE"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						return false;
+					}
+			}
+
+		isDepositPaymentMethod
+		():boolean
+			{
+				if
+				(
+					this.contractPayment &&
+					this.contractPayment.contractPaymentMethod &&
+					this.contractPayment.contractPaymentMethod.componentName &&
+					this.contractPayment.contractPaymentMethod.componentName == "DIPOSIT"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						return false;
+					}
+			}
+
+		isDickerPaymentMethod
+		():boolean
+			{
+				if
+				(
+					this.contractPayment &&
+					this.contractPayment.contractPaymentMethod &&
+					this.contractPayment.contractPaymentMethod.componentName &&
+					this.contractPayment.contractPaymentMethod.componentName == "DICKER"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						return false;
+					}
+			}
+
+		isDeedPaymentMethod
+		():boolean
+			{
+				if
+				(
+					this.contractPayment &&
+					this.contractPayment.contractPaymentMethod &&
+					this.contractPayment.contractPaymentMethod.componentName &&
+					this.contractPayment.contractPaymentMethod.componentName == "DEED"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						return false;
+					}
+			}
 	}
