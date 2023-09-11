@@ -23,6 +23,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ContractPaymentPanelComponent } from 'src/components/contract-payment/contract-payment-panel/contract-payment-panel.component';
 import { ContractContractPaymentListComponent } from 'src/components/contract/contract-contract-payment-list/contract-contract-payment-list.component';
 import { DraftContractPanelComponent } from 'src/components/contract/draft-contract-panel/draft-contract-panel.component';
+import { AddContractPaymentComponent } from 'src/components/contract-payment/add-contract-payment/add-contract-payment.component';
 
 export const routes: Routes = [
     {
@@ -64,7 +65,8 @@ export const routes: Routes = [
         },
     },
     {
-        path:'contractManagement', component: ContractManagementComponent,
+        path:'contractManagement',
+        component: ContractManagementComponent,
         children:[
             {
                 path: 'list',
@@ -100,7 +102,13 @@ export const routes: Routes = [
                 children:[
                     {
                         path: 'paymentList',
-                        component: ContractContractPaymentListComponent
+                        component: ContractContractPaymentListComponent,
+                        children:[
+                            {
+                                path: 'add',
+                                component: AddContractPaymentComponent
+                            },
+                        ]
                     },
                     {
                         path: 'customerList',

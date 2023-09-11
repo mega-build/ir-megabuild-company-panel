@@ -22,11 +22,10 @@ export class ContractCustomerListComponent implements OnInit
 		selectedCustomer:any = {};
 
 		constructor
-			(
-				private route: ActivatedRoute,
-				private contractCustomerService: ContractCustomerService
-			)
-				{}
+		(
+			private route: ActivatedRoute,
+			private contractCustomerService: ContractCustomerService
+		){}
 		
 		async getAllContractCustomerList
 		(): Promise<void>

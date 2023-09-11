@@ -125,12 +125,12 @@ export class ContractService {
 			);
 		}
 
-	setProjectAndProjectItem
+	async setProjectAndProjectItem
 	(
 		contractId:string,
 		projectId:string,
 		projectItemId:string,
-	):any
+	):Promise<any>
 		{
 			let headers: HttpHeaders = new HttpHeaders();
 
@@ -140,11 +140,13 @@ export class ContractService {
 				projectItemId: projectItemId
 			};
 
-			return this.httpInteceptor.postWithAuth(
+			const result = await this.httpInteceptor.postWithAuth_(
 				this.URL_CONTRACT_SET_PROJECT_AND_PROJECTITEM,
 				headers,
 				body
 			);
+
+			return result;
 		}
 
 	async getAllByProject

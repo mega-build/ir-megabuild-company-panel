@@ -1,4 +1,8 @@
 
+<loading
+    *ngIf="isLoading"
+></loading>
+
 <section
     *ngIf="!isLoading && projectItem"
     class="container"
@@ -52,17 +56,21 @@
 >
     <ul>
         <li>
-           <button
-                type="button"
-                (click)="setContractProjectItem()"
+           <a
+                [routerLink]="['../payablePrice']"
                 class="primary"
-           >
-                ادامه
-           </button>
+                role="button"
+            >
+                بعدی
+            </a>
         </li>
         <li>
-            <a href="" class="secondary">
-                برگشت
+            <a
+                [routerLink]="['../customerList']"
+                class="secondary"
+                role="button"
+            >
+                قبلی
             </a>
         </li>
     </ul>

@@ -22,12 +22,11 @@ export class ContractProjectItemComponent implements OnInit
 		isLoading:boolean = false;
 
 		constructor
-			(
-				private route: ActivatedRoute,
-				private projectItemService: ProjectItemService,
-				private contractService : ContractService
-			)
-				{}
+		(
+			private route: ActivatedRoute,
+			private projectItemService: ProjectItemService,
+			private contractService : ContractService
+		){}
 		
 		async getProjectItemByContractId
 		(): Promise<void>
@@ -87,23 +86,43 @@ export class ContractProjectItemComponent implements OnInit
 			}
 
 
-		setContractProjectItem
-		():void
+		async setContractProjectItem
+		():Promise<void>
 			{
-				this.isLoading = true;
-				this.contractService
-					.setProjectAndProjectItem(
-						this.contractId,
-						this.project._id,
-						this.projectItem._id
-					)
-					.subscribe(
-						(data: any) => 
+				try 
+					{
+						this.isLoading = true;
+
+						const data = await this.contractService
+							.setProjectAndProjectItem(
+								this.contractId,
+								this.project._id,
+								this.projectItem._id
+							)
+						
+						console.log(data);
+						this.isLoading = false;
+						
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								console.log(data);
-								this.isLoading = false;
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
 			}
 
 		isResidentailProjectItem
@@ -120,8 +139,7 @@ export class ContractProjectItemComponent implements OnInit
 					}
 				else
 					{
-						//return false;
-						return true;
+						return false;
 					}
 				
 			}
@@ -140,8 +158,7 @@ export class ContractProjectItemComponent implements OnInit
 					}
 				else
 					{
-						//return false;
-						return true;
+						return false;
 					}
 			}
 		ngOnInit
@@ -163,32 +180,52 @@ export class ContractProjectItemComponent implements OnInit
 				
 			}
 
-		removeProjectItem
-		():void
+		async removeProjectItem
+		():Promise<void>
 			{
-				
-				this.isLoading = true;
-				this.contractService
-					.removeProjectItem(
-						this.contractId
-					)
-					.subscribe(
-						(data: any) => 
+				try 
+					{
+						this.isLoading = true;
+
+						const data = await this.contractService
+							.removeProjectItem(
+								this.contractId
+							);
+						
+						console.log(data);
+						this.projectItem = undefined;
+						this.isLoading = false;
+						
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
 							{
-								console.log(data);
-								this.projectItem = undefined;
-								this.isLoading = false;
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
 			}
 
-		setNewProjectItem(
+		setNewProjectItem
+		(
 			projectItem:any
 		):void
 			{
 				console.log(projectItem);
 				this.projectItem = projectItem;
-				
+				this.setContractProjectItem();
 			}
 
 	}

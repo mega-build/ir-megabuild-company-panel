@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component(
 	{
@@ -8,31 +9,46 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 	}
 )
 
-export class AddContractPaymentComponent
+export class AddContractPaymentComponent implements OnInit
 	{
 
-		@Input() contractId= "";
-		@Output() onItemAdded = new EventEmitter<any>();
+		contractId= "";
 
-		contract:any = {};
+		selectedContractPaymentMethod:any = {};
 
-		setBankAccount
+		constructor
 		(
-			bankAccount:any
-		):void
+			private route: ActivatedRoute,
+			private router: Router
+		){}
+
+		ngOnInit
+		(): void
 			{
-				this.contract.bankAccount = bankAccount;
-				console.log(this.contract);
+				console.log('asdfasd');
 				
+				if
+				(
+					this.route.parent &&
+					this.route.parent.parent
+				)
+					{
+						this.route.parent.parent.params.subscribe(params => 
+							{
+								this.contractId = params['contractId']; 
+							}
+						);
+					}
 			}
 
+	
 		setContractPaymentMethod
 		(
 			contractPaymentMethod:any
 		):void
 			{
-				this.contract.contractPaymentMethod = contractPaymentMethod;
-				console.log(this.contract);
+				this.selectedContractPaymentMethod = contractPaymentMethod;
+				console.log(this.selectedContractPaymentMethod);
 				
 			}
 
@@ -45,8 +61,8 @@ export class AddContractPaymentComponent
 			{
 				if
 				(
-					this.contract.contractPaymentMethod &&
-					this.contract.contractPaymentMethod.componentName == "CHEQUE"
+					this.selectedContractPaymentMethod &&
+					this.selectedContractPaymentMethod.componentName == "CHEQUE"
 				)
 					{
 						return true;
@@ -62,8 +78,8 @@ export class AddContractPaymentComponent
 			{
 				if
 				(
-					this.contract.contractPaymentMethod &&
-					this.contract.contractPaymentMethod.componentName == "DIPOSIT"
+					this.selectedContractPaymentMethod &&
+					this.selectedContractPaymentMethod.componentName == "DIPOSIT"
 				)
 					{
 						return true;
@@ -79,8 +95,8 @@ export class AddContractPaymentComponent
 			{
 				if
 				(
-					this.contract.contractPaymentMethod &&
-					this.contract.contractPaymentMethod.componentName == "DICKER"
+					this.selectedContractPaymentMethod &&
+					this.selectedContractPaymentMethod.componentName == "DICKER"
 				)
 					{
 						return true;
@@ -96,8 +112,8 @@ export class AddContractPaymentComponent
 			{
 				if
 				(
-					this.contract.contractPaymentMethod &&
-					this.contract.contractPaymentMethod.componentName == "DEED"
+					this.selectedContractPaymentMethod &&
+					this.selectedContractPaymentMethod.componentName == "DEED"
 				)
 					{
 						return true;
@@ -113,7 +129,15 @@ export class AddContractPaymentComponent
 			addedContractPayment: any
 		):void
 			{
-				this.onItemAdded.emit(addedContractPayment);
+				this.router.navigate(
+					["../"],
+					{
+						relativeTo:this.route
+					}
+					
+				).then(() => {
+					window.location.reload();
+				  });
 			}
 
 	}

@@ -1,4 +1,14 @@
-<section class="container">
+
+<section
+    class="container"
+>
+
+    <a
+        [routerLink]="['add']"
+        role="button"
+    >
+        افزودن پرداخت
+    </a>
 
     <contract-payment-by-contract-panel
         #contractPaymentByContractPanel
@@ -8,11 +18,4 @@
 
 </section>
 
-<section class="container">
-    <add-contract-payment
-        [contractId] = "contractId"
-        (onItemAdded)="newContractPaymentAdded($event)"
-    ></add-contract-payment>
-</section>
-
-
+<router-outlet></router-outlet>
