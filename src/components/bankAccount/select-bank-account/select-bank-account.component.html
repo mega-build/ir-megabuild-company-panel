@@ -1,17 +1,16 @@
 <section
     *ngIf="selectedBankAccount.bank"
 >
-    <dl
-        
-    >
+    <dl>
     
         <dt>
-            لوگو بانک
+            بانک
         </dt>
-        <dd
-            [ngClass]="'bank_'+ selectedBankAccount.bank.title"
-            class="bank-logo"
-        ></dd>
+        <dd>
+            <bank-label
+                [bank] = "selectedBankAccount.bank"
+            ></bank-label>
+        </dd>
 
         <dt>
             شماره حساب
@@ -19,14 +18,6 @@
         <dd class="bank-account">
             {{selectedBankAccount.accounNumber}}
         </dd>
-
-        <dt>
-            عنوان
-        </dt>
-        <dd class="bank-title">
-            {{selectedBankAccount.bank.title_fa}}
-        </dd>
-
  
     </dl>
 
@@ -57,15 +48,14 @@
         >
             <dl>
                 <dt>
-                    لوگو بانک
+                    بانک
                 </dt>
 
-                <dd
-                    [ngClass]="'bank_'+ bankAccount.bank.title"
-                    class="bank-logo"
-
-                >
-                 </dd>
+                <dd>
+                    <bank-label
+                        [bank] = "bankAccount.bank"
+                    ></bank-label>
+                </dd>
                  
                 <dt>
                     شماره حساب
@@ -74,12 +64,7 @@
                 <dd class="bank-account">
                     {{bankAccount.accounNumber}}
                 </dd>
-                <dt>
-                    عنوان
-                </dt>
-                <dd class="bank-title">
-                    {{bankAccount.bank.title_fa}}
-                </dd>
+
             </dl>
         </li>
     </ul>

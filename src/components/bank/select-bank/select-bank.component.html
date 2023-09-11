@@ -1,27 +1,9 @@
 <section
     *ngIf="selectedBank.title"
 >
-    <dl
-        
-    >
-        <dt>
-            لوگو بانک
-        </dt>
-
-        <dd
-            [ngClass]="'bank_'+ selectedBank.title"
-            class="bank-logo"
-        >
-
-        </dd>
-        <dt>
-            عنوان
-        </dt>
-        <dd class="bank-title">
-            {{selectedBank.title_fa}}
-        </dd>
-
-    </dl>
+    <bank-label
+        [bank] = "selectedBank"
+    ></bank-label>
 
     <button
         type="button"
@@ -47,23 +29,9 @@
             *ngFor = 'let bank of bankList'
             (click) = 'selectBank(bank)'
         >
-            <dl>
-                <dt>
-                    لوگو بانک
-                </dt>
-        
-                <dd
-                    [ngClass]="'bank_'+ bank.title"
-                    class="bank-logo"
-                >
-                   </dd>   
-                <dt>
-                    عنوان
-                </dt>
-                <dd class="bank-title">
-                    {{bank.title_fa}}
-                </dd>
-            </dl>
+            <bank-label
+                [bank] = "bank"
+            ></bank-label>
         </li>
     </ul>
 </details>
