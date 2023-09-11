@@ -53,8 +53,7 @@ export class AddContractPaymentComponent
 					}
 				else
 					{
-						//return false;
-						return true;
+						return false;
 					}
 			}
 
@@ -71,8 +70,7 @@ export class AddContractPaymentComponent
 					}
 				else
 					{
-						//return false;
-						return true;
+						return false;
 					}
 			}
 
@@ -89,8 +87,7 @@ export class AddContractPaymentComponent
 					}
 				else
 					{
-						//return false;
-						return true;
+						return false;
 					}
 			}
 
@@ -107,8 +104,7 @@ export class AddContractPaymentComponent
 					}
 				else
 					{
-						//return false;
-						return true;
+						return false;
 					}
 			}
 

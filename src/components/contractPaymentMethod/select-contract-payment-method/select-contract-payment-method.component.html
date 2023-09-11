@@ -7,15 +7,20 @@
 >
     <li
         *ngFor = 'let contractPaymentMehod of contractPaymentMehodList'
-        (click) = 'selectContractPaymentMehod(contractPaymentMehod)'
     >
-        <dl>
-            <dt>
-                عنوان
-            </dt>
-            <dd>
-                {{contractPaymentMehod.title}}
-            </dd>
-        </dl>
+        <input
+            type="radio"
+            name = 'contractPaymentMehod'
+            [attr.id]="contractPaymentMehod._id"
+            value="{{contractPaymentMehod._id}}"
+            (change)="selectContractPaymentMehod(contractPaymentMehod)"
+            [checked]="contractPaymentMehod._id == selectedContractPaymentMethod._id"
+            (input)="selectedContractPaymentMethod"
+        >
+        <label
+            [attr.for] = "contractPaymentMehod._id"
+        >
+            {{contractPaymentMehod.title}}
+        </label>
     </li>
 </ul>

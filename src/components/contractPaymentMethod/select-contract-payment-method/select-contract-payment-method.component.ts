@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContractPaymentMethodService } from 'src/services/contractPaymentMethod/contract-payment-method.service';
 
 @Component(
@@ -12,6 +12,7 @@ import { ContractPaymentMethodService } from 'src/services/contractPaymentMethod
 export class SelectContractPaymentMethodComponent implements OnInit
 	{
 		@Output() setContractPaymentMethod = new EventEmitter<any>();
+		@Input() selectedContractPaymentMethod:any ={};
 
 		contractPaymentMehodList: any[]=[]
 		isLoading: boolean = false;
@@ -46,7 +47,18 @@ export class SelectContractPaymentMethodComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						alert(error.error);
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
 					}
 			
 			}
@@ -57,6 +69,7 @@ export class SelectContractPaymentMethodComponent implements OnInit
 			contractPaymentMehod:any
 		):void
 			{
+				this.selectedContractPaymentMethod = contractPaymentMehod;
 				this.setContractPaymentMethod.emit(contractPaymentMehod);
 			}
 	}
