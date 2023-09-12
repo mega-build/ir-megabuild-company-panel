@@ -24,6 +24,8 @@ export class ContractContentComponent implements OnInit
 
 		content :string ="";
 
+		paragraphList:any[] =[];
+
 		getContent
 		():string
 			{
@@ -153,6 +155,17 @@ export class ContractContentComponent implements OnInit
 				
 			}
 
+		addTitle
+		():void
+			{
+				const titleContnet = this.getTitle(
+					this.contract.contractType,
+					this.contract.project.projectType
+				);
+
+				this.paragraphList.push(titleContnet)
+			}
+
 		getTitle
 		(
 			contractType:any,
@@ -160,6 +173,17 @@ export class ContractContentComponent implements OnInit
 		):string
 			{
 				return ` قرارداد ${contractType.title} ${projectType.title}`;
+			}
+
+		addCustomersContent
+		():void
+			{
+				const customersContent = this.getCustomersContent(
+					this.contract.customers
+				);
+
+				this.paragraphList.push(customersContent)
+
 			}
 
 		getCustomersContent
@@ -178,6 +202,18 @@ export class ContractContentComponent implements OnInit
 				).join('');
 
 				return result;
+			}
+
+		addProjectItemContent
+		():void
+			{
+				const contet = this.getProjectItemContent(
+					this.contract.contractType,
+					this.contract.project.projectType,
+					this.contract.project,
+					this.contract.projectItem
+				);
+				this.paragraphList.push(contet)
 			}
 
 		getProjectItemContent
@@ -200,6 +236,19 @@ export class ContractContentComponent implements OnInit
 				return `بهای موضوع قرارداد از قرار هر مترمربع ${this.priceWithCommas(projectItem.unitPrice)} (${this.priceToWord(projectItem.unitPrice)} ريال) که با توجه مساحت تقریبی موضوع قرارداد(${projectItem.buildupArea} متر مربع)، جمعا  ${this.priceWithCommas(projectItem.buildupArea*projectItem.unitPrice)} ريال میباشد که با احتساب ${this.priceWithCommas(contract.discount)} ريال تخفیف، به شرح آتی پرداخت میگردد.`
 			}
 
+		addPaymentListContent
+		():void
+			{
+				const content = this.getPaymentListContent(
+					this.contract.contractPayments
+				);
+				console.log('content');
+				console.log(content);
+				
+				
+				this.paragraphList.push(content)
+			}
+
 		getPaymentListContent
 		(
 			contractPaymentList:any[]
@@ -212,7 +261,7 @@ export class ContractContentComponent implements OnInit
 						{
 							if
 							(
-								currentContractPayment.paymentMethod.componentName == "CHEQUE"
+								currentContractPayment.contractPaymentMethod.componentName == "CHEQUE"
 							)
 								{
 									return this.chequeContractPaymentHelper.getContractContent(
@@ -222,7 +271,7 @@ export class ContractContentComponent implements OnInit
 								}
 							else if
 							(
-								currentContractPayment.paymentMethod.componentName == "DIPOSIT"
+								currentContractPayment.contractPaymentMethod.componentName == "DIPOSIT"
 							)
 								{
 									return this.dipositContractPaymentHelper.getContractContent(
@@ -232,7 +281,7 @@ export class ContractContentComponent implements OnInit
 								}
 							else if
 							(
-								currentContractPayment.paymentMethod.componentName == "DEED"
+								currentContractPayment.contractPaymentMethod.componentName == "DEED"
 							)
 								{
 									return this.deedContractPaymentHelper.getContractContent(

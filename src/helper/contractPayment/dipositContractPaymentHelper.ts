@@ -18,7 +18,7 @@ export class DipositContractPaymentHelper
         ):string
             {
                 
-                return `بخشی از بهای موضوع قرارداد به مبلغ ${this.priceHelper.priceWithCommas(dipositContractPayment.price)} (${this.priceHelper.priceToWord(dipositContractPayment.price)} ريال)  ريال در تاریخ ${dipositContractPayment.dueDate} پرداخت میگردد.`
+                return `بخشی از بهای موضوع قرارداد به مبلغ ${this.priceHelper.priceWithCommas(dipositContractPayment.price)} (${this.priceHelper.priceToWord(dipositContractPayment.price)} ريال)  ريال در تاریخ ${dipositContractPayment.dueDateShamsi} پرداخت میگردد.`
             }
 
         

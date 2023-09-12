@@ -7,12 +7,54 @@
     {{getContent()}}
 </p> -->
 
+<section>
+    <ul>
+        <li>
+            <button
+                (click)="addTitle()"
+            >
+                اضافه کردن عنوان قرارداد
+            </button>
+        </li>
+        <li>
+            <button
+                (click)="addCustomersContent()"
+            >
+                اضافه کردن خریدارن
+            </button>
+        </li>
+        <li>
+            <button
+                (click)="addProjectItemContent()"
+            >
+                اضافه کردن مورد فروش
+            </button>
+        </li>
+        
+        <li>
+            <button
+                (click)="addPaymentListContent()"
+            >
+                اضافه کردن لیست پرداخت ها
+            </button>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <ul>
+        <li
+            *ngFor = 'let paragraph of paragraphList'
+        >
+            {{paragraph}}
+        </li>
+    </ul>
+</section>
+
 <div
     *ngIf="!isLoading && contract"
     [innerHTML]="getContent()"
->
-
-</div>
+></div>
  
 
 <textarea

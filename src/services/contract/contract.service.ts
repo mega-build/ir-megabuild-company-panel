@@ -17,6 +17,7 @@ export class ContractService {
 	private URL_CONTRACT_SET_PAYABEL_PRICE: string = `${environment.API_URL}/contract/setPayablePrice`;
 	private URL_CONTRACT_REMOVE_PROJECT_ITEM: string = `${environment.API_URL}/contract/removeProjectItem`;
 	private URL_CONTRACT_SET_PROJECT_AND_PROJECTITEM: string = `${environment.API_URL}/contract/setProjectAndProjectItem`;
+	private URL_CONTRACT_REQUESTT_CONFIRMATION: string = `${environment.API_URL}/contract/requestConfirmation`;
 
 	constructor
 	(
@@ -165,4 +166,25 @@ export class ContractService {
 
 			return result;
 		};
+
+	async requestContractConfirmation
+	(
+		contractId:string
+	):Promise<any>
+		{
+			let headers: HttpHeaders = new HttpHeaders();
+
+			let body: any = {
+				contractId: contractId
+			};
+
+			const result = await this.httpInteceptor.postWithAuth_(
+				this.URL_CONTRACT_REQUESTT_CONFIRMATION,
+				headers,
+				body
+			);
+
+			return result;
+		}
+	
 }

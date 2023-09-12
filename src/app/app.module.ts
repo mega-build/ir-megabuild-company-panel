@@ -95,6 +95,8 @@ import { ContractPaymentChequeListItemComponent } from 'src/components/contract-
 import { ContractPaymentDeedListItemComponent } from 'src/components/contract-payment/contract-payment-deed-list-item/contract-payment-deed-list-item.component';
 import { ContractPaymentDepositListItemComponent } from 'src/components/contract-payment/contract-payment-deposit-list-item/contract-payment-deposit-list-item.component';
 import { ContractPaymentDickerListItemComponent } from 'src/components/contract-payment/contract-payment-dicker-list-item/contract-payment-dicker-list-item.component';
+import { ContractPreviewComponent } from 'src/components/contract/contract-preview/contract-preview.component';
+
 
 
 
@@ -189,7 +191,8 @@ import { ContractPaymentDickerListItemComponent } from 'src/components/contract-
     ContractPaymentByContractDeedListItemComponent,
     ContractPaymentByContractChequeListItemComponent,
     ContractPaymentByContractDepositListItemComponent,
-    ContractPaymentByContractDickerListItemComponent
+    ContractPaymentByContractDickerListItemComponent,
+    ContractPreviewComponent
   ],
   imports: [
     BrowserModule,

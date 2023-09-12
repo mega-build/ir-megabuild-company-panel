@@ -1,0 +1,30 @@
+
+<ol class="container">
+    <li
+        *ngFor = 'let customer of contract.customers'
+    >
+        <customer-detail
+            [customer]="customer"
+        ></customer-detail>
+    </li>
+</ol>
+
+<project-item-detail
+    [projectItem]="contract.projectItem"
+></project-item-detail>
+
+<contract-payment-by-contract-list
+    [contractPaymentList]="contract.contractPayments"
+></contract-payment-by-contract-list>
+
+<ul>
+    <li>
+        <button
+            type="button"
+            (click)="requestConfirmation()"
+            class="primary"
+        >
+            تایید نهایی
+        </button>
+    </li>
+</ul>

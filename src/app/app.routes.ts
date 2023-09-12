@@ -24,6 +24,7 @@ import { ContractPaymentPanelComponent } from 'src/components/contract-payment/c
 import { ContractContractPaymentListComponent } from 'src/components/contract/contract-contract-payment-list/contract-contract-payment-list.component';
 import { DraftContractPanelComponent } from 'src/components/contract/draft-contract-panel/draft-contract-panel.component';
 import { AddContractPaymentComponent } from 'src/components/contract-payment/add-contract-payment/add-contract-payment.component';
+import { ContractPreviewComponent } from 'src/components/contract/contract-preview/contract-preview.component';
 
 export const routes: Routes = [
     {
@@ -122,6 +123,10 @@ export const routes: Routes = [
                         path: 'payablePrice',
                         component: ContractPayablePriceComponent
                     },
+                    {
+                        path: 'preview',
+                        component: ContractPreviewComponent
+                    }
                 ]
             },
         ]
