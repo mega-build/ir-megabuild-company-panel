@@ -1,21 +1,107 @@
 
-<ol class="container">
-    <li
-        *ngFor = 'let customer of contract.customers'
+<section>
+    <div
+        *ngIf="!contract.customers || contract.customers.length ==0"
     >
-        <customer-detail
-            [customer]="customer"
-        ></customer-detail>
-    </li>
-</ol>
+        <p>
+            اطلاعات خریداران تکمیل نشده است.
+        </p>
+        <a
+            [routerLink]="['../','customerList']"
+        >
+            تکمیل اطلاعات خریداران
+        </a>
+    </div>
+    <ol
+        *ngIf="contract.customers && contract.customers.length > 0"
+    >
+        <li
+            *ngFor = 'let customer of contract.customers'
+        >
+            <customer-detail
+                [customer]="customer"
+            ></customer-detail>
+        </li>
+    </ol>
+</section>
 
-<project-item-detail
-    [projectItem]="contract.projectItem"
-></project-item-detail>
+<section>
 
-<contract-payment-by-contract-list
-    [contractPaymentList]="contract.contractPayments"
-></contract-payment-by-contract-list>
+    <div
+        *ngIf="!contract.projectItem"
+    >
+        <p>
+            اطلاعات مورد قرارداد تکمیل نشده است.
+        </p>
+        <a
+            [routerLink]="['../','projectItem']"
+        >
+            تکمیل اطلاعات مورد قرارداد
+        </a>
+    </div>
+
+    <project-item-detail
+        *ngIf="contract.projectItem"
+        [projectItem]="contract.projectItem"
+    ></project-item-detail>
+
+</section>
+
+<section>
+    <div
+        *ngIf="!contract.payablePrice"
+    >
+        <p>
+            اطلاعات مبلغ نهایی تکمیل نشده است
+        </p>
+        <a
+            [routerLink]="['../','payablePrice']"
+        >
+            تکمیل مبلغ نهایی
+        </a>
+    </div>
+    <div
+        *ngIf="contract.payablePrice"
+    >
+        <dl>
+            <dt>
+                تخفیف
+            </dt>
+            <dd>
+                {{contract.discount}}
+            </dd>
+
+            <dt>
+                مبلغ قابل پرداخت
+            </dt>
+            <dd>
+                {{contract.payablePrice}}
+            </dd>
+        </dl>
+    </div>
+</section>
+
+
+<section>
+    <div
+        *ngIf="!contract.contractPayments || contract.contractPayments.length ==0"
+    >
+        <p>
+            اطلاعات پرداخت ها تکمیل نشده است
+        </p>
+        <a
+            [routerLink]="['../','paymentList']"
+        >
+            تکمیل اطلاعات پرداخت ها
+        </a>
+    </div>
+
+    <contract-payment-by-contract-list
+        *ngIf="contract.contractPayments && contract.contractPayments.length > 0"
+        [contractPaymentList]="contract.contractPayments"
+    ></contract-payment-by-contract-list>
+
+</section>
 
 <ul>
     <li>

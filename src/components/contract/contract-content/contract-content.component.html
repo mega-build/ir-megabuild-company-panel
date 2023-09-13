@@ -6,8 +6,12 @@
 >
     {{getContent()}}
 </p> -->
-
-<section>
+<loading
+    *ngIf="isLoading"
+></loading>
+<section
+    *ngIf="!isLoading && contract"
+>
     <ul>
         <li>
             <button
@@ -46,12 +50,37 @@
         <li
             *ngFor = 'let paragraph of paragraphList'
         >
-            {{paragraph}}
+            <div
+                [innerHTML]="paragraph"
+            ></div>
+            <ul>
+                <li>
+                    <button>
+                        ویرایش
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        حذف
+                    </button>
+                </li>
+            </ul>
+            <hr>
         </li>
     </ul>
 </section>
 
-<div
+<ul>
+    <li>
+        <button
+            (click)="saveContent()"
+        >
+            ذخیره
+        </button>
+    </li>
+</ul>
+
+<!-- <div
     *ngIf="!isLoading && contract"
     [innerHTML]="getContent()"
 ></div>
@@ -64,5 +93,5 @@
     cols="30"
     rows="10"
     [value]="getContent()"
-></textarea>
+></textarea> -->
 

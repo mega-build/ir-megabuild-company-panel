@@ -18,6 +18,8 @@ export class ContractService {
 	private URL_CONTRACT_REMOVE_PROJECT_ITEM: string = `${environment.API_URL}/contract/removeProjectItem`;
 	private URL_CONTRACT_SET_PROJECT_AND_PROJECTITEM: string = `${environment.API_URL}/contract/setProjectAndProjectItem`;
 	private URL_CONTRACT_REQUESTT_CONFIRMATION: string = `${environment.API_URL}/contract/requestConfirmation`;
+	private URL_CONTRACT_SET_CONTENT: string = `${environment.API_URL}/contract/setContent`;
+	private URL_CONTRACT_GET_ALL_BY_FILTER: string =  `${environment.API_URL}/contract/filter`;
 
 	constructor
 	(
@@ -48,6 +50,36 @@ export class ContractService {
 
 			const result = await this.httpInteceptor.getWithAuth_(
 				this.URL_CONTRACT_GET,
+				headers
+			);
+
+			return result;
+		};
+
+	async getAllDrafed
+	(): Promise<any>
+		{
+			let headers: HttpHeaders = new HttpHeaders();
+
+			let url = `${this.URL_CONTRACT_GET_ALL_BY_FILTER}/draft`;
+
+			const result = await this.httpInteceptor.getWithAuth_(
+				url,
+				headers
+			);
+
+			return result;
+		};
+
+	async getAllRequested
+	(): Promise<any>
+		{
+			let headers: HttpHeaders = new HttpHeaders();
+
+			let url = `${this.URL_CONTRACT_GET_ALL_BY_FILTER}/requested`;
+
+			const result = await this.httpInteceptor.getWithAuth_(
+				url,
 				headers
 			);
 
@@ -186,5 +218,27 @@ export class ContractService {
 
 			return result;
 		}
+
+		async setContent
+		(
+			contractId:string,
+			content:string
+		):Promise<any>
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+	
+				let body: any = {
+					contractId: contractId,
+					content: content
+				};
+	
+				const result = await this.httpInteceptor.postWithAuth_(
+					this.URL_CONTRACT_SET_CONTENT,
+					headers,
+					body
+				);
+	
+				return result;
+			}
 	
 }
