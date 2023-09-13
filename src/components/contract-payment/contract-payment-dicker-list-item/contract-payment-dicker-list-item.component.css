@@ -1,30 +1,45 @@
 dl {
-    display: flex;
-    flex-wrap: nowrap;
-    position: relative;
-    flex: 0 0 83%;
-  }
-  dl dt {
-    display: none;
-  }
-  
-  dl dd {
-    color: #101828;
-    font-size: 14px;
-  }
-  
-  dl dd {
-    flex: 0 0 20%;
-  }
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  ul li {
-    flex-direction: 1 0 17%;
-  }
-  .bank-account {
-    position: absolute;
-    bottom: -16px;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  flex: 0 0 83%;
+  place-items: center;
+}
+dl .project-name-dd{
+  color: #101828;
+  font-size: 14px;
+  font-weight: 700;
+  flex: 1 0 100%;
+  order: -2;
+  margin-bottom: 8px;
+}
+
+dl dd {
+  color: #101828;
+  font-size: 14px;
+}
+
+dl dd {
+  flex: 0 0 33%;
+  order: -1;
+  color: #101828;
+  font-size: 12px;
+}
+dl dt{
+  flex: 0 0 33%;
+  order: -2;
+  color: #667085;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+ul li {
+  flex: 1 0 17%;
+}
+.project-name-dt{
+  display: none;
+}

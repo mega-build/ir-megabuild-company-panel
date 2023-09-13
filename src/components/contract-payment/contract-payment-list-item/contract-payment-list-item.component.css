@@ -1,3 +1,12 @@
+contract-payment-cheque-list-item,
+contract-payment-deed-list-item,
+contract-payment-deposit-list-item,
+contract-payment-dicker-list-item{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 dl {
   display: flex;
   flex-wrap: nowrap;

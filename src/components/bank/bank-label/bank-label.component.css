@@ -1,0 +1,13 @@
+dl{
+  display: flex;
+  gap: 9px;
+}
+
+dt {
+  display: none;
+}
+
+dl .bank-title {
+  color: #101828;
+  font-size: 12px;
+}

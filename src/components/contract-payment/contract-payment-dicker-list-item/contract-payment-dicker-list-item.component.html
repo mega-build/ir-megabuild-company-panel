@@ -1,20 +1,18 @@
 <dl>
+    <dt class="project-name-dt">
+        پروژه
+    </dt>
+    <dd class="project-name-dd">
+        <project-label
+            [project]="dickerContractPayment.contract.project"
+        ></project-label>
+    </dd>
+
     <dt>
         نوع پرداخت
     </dt>
     <dd>
         {{dickerContractPayment.contractPaymentMethod.title}}
-    </dd>
-
-
-    <dt>
-        پروژه
-    </dt>
-    <dd>
-        <project-label
-            [project]="dickerContractPayment.contract.project"
-        ></project-label>
-        
     </dd>
 
     <dt>
