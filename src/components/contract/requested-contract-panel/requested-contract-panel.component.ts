@@ -3,15 +3,14 @@ import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
 	{
-		selector: 'draft-contract-panel',
-		templateUrl: './draft-contract-panel.component.html',
-		styleUrls: ['./draft-contract-panel.component.css']
+		selector: 'requested-contract-panel',
+		templateUrl: './requested-contract-panel.component.html',
+		styleUrls: ['./requested-contract-panel.component.css']
 	}
 )
 
-export class DraftContractPanelComponent implements OnInit
+export class RequestedContractPanelComponent implements OnInit
 	{
-
 		contractList: any[]=[];
 		isLoading: boolean = false;
 
@@ -33,7 +32,7 @@ export class DraftContractPanelComponent implements OnInit
 					{
 						this.isLoading = true;
 						
-						const data = await this.contractService.getAllDrafed();
+						const data = await this.contractService.getAllRequested();
 						
 						console.log(data.contractList);
 						this.contractList = data.contractList;
@@ -61,5 +60,4 @@ export class DraftContractPanelComponent implements OnInit
 					}
 				
 			}
-
 	}

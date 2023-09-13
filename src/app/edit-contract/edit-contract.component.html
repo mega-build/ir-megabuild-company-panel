@@ -1,3 +1,6 @@
+<loading
+    *ngIf = 'isLoading'
+></loading>
 <contract-detail
     *ngIf="!isLoading && contract"
     [contract]= "contract"

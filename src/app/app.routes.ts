@@ -25,6 +25,7 @@ import { ContractContractPaymentListComponent } from 'src/components/contract/co
 import { DraftContractPanelComponent } from 'src/components/contract/draft-contract-panel/draft-contract-panel.component';
 import { AddContractPaymentComponent } from 'src/components/contract-payment/add-contract-payment/add-contract-payment.component';
 import { ContractPreviewComponent } from 'src/components/contract/contract-preview/contract-preview.component';
+import { RequestedContractPanelComponent } from 'src/components/contract/requested-contract-panel/requested-contract-panel.component';
 
 export const routes: Routes = [
     {
@@ -79,6 +80,10 @@ export const routes: Routes = [
                     {
                         path: 'filter',
                         component: ContractPanelComponent,
+                    },
+                    {
+                        path: 'requested',
+                        component: RequestedContractPanelComponent,
                     },
                 ]
             },

@@ -86,19 +86,27 @@
     </li>
     <li>
         <a
+            [routerLink]="['../../editContent','contractId',contract._id]"
+        >
+            تنظیم متن قرارداد
+        </a>
+    </li>
+    <li>
+        <a
+            [routerLink]="['../../editContract','contractId',contract._id,'preview']"
+        >
+            ثبت قطعی
+        </a>
+    </li>
+    <li>
+        <a
         
             [routerLink]="['../../detail','contractId',contract._id,'requestReview']"
         >
             درخواست بررسی
         </a>
     </li>
-    <li>
-        <a
-            [routerLink]="['../../editContent','contractId',contract._id]"
-        >
-            ویرایش متن
-        </a>
-    </li>
+    
 
 </ul>
 

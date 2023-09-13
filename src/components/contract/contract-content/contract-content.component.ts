@@ -31,7 +31,6 @@ export class ContractContentComponent implements OnInit
 			{
 				if
 				(
-					!this.isLoading &&
 					this.contract 
 				)
 					{
@@ -224,7 +223,15 @@ export class ContractContentComponent implements OnInit
 			projectItem:any
 		):string
 			{
-				return `موضوع قرارداد عبارت است از ${contractType.title} ${projectType.title} شماره ${projectItem.unit} واقع در طبقه ${projectItem.floor} بلوک ${projectItem.block} ${project.title} با زیربنای حدودا ${projectItem.buildupArea} متر مربع طبق نقشه پیوست به نشانی ${project.address} `
+				return `
+				<h2>
+				ماده 1) موضوع قرارداد
+				</h2>
+				<br>
+				<p>
+				موضوع قرارداد عبارت است از ${contractType.title} ${projectType.title} شماره ${projectItem.unit} واقع در طبقه ${projectItem.floor} بلوک ${projectItem.block} ${project.title} با زیربنای حدودا ${projectItem.buildupArea} متر مربع طبق نقشه پیوست به نشانی ${project.address}
+				</p>
+				`
 			}
 
 		getPayablePriceContent
@@ -267,7 +274,6 @@ export class ContractContentComponent implements OnInit
 									return this.chequeContractPaymentHelper.getContractContent(
 										currentContractPayment
 									);
-									//return `بخشی از بهای موضوع قرارداد به مبلغ ${this.priceWithCommas(currentContractPayment.price)} (${this.priceToWord(currentContractPayment.price)}) ريال طی چک شماره ${currentContractPayment.chequeNumber} مورخ ${currentContractPayment.dueDate} عهده ی ${currentContractPayment.bank.title_fa} به فروشنده تحویل میگردد.`
 								}
 							else if
 							(
@@ -277,7 +283,6 @@ export class ContractContentComponent implements OnInit
 									return this.dipositContractPaymentHelper.getContractContent(
 										currentContractPayment
 									);
-									//return `بخشی از بهای موضوع قرارداد به مبلغ ${this.priceWithCommas(currentContractPayment.price)} ريال در تاریخ ${currentContractPayment.dueDate} پرداخت میگردد.`
 								}
 							else if
 							(
@@ -287,7 +292,6 @@ export class ContractContentComponent implements OnInit
 									return this.deedContractPaymentHelper.getContractContent(
 										currentContractPayment
 									);
-									//return `باقیمانده بهای موضوع قرارداد به مبلغ ${this.priceWithCommas(currentContractPayment.price)} در روز انتقال سند واگذاری و قبل از واگذاری پرداخت میگردد.`
 								}
 							else
 								{
@@ -296,6 +300,16 @@ export class ContractContentComponent implements OnInit
 							
 						}
 				).join('</br>');
+
+				result = `
+				<h2>
+				ماده 2 ) بهاي موضوع قرارداد :
+				</h2>
+				<br>
+				<p>
+				${result}
+				</p>
+				`
 
 				return result;
 			}
@@ -314,5 +328,31 @@ export class ContractContentComponent implements OnInit
 		):string
 			{
 				return  "";//wordifynumbers(price)
+			}
+
+		async saveContent
+		():Promise<void>
+			{
+				try
+					{
+						console.log('here');
+						
+						this.isLoading = true;
+						const data = await this.contractService
+							.setContent(
+								this.contractId,
+								this.getContent()
+							);
+						console.log(data.result);
+						this.isLoading = false;
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						alert(error.error);
+					}
 			}
 	}
