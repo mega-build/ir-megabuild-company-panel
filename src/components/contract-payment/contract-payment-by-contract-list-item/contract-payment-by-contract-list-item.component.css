@@ -1,31 +1,17 @@
-section{
-  display: flex;
-  flex-wrap: wrap;
-}
-dl {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 0 0 80%;
-  position: relative;
-}
-dl dt {
-  display: none;
-}
-ul {
-  display: flex;
-  flex: 0 0 20%;
-
-}
-dl dd {
-  color: #101828;
-  font-size: 14px;
-}
-dl dd{
-  flex: 0 0 25%;
+contract-payment-by-contract-cheque-list-item dt,
+contract-payment-by-contract-dicker-list-item dt{
+color: #667085;
+font-size: 12px;
 }
 
-
-.bank-account {
+.remove-btn{
+  border: none;
+  background-color: transparent;
+  text-indent: -90000px;
+  overflow: hidden;
+  background: url("../../../assets/images/icons/trash-03.svg");
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
-  bottom: -16px;
+  left: 10px;
 }

@@ -2,7 +2,7 @@ dl {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  flex: 0 0 83%;
+  flex: 0 0 100%;
   place-items: center;
 }
 dl .project-name-dd{
@@ -13,6 +13,10 @@ dl .project-name-dd{
   order: -2;
   margin-bottom: 8px;
 }
+.project-name-dt{
+  display: none;
+}
+
 
 dl dd {
   color: #101828;
@@ -33,13 +37,11 @@ dl dt{
   margin-bottom: 4px;
 }
 ul {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: center; */
+  display: none;
 }
 ul li {
   flex: 1 0 17%;
-}
-.project-name-dt{
-  display: none;
 }

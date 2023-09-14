@@ -19,6 +19,7 @@
                     name="txtNationalCode"
                     [(ngModel)]="nationalCode"
                     maxlength="10"
+                    placeholder="جستجوی کد ملی خریدار"
                 >
             </li>
         </ul>
@@ -37,7 +38,7 @@
                 <button
                     type="button"
                     (click)="getByNationalCode()"
-                    class="primary"
+                    class="search-btn"
                 >
                     جستجو
                 </button>
@@ -63,6 +64,7 @@
 
 <section
     *ngIf="!customer && !isLoading"
+    class="container"
 >
     <b>
         چیزی یافت نشد!

@@ -1,37 +1,22 @@
-ol {
-  border-radius: 12px;
-  border: 2px solid #eaecf0;
-  padding: 0 0 16px 0;
-}
-ul {
+ol{
   display: flex;
-  background-color: #f9fafb;
-  padding: 16px;
   flex-wrap: wrap;
-}
-ul li {
-  color: #667085;
-  font-size: 12px;
-  flex: 1 0 20%;
+  width: 100%;
+  border-radius: 8px;
+  gap: 16px;
 }
 
 ol .contract-payment-list-item {
   display: flex;
-  border-bottom: 1px solid #eaecf0;
-  border-top: 1px solid #eaecf0;
-  padding: 8px 16px 18px 16px;
+  border: 1px solid #eaecf0;
+  padding: 12px;
   flex-wrap: wrap;
   width: 100%;
+  border-radius: 8px;
+  position: relative;
+
 }
 
-ol .contract-payment-list-item:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-ol .contract-payment-list-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
 contract-payment-by-contract-list-item{
   width: 100%;
   display: flex;

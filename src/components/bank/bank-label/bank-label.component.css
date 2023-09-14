@@ -1,6 +1,7 @@
 dl{
   display: flex;
-  gap: 9px;
+  gap: 16px;
+  align-items: end;
 }
 
 dt {
@@ -10,4 +11,8 @@ dt {
 dl .bank-title {
   color: #101828;
   font-size: 12px;
+}
+.bank-logo{
+  width: 40px;
+  height: 40px;
 }

@@ -1,0 +1,25 @@
+dl{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    row-gap: 11px;
+    column-gap: 30px;
+    align-items: center;
+}
+
+dt {
+  color: #667085;
+  font-size: 12px;
+}
+dt:first-child{
+   display: none;
+}
+dd:nth-child(2){
+    color: #101828;
+    font-size: 14px;
+    font-weight: 700;
+    grid-column: span 2;
+}
+dd {
+  font-size: 12px;
+  color: #101828;
+}

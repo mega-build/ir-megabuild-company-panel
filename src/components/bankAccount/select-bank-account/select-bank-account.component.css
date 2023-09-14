@@ -48,10 +48,11 @@ ul li {
 }
 
 dl {
-  margin-right: 8px;
+  /* margin-right: 8px;
   display: grid;
   grid-template-columns: max-content max-content;
-  gap: 16px;
+  gap: 16px; */
+  position: relative;
 }
 dl .bank-title {
   color: #101828;
@@ -63,6 +64,9 @@ dl .bank-title {
 dl .bank-account {
   color: #101828;
   font-size: 16px;
+  margin-right: 65px;
+  position: absolute;
+  width: max-content;
 }
 .bank-logo {
   grid-row: span 2;
@@ -84,4 +88,22 @@ details[open] summary ~ * {
 }
 section {
   position: relative;
+}
+
+.selected-bank {
+  border-radius: 6px;
+  border: 1px solid #eaecf0;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selected-bank button {
+  background-color: transparent;
+  border: none;
+  background: url("../../../assets/images/icons/trash-03.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -90000px;
+  overflow: hidden;
 }
