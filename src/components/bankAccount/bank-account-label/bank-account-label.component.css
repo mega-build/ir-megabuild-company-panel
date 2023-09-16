@@ -1,3 +1,11 @@
 dt {
   display: none;
 }
+dd:nth-child(2){
+  margin-right: 55px;
+  position: absolute;
+  width: max-content;
+}
+dl{
+  position: relative;
+}

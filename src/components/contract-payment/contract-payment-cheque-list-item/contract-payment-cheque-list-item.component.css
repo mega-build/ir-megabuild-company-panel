@@ -5,14 +5,19 @@ dl {
   flex: 0 0 100%;
   place-items: center;
 }
+
 dl .project-name-dd{
   color: #101828;
   font-size: 14px;
   font-weight: 700;
   flex: 1 0 100%;
-  order: -2;
+  order: -3;
   margin-bottom: 8px;
 }
+.project-name-dt{
+  display: none;
+}
+
 
 dl dd {
   color: #101828;
@@ -20,13 +25,13 @@ dl dd {
 }
 
 dl dd {
-  flex: 0 0 11%;
+  flex: 0 0 12.5%;
   color: #101828;
   font-size: 12px;
   order: -1;
 }
 dl dt{
-  flex: 0 0 11%;
+  flex: 0 0 12.5%;
   color: #667085;
   font-size: 12px;
   margin-bottom: 4px;

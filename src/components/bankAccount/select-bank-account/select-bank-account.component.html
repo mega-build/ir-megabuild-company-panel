@@ -1,8 +1,15 @@
 <section
     *ngIf="selectedBankAccount.bank"
+    class="selected-bank"
 >
     <dl>
     
+        <dt>
+            شماره حساب
+        </dt>
+        <dd class="bank-account">
+            {{selectedBankAccount.accounNumber}}
+        </dd>
         <dt>
             بانک
         </dt>
@@ -12,12 +19,7 @@
             ></bank-label>
         </dd>
 
-        <dt>
-            شماره حساب
-        </dt>
-        <dd class="bank-account">
-            {{selectedBankAccount.accounNumber}}
-        </dd>
+
  
     </dl>
 
@@ -49,6 +51,14 @@
         >
             <dl>
                 <dt>
+                    شماره حساب
+                </dt>
+
+                <dd class="bank-account">
+                    {{bankAccount.accounNumber}}
+                </dd>
+
+                <dt>
                     بانک
                 </dt>
 
@@ -58,14 +68,7 @@
                     ></bank-label>
                 </dd>
                  
-                <dt>
-                    شماره حساب
-                </dt>
-
-                <dd class="bank-account">
-                    {{bankAccount.accounNumber}}
-                </dd>
-
+    
             </dl>
         </li>
     </ul>

@@ -41,7 +41,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 23px;
-  padding:10px 6px;
+  padding: 10px 6px;
   margin-top: 6px;
   max-height: 250px;
   overflow-y: scroll;
@@ -73,4 +73,21 @@ details[open] summary ~ * {
   100% {
     max-height: 250px;
   }
+}
+.selected-bank {
+  border-radius: 6px;
+  border: 1px solid #eaecf0;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selected-bank button {
+  background-color: transparent;
+  border: none;
+  background: url("../../../assets/images/icons/trash-03.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -90000px;
+  overflow: hidden;
 }
