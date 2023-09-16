@@ -1,1 +1,50 @@
-<p>select-contract-template works!</p>
+<section
+    *ngIf="selectedContractTemplate.title"
+>
+    <dl>
+    
+        <dt>
+            عنوان
+        </dt>
+        <dd>
+            {{selectedContractTemplate.title}}
+        </dd>
+    </dl>
+
+    <button
+        type="button"
+        (click)="remove()"
+        class="remove"
+    >
+        حذف
+    </button>
+</section>
+
+<details
+    *ngIf="!selectedContractTemplate.title"
+>
+    <summary>
+        انتخاب کنید
+    </summary>
+    <loading
+        *ngIf="isLoading"
+    ></loading>
+   
+    <ul
+        *ngIf="!isLoading"
+    >
+        <li
+            *ngFor = 'let contractTemplate of contractTemplateList'
+            (click) = 'selectContractTemplate(contractTemplate)'
+        >
+            <dl>
+                <dt>
+                    عنوان
+                </dt>
+                <dd>
+                    {{contractTemplate.title}}
+                </dd>
+            </dl>
+        </li>
+    </ul>
+</details>

@@ -4,6 +4,12 @@
 <section
     class="container"
 >
+    <a
+        [routerLink]="['../add']"
+        role="button"
+    >
+        افزودن خریدار
+    </a>
     <ul>
         <li
             class="contract-customer"
@@ -27,11 +33,13 @@
     </ul>
 </section>
 
-<section>
+<!-- <section>
     <add-contract-customer
         (onSelectedCustomer) = 'selectCustomer($event)'
     ></add-contract-customer>
-</section>
+</section> -->
+
+<router-outlet></router-outlet>
 
 <nav class="container">
     <ul>

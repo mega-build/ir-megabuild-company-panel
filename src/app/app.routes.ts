@@ -26,6 +26,11 @@ import { DraftContractPanelComponent } from 'src/components/contract/draft-contr
 import { AddContractPaymentComponent } from 'src/components/contract-payment/add-contract-payment/add-contract-payment.component';
 import { ContractPreviewComponent } from 'src/components/contract/contract-preview/contract-preview.component';
 import { RequestedContractPanelComponent } from 'src/components/contract/requested-contract-panel/requested-contract-panel.component';
+import { AddContractCustomerComponent } from 'src/components/contractCustomer/add-contract-customer/add-contract-customer.component';
+import { AccpetRequestedContractComponent } from 'src/components/contract/accpet-requested-contract/accpet-requested-contract.component';
+import { AccpetedContractPanelComponent } from 'src/components/contract/accpeted-contract-panel/accpeted-contract-panel.component';
+import { AddContractTemplateComponent } from 'src/components/contractTemplate/add-contract-template/add-contract-template.component';
+import { ContractTemplatePanelComponent } from 'src/components/contractTemplate/contract-template-panel/contract-template-panel.component';
 
 export const routes: Routes = [
     {
@@ -37,8 +42,25 @@ export const routes: Routes = [
         component: DashboardComponent,
     },
     {
-        path:'projectManagement', component: ProjectManagementComponent,
+        path:'contractTemplateManagement',
         children:[
+            {
+                path: 'list',
+                component: ContractTemplatePanelComponent
+            },
+            {
+                path: 'add',
+                component: AddContractTemplateComponent
+            },
+        ]
+    },
+    {
+        path:'projectManagement',
+        children:[
+            {
+                path: 'list',
+                component: ProjectManagementComponent
+            },
             {
                 path: 'add',
                 component: AddProjectComponent
@@ -85,15 +107,23 @@ export const routes: Routes = [
                         path: 'requested',
                         component: RequestedContractPanelComponent,
                     },
+                    {
+                        path: 'accepted',
+                        component: AccpetedContractPanelComponent,
+                    }
+                    
                 ]
             },
             {
                 path: 'detail/contractId/:contractId',
-                component: RequestContractReviewComponent,
                 children:[
                     {
                         path: 'requestReview',
                         component: RequestContractReviewComponent
+                    },
+                    {
+                        path: 'acceptRequest',
+                        component: AccpetRequestedContractComponent
                     }
                 ]
             },
@@ -108,17 +138,29 @@ export const routes: Routes = [
                 children:[
                     {
                         path: 'paymentList',
-                        component: ContractContractPaymentListComponent,
                         children:[
+                            {
+                                path: 'list',
+                                component: ContractContractPaymentListComponent
+                            },
                             {
                                 path: 'add',
                                 component: AddContractPaymentComponent
-                            },
+                            }
                         ]
                     },
                     {
                         path: 'customerList',
-                        component: ContractCustomerListComponent
+                        children:[
+                            {
+                                path: 'list',
+                                component: ContractCustomerListComponent
+                            },
+                            {
+                                path: 'add',
+                                component: AddContractCustomerComponent
+                            },
+                        ]
                     },
                     {
                         path: 'projectItem',
@@ -155,29 +197,6 @@ export const routes: Routes = [
     {
         path:'addContract', component: AddContractComponent,
     },
-
-    // {
-    //     path: 'editContract/contractId/:contractId',
-    //     component: EditContractComponent,
-    //     children:[
-    //         {
-    //             path: 'paymentList',
-    //             component: ContractContractPaymentListComponent
-    //         },
-    //         {
-    //             path: 'customerList',
-    //             component: ContractCustomerListComponent
-    //         },
-    //         {
-    //             path: 'projectItem',
-    //             component: ContractProjectItemComponent
-    //         },
-    //         {
-    //             path: 'payablePrice',
-    //             component: ContractPayablePriceComponent
-    //         },
-    //     ]
-    // },
     {
         path:'setContractProjectItem', component: SetContractProjectItemComponent,
     },

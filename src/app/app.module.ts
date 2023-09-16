@@ -97,6 +97,12 @@ import { ContractPaymentDepositListItemComponent } from 'src/components/contract
 import { ContractPaymentDickerListItemComponent } from 'src/components/contract-payment/contract-payment-dicker-list-item/contract-payment-dicker-list-item.component';
 import { ContractPreviewComponent } from 'src/components/contract/contract-preview/contract-preview.component';
 import { RequestedContractPanelComponent } from '../components/contract/requested-contract-panel/requested-contract-panel.component';
+import { AccpetRequestedContractComponent } from '../components/contract/accpet-requested-contract/accpet-requested-contract.component';
+import { AccpetedContractPanelComponent } from '../components/contract/accpeted-contract-panel/accpeted-contract-panel.component';
+import { AddContractTemplateComponent } from '../components/contractTemplate/add-contract-template/add-contract-template.component';
+import { ContractTemplatePanelComponent } from '../components/contractTemplate/contract-template-panel/contract-template-panel.component';
+import { ContractTemplateListComponent } from '../components/contractTemplate/contract-template-list/contract-template-list.component';
+import { ContractTemplateListItemComponent } from 'src/components/contractTemplate/contract-template-list-item/contract-template-list-item.component';
 
 
 
@@ -194,7 +200,13 @@ import { RequestedContractPanelComponent } from '../components/contract/requeste
     ContractPaymentByContractDepositListItemComponent,
     ContractPaymentByContractDickerListItemComponent,
     ContractPreviewComponent,
-    RequestedContractPanelComponent
+    RequestedContractPanelComponent,
+    AccpetRequestedContractComponent,
+    AccpetedContractPanelComponent,
+    AddContractTemplateComponent,
+    ContractTemplatePanelComponent,
+    ContractTemplateListComponent,
+    ContractTemplateListItemComponent
   ],
   imports: [
     BrowserModule,

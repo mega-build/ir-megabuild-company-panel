@@ -130,14 +130,11 @@ export class AddContractPaymentComponent implements OnInit
 		):void
 			{
 				this.router.navigate(
-					["../"],
+					["../list"],
 					{
 						relativeTo:this.route
 					}
-					
-				).then(() => {
-					window.location.reload();
-				  });
+				)
 			}
 
 	}

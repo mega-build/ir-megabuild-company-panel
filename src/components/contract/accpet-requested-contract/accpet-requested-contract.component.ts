@@ -1,45 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
 	{
-		selector: 'contract-preview',
-		templateUrl: './contract-preview.component.html',
-		styleUrls: ['./contract-preview.component.css']
+		selector: 'accpet-requested-contract',
+		templateUrl: './accpet-requested-contract.component.html',
+		styleUrls: ['./accpet-requested-contract.component.css']
 	}
 )
 
-export class ContractPreviewComponent
+export class AccpetRequestedContractComponent implements OnInit
 	{
-
-		contractId: string = "";
-		contract: any;
-		isLoading: boolean = false;
+		isLoading:boolean = false;
+		contractId:string = "";
+		contract: any= {};
 
 		constructor
 		(
 			private route: ActivatedRoute,
 			private router: Router,
-			private contractService : ContractService
+			private contractService: ContractService
 		){}
 
 		ngOnInit
-		(): void
+		(): void 
 			{
-				if
-				(
-					this.route.parent
-				)
+				this.route.params.subscribe(params => 
 					{
-						this.route.parent.params.subscribe(params => 
-							{
-								this.contractId = params['contractId']; 
-								this.getContract();
-							}
-						);
+						this.contractId = params['contractId']; 
+						this.getContract();
 					}
-				
+				);
 				
 			}
 
@@ -82,24 +74,25 @@ export class ContractPreviewComponent
 				
 			}
 
-		async requestConfirmation
+		async accpet
 		():Promise<void>
 			{
-				
+					
 
 				try
 					{
 						this.isLoading = true;
 						const data = await this.contractService
-							.requestContractConfirmation(
+							.acceptRequestedContract(
 								this.contractId
 							);
 						console.log(data.result);
 						this.isLoading = false;
 
-						// show success message
+						// show message 
+						
 						this.router.navigate(
-							['contractManagement','list','draft']
+							['contractManagement','list','requested']
 						);
 					}
 				catch
@@ -122,4 +115,46 @@ export class ContractPreviewComponent
 							}
 					}
 			}
+
+			
+		async reject
+		():Promise<void>
+			{
+				try
+					{
+						this.isLoading = true;
+						const data = await this.contractService
+							.rejectRequestedContract(
+								this.contractId
+							);
+						console.log(data.result);
+						this.isLoading = false;
+
+						// show message 
+
+						this.router.navigate(
+							['contractManagement','list','requested']
+						);
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
+			}
+
 	}

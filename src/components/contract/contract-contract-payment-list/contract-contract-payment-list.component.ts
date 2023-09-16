@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContractPaymentByContractPanelComponent } from 'src/components/contract-payment/contract-payment-by-contract-panel/contract-payment-by-contract-panel.component';
 
 @Component(
 	{
@@ -18,9 +17,6 @@ export class ContractContractPaymentListComponent implements OnInit
 		contractPaymentList: any[]=[]
 		isLoading:boolean = false;
 
-		@ViewChild(ContractPaymentByContractPanelComponent)
-		private contractPaymentByContractPanel!: ContractPaymentByContractPanelComponent;
-
 		constructor
 		(
 			private route: ActivatedRoute
@@ -31,13 +27,13 @@ export class ContractContractPaymentListComponent implements OnInit
 			{
 				if
 				(
-					this.route.parent
+					this.route.parent &&
+					this.route.parent.parent
 				)
 					{
-						this.route.parent.params.subscribe(params => 
+						this.route.parent.parent.params.subscribe(params => 
 							{
 								this.contractId = params['contractId']; 
-								//this.getAllContractPaymentList();
 							}
 						);
 					}
@@ -48,7 +44,7 @@ export class ContractContractPaymentListComponent implements OnInit
 			contractPayment:any
 		):void
 			{
-				this.contractPaymentByContractPanel.getAllContractPaymentList();
+				
 			}
 
 	}

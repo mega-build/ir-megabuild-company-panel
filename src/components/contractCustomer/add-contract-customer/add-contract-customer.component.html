@@ -1,3 +1,7 @@
+<loading
+    *ngIf="isLoading"
+></loading>
+
 <find-customer-by-national-code
     (onCustomerSelected)= "selectCustomer($event)"
     (onRequestAddNewCustomerWithNationalCode) ="addNewCustomerWithNationalCode($event)"
@@ -8,3 +12,14 @@
     (onCustomerAdded)= "selectCustomer($event)"
     [newNationalCode] = "newNationalCode"
 ></add-customer>
+
+<ul>
+    <li>
+        <a
+            [routerLink]="['../list']"
+            role="button"
+        >
+            انصراف  
+        </a>
+    </li>
+</ul>

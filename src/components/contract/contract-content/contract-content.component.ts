@@ -26,6 +26,54 @@ export class ContractContentComponent implements OnInit
 
 		paragraphList:any[] =[];
 
+
+		selectedContractTemplate:any={};
+
+		setContractTemplate
+		(
+			contractTemplate:any
+		):void
+			{
+				this.selectedContractTemplate = contractTemplate;
+				if
+				(
+					contractTemplate
+				)
+					{
+						this.content = this.getContentFromTemplate(
+							this.selectedContractTemplate.htmlContent
+						);	
+					}
+			}
+
+		getContentFromTemplate(
+			htmlTemplate:string
+		):string
+		{
+			
+			const result = htmlTemplate
+				.replace(
+					'{{TITLE}}',
+					this.getTitle(
+						this.contract.contractType,
+						this.contract.project.projectType
+					)
+				)
+				.replace(
+					'{{CUSTOMERS}}',
+					this.getCustomersContent(
+						this.contract.customers
+					)
+				)
+				.replace(
+					'{{PAYMENTS}}',
+					this.getPaymentListContent(
+						this.contract.contractPayments
+					)
+				)
+			return result;
+		}
+
 		getContent
 		():string
 			{

@@ -34,11 +34,20 @@
                         مدیریت کاربران
                     </a>
                 </li>
+
+                <li>
+                    
+                    <a 
+                        [routerLink]="['/','contractTemplateManagement','list']"
+                    >
+                        مدیریت قالب قرارداد
+                    </a>
+                </li>
     
                 <li>
                     
                     <a 
-                        href= "/projectManagement"
+                        [routerLink]="['/','projectManagement','list']"
                     >
                         مدیریت پروژه ها
                     </a>
@@ -83,6 +92,15 @@
                 <li>
                     <a 
                         [routerLink]="['/','contractManagement','list','requested']"
+                    >
+                        قرارداد های در انتظار تایید نهایی
+                    </a>
+                    
+                </li>
+
+                <li>
+                    <a 
+                        [routerLink]="['/','contractManagement','list','accepted']"
                     >
                         قرارداد های نهایی شده
                     </a>

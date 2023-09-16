@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProjectService } from 'src/services/project/project.service';
+import { ContractTemplateService } from 'src/services/contractTemplate/contract-template.service';
 
 @Component(
 	{
-		selector: 'add-project',
-		templateUrl: './add-project.component.html',
-		styleUrls: ['./add-project.component.css']
+		selector: 'add-contract-template',
+		templateUrl: './add-contract-template.component.html',
+		styleUrls: ['./add-contract-template.component.css']
 	}
 )
 
-export class AddProjectComponent
+export class AddContractTemplateComponent
 	{
-		project:any = {};
+		contractTemplate:any = {};
 		isLoading:boolean= false;
 		validationResult: any ={};
 
@@ -20,22 +20,12 @@ export class AddProjectComponent
 		(
 			private router: Router,
 			private route: ActivatedRoute,
-			private projectService: ProjectService
+			private contractTemplateService: ContractTemplateService
 		){}
-
-		setProjectType
-		(
-			projectType:any
-		):void
-			{
-				this.project.projectType = projectType;
-				console.log(this.project);
-				
-			}
 
 		validate
 		(
-			project: any
+			contractTemplate: any
 		): any
 			{
 				let validationResult: any ={
@@ -45,7 +35,7 @@ export class AddProjectComponent
 			
 				if
 				(
-					!project.title
+					!contractTemplate.title
 				)
 					{
 						validationResult.hasError = true;
@@ -54,30 +44,21 @@ export class AddProjectComponent
 			
 				if
 				(
-					!project.projectType
+					!contractTemplate.htmlContent
 				)
 					{
 						validationResult.hasError = true;
-						validationResult.messageList.push("نوع پروژه را انتخاب کنید.");
+						validationResult.messageList.push("بخش محتوا را وارد کنید.");
 					}
 			
 			
-				if
-				(
-					!project.address
-				)
-					{
-						validationResult.hasError = true;
-						validationResult.messageList.push("بخش آدرس را وارد کنید.");
-					}
-
 				return validationResult;
 			}
 		
 		async save
 		():Promise<void>
 			{
-				this.validationResult  = this.validate(this.project);
+				this.validationResult  = this.validate(this.contractTemplate);
 
 				if
 				(
@@ -93,15 +74,14 @@ export class AddProjectComponent
 	
 							this.isLoading = true;
 	
-							const data = await this.projectService
+							const data = await this.contractTemplateService
 								.add(
-									this.project.title,
-									this.project.projectType._id,
-									this.project.address
+									this.contractTemplate.title,
+									this.contractTemplate.htmlContent
 								);
 	
 							console.log(data.projectId);
-							this.project._id = data.projectId
+							this.contractTemplate._id = data.contractTemplateId
 	
 							this.isLoading = false;
 	

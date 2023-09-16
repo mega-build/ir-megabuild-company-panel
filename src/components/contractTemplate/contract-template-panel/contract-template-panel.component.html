@@ -1,0 +1,21 @@
+<a
+    [routerLink]="['../add']"
+>
+    قالب جدید
+</a>
+
+<loading
+    *ngIf="isLoading"
+></loading>
+
+<contract-template-list
+    *ngIf="!isLoading && contractTemplateList && contractTemplateList.length > 0"
+    [contractTemplateList] = "contractTemplateList"
+></contract-template-list>
+
+<div
+    *ngIf="!isLoading && contractTemplateList.length == 0"
+    class="container empty"
+>
+    قالب پروژه ی وجود ندارد.
+</div>

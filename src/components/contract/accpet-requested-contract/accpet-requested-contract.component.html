@@ -1,0 +1,24 @@
+<loading
+    *ngIf="isLoading"
+></loading>
+<contract-detail
+    *ngIf="!isLoading && contract"
+    [contract]="contract"
+></contract-detail>
+<ul>
+    <li>
+        <button
+            (click)="accpet()"
+        >
+            تایید پیش نویس قرارداد
+        </button>
+    </li>
+
+    <li>
+        <button
+            (click)="reject()"
+        >
+            رد پیش نویس قرارداد
+        </button>
+    </li>
+</ul>

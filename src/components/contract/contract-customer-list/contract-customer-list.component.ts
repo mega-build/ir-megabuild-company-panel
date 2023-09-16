@@ -107,10 +107,11 @@ export class ContractCustomerListComponent implements OnInit
 			{
 				if
 				(
-					this.route.parent
+					this.route.parent &&
+					this.route.parent.parent
 				)
 					{
-						this.route.parent.params.subscribe(params => 
+						this.route.parent.parent.params.subscribe(params => 
 							{
 								this.contractId = params['contractId']; 
 								this.getAllContractCustomerList();

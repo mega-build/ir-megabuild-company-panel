@@ -2,7 +2,7 @@
     class="container"
 >
     <legend>
-        پروژه جدید
+        قالب پروژه جدید
     </legend>
     <fieldset
         [disabled]="isLoading"
@@ -20,36 +20,23 @@
                     id="txtTitle"
                     name="txtTitle"
                     maxlength="200"
-                    [(ngModel)]= "project.title"
+                    [(ngModel)]= "contractTemplate.title"
                     required
                 >
             </li>
 
-            <li>
-                <label
-                    for="cmpProjectType"
-                >
-                    نوع پروژه
-                </label>
-
-                <select-project-type
-                    id="cmpProjectType"
-                    name="cmpProjectType"
-                    (setProjectType)="setProjectType($event)"
-                ></select-project-type>
-            </li>
 
             <li>
                 <label
-                    for="txtAddress"
+                    for="txtHtmlContent"
                 >
                     آدرس:
                 </label>
 
                 <textarea
-                    id="txtAddress"
-                    name="txtAddress"
-                    [(ngModel)]= "project.address"
+                    id="txtHtmlContent"
+                    name="txtHtmlContent"
+                    [(ngModel)]= "contractTemplate.htmlContent"
                     rows="6"
                     required
                 ></textarea>

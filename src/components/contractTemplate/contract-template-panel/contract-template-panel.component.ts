@@ -1,20 +1,18 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContractTemplateService } from 'src/services/contractTemplate/contract-template.service';
 
 @Component(
 	{
-		selector: 'select-contract-template',
-		templateUrl: './select-contract-template.component.html',
-		styleUrls: ['./select-contract-template.component.css']
+		selector: 'contract-template-panel',
+		templateUrl: './contract-template-panel.component.html',
+		styleUrls: ['./contract-template-panel.component.css']
 	}
 )
 
-export class SelectContractTemplateComponent implements OnInit
+export class ContractTemplatePanelComponent  implements OnInit
 	{
-		@Output() setContractTemplate = new EventEmitter<any>();
 
 		contractTemplateList: any[]= [];
-		selectedContractTemplate:any = {};
 		isLoading: boolean = false;
 
 		constructor
@@ -52,19 +50,4 @@ export class SelectContractTemplateComponent implements OnInit
 					
 				}
 
-		remove
-		():void
-			{
-				this.selectedContractTemplate = {};
-				this.setContractTemplate.emit(undefined);
-			}
-
-		selectContractTemplate
-		(
-			contractTemplate:any
-		):void
-			{
-				this.selectedContractTemplate = contractTemplate;
-				this.setContractTemplate.emit(contractTemplate);
-			}
 	}

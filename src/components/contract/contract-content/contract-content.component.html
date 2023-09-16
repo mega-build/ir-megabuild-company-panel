@@ -1,4 +1,5 @@
 <select-contract-template
+    (setContractTemplate)="setContractTemplate($event)"
 ></select-contract-template>
 
 <!-- <p
@@ -80,9 +81,9 @@
     </li>
 </ul>
 
-<!-- <div
+<div
     *ngIf="!isLoading && contract"
-    [innerHTML]="getContent()"
+    [innerHTML]="content"
 ></div>
  
 
@@ -92,6 +93,6 @@
     id=""
     cols="30"
     rows="10"
-    [value]="getContent()"
-></textarea> -->
+    [value]="content"
+></textarea>
 
