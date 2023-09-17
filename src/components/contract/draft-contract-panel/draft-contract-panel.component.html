@@ -1,6 +1,11 @@
+<h2>
+    قرارداد های در حال تکمیل
+</h2>
+
 <loading
     *ngIf="isLoading"
 ></loading>
+
 <contract-list
     *ngIf="!isLoading && contractList.length > 0"
     [contractList]="contractList"

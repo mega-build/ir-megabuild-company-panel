@@ -1,0 +1,23 @@
+<contract-payment-status-icon
+    [contractPayment]="contractPayment"
+></contract-payment-status-icon>
+
+<contract-payment-cheque-detail
+    *ngIf="isChequePaymentMethod()"
+    [chequeContractPayment]="contractPayment"
+></contract-payment-cheque-detail>
+
+<contract-payment-deed-detail
+    *ngIf="isDeedPaymentMethod()"
+    [deedContractPayment]="contractPayment"
+></contract-payment-deed-detail>
+
+<contract-payment-deposit-detail
+    *ngIf="isDepositPaymentMethod()"
+    [depositContractPayment]="contractPayment"
+></contract-payment-deposit-detail>
+
+<contract-payment-dicker-detail
+    *ngIf="isDickerPaymentMethod()"
+    [dickerContractPayment]="contractPayment"
+></contract-payment-dicker-detail>

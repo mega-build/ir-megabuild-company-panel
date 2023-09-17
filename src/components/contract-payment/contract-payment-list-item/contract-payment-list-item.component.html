@@ -1,4 +1,8 @@
-    <contract-payment-cheque-list-item
+<contract-payment-status-icon
+    [contractPayment]="contractPayment"
+></contract-payment-status-icon>
+
+<contract-payment-cheque-list-item
     *ngIf="isChequePaymentMethod()"
     [chequeContractPayment]="contractPayment"
 ></contract-payment-cheque-list-item>
@@ -17,3 +21,15 @@
     *ngIf="isDickerPaymentMethod()"
     [dickerContractPayment]="contractPayment"
 ></contract-payment-dicker-list-item>
+
+<ul>
+
+    <li>
+        <a
+            [routerLink]="['/','contractPaymentManagement','detail','contractPaymentId',contractPayment._id,'review']"
+        >
+            بررسی
+        </a>
+    </li>
+
+</ul>

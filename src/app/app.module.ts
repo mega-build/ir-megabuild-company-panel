@@ -103,6 +103,14 @@ import { AddContractTemplateComponent } from '../components/contractTemplate/add
 import { ContractTemplatePanelComponent } from '../components/contractTemplate/contract-template-panel/contract-template-panel.component';
 import { ContractTemplateListComponent } from '../components/contractTemplate/contract-template-list/contract-template-list.component';
 import { ContractTemplateListItemComponent } from 'src/components/contractTemplate/contract-template-list-item/contract-template-list-item.component';
+import { ReviewContractPaymentComponent } from '../components/contract-payment/review-contract-payment/review-contract-payment.component';
+import { ContractPaymentDetailComponent } from '../components/contract-payment/contract-payment-detail/contract-payment-detail.component';
+import { ContractPaymentDeedDetailComponent } from '../components/contract-payment/contract-payment-deed-detail/contract-payment-deed-detail.component';
+import { ContractPaymentChequeDetailComponent } from 'src/components/contract-payment/contract-payment-cheque-detail/contract-payment-cheque-detail.component';
+import { ContractPaymentDepositDetailComponent } from '../components/contract-payment/contract-payment-deposit-detail/contract-payment-deposit-detail.component';
+import { ContractPaymentDickerDetailComponent } from '../components/contract-payment/contract-payment-dicker-detail/contract-payment-dicker-detail.component';
+import { NotSettledContractPaymentPanelComponent } from '../components/contract-payment/not-settled-contract-payment-panel/not-settled-contract-payment-panel.component';
+import { ContractPaymentStatusIconComponent } from '../components/contract-payment/contract-payment-status-icon/contract-payment-status-icon.component';
 
 
 
@@ -206,7 +214,15 @@ import { ContractTemplateListItemComponent } from 'src/components/contractTempla
     AddContractTemplateComponent,
     ContractTemplatePanelComponent,
     ContractTemplateListComponent,
-    ContractTemplateListItemComponent
+    ContractTemplateListItemComponent,
+    ReviewContractPaymentComponent,
+    ContractPaymentDetailComponent,
+    ContractPaymentChequeDetailComponent,
+    ContractPaymentDeedDetailComponent,
+    ContractPaymentDepositDetailComponent,
+    ContractPaymentDickerDetailComponent,
+    NotSettledContractPaymentPanelComponent,
+    ContractPaymentStatusIconComponent
   ],
   imports: [
     BrowserModule,

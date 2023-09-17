@@ -9,18 +9,38 @@ import { environment } from 'src/environments/environment';
 export class ContractPaymentService
 	{
 		private URL_CONTRACT_PAYMENT_GETALL_BY_CONTRACT: string = `${environment.API_URL}/contractPayment/byContractId`;
+		private URL_CONTRACT_PAYMENT_GETALL_BY_FILTER: string = `${environment.API_URL}/contractPayment/filter`;
 		private URL_CONTRACT_PAYMENT_GETALL_BY_FROM_DATE_AND_TO_DATE: string = `${environment.API_URL}/contractPayment/fromDateAndToDate`;
 		private URL_CONTRACT_PAYMENT_ADD_DIPOSIT: string = `${environment.API_URL}/contractPayment/deposit`;
 		private URL_CONTRACT_PAYMENT_ADD_CHEQUE: string = `${environment.API_URL}/contractPayment/cheque`;
 		private URL_CONTRACT_PAYMENT_ADD_DICKER: string = `${environment.API_URL}/contractPayment/d_icker`;
 		private URL_CONTRACT_PAYMENT_ADD_DEED: string = `${environment.API_URL}/contractPayment/deed`;
 		private URL_CONTRACT_PAYMENT_REMOVE: string = `${environment.API_URL}/contractPayment`;
+		private URL_CONTRACT_PAYMENT_GET: string = `${environment.API_URL}/contractPayment`;
+		private URL_CONTRACT_PAYMENT_SET_ISSETTLED: string = `${environment.API_URL}/contractPayment/setIsSettled`;
 		
 
 
 		constructor(
 			private httpInteceptor: AuthHttpInterceptorService,
 		) { }
+
+		async get
+		(
+			contractPaymentId: string
+		): Promise<any>
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+
+				let url = `${this.URL_CONTRACT_PAYMENT_GET}/${contractPaymentId}`;
+
+				const result = await this.httpInteceptor.getWithAuth_(
+					url,
+					headers
+				);
+
+				return result;
+			}
 
 		async addDeposit
 		(
@@ -167,6 +187,22 @@ export class ContractPaymentService
 				return result;
 			}
 
+			
+		async getAllNotSettled
+		():Promise<any>
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+
+				let url = `${this.URL_CONTRACT_PAYMENT_GETALL_BY_FILTER}/notSettled`;
+
+				const result = await this.httpInteceptor.getWithAuth_(
+					url,
+					headers
+				);
+
+				return result;
+			}
+
 
 		async remove
 		(
@@ -188,4 +224,29 @@ export class ContractPaymentService
 				}
 			}
 
+		async setIsSettled
+		(
+			contractPaymentId: string,
+			isSettled:boolean
+		):Promise<any>
+			{
+				{
+					let headers: HttpHeaders = new HttpHeaders();
+
+					let body: any = {
+						contractPaymentId: contractPaymentId,
+						isSettled: isSettled
+					};
+					
+					const result = await this.httpInteceptor.postWithAuth_(
+						this.URL_CONTRACT_PAYMENT_SET_ISSETTLED,
+						headers,
+						body
+					);
+
+					return result;
+				}
+			}
+
+		
 	}

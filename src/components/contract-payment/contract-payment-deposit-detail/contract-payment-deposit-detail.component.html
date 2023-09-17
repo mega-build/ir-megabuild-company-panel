@@ -3,18 +3,18 @@
         نوع پرداخت
     </dt>
     <dd>
-        {{deedContractPayment.contractPaymentMethod.title}}
+        {{depositContractPayment.contractPaymentMethod.title}}
     </dd>
 
     <dt>
         حساب
     </dt>
     <dd
-        *ngIf="deedContractPayment.bankAccount"
+        *ngIf="depositContractPayment.bankAccount"
         class="bank-account"
     >
         <bank-account-label
-            [bankAccount]="deedContractPayment.bankAccount"
+            [bankAccount]="depositContractPayment.bankAccount"
         ></bank-account-label>
     </dd>
 
@@ -23,9 +23,8 @@
     </dt>
     <dd class="project-name-dd">
         <project-label
-        [project]="deedContractPayment.contract.project"
+            [project]="depositContractPayment.contract.project"
         ></project-label>
-        
     </dd>
 
     <dt>
@@ -33,7 +32,7 @@
     </dt>
     <dd>
         <project-item-abbreviation
-            [projectItem]="deedContractPayment.contract.projectItem"
+            [projectItem]="depositContractPayment.contract.projectItem"
         ></project-item-abbreviation>
     </dd>
 
@@ -42,7 +41,7 @@
     </dt>
     <dd>
         <price-label
-            [price]="deedContractPayment.price"
+            [price]="depositContractPayment.price"
         ></price-label>
     </dd>
 
@@ -50,16 +49,16 @@
         سررسید
     </dt>
     <dd
-        *ngIf="deedContractPayment.dueDateShamsi"
+        *ngIf="depositContractPayment.dueDateShamsi"
     >
-        {{deedContractPayment.dueDateShamsi}}
+        {{depositContractPayment.dueDateShamsi}}
     </dd>
 
     <dt>
         پرداخت شده
     </dt>
     <dd>
-        {{deedContractPayment.isSettled}}
+        {{depositContractPayment.isSettled}}
     </dd>
 
 </dl>

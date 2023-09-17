@@ -31,6 +31,8 @@ import { AccpetRequestedContractComponent } from 'src/components/contract/accpet
 import { AccpetedContractPanelComponent } from 'src/components/contract/accpeted-contract-panel/accpeted-contract-panel.component';
 import { AddContractTemplateComponent } from 'src/components/contractTemplate/add-contract-template/add-contract-template.component';
 import { ContractTemplatePanelComponent } from 'src/components/contractTemplate/contract-template-panel/contract-template-panel.component';
+import { ReviewContractPaymentComponent } from 'src/components/contract-payment/review-contract-payment/review-contract-payment.component';
+import { NotSettledContractPaymentPanelComponent } from 'src/components/contract-payment/not-settled-contract-payment-panel/not-settled-contract-payment-panel.component';
 
 export const routes: Routes = [
     {
@@ -208,8 +210,27 @@ export const routes: Routes = [
         children:[
             {
                 path: 'list',
-                component: ContractPaymentPanelComponent
-            }
+                children:[
+                    {
+                        path:'filter',
+                        component:ContractPaymentPanelComponent
+                    },
+                    {
+                        path:'notSettled',
+                        component:NotSettledContractPaymentPanelComponent
+                    },
+                ]
+
+            },
+            {
+                path: 'detail/contractPaymentId/:contractPaymentId',
+                children:[
+                    {
+                        path: 'review',
+                        component: ReviewContractPaymentComponent
+                    }
+                ]
+            },
         ]
     },
 

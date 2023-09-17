@@ -1,0 +1,20 @@
+<h2>
+    پرداخت های واریز نشده
+</h2>
+
+<loading
+    *ngIf="isLoading"
+></loading>
+
+<contract-payment-list 
+    *ngIf="!isLoading && contractPaymentList.length > 0"
+    [contractPaymentList] = 'contractPaymentList'
+></contract-payment-list>
+
+<div
+    *ngIf="!isLoading && contractPaymentList.length == 0"
+    class="container empty"
+    
+>
+    پرداخت انجام نشده وجود ندارد.
+</div>
