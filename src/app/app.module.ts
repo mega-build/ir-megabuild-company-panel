@@ -59,7 +59,6 @@ import { AddLandParcelProjectItemComponent } from '../components/projectItem/add
 import { SelectContractTemplateComponent } from '../components/contractTemplate/select-contract-template/select-contract-template.component';
 import { ContractTemplateEditorComponent } from '../components/contractTemplate/contract-template-editor/contract-template-editor.component';
 import { ContractContentComponent } from '../components/contract/contract-content/contract-content.component';
-import { SelectCompanyComponent } from '../components/company/select-company/select-company.component';
 import { SelectUserCompanyAccessComponent } from '../components/userCompanyAccess/select-user-company-access/select-user-company-access.component';
 import { ContractPaymentManagementComponent } from './contract-payment-management/contract-payment-management.component';
 import { ContractPaymentPanelComponent } from 'src/components/contract-payment/contract-payment-panel/contract-payment-panel.component';
@@ -111,6 +110,7 @@ import { ContractPaymentDepositDetailComponent } from '../components/contract-pa
 import { ContractPaymentDickerDetailComponent } from '../components/contract-payment/contract-payment-dicker-detail/contract-payment-dicker-detail.component';
 import { NotSettledContractPaymentPanelComponent } from '../components/contract-payment/not-settled-contract-payment-panel/not-settled-contract-payment-panel.component';
 import { ContractPaymentStatusIconComponent } from '../components/contract-payment/contract-payment-status-icon/contract-payment-status-icon.component';
+import { SelectCompanyComponent } from './select-company/select-company.component';
 
 
 
@@ -171,7 +171,6 @@ import { ContractPaymentStatusIconComponent } from '../components/contract-payme
     SelectContractTemplateComponent,
     ContractTemplateEditorComponent,
     ContractContentComponent,
-    SelectCompanyComponent,
     SelectUserCompanyAccessComponent,
     ContractPaymentPanelComponent,
     ContractPaymentManagementComponent,
@@ -222,7 +221,8 @@ import { ContractPaymentStatusIconComponent } from '../components/contract-payme
     ContractPaymentDepositDetailComponent,
     ContractPaymentDickerDetailComponent,
     NotSettledContractPaymentPanelComponent,
-    ContractPaymentStatusIconComponent
+    ContractPaymentStatusIconComponent,
+    SelectCompanyComponent
   ],
   imports: [
     BrowserModule,

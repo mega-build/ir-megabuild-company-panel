@@ -1,4 +1,10 @@
-<ul>
+<loading
+        *ngIf="isLoading"
+></loading>
+
+<ul
+    *ngIf="!isLoading && userCompanyAccessList.length > 0"
+>
     <li
         *ngFor = 'let userCompanyAccess of userCompanyAccessList'
     >
@@ -18,3 +24,10 @@
         </label>
     </li>
 </ul>
+
+<div
+    *ngIf="!isLoading && userCompanyAccessList.length == 0"
+    class="container empty"
+>
+    دسترسی وجود ندارد
+</div>

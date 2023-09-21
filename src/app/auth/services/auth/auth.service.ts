@@ -19,11 +19,11 @@ export class AuthService
 			private httpInteceptor: HttpInterceptorService
 		) { }
 
-		login
+		async login
 		(
 			email: string,
 			password: string
-		): Observable<Object>
+		): Promise<Observable<Object>>
 			{
 				var headers: HttpHeaders = new HttpHeaders();
 
@@ -32,10 +32,12 @@ export class AuthService
 					username: email
 				};
 
-				return this.httpInteceptor.post(
+				const result =  await this.httpInteceptor.post(
 					this.URL_USER_LOGIN_WITH_EMAIL_PASSWORD,
 					headers,
 					body
 				);
+
+				return result;
 			}
 	}

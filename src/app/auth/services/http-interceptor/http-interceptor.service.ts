@@ -13,19 +13,21 @@ export class HttpInterceptorService {
 		private http: HttpClient,
 	){}
 
-	post
+	async post
 	(
 		url: string,
 		headers: HttpHeaders,
 		body: any
-	):Observable<Object>
+	):Promise<any>
 		{
-			return this.http
+			const result = await  this.http
 				.post(
 					url,
 					body,
 					{ headers: headers }
-				);
+				).toPromise();
+			
+			return result;
 		}
 
 }

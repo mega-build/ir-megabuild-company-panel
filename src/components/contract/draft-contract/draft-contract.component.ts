@@ -185,7 +185,7 @@ export class DraftContractComponent
 		navigateToAddCustomer
 		():void
 			{
-				const nvaigationRouteList = ['contractManagement','editContract','contractId',this.contractId,"customerList"];
+				const nvaigationRouteList = ['contractManagement','editContract','contractId',this.contractId,"customerList",'list'];
 				this.router.navigate(nvaigationRouteList);
 			}
 	}

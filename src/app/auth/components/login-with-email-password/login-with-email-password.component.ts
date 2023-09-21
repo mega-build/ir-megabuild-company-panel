@@ -15,7 +15,8 @@ export class LoginWithEmailPasswordComponent
 	{
 		email:string = "";
 		password:string = "";
-		isValidForm: boolean = false;
+		validationResult: any ={};
+		isLoading: boolean = false;
 	
 		constructor(
 			private router: Router,
@@ -25,36 +26,88 @@ export class LoginWithEmailPasswordComponent
 	
 		ngOnInit(): void {}
 	
-		// private isValid(){
-		// 	var result:boolean = false;
-	
-		// 	if(this.email == undefined){
-		// 		result = false;
-		// 	}else{
-		// 		result = true;
-		// 	}
-		// 	return result;
-		// }
-	
-	
-		login
-		():void
+		validate
+		(): any
 			{
-				this.authService
-				.login(
-					this.email,
-					this.password
+				let validationResult: any ={
+					hasError: false,
+					messageList: []
+				};
+
+				if
+				(
+					!this.email
 				)
-				.subscribe(
-					(
-						data:any
-					) => 
-						{
-							//this.localStorageService.setUserEmail(this.email);
-							var authToken: string = data.token;
-							this.localStorageService.setAutToken(authToken);
-							this.router.navigate(['home']);
-						}
-				);
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش نام کاربری را وارد کنید");
+					}
+			
+				if
+				(
+					!this.password
+				)
+					{
+						validationResult.hasError = true;
+						validationResult.messageList.push("بخش کلمه ی عبور را وارد کنید");
+					}
+			
+				return validationResult;
+			}
+	
+	
+		async login
+		():Promise<void>
+			{
+				this.validationResult = this.validate();
+
+				if
+				(
+					this.validationResult.hasError
+				)
+					{
+						return;
+					}
+				else
+					{
+						this.isLoading = true;
+
+						try 
+							{
+								console.log('login');
+								
+								const data : any = await this.authService
+									.login(
+										this.email,
+										this.password
+									);
+								
+								this.isLoading = false;
+								
+								var authToken: string = data.token;
+								this.localStorageService.setAutToken(authToken);
+								this.router.navigate(['company']);
+							}
+						catch
+						(
+							error: any
+						)
+							{
+								this.isLoading = false;
+								if
+								(
+									error.error &&
+									error.error.message
+								)
+									{
+										alert(error.error.message);
+									}
+								else
+									{
+										alert(error)
+									}
+							}
+					}
+
 			}
 	}

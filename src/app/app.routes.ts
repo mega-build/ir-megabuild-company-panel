@@ -33,11 +33,16 @@ import { AddContractTemplateComponent } from 'src/components/contractTemplate/ad
 import { ContractTemplatePanelComponent } from 'src/components/contractTemplate/contract-template-panel/contract-template-panel.component';
 import { ReviewContractPaymentComponent } from 'src/components/contract-payment/review-contract-payment/review-contract-payment.component';
 import { NotSettledContractPaymentPanelComponent } from 'src/components/contract-payment/not-settled-contract-payment-panel/not-settled-contract-payment-panel.component';
+import { SelectCompanyComponent } from './select-company/select-company.component';
 
 export const routes: Routes = [
     {
         path:'',
         component: LoginComponent,
+    },
+    {
+        path:'company',
+        component: SelectCompanyComponent,
     },
     {
         path:'home',
@@ -197,7 +202,8 @@ export const routes: Routes = [
         ]
     },
     {
-        path:'addContract', component: AddContractComponent,
+        path:'addContract',
+        component: AddContractComponent,
     },
     {
         path:'setContractProjectItem', component: SetContractProjectItemComponent,

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserCompanyAccessService } from 'src/services/userCompanyAccess/user-company-access.service';
 import { LocalStorageService } from 'src/share/services/local-storage/local-storage.service';
 
@@ -17,14 +18,15 @@ export class SelectUserCompanyAccessComponent implements OnInit
 	@Input() selectedUserCompanyAccess:any ={};
 
 	userCompanyAccessList: any[]= [];
+	isLoading: boolean = false;
 	
 		
 	constructor
 	(
+		private router: Router,
 		private userCompanyAccessService: UserCompanyAccessService,
 		private localStorageService: LocalStorageService
-	)
-		{}
+	){}
 			
 	ngOnInit
 	(): void 
@@ -32,35 +34,45 @@ export class SelectUserCompanyAccessComponent implements OnInit
 			this.getAllUserCompanyAccessList();
 		}
 
-		getAllUserCompanyAccessList
-		(): void
+	async getAllUserCompanyAccessList
+	(): Promise<void>
+		{
 			{
-				this.userCompanyAccessService
-					.getAll()
-					.subscribe(
-						(data: any) => 
-							{
-								console.log(data.userCompanyAccessList);
-								this.userCompanyAccessList = data.userCompanyAccessList;
-								const workingUserCompanyAccess =  this.localStorageService.getUserCompanyAccess();
 
-								this.selectedUserCompanyAccess =this.userCompanyAccessList.find(
-									(
-										currentUserCompanyAccess:any
-									) =>
-										{
-											if
-											(
-												currentUserCompanyAccess._id == workingUserCompanyAccess._id
-											)
-												{
-													return currentUserCompanyAccess;
-												}
-										}
-								) 
+				try
+					{
+						this.isLoading = true;
+
+						const data = await this.userCompanyAccessService.getAll();
+
+						console.log(data.userCompanyAccessList);
+						this.userCompanyAccessList = data.userCompanyAccessList;
+
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
 							}
-					)
+						else
+							{
+								alert(error)
+							}
+					}
+
 			}
+	
+	}
 
 
 	
@@ -72,6 +84,8 @@ export class SelectUserCompanyAccessComponent implements OnInit
 		{
 			this.selectedUserCompanyAccess = userCompanyAccess;
 			this.localStorageService.setUserCompanyAccess(this.selectedUserCompanyAccess);
-			this.setUserCompanyAccess.emit(this.selectedUserCompanyAccess);
+			
+			const nvaigationRouteList = ['home'];
+			this.router.navigate(nvaigationRouteList);
 		}
 }

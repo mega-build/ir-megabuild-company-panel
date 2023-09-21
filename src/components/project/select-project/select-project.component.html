@@ -31,7 +31,9 @@
     <summary>
         انتخاب کنید
     </summary>
-    <ul>
+    <ul
+        *ngIf="!isLoading && projectList.length > 0"
+    >
         <li
             *ngFor = 'let project of projectList'
         >
@@ -51,4 +53,10 @@
             </label>
         </li>
     </ul>
+    <div
+        *ngIf="!isLoading && projectList.length == 0"
+        class="container empty"
+    >
+        پروژه ای وجود ندارد.
+    </div>
 </details>
