@@ -25,15 +25,26 @@ export class ContractPanelComponent
 			{
 				console.log(filterOptions);
 				this.filterOptions = filterOptions;
-				
-				this.selectedProject = filterOptions.project;
-				this.getAllContractListByProject();
+
+				if
+				(
+					filterOptions.startDate &&
+					filterOptions.endDate 
+				)
+					{
+						this.selectedProject = filterOptions.project;
+						this.getAllContractListByProject();
+					}
+				else
+					{
+						this.contractList = [];
+					}
 			}
 		
 		constructor
-			(
-				private contractService: ContractService
-			){}
+		(
+			private contractService: ContractService
+		){}
 			
 
 		async getAllContractListByProject

@@ -17,6 +17,8 @@ export class ContractFilterComponent
 		project:any = {};
 		validationResult: any ={};
 
+		filterText:string = "";
+
 		constructor
 		(
 			private dateHelper:DateHelper
@@ -128,8 +130,17 @@ export class ContractFilterComponent
 					}
 				else
 					{
+						this.filterText = `از ${this.filterOptions.startDateShamsi} تا ${this.filterOptions.endDateShamsi} برای ${this.filterOptions.project.title}` 
 						this.setFilter.emit(this.filterOptions);
 					}
+			}
+
+		removeFilter
+		():void
+			{
+				this.filterText  = "";
+				this.filterOptions ={};
+				this.setFilter.emit(this.filterOptions);
 			}
 			
 

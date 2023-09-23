@@ -18,6 +18,7 @@ export class ContractPaymentFilterComponent
 
 		filterText:string = "";
 		
+		
 		constructor
 		(
 			private dateHelper:DateHelper
