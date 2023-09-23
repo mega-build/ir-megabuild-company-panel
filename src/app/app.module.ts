@@ -111,6 +111,7 @@ import { ContractPaymentDickerDetailComponent } from '../components/contract-pay
 import { NotSettledContractPaymentPanelComponent } from '../components/contract-payment/not-settled-contract-payment-panel/not-settled-contract-payment-panel.component';
 import { ContractPaymentStatusIconComponent } from '../components/contract-payment/contract-payment-status-icon/contract-payment-status-icon.component';
 import { SelectCompanyComponent } from './select-company/select-company.component';
+import { CompanyLogoComponent } from '../components/company/company-logo/company-logo.component';
 
 
 
@@ -222,7 +223,8 @@ import { SelectCompanyComponent } from './select-company/select-company.componen
     ContractPaymentDickerDetailComponent,
     NotSettledContractPaymentPanelComponent,
     ContractPaymentStatusIconComponent,
-    SelectCompanyComponent
+    SelectCompanyComponent,
+    CompanyLogoComponent
   ],
   imports: [
     BrowserModule,

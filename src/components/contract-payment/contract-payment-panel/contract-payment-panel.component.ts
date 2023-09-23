@@ -15,18 +15,30 @@ export class ContractPaymentPanelComponent
 		filterOptions: any ={};
 		
 		constructor
-			(
-				private contractPaymentService: ContractPaymentService
-			){}
+		(
+			private contractPaymentService: ContractPaymentService
+		){}
 
 		setFilter
 		(
 			filterOptions:any
 		):void
 			{
-				console.log(filterOptions);
 				this.filterOptions = filterOptions;
-				this.getAllContractPaymentListFromDateToDate();
+				if
+				(
+					filterOptions.startDate &&
+					filterOptions.endDate 
+				)
+					{
+						console.log(filterOptions);
+						this.getAllContractPaymentListFromDateToDate();
+					}
+				else
+					{
+						this.contractPaymentList = [];
+					}
+				
 			}
 
 		async getAllContractPaymentListFromDateToDate

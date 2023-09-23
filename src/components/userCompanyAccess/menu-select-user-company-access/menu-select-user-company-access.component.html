@@ -22,11 +22,16 @@
                 [checked]="userCompanyAccess._id == selectedUserCompanyAccess._id"
                 (input)="selectedUserCompanyAccess"
             >
+
             <label
                 [attr.for] = "userCompanyAccess._id"
             >
                 {{userCompanyAccess.company.title}}
             </label>
+
+            <company-logo
+                [company]="userCompanyAccess.company"
+            ></company-logo>
         </li>
     </ul>
 

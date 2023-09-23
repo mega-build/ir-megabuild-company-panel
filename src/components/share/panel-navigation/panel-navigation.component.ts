@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalStorageService } from 'src/share/services/local-storage/local-storage.service';
 
 @Component(
 	{
@@ -11,4 +12,17 @@ import { Component } from '@angular/core';
 export class PanelNavigationComponent
 	{
 
+		constructor
+		(
+			private localStorageService: LocalStorageService
+		){}
+
+		getWorkingCompany
+		():any
+			{
+				const workingUserCompanyAccess =  this.localStorageService.getUserCompanyAccess();
+				const company = workingUserCompanyAccess.company;
+
+				return company;
+			}
 	}

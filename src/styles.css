@@ -353,6 +353,11 @@ details summary {
   background-size: contain;
 }
 
+.bank_resalat {
+  background: url("assets/images/bank_logo/Resalat.svg") center no-repeat;
+  background-size: contain;
+}
+
 .bank_mellat {
   background: url("assets/images/bank_logo/Mellat.svg") center no-repeat;
   background-size: contain;
@@ -368,3 +373,13 @@ details summary {
 }
 
 /* Bank Logo End*/
+
+.cc_649006c87e7601d06532983d {
+  background: url("assets/images/company_logo/649006c87e7601d06532983d.svg") center no-repeat;
+  background-size: contain;
+}
+
+.cc_649007037e7601d06532983e {
+  background: url("assets/images/company_logo/649007037e7601d06532983e.svg") center no-repeat;
+  background-size: 34px;
+}

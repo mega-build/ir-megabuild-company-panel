@@ -24,8 +24,7 @@ export class MenuSelectUserCompanyAccessComponent implements OnInit
 	(
 		private userCompanyAccessService: UserCompanyAccessService,
 		private localStorageService: LocalStorageService
-	)
-		{}
+	){}
 			
 	ngOnInit
 	(): void 

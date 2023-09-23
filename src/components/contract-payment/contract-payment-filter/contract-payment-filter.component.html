@@ -1,7 +1,25 @@
-<form  class="container">
+<section
+    *ngIf= "filterText != ''"
+>
+    <b>
+        {{filterText}}
+    </b>
+
+    <button
+        (click)="removeFilter()"
+    >
+        حذف فیلتر
+    </button>
+</section>
+
+<form 
+    class="container"
+    *ngIf= "filterText == ''"
+>
     <legend>
         فیلتر پرداخت ها
     </legend>
+
     <fieldset>
         <ul>
            

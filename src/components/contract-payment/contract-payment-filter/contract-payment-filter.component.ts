@@ -15,12 +15,13 @@ export class ContractPaymentFilterComponent
 
 		filterOptions:any = {}
 		validationResult: any ={};
+
+		filterText:string = "";
 		
 		constructor
 		(
 			private dateHelper:DateHelper
-		)
-			{}
+		){}
 		
 		setStartDate
 		(
@@ -108,7 +109,18 @@ export class ContractPaymentFilterComponent
 					}
 				else
 					{
+						this.filterText = `از ${this.filterOptions.startDateShamsi} تا ${this.filterOptions.endDateShamsi}` 
 						this.setFilter.emit(this.filterOptions);
 					}
 			}
+
+		removeFilter
+		():void
+			{
+				this.filterText  = "";
+				this.filterOptions ={};
+				this.setFilter.emit(this.filterOptions);
+			}
+
+		
 	}

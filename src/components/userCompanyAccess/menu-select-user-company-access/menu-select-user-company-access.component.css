@@ -50,14 +50,7 @@ ul li:first-child {
   margin-bottom: 26px;
   padding-bottom: 26px;
 }
-ul li:first-child::after {
-  background: url("../../../assets/images/compony-logo-1.svg");
-  background-size: 50px;
-}
-ul li:last-child::after {
-  background: url("../../../assets/images/compony-logo-2.svg");
-  background-size: 34px;
-}
+
 ul li:last-child::after,
 ul li:first-child::after {
   content: "";
