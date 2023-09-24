@@ -51,6 +51,14 @@ export class FindCustomerByNationalCodeComponent
 								validationResult.hasError = true;
 								validationResult.messageList.push("کد ملی باید 10 رقم باشد");
 							}
+						else if
+						(
+							this.nationalCode.toString().trim() == '0000000000'
+						)
+							{
+								validationResult.hasError = true;
+								validationResult.messageList.push("کد ملی معتبر نمیباشد.");
+							}
 
 					}
 

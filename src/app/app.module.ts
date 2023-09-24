@@ -112,6 +112,8 @@ import { NotSettledContractPaymentPanelComponent } from '../components/contract-
 import { ContractPaymentStatusIconComponent } from '../components/contract-payment/contract-payment-status-icon/contract-payment-status-icon.component';
 import { SelectCompanyComponent } from './select-company/select-company.component';
 import { CompanyLogoComponent } from '../components/company/company-logo/company-logo.component';
+import { ContractFullDetailComponent } from '../components/contract/contract-full-detail/contract-full-detail.component';
+import { NationalCodeInputComponent } from '../components/share/national-code-input/national-code-input.component';
 
 
 
@@ -224,7 +226,9 @@ import { CompanyLogoComponent } from '../components/company/company-logo/company
     NotSettledContractPaymentPanelComponent,
     ContractPaymentStatusIconComponent,
     SelectCompanyComponent,
-    CompanyLogoComponent
+    CompanyLogoComponent,
+    ContractFullDetailComponent,
+    NationalCodeInputComponent
   ],
   imports: [
     BrowserModule,

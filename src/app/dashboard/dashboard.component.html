@@ -1,2 +1,115 @@
 <panel-navigation></panel-navigation>
-<contract-panel></contract-panel>
+
+<ul>
+
+    <li>
+        
+        <a 
+            href= "/userManagement"
+        >
+            مدیریت کاربران
+        </a>
+    </li>
+
+    <hr>
+
+    <li>
+        
+        <a 
+            [routerLink]="['/','contractTemplateManagement','list']"
+        >
+            مدیریت قالب قرارداد
+        </a>
+    </li>
+
+    <hr>
+
+    <li>
+        
+        <a 
+            [routerLink]="['/','projectManagement','list']"
+        >
+            مدیریت پروژه ها
+        </a>
+    </li>
+
+    <hr>
+
+    <li>
+        
+        <a 
+            href= "/addContract"
+        >
+            ثبت قرارداد جدید
+        </a>
+    </li>
+
+    <li>
+        
+        <a 
+            href= "/contractManagement/list/filter"
+        >
+            فیلتر قراردادها
+        </a>
+    </li>
+
+    <li>
+        
+        <a 
+            href= "/contractManagement/list/draft"
+        >
+            قرارداد های در حال انجام
+        </a>
+    </li>
+
+    <li>
+        <a 
+            href= "/contractReviewManagement/list/pending"
+        >
+            بررسی قرارداد ها
+        </a>
+        
+    </li>
+
+    <li>
+        <a 
+            [routerLink]="['/','contractManagement','list','requested']"
+        >
+            قرارداد های در انتظار تایید نهایی
+        </a>
+        
+    </li>
+
+    <li>
+        <a 
+            [routerLink]="['/','contractManagement','list','accepted']"
+        >
+            قرارداد های نهایی شده
+        </a>
+        
+    </li>
+
+    <hr>
+
+    <li>
+        <a 
+            [routerLink]="['/','contractPaymentManagement','list','filter']"
+        >
+            فیلتر پرداخت ها
+        </a>
+    </li>
+
+    <li>
+        <a 
+            [routerLink]="['/','contractPaymentManagement','list','notSettled']"
+        >
+            پرداخت های واریز نشده
+        </a>
+    </li>
+
+    <hr>
+
+    
+</ul>
+
+

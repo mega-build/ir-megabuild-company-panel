@@ -52,14 +52,9 @@
     class="container"
 >
     <customer-label
+        (click)="selectCustomer()"
         [customer]="customer"
     ></customer-label>
-    <button
-        type="button"
-        (click)="selectCustomer()"
-    >
-        انتخاب
-    </button>
 </section>
 
 <section

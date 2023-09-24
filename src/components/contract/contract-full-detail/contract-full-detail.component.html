@@ -1,0 +1,87 @@
+
+<section>
+    <div
+        *ngIf="!contract.customers || contract.customers.length ==0"
+    >
+        <p>
+            اطلاعات خریداران تکمیل نشده است.
+        </p>
+    </div>
+
+    <ol
+        *ngIf="contract.customers && contract.customers.length > 0"
+    >
+        <li
+            *ngFor = 'let customer of contract.customers'
+        >
+            <customer-detail
+                [customer]="customer"
+            ></customer-detail>
+        </li>
+    </ol>
+
+</section>
+
+<section>
+
+    <div
+        *ngIf="!contract.projectItem"
+    >
+        <p>
+            اطلاعات مورد قرارداد تکمیل نشده است.
+        </p>
+        
+    </div>
+
+    <project-item-detail
+        *ngIf="contract.projectItem"
+        [projectItem]="contract.projectItem"
+    ></project-item-detail>
+
+</section>
+
+<section>
+    <div
+        *ngIf="!contract.payablePrice"
+    >
+        <p>
+            اطلاعات مبلغ نهایی تکمیل نشده است
+        </p>
+    </div>
+    <div
+        *ngIf="contract.payablePrice"
+    >
+        <dl>
+            <dt>
+                تخفیف
+            </dt>
+            <dd>
+                {{contract.discount}}
+            </dd>
+
+            <dt>
+                مبلغ قابل پرداخت
+            </dt>
+            <dd>
+                {{contract.payablePrice}}
+            </dd>
+        </dl>
+    </div>
+</section>
+
+
+<section>
+    <div
+        *ngIf="!contract.contractPayments || contract.contractPayments.length ==0"
+    >
+        <p>
+            اطلاعات پرداخت ها تکمیل نشده است
+        </p>
+    </div>
+
+    <contract-payment-by-contract-list
+        *ngIf="contract.contractPayments && contract.contractPayments.length > 0"
+        [contractPaymentList]="contract.contractPayments"
+    ></contract-payment-by-contract-list>
+
+</section>
