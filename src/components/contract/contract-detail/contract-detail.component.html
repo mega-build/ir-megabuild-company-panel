@@ -35,6 +35,7 @@
         <ul>
             <li>
                 <a
+                    routerLinkActive="active"
                     [routerLink]="['customerList','list']"
                 >
                     خریدار
@@ -43,6 +44,7 @@
     
             <li>
                 <a 
+                    routerLinkActive="active"
                     [routerLink]="['projectItem']"
                 >
                     موضوع قرارداد
@@ -50,7 +52,15 @@
             </li>
 
             <li>
+                <i
+                    *ngIf="!isNavigattingToProjectItemAvailable()"
+                    title="ابتدا موضوع قرارداد را ثبت کنید."
+                >
+                    بهای موضوع قرارداد
+                </i>
                 <a
+                    routerLinkActive="active"
+                    *ngIf="isNavigattingToProjectItemAvailable()"
                     [routerLink]="['payablePrice']"
                 >
                     بهای موضوع قرارداد
@@ -58,10 +68,32 @@
             </li>
     
             <li>
+                <i
+                    *ngIf="!isNavigattingToPaymentListAvailable()"
+                    title="ابتدا بهای موضوع قرارداد را ثبت کنید."
+                >
+                    نحوه ی پرداخت
+                </i>
                 <a
+                    *ngIf="isNavigattingToPaymentListAvailable()"
                     [routerLink]="['paymentList','list']"
                 >
                     نحوه ی پرداخت
+                </a>
+            </li>
+
+            <li>
+                <i
+                    *ngIf="!isNavigattingToEditContentAvailable()"
+                    title="ابتدا اطلاعات قرارداد را تکمیل کنید."
+                >
+                    ویرایش متن قرارداد
+                </i>
+                <a
+                    *ngIf="isNavigattingToEditContentAvailable()"
+                    [routerLink]="['/contractManagement','editContent','contractId',contract._id]"
+                >
+                    ویرایش متن قرارداد
                 </a>
             </li>
 

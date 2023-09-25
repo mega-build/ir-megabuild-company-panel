@@ -1,9 +1,10 @@
 <section class="container">
-        <a
-        [routerLink]="['/','contractPaymentManagement','list']"
-        >
-            بازگشت به لیست
-    </a>
+<a
+    [routerLink]="['/','contractPaymentManagement','list','notSettled']"
+>
+    بازگشت به لیست
+</a>
+
 
     <contract-payment-detail
             [contractPayment]="contractPayment"

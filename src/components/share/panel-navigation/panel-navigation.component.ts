@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/share/services/local-storage/local-storage.service';
 
 @Component(
@@ -11,10 +12,12 @@ import { LocalStorageService } from 'src/share/services/local-storage/local-stor
 
 export class PanelNavigationComponent
 	{
+		isLoading: boolean = false;
 
 		constructor
 		(
-			private localStorageService: LocalStorageService
+			private localStorageService: LocalStorageService,
+			private router: Router
 		){}
 
 		getWorkingCompany
@@ -24,5 +27,38 @@ export class PanelNavigationComponent
 				const company = workingUserCompanyAccess.company;
 
 				return company;
+			}
+
+		logout
+		():void
+			{
+				try
+					{
+						this.isLoading = true;
+
+						this.localStorageService.logout();
+						this.router.navigate(['/']);
+
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
 			}
 	}

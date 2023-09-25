@@ -1,10 +1,11 @@
 <loading
     *ngIf="isLoading"
 ></loading>
-<contract-detail
+
+<contract-full-detail
     *ngIf="!isLoading && contract"
     [contract]="contract"
-></contract-detail>
+></contract-full-detail>
 <ul>
     <li>
         <button

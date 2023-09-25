@@ -40,3 +40,8 @@ nav ul li a {
   color: #101828;
   font-size: 14px;
 }
+
+nav ul li a:active{
+  color: rgb(128, 0, 6);
+  font-style: unset;
+}
