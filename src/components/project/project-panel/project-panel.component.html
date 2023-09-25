@@ -1,21 +1,24 @@
-<a
-    [routerLink]="['../add']"
->
-    پروژه جدید
-</a>
+<section class="container">
+        <a
+        [routerLink]="['../add']"
+        class="add-item"
+    >
+        پروژه جدید
+    </a>
 
-<loading
-    *ngIf="isLoading"
-></loading>
+    <loading
+        *ngIf="isLoading"
+    ></loading>
 
-<project-list
-    *ngIf="!isLoading && projectList && projectList.length > 0"
-    [projectList] = "projectList"
-></project-list>
+    <project-list
+        *ngIf="!isLoading && projectList && projectList.length > 0"
+        [projectList] = "projectList"
+    ></project-list>
 
-<div
-    *ngIf="!isLoading && projectList.length == 0"
-    class="container empty"
->
-    پروژه ای وجود ندارد.
-</div>
+    <div
+        *ngIf="!isLoading && projectList.length == 0"
+        class="container empty"
+    >
+        پروژه ای وجود ندارد.
+    </div>
+</section>

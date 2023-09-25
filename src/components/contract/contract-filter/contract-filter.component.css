@@ -7,12 +7,61 @@
   display: flex;
   align-items: center;
 }
-.sort-filter label::before{
-    content: url("../../../assets/images/icons/filter-lines.svg");
-    height: 21px;
+.sort-filter label::before {
+  content: url("../../../assets/images/icons/filter-lines.svg");
+  height: 21px;
 }
 .sort-filter input {
   margin: 0;
   padding: 0;
   display: none;
+}
+select-project {
+  position: relative;
+}
+legend {
+  display: none;
+}
+form{
+  margin-top: 32px;
+}
+fieldset ul:first-child{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filter ul {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 32px 0;
+}
+.filter ul li {
+  border-radius: 6px;
+  border: 1px solid #d0d5dd;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 3px;
+  padding: 4px 9px;
+}
+.filter ul li b {
+  color: #101828;
+  font-size: 12px;
+}
+.filter button {
+  background-color: transparent;
+  border: none;
+  text-indent: -90000px;
+  overflow: hidden;
+  background: url("../../../assets/images/icons/x-close.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 12px;
+  width: 12px;
+}
+.secondary{
+  width: 10%;
+  margin: 32px 0;
 }

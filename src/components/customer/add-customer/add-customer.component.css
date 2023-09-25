@@ -1,18 +1,22 @@
 fieldset ul:first-child {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
   gap: 16px;
   margin-bottom: 70px;
+  flex-wrap: wrap;
+}
+fieldset ul:first-child li{
+  flex: 0 0 49%;
+}
+fieldset ul:first-child li:last-child {
+  flex: 0 0 100%;
+}
 
-}
-fieldset ul:first-child li:last-child{
-    grid-column: span 2;
-}
-.primary{
-  padding: 8px 26px;
-}
-textarea{
+textarea {
   height: 100%;
   text-indent: 12px;
   padding: 12px 0;
+}
+.action-list button.primary {
+  width: 100%;
+  margin-bottom: -16px;
 }

@@ -1,0 +1,25 @@
+u {
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 16px;
+  padding: 2px 8px;
+}
+
+.settled {
+  color: #067647;
+  border: 1px solid #abefc6;
+  background: #ecfdf3;
+}
+.notReached {
+  color: #344054;
+  border: 1px solid #eaecf0;
+  background: #f9fafb;
+}
+.settlementPending {
+  color: #b42318;
+  border: 1px solid #fecdca;
+  background: #fef3f2;
+}
+.unknown {
+  border: 1px solid #344054;
+}

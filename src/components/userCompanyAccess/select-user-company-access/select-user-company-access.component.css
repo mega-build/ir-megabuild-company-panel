@@ -1,7 +1,11 @@
 ul {
-  width: 342px;
   padding: 12px;
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
 }
 ul li {
   display: flex;
@@ -14,7 +18,7 @@ ul li input[type="radio"] {
   margin: 0;
   padding: 0;
 }
-ul li:first-child {
+/* ul li:first-child {
   border-bottom: 1px solid #eaecf0;
   margin-bottom: 26px;
   padding-bottom: 26px;
@@ -32,7 +36,7 @@ ul li:first-child::after {
   background-repeat: no-repeat;
   height: 56px;
   width: 56px;
-}
+} */
 ul li label {
   color: #101828;
   font-size: 16px;

@@ -1,6 +1,6 @@
-<form class="container">
-    <legend>
-        جستجوی مشتری با کد ملی
+<form>
+    <legend class="contract-legend">
+        اطلاعات خریدار / خریداران
     </legend>
     <fieldset
         [disabled]="isLoading"
@@ -64,7 +64,6 @@
 
 <section
     *ngIf="!customer && !isLoading"
-    class="container"
 >
     <b>
         چیزی یافت نشد!

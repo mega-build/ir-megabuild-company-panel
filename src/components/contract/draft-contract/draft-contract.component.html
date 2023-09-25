@@ -1,8 +1,9 @@
 <section
     id="secProgress"
+    class="container"
 >
     <ol>
-        <li>
+        <li class="active">
             اطلاعات
         </li>
         <li>
@@ -19,14 +20,17 @@
             نحوه ی پرداخت
         </li>
     </ol>
+
 </section>
 
 <form
     class="container"
 >
-    <legend>
+    <legend class="contract-legend">
         اطلاعات اولیه
     </legend>
+
+    
     <fieldset
         [disabled]="isLoading"
     >
@@ -100,7 +104,7 @@
             [validationResult]="validationResult"
         ></validation-result>
         
-        <ul>
+        <ul class="action-list">
             <li>
                 <button
                     type="button"
@@ -115,6 +119,7 @@
                     
                 <a 
                     [routerLink]="['/','home']"
+                    class="secondary"
                 >
                     انصراف
                 </a>
