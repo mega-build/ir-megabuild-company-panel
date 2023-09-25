@@ -1,4 +1,8 @@
 
+<input type="radio" id="tabinfo" name="contractDetailTab" checked>
+<label for="tabinfo">
+    اطلاعات قرارداد
+</label>
 <section>
     <div
         *ngIf="!contract.customers || contract.customers.length ==0"
@@ -69,7 +73,10 @@
     </div>
 </section>
 
-
+<input type="radio" id="tabpayments" name="contractDetailTab" checked>
+<label for="tabpayments">
+    پرداخت ها
+</label>
 <section>
     <div
         *ngIf="!contract.contractPayments || contract.contractPayments.length ==0"

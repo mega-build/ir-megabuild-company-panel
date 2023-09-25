@@ -99,6 +99,8 @@ export class ContractProjectItemComponent implements OnInit
 								this.project._id,
 								this.projectItem._id
 							)
+
+						location.reload();
 						
 						console.log(data);
 						this.isLoading = false;

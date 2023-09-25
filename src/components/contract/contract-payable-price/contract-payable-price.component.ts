@@ -93,6 +93,8 @@ export class ContractPayablePriceComponent implements OnInit
 										this.discount
 									);
 
+								location.reload();
+
 								console.log(data);
 								this.isLoading = false;
 							}
