@@ -17,6 +17,8 @@ section:nth-child(2) dl {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 32px;
+
 }
 section:nth-child(2) dt,
 section:nth-child(2) dd {

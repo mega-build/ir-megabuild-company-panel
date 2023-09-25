@@ -1,6 +1,7 @@
-<a
+<section class="container">
+    <a
     [routerLink]="['add']"
-    class="add-new-user"
+    class="add-item"
 >
     افزودن کاربر
 </a>
@@ -9,7 +10,7 @@
 ></loading>
 <ul
     *ngIf="!isLoading"
-    class="user-panel container"
+    class="user-panel"
 >
     <ul class="user-panel-header">
         <li>نام و نام خانوادگی</li>
@@ -57,3 +58,4 @@
         </ul>
     </li>
 </ul>
+</section>

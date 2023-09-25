@@ -2,3 +2,8 @@
     width: 100%;
     margin-top: 24px;
 }
+fieldset ul:first-child{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

@@ -1,0 +1,16 @@
+dt {
+  display: none;
+}
+dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+dd {
+  color: #101828;
+  font-size: 14px;
+  font-weight: 400;
+  flex: 1 0 50%;
+}
+dd:last-child{
+    padding-right: 16px;
+}

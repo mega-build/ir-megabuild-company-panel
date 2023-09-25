@@ -5,16 +5,20 @@ ul {
   border-radius: 8px;
   border: 1px solid #eaecf0;
   padding: 16px;
+  margin-top: 12px;
 }
 ul li {
   display: flex;
   gap: 16px;
   align-items: center;
-}
-ul li:first-child {
   border-bottom: 1px solid #eaecf0;
   margin-bottom: 16px;
   padding-bottom: 16px;
+}
+ul li:last-child{
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 label {
@@ -28,4 +32,59 @@ input {
   margin: 0;
   padding: 0;
   width: fit-content;
+}
+
+.selected-project{
+  border-radius: 6px;
+  border: 1px solid #eaecf0;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selected-project dt{
+  display: none;
+}
+.selected-project button {
+  background-color: transparent;
+  border: none;
+  background: url("../../../assets/images/icons/trash-03.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -90000px;
+  overflow: hidden;
+}
+
+details summary {
+  color: #667085;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  padding: 10px 14px;
+}
+
+details::before {
+  content: url("../../../assets/images/icons/chevron-down.svg");
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  transform: rotate(180deg);
+  transition: all 0.3s;
+  width: 20px;
+  height: 20px;
+}
+details[open]::before {
+  transform: rotate(360deg);
+  transition: all 0.3s;
+}
+
+datalist ul {
+  max-height: 0;
+}
+details[open] summary {
+  border-radius: 8px;
+  border: 1px solid #d6bbfb;
+  background: #fff;
+  box-shadow: 0px 0px 0px 4px #f4ebff, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 }

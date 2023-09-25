@@ -1,15 +1,20 @@
 <section
     *ngIf= "filterText != ''"
+    class="container filter"
 >
-    <b>
-        {{filterText}}
-    </b>
-
-    <button
-        (click)="removeFilter()"
-    >
-        حذف فیلتر
-    </button>
+    <ul>
+        <li>
+            <b>
+                {{filterText}}
+            </b>
+        
+            <button
+                (click)="removeFilter()"
+            >
+                حذف فیلتر
+            </button>
+        </li>
+    </ul>
 </section>
 
 <form 

@@ -1,0 +1,15 @@
+.empty{
+    color: #667085;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+    height: 30vh;
+}
+.empty::before{
+    content: url("../../../assets/images/icons/empty.svg");
+    width: 64px;
+    height: 64px;
+}

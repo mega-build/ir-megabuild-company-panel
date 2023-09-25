@@ -1,26 +1,4 @@
-.add-new-user {
-  font-size: 14px;
-  font-family: IRANSansWeb;
-  background: #7f56d9;
-  color: #fff;
-  border: none;
-  transition: all 0.4s;
-  display: flex;
-  gap: 6px;
-  width: fit-content;
-  border-radius: 8px;
-  font-size: 14px;
-  font-family: IRANSansWeb;
-  padding: 8px 10px;
-}
-.add-new-user::before {
-  content: url("../../../assets/images/icons/plus.svg");
-  height: 20px;
-}
-.add-new-user:hover {
-  background: #6941c6;
-  transition: all 0.4s;
-}
+
 ul li dt {
   display: none;
 }

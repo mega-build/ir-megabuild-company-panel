@@ -1,39 +1,44 @@
+<section class="container">
 <a
     [routerLink]="['/','contractPaymentManagement','list','notSettled']"
 >
     بازگشت به لیست
 </a>
 
-<contract-payment-detail
-    [contractPayment]="contractPayment"
-></contract-payment-detail>
 
-<form>
-    <legend>
-        تعیین وضعیت تعهد پرداخت
-    </legend>
-    <fieldset
-        [disabled]="isLoading"
-    >
-        <loading
-            *ngIf="isLoading"
-        ></loading>
-        <ul>
-            <li>
-                <button
-                    (click)="setAsSettled()"
-                >
-                    پرداخت شده
-                </button>
-            </li>
-        
-            <li>
-                <button
-                    (click)="setAsNotSettled()"
-                >
-                    پرداخت نشده
-                </button>
-            </li>
-        </ul>
-    </fieldset>
-</form>
+    <contract-payment-detail
+            [contractPayment]="contractPayment"
+    ></contract-payment-detail>
+
+    <form>
+            <legend>
+                تعیین وضعیت تعهد پرداخت
+            </legend>
+            <fieldset
+                [disabled]="isLoading"
+            >
+                <loading
+                    *ngIf="isLoading"
+                ></loading>
+                <ul>
+                    <li>
+                        <button
+                            (click)="setAsSettled()"
+                        >
+                            پرداخت شده
+                        </button>
+                    </li>
+                
+                    <li>
+                        <button
+                            (click)="setAsNotSettled()"
+                        >
+                            پرداخت نشده
+                        </button>
+                    </li>
+                </ul>
+            </fieldset>
+    </form>
+
+
+</section>

@@ -1,0 +1,46 @@
+b {
+  color: #101828;
+  font-size: 12px;
+  font-weight: 400;
+}
+.filter {
+  margin: 32px auto;
+}
+.filter ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter ul li {
+  border-radius: 6px;
+  border: 1px solid #d0d5dd;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+fieldset ul:first-child{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.filter ul li button {
+  background-color: transparent;
+  background: url("../../../assets/images/icons/x-close.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  text-indent: -9000000px;
+  overflow: hidden;
+  width: 12px;
+  height: 12px;
+}
+form {
+  margin: 32px auto;
+}
+
+.secondary {
+  margin-top: 24px;
+  width: 10%;
+}

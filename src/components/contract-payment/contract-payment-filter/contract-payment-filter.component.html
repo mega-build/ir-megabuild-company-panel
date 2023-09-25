@@ -1,23 +1,28 @@
 <section
     *ngIf= "filterText != ''"
+    class="container filter"
 >
-    <b>
-        {{filterText}}
-    </b>
-
-    <button
-        (click)="removeFilter()"
-    >
-        حذف فیلتر
-    </button>
+   <ul>
+        <li>
+            <b>
+                {{filterText}}
+            </b>
+        
+            <button
+                (click)="removeFilter()"
+            >
+                حذف فیلتر
+            </button>
+        </li>
+   </ul>
 </section>
 
 <form 
     class="container"
     *ngIf= "filterText == ''"
 >
-    <legend>
-        فیلتر پرداخت ها
+    <legend class="contract-legend">
+        لیست پرداخت‌ها    
     </legend>
 
     <fieldset>

@@ -1,8 +1,8 @@
 dl {
   display: flex;
   border: 2px solid #eaecf0;
-  margin-top: 24px;
-  margin-bottom: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
   border-radius: 8px;
 }
@@ -34,7 +34,7 @@ nav ul {
   border: 2px solid #eaecf0;
   padding: 12px;
   border-radius: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
 nav ul li a {
   color: #101828;

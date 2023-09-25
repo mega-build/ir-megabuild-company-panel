@@ -7,8 +7,8 @@
 }
 body {
   font-family: IRANSansWeb;
-  margin: 0 0 20px 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
   min-height: 100vh;
 }
@@ -142,7 +142,9 @@ form fieldset {
     transform: scale(1);
   }
 }
-
+select-project{
+  position: relative;
+}
 .aclass {
   width: 134px;
   height: 134px;
@@ -286,7 +288,26 @@ button.disabled {
 button {
   cursor: pointer;
 }
-
+.add-item {
+  color: #344054;
+  font-size: 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  width: 80%;
+  margin: 32px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  font-weight: 700;
+}
+.add-item::before {
+  content: url("./assets/images/icons/plus-black.svg");
+  display: inline;
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}
 /* Buttons Style End*/
 
 /* Summary Details Style */
@@ -374,12 +395,58 @@ details summary {
 
 /* Bank Logo End*/
 
-.cc_649006c87e7601d06532983d {
-  background: url("assets/images/company_logo/649006c87e7601d06532983d.svg") center no-repeat;
-  background-size: contain;
+/* Draft Contract */
+.action-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+.action-list li {
+  display: block;
+  width: 100%;
 }
 
-.cc_649007037e7601d06532983e {
-  background: url("assets/images/company_logo/649007037e7601d06532983e.svg") center no-repeat;
-  background-size: 34px;
+.action-list .primary {
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: IRANSansWeb;
+  padding: 8px 0;
+  background: #7f56d9;
+  color: #fff;
+  border: none;
+  transition: all 0.4s;
+  width: 10%;
+  display: block;
+  text-align: center;
 }
+.action-list .primary:hover {
+  background: #6941c6;
+  transition: all 0.4s;
+}
+.action-list .secondary {
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: IRANSansWeb;
+  padding: 8px 0;
+  color: #fff;
+  width: 10%;
+  display: block;
+  text-align: center;
+  color: #344054;
+  background: #fff;
+  border: 1px solid #d0d5dd;
+}
+.contract-legend {
+  color: #101828;
+  font-size: 24px;
+  font-weight: 700;
+  display: block;
+  margin: 16px 0;
+}
+.contract-form {
+  background-color: #fff;
+  margin: auto;
+  width: 60%;
+  padding: 32px;
+}
+/* Draft Contact End */
