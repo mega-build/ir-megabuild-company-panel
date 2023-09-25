@@ -1,3 +1,10 @@
+<edit-contract-navigation
+    [contractId]="contractId"
+    [isInPayablePriceSection]= true
+    [hasProjectItem]="contract.projectItem !=undefined"
+    [hasPayablePrice]="payablePrice!=undefined && payablePrice!=0"
+></edit-contract-navigation>
+
 <form class="container">
     <legend class="contract-legend">
         ثبت قیمت نهایی قرارداد

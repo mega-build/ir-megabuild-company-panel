@@ -14,6 +14,7 @@ export class ContractPayablePriceComponent implements OnInit
 	{
 
 		contractId: string = "";
+		contract:any ={};
 
 		payablePrice: number = 0;
 		discount: number = 0;
@@ -93,8 +94,6 @@ export class ContractPayablePriceComponent implements OnInit
 										this.discount
 									);
 
-								location.reload();
-
 								console.log(data);
 								this.isLoading = false;
 							}
@@ -146,41 +145,42 @@ export class ContractPayablePriceComponent implements OnInit
 			}
 
 		async getContract
-			(): Promise<void>
-				{
+		(): Promise<void>
+			{
 
-					try
-						{
-							this.isLoading = true;
-							const data = await this.contractService
-								.get(
-									this.contractId
-								);
-							console.log(data.contract);
-							const contract = data.contract;
-							this.discount = contract.discount;
-							this.payablePrice = contract.payablePrice;
-							this.isLoading = false;
-						}
-					catch
-					(
-						error: any
-					)
-						{
-							this.isLoading = false;
-							if
-							(
-								error.error &&
-								error.error.message
-							)
-								{
-									alert(error.error.message);
-								}
-							else
-								{
-									alert(error)
-								}
-						}
-					
-				}
+				try
+					{
+						this.isLoading = true;
+						const data = await this.contractService
+							.get(
+								this.contractId
+							);
+						console.log(data.contract);
+						const contract = data.contract;
+						this.contract = contract;
+						this.discount = contract.discount;
+						this.payablePrice = contract.payablePrice;
+						this.isLoading = false;
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						if
+						(
+							error.error &&
+							error.error.message
+						)
+							{
+								alert(error.error.message);
+							}
+						else
+							{
+								alert(error)
+							}
+					}
+				
+			}
 	}

@@ -114,6 +114,7 @@ import { SelectCompanyComponent } from './select-company/select-company.componen
 import { CompanyLogoComponent } from '../components/company/company-logo/company-logo.component';
 import { ContractFullDetailComponent } from '../components/contract/contract-full-detail/contract-full-detail.component';
 import { NationalCodeInputComponent } from '../components/share/national-code-input/national-code-input.component';
+import { EditContractNavigationComponent } from '../components/contract/edit-contract-navigation/edit-contract-navigation.component';
 
 
 
@@ -228,7 +229,8 @@ import { NationalCodeInputComponent } from '../components/share/national-code-in
     SelectCompanyComponent,
     CompanyLogoComponent,
     ContractFullDetailComponent,
-    NationalCodeInputComponent
+    NationalCodeInputComponent,
+    EditContractNavigationComponent
   ],
   imports: [
     BrowserModule,

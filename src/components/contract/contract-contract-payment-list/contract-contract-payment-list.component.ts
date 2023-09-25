@@ -16,6 +16,7 @@ export class ContractContractPaymentListComponent implements OnInit
 
 		contractPaymentList: any[]=[]
 		isLoading:boolean = false;
+		hasAnyPayment:boolean = false;
 
 		constructor
 		(
@@ -39,11 +40,25 @@ export class ContractContractPaymentListComponent implements OnInit
 					}
 			}
 
-		newContractPaymentAdded
+		paymentListLengthChanged
 		(
-			contractPayment:any
+			paymentListLength:number
 		):void
 			{
+				console.log(paymentListLength);
+
+				if
+				(
+					paymentListLength == 0
+				)
+					{
+						this.hasAnyPayment = false;
+					}
+				else
+					{
+						this.hasAnyPayment = true;
+					}
+				
 				
 			}
 

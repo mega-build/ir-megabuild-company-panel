@@ -1,0 +1,17 @@
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #eaecf0;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  nav ul li a {
+    color: #101828;
+    font-size: 14px;
+  }
+  
+  nav ul li.current{
+    color: rgb(128, 0, 6);
+    font-style: unset;
+  }

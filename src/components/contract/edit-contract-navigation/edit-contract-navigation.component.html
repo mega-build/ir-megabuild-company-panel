@@ -1,0 +1,73 @@
+<nav>
+    <ul>
+        <li
+            [ngClass]="{'current': isInCustomerListSection}"
+        >
+            <a
+                [routerLink]="['/contractManagement','editContract','contractId',contractId,'customerList','list']"
+            >
+                خریدار
+            </a>
+        </li>
+
+        <li
+            [ngClass]="{'current': isInProjectItemSection}"
+        >
+            <a 
+                [routerLink]="['/contractManagement','editContract','contractId',contractId,'projectItem']"
+            >
+                موضوع قرارداد
+            </a>
+        </li>
+
+        <li
+            [ngClass]="{'current': isInPayablePriceSection}"
+        >
+            <i
+                *ngIf="!isNavigatingToPayablePriceAvailable()"
+                title="ابتدا موضوع قرارداد را ثبت کنید."
+            >
+                بهای موضوع قرارداد
+            </i>
+            <a
+                *ngIf="isNavigatingToPayablePriceAvailable()"
+                [routerLink]="['/contractManagement','editContract','contractId',contractId,'payablePrice']"
+            >
+                بهای موضوع قرارداد
+            </a>
+        </li>
+
+        <li
+            [ngClass]="{'current': isInPaymentListSection}"
+        >
+            <i
+                *ngIf="!isNavigattingToPaymentListAvailable()"
+                title="ابتدا بهای موضوع قرارداد را ثبت کنید."
+            >
+                نحوه ی پرداخت
+            </i>
+            <a
+                *ngIf="isNavigattingToPaymentListAvailable()"
+                [routerLink]="['/contractManagement','editContract','contractId',contractId,'paymentList','list']"
+            >
+                نحوه ی پرداخت
+            </a>
+        </li>
+
+        <li>
+            <i
+                *ngIf="!isNavigattingToEditContentAvailable()"
+                title="ابتدا اطلاعات قرارداد را تکمیل کنید."
+            >
+                ویرایش متن قرارداد
+            </i>
+            <a
+                *ngIf="isNavigattingToEditContentAvailable()"
+                [routerLink]="['/contractManagement','editContent','contractId',contractId]"
+            >
+                ویرایش متن قرارداد
+            </a>
+        </li>
+
+    </ul>
+</nav>

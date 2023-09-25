@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
@@ -14,6 +14,7 @@ export class ContractPaymentByContractPanelComponent implements OnInit
 	{
 
 		@Input() contractId: string = "";
+		@Output() onPaymentListLengthChanged = new EventEmitter<number>();
 
 		contractPaymentList: any[]=[]
 		isLoading: boolean = false;
@@ -42,6 +43,9 @@ export class ContractPaymentByContractPanelComponent implements OnInit
 
 						console.log(data.contractPaymentList);
 						this.contractPaymentList = data.contractPaymentList;
+
+						this.onPaymentListLengthChanged.emit(this.contractPaymentList.length);
+
 						this.isLoading = false;		
 
 					}

@@ -1,6 +1,13 @@
+<edit-contract-navigation
+    [contractId]="contractId"
+    [isInCustomerListSection]= true
+    [hasAnyCostomer] = 'contractCustomerList.length > 0'
+></edit-contract-navigation>
+
 <loading
     *ngIf="isLoading"
 ></loading>
+
 <section
     class="container"
 >

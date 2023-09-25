@@ -16,9 +16,7 @@ export class ContractProjectItemComponent implements OnInit
 		
 		contractId: string = "";
 		project: any = {};
-
 		projectItem: any={};
-
 		isLoading:boolean = false;
 
 		constructor
@@ -79,7 +77,7 @@ export class ContractProjectItemComponent implements OnInit
 		setProject
 		(
 			project: any
-		): void 
+		):void 
 			{
 				this.project = project;
 				console.log(this.project);

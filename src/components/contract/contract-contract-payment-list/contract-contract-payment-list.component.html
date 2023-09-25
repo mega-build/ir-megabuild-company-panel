@@ -1,3 +1,10 @@
+<edit-contract-navigation
+    [contractId]="contractId"
+    [isInPaymentListSection]= true
+    [hasProjectItem]= true
+    [hasPayablePrice]= true
+    [hasAnyPayment] = "hasAnyPayment"
+></edit-contract-navigation>
 
 <section
     class="container"
@@ -12,9 +19,8 @@
     </a>
 
     <contract-payment-by-contract-panel
-        #contractPaymentByContractPanel
         [contractId] = "contractId"
-        
+        (onPaymentListLengthChanged) = "paymentListLengthChanged($event)"
     ></contract-payment-by-contract-panel>
 
 </section>
