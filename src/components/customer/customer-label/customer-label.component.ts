@@ -9,7 +9,6 @@ import { Component, Input } from '@angular/core';
 )
 
 export class CustomerLabelComponent
-{
-
-	@Input() customer:any ={};
-}
+	{
+		@Input() customer!:any;
+	}

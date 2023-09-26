@@ -1,9 +1,9 @@
 <project-item-residential-detail
-    *ngIf="isResidentailProjectItem()"
+    *ngIf="projectItemHelper.isResidentailProjectItem(projectItem.project.projectType)"
     [residentialprojectItem]= "projectItem"
 ></project-item-residential-detail>
 
 <project-item-land-parcel-detail
-    *ngIf="isLandParcelProjectItem()"
+    *ngIf="projectItemHelper.isLandParcelProjectItem(projectItem.project.projectTypes)"
     [landParcelprojectItem]= "projectItem"
 ></project-item-land-parcel-detail>

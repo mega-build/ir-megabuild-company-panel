@@ -158,10 +158,10 @@ export class ContractService {
 			return result;
 		}
 
-	removeProjectItem
+	async removeProjectItem
 	(
 		contractId:string
-	):any
+	):Promise<any>
 		{
 			let headers: HttpHeaders = new HttpHeaders();
 
@@ -169,11 +169,13 @@ export class ContractService {
 				contractId: contractId
 			};
 
-			return this.httpInteceptor.postWithAuth(
+			const result = await this.httpInteceptor.postWithAuth_(
 				this.URL_CONTRACT_REMOVE_PROJECT_ITEM,
 				headers,
 				body
 			);
+
+			return result;
 		}
 
 	async setProjectAndProjectItem

@@ -1,5 +1,3 @@
-
-
 <dl>
     <dt>
         شماره قرارداد
@@ -26,22 +24,29 @@
     <dt>
         خریدار
     </dt>
-    <dd
-        *ngIf="contract.customers"
-    >
-        <customer-label
-            *ngFor = 'let customer of contract.customers'
-            [customer]="customer"
-        ></customer-label>
+    <dd>
+        <u
+            *ngIf="!contract.customers || contract.customers.length == 0 "
+        >
+            ثبت نشده
+        </u>
+        <customer-list-label
+            *ngIf= 'contract.customers && contract.customers.length > 0 '
+            [customerList]= "contract.customers"
+        ></customer-list-label>
     </dd>
 
     <dt>
         مبلغ قرارداد(ريال)
     </dt>
-    <dd
-        *ngIf="contract.payablePrice"
-    >
+    <dd>
+        <u
+            *ngIf="!contract.payablePrice"
+        >
+            ثبت نشده
+        </u>
         <price-label
+            *ngIf="contract.payablePrice"
             [price]="contract.payablePrice"
         ></price-label>
     </dd>
@@ -50,6 +55,11 @@
         مورد قرارداد
     </dt>
     <dd>
+        <u
+            *ngIf="!contract.projectItem"
+        >
+            ثبت نشده
+        </u>
         <project-item-abbreviation
             *ngIf="contract.projectItem"
             [projectItem] = "contract.projectItem"
@@ -115,7 +125,9 @@
             درخواست بررسی
         </a>
     </li>
-    <li>
+    <li
+        *ngIf="!contract.isDraft && contract.isRequested"
+    >
         <a
         
             [routerLink]="['../../detail','contractId',contract._id,'acceptRequest']"

@@ -1,0 +1,8 @@
+<i
+    [title]="getTitle()"
+>
+    <customer-label
+        *ngFor = 'let customer of customerList'
+        [customer]= "customer"
+    ></customer-label>
+</i>

@@ -1,17 +1,20 @@
 <dl>
-    <dt>
+    <contract-list-item
+        [contract]="contractReview.contract"
+    ></contract-list-item>
+    <!-- <dt>
         عنوان
     </dt>
-    <!-- <dd>
+    <dd>
         {{contractReview.contract.contractNumber}}
-    </dd> -->
+    </dd> 
 
     <dt>
         پروژه
     </dt>
     <dd>
-        {{contractReview.project.title}}
-    </dd>
+        {{contractReview.contract.project.title}}
+    </dd> -->
 
     <dt>
         وضعیت بررسی
@@ -20,10 +23,12 @@
         {{getStatusValue()}}
     </dd>
     
-    <project-item-detail
-        [projectType]="contractReview.contract.project.projectType"
-        [projectItem] = "contractReview.projectItem"
-    ></project-item-detail>
+    <!-- [projectType]= "contractReview.contract.project.projectType" -->
+
+    <!-- <project-item-abbreviation
+        
+        [projectItem] = "contractReview.contract.projectItem"
+    ></project-item-abbreviation> -->
 </dl>
 <ul>
     <li>

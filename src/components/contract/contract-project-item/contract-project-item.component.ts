@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProjectItemHelper } from 'src/helper/projectItemHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 import { ProjectItemService } from 'src/services/projectItem/project-item.service';
 
@@ -17,14 +18,16 @@ export class ContractProjectItemComponent implements OnInit
 		contractId: string = "";
 		project: any = {};
 		projectItem: any={};
-		isLoading:boolean = false;
+		isLoading: boolean = false;
 
 		constructor
 		(
 			private route: ActivatedRoute,
 			private projectItemService: ProjectItemService,
-			private contractService : ContractService
+			private contractService : ContractService,
+			public projectItemHelper: ProjectItemHelper
 		){}
+		
 		
 		async getProjectItemByContractId
 		(): Promise<void>
@@ -125,42 +128,6 @@ export class ContractProjectItemComponent implements OnInit
 					}
 			}
 
-		isResidentailProjectItem
-		():boolean
-			{
-				if
-				(
-					this.project &&
-					this.project.projectType&&
-					this.project.projectType.componentName == "RESIDENTIAL"
-				)
-					{
-						return true;
-					}
-				else
-					{
-						return false;
-					}
-				
-			}
-
-		isLandParcelProjectItem
-		():boolean
-			{
-				if
-				(
-					this.project &&
-					this.project.projectType&&
-					this.project.projectType.componentName == "LANDPARCEL"
-				)
-					{
-						return true;
-					}
-				else
-					{
-						return false;
-					}
-			}
 		ngOnInit
 		(): void
 			{
@@ -185,6 +152,8 @@ export class ContractProjectItemComponent implements OnInit
 			{
 				try 
 					{
+						console.log('remove me');
+						
 						this.isLoading = true;
 
 						const data = await this.contractService

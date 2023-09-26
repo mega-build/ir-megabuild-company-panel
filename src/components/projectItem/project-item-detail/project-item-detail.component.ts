@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ProjectItemHelper } from 'src/helper/projectItemHelper';
 
 @Component(
 	{
@@ -13,38 +14,8 @@ export class ProjectItemDetailComponent
 		@Input() projectItem!: any;
 		@Input() projectType!: any;
 
-		isResidentailProjectItem
-		():boolean
-			{
-				if
-				(
-					this.projectType&&
-					this.projectType.componentName == "RESIDENTIAL"
-				)
-					{
-						return true;
-					}
-				else
-					{
-						return false;
-					}
-				
-			}
+		constructor(
+			public projectItemHelper:ProjectItemHelper
+		){}
 
-		isLandParcelProjectItem
-		():boolean
-			{
-				if
-				(
-					this.projectType&&
-					this.projectType.componentName == "LANDPARCEL"
-				)
-					{
-						return true;
-					}
-				else
-					{
-						return false;
-					}
-			}
 	}

@@ -1,24 +1,16 @@
 <i
-    *ngIf="projectItem && projectItem.unit"
-    title="واحد"
+    *ngIf="projectItem && projectItem.unit && projectItem.floor && projectItem.block"
+    [title]="getResidentialTitle()"
 >
-    و {{projectItem.unit}}, 
+    و {{projectItem.unit}}, ط {{projectItem.floor}},  ب {{projectItem.block}}
 </i>
 
 
 <i
-    *ngIf="projectItem &&  projectItem.floor"
-    title="طبقه"
+    *ngIf="projectItem && projectItem.unit && !projectItem.floor && !projectItem.block"
+    [title]="getLandParcelTitle()"
 >
-    ط {{projectItem.floor}}, 
-</i>
-
-
-<i
-    *ngIf="projectItem && projectItem.block"
-    title="بلوک"
->
-    ب {{projectItem.block}}
+    و {{projectItem.unit}}
 </i>
 
 <i
