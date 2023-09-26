@@ -1,14 +1,15 @@
 <panel-navigation></panel-navigation>
+<section class="container">
+    <h2>
+        قرارداد های تایید شده
+    </h2>
 
-<h2>
-    قرارداد های تایید شده
-</h2>
+    <loading
+        *ngIf="isLoading"
+    ></loading>
 
-<loading
-    *ngIf="isLoading"
-></loading>
-
-<contract-list
-    *ngIf="!isLoading && contractList.length > 0"
-    [contractList]="contractList"
-></contract-list>
+    <contract-list
+        *ngIf="!isLoading && contractList.length > 0"
+        [contractList]="contractList"
+    ></contract-list>
+</section>

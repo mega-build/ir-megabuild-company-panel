@@ -1,6 +1,9 @@
 contract-review-list-item {
   display: flex;
 }
+ul{
+  margin-top: 32px;
+}
 .contract-review-header {
   background-color: #f9fafb;
   border-radius: 12px 12px 0 0;
@@ -12,11 +15,13 @@ contract-review-list-item {
   padding: 12px;
 }
 .contract-review-header li {
-  flex: 1 0 13.7%;
-  max-width: 13.7%;
+  flex: 1 0 14%;
+  max-width: 14%;
 }
-.contract-review-header li:first-child {
-  opacity: 0;
-  flex: 1 0 3%;
-  max-width: 3%;
+.contract-review{
+  padding: 16px 0;
+  border: 1px solid #EAECF0;
+}
+.contract-review:last-child{
+  border-radius: 0 0 12px 12px;
 }

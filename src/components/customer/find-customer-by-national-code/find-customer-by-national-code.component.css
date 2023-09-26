@@ -37,6 +37,7 @@ section:last-child {
   padding: 16px;
   margin-top: 12px;
   margin-bottom: 24px;
+  background-color: #fff;
 }
 section:last-child b {
   color: #101828;

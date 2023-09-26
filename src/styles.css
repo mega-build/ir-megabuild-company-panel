@@ -446,7 +446,15 @@ details summary {
 .contract-form {
   background-color: #fff;
   margin: auto;
-  width: 60%;
+  width: 80%;
   padding: 32px;
+  border-radius: 8px;
 }
 /* Draft Contact End */
+.normal-legend{
+  color: #101828;
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+  margin: 16px 0;
+}
