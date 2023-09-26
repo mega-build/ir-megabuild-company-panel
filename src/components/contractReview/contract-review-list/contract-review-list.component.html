@@ -1,6 +1,5 @@
 <ul class="container">
     <ul class="contract-review-header">
-        <li>عدد</li>
         <li>مشتری/شماره قرار داد</li>
         <li>تاریخ قرار داد</li>
         <li>واحد/طبقه/بلوک</li>
@@ -11,6 +10,7 @@
     </ul>
     <li
         *ngFor = 'let contractReview of contractReviewList'
+        class="contract-review"
     >
         <contract-review-list-item
             [contractReview]= "contractReview"
