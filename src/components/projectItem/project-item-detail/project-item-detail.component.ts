@@ -10,5 +10,41 @@ import { Component, Input } from '@angular/core';
 
 export class ProjectItemDetailComponent
 	{
-		@Input() projectItem: any = {};
+		@Input() projectItem!: any;
+		@Input() projectType!: any;
+
+		isResidentailProjectItem
+		():boolean
+			{
+				if
+				(
+					this.projectType&&
+					this.projectType.componentName == "RESIDENTIAL"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						return false;
+					}
+				
+			}
+
+		isLandParcelProjectItem
+		():boolean
+			{
+				if
+				(
+					this.projectType&&
+					this.projectType.componentName == "LANDPARCEL"
+				)
+					{
+						return true;
+					}
+				else
+					{
+						return false;
+					}
+			}
 	}

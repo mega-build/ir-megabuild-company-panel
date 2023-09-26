@@ -12,18 +12,10 @@
         </p>
     </div>
 
-    <ol
+    <customer-list
         *ngIf="contract.customers && contract.customers.length > 0"
-    >
-        <li
-            *ngFor = 'let customer of contract.customers'
-        >
-            <customer-detail
-                [customer]="customer"
-            ></customer-detail>
-        </li>
-    </ol>
-
+        [customerList]="contract.customers"
+    ></customer-list>
 </section>
 
 <section>
@@ -39,6 +31,7 @@
 
     <project-item-detail
         *ngIf="contract.projectItem"
+        [projectType]="contract.project.projectType"
         [projectItem]="contract.projectItem"
     ></project-item-detail>
 
@@ -60,14 +53,18 @@
                 تخفیف
             </dt>
             <dd>
-                {{contract.discount}}
+                <price-label
+                    [price]="contract.discount"
+                ></price-label>
             </dd>
 
             <dt>
                 مبلغ قابل پرداخت
             </dt>
             <dd>
-                {{contract.payablePrice}}
+                <price-label
+                    [price]="contract.payablePrice"
+                ></price-label>
             </dd>
         </dl>
     </div>

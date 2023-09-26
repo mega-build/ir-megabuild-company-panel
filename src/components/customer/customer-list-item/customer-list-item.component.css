@@ -1,0 +1,18 @@
+dl {
+    display: grid;
+    align-items: center;
+    grid-template-columns: minmax(min-content, max-content) minmax(
+        min-content,
+        max-content
+      );
+    gap: 8px;
+  }
+  dl dt {
+    color: #667085;
+    font-size: 14px;
+  }
+  dl dd {
+    color: #101828;
+    font-size: 14px;
+  }
+  

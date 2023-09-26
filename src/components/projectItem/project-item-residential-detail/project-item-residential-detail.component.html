@@ -1,0 +1,49 @@
+<section>
+    <dl>
+        <dt>
+            واحد
+        </dt>
+        <dd
+            *ngIf="residentialprojectItem.unit"
+        >
+            {{residentialprojectItem.unit}}
+        </dd>
+    
+        <dt>
+            بلوک
+        </dt>
+        <dd
+            *ngIf="residentialprojectItem.block"
+        >
+            {{residentialprojectItem.block}}
+        </dd>
+    
+        <dt>
+            طبقه
+        </dt>
+        <dd
+            *ngIf="residentialprojectItem.floor"
+        >
+            {{residentialprojectItem.floor}}
+        </dd>
+    
+        <dt>
+            زیربنا
+        </dt>
+        <dd
+            *ngIf="residentialprojectItem.buildupArea"
+        >
+            {{residentialprojectItem.buildupArea}}
+        </dd>
+    
+        <dt>
+            مبلغ واحد
+        </dt>
+        <dd
+            *ngIf="residentialprojectItem.unitPrice"
+        >
+            {{residentialprojectItem.unitPrice}}
+        </dd>
+        
+    </dl>
+</section>

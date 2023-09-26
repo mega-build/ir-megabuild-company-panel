@@ -115,6 +115,14 @@ import { CompanyLogoComponent } from '../components/company/company-logo/company
 import { ContractFullDetailComponent } from '../components/contract/contract-full-detail/contract-full-detail.component';
 import { NationalCodeInputComponent } from '../components/share/national-code-input/national-code-input.component';
 import { EditContractNavigationComponent } from '../components/contract/edit-contract-navigation/edit-contract-navigation.component';
+import { ContractStatusIconComponent } from 'src/components/contract/contract-status-icon/contract-status-icon.component';
+import { ContractCustomerPanelComponent } from '../components/customer/contract-customer-panel/contract-customer-panel.component';
+import { CustomerListItemComponent } from 'src/components/customer/customer-list-item/customer-list-item.component';
+import { CustomerListComponent } from 'src/components/customer/customer-list/customer-list.component';
+import { ProjectItemResidentialDetailComponent } from '../components/projectItem/project-item-residential-detail/project-item-residential-detail.component';
+import { ProjectItemLandParcelDetailComponent } from '../components/projectItem/project-item-land-parcel-detail/project-item-land-parcel-detail.component';
+
+
 
 
 
@@ -230,7 +238,13 @@ import { EditContractNavigationComponent } from '../components/contract/edit-con
     CompanyLogoComponent,
     ContractFullDetailComponent,
     NationalCodeInputComponent,
-    EditContractNavigationComponent
+    EditContractNavigationComponent,
+    ContractStatusIconComponent,
+    ContractCustomerPanelComponent,
+    CustomerListComponent,
+    CustomerListItemComponent,
+    ProjectItemResidentialDetailComponent,
+    ProjectItemLandParcelDetailComponent
   ],
   imports: [
     BrowserModule,
