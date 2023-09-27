@@ -116,7 +116,7 @@
     
     <li>
         <a
-            *ngIf="contract.isDraft"
+            *ngIf="contract.isDraft && contractHelper.isContractDataCompleted(contract)"
             [routerLink]="['../../editContract','contractId',contract._id,'preview']"
         >
             ثبت قطعی
