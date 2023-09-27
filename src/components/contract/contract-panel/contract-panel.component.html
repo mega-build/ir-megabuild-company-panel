@@ -15,15 +15,12 @@
 <loading
     *ngIf="isLoading"
 ></loading>
+
 <contract-list
     *ngIf="!isLoading && contractList.length > 0"
     [contractList]="contractList"
 ></contract-list>
 
-<div
+<empty-list
     *ngIf="filterOptions.project && !isLoading && contractList.length == 0"
-    class="container empty"
-    
->
-    قراردادی برای این پروژه وجود ندارد
-</div>
+></empty-list>

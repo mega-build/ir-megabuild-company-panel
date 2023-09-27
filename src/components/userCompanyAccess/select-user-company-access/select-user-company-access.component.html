@@ -2,6 +2,10 @@
         *ngIf="isLoading"
 ></loading>
 
+<h2>
+    انتخاب شرکت
+</h2>
+
 <ul
     *ngIf="!isLoading && userCompanyAccessList.length > 0"
 >
@@ -29,9 +33,6 @@
     </li>
 </ul>
 
-<div
+<empty-list
     *ngIf="!isLoading && userCompanyAccessList.length == 0"
-    class="container empty"
->
-    دسترسی وجود ندارد
-</div>
+></empty-list>

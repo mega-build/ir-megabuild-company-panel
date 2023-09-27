@@ -5,6 +5,10 @@
 ></loading>
 
 <contract-review-list
-    *ngIf="!isLoading"
+    *ngIf="!isLoading && contractReviewList.length > 0"
     [contractReviewList]="contractReviewList"
 ></contract-review-list>
+
+<empty-list
+        *ngIf="!isLoading && contractReviewList.length == 0"
+></empty-list>

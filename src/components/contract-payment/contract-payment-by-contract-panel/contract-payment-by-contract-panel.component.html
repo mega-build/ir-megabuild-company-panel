@@ -8,9 +8,6 @@
     (onRemove)="onItemRemoved()"
 ></contract-payment-by-contract-list>
 
-<div
+<empty-list
     *ngIf="!isLoading && contractPaymentList && contractPaymentList.length == 0"
-    class="container empty"
->
-    پرداختی  برای این قرارداد وجود ندارد
-</div>
+></empty-list>

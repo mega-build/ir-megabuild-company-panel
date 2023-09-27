@@ -2,7 +2,7 @@
     *ngIf="isLoading"
 ></loading>
 <ul
-    *ngIf="!isLoading"
+    *ngIf="!isLoading && userList.length > 0"
 >
     <li
         *ngFor = 'let user of userList'
@@ -23,3 +23,7 @@
         </label>
     </li>
 </ul>
+
+<empty-list
+    *ngIf="!isLoading && userList.length == 0"
+></empty-list>

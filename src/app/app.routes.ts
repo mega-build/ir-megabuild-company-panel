@@ -119,7 +119,7 @@ export const routes: Routes = [
                         component: AccpetedContractPanelComponent,
                     }
                     
-                ]
+                ],
             },
             {
                 path: 'detail/contractId/:contractId',
@@ -183,6 +183,10 @@ export const routes: Routes = [
                     }
                 ]
             },
+            {
+                path:'addContract',
+                component: AddContractComponent,
+            },
         ]
     },
     {
@@ -201,10 +205,7 @@ export const routes: Routes = [
             },
         ]
     },
-    {
-        path:'addContract',
-        component: AddContractComponent,
-    },
+    
     {
         path:'setContractProjectItem', component: SetContractProjectItemComponent,
     },

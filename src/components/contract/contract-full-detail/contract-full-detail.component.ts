@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ContractHelper } from 'src/helper/contractHelper';
 
 @Component(
 	{
@@ -11,4 +12,8 @@ import { Component, Input } from '@angular/core';
 export class ContractFullDetailComponent
 	{
 		@Input() contract: any;
+
+		constructor(
+			public contractHelper:ContractHelper
+		){}
 	}

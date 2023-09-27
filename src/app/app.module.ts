@@ -122,6 +122,7 @@ import { CustomerListComponent } from 'src/components/customer/customer-list/cus
 import { ProjectItemResidentialDetailComponent } from '../components/projectItem/project-item-residential-detail/project-item-residential-detail.component';
 import { ProjectItemLandParcelDetailComponent } from '../components/projectItem/project-item-land-parcel-detail/project-item-land-parcel-detail.component';
 import { CustomerListLabelComponent } from '../components/customer/customer-list-label/customer-list-label.component';
+import { EmptyListComponent } from '../components/share/empty-list/empty-list.component';
 
 
 
@@ -246,7 +247,8 @@ import { CustomerListLabelComponent } from '../components/customer/customer-list
     CustomerListItemComponent,
     ProjectItemResidentialDetailComponent,
     ProjectItemLandParcelDetailComponent,
-    CustomerListLabelComponent
+    CustomerListLabelComponent,
+    EmptyListComponent
   ],
   imports: [
     BrowserModule,

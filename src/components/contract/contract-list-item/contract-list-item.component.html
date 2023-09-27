@@ -97,34 +97,32 @@
 >
     <li>
         <a
-            [routerLink]="['../../editContract','contractId',contract._id,'customerList','list']"
             *ngIf="contract.isDraft"
+            [routerLink]="['../../editContract','contractId',contract._id,'customerList','list']"
+
         >
             ویرایش
         </a>
     </li>
+
     <li>
         <a
-            [routerLink]="['../../editContent','contractId',contract._id]"
-        >
-            تنظیم متن قرارداد
-        </a>
-    </li>
-    <li>
-        <a
-            [routerLink]="['../../editContract','contractId',contract._id,'preview']"
-        >
-            ثبت قطعی
-        </a>
-    </li>
-    <li>
-        <a
-        
+            *ngIf="contract.isDraft && contractHelper.isContractDataCompleted(contract)"
             [routerLink]="['../../detail','contractId',contract._id,'requestReview']"
         >
             درخواست بررسی
         </a>
     </li>
+    
+    <li>
+        <a
+            *ngIf="contract.isDraft"
+            [routerLink]="['../../editContract','contractId',contract._id,'preview']"
+        >
+            ثبت قطعی
+        </a>
+    </li>
+    
     <li
         *ngIf="!contract.isDraft && contract.isRequested"
     >

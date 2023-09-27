@@ -21,6 +21,7 @@
                     </a>
                 </li>
 
+                <hr>
 
                 <li>
                     
@@ -31,6 +32,7 @@
                     </a>
                 </li>
 
+                <hr>
     
                 <li>
                     
@@ -41,24 +43,17 @@
                     </a>
                 </li>
 
+                <hr>
 
                 <li>
                     
                     <a 
-                        href= "/addContract"
+                        [routerLink]="['/','contractManagement','addContract']"
                     >
                         ثبت قرارداد جدید
                     </a>
                 </li>
     
-                <li>
-                    
-                    <a 
-                        href= "/contractManagement/list/filter"
-                    >
-                        فیلتر قراردادها
-                    </a>
-                </li>
     
                 <li>
                     
@@ -70,12 +65,20 @@
                 </li>
 
                 <li>
+                    
+                    <a 
+                        href= "/contractManagement/list/filter"
+                    >
+                        فیلتر قراردادها
+                    </a>
+                </li>
+
+                <li>
                     <a 
                         href= "/contractReviewManagement/list/pending"
                     >
                         بررسی قرارداد ها
                     </a>
-                    
                 </li>
 
                 <li>
@@ -84,7 +87,6 @@
                     >
                         قرارداد های در انتظار تایید نهایی
                     </a>
-                    
                 </li>
 
                 <li>
@@ -93,9 +95,9 @@
                     >
                         قرارداد های نهایی شده
                     </a>
-                    
                 </li>
 
+                <hr>
     
                 <li>
                     <a 
@@ -112,6 +114,8 @@
                         پرداخت های واریز نشده
                     </a>
                 </li>
+
+                <hr>
 
                 <li>
                     <button

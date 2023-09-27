@@ -15,10 +15,9 @@
         [projectList] = "projectList"
     ></project-list>
 
-    <div
+
+    <empty-list
         *ngIf="!isLoading && projectList.length == 0"
-        class="container empty"
-    >
-        پروژه ای وجود ندارد.
-    </div>
+    ></empty-list>
+
 </section>

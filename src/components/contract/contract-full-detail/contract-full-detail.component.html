@@ -1,54 +1,65 @@
 
-<input type="radio" id="tabinfo" name="contractDetailTab" checked>
-<label for="tabinfo">
-    اطلاعات قرارداد
-</label>
-<section>
-    <div
-        *ngIf="!contract.customers || contract.customers.length ==0"
-    >
-        <p>
-            اطلاعات خریداران تکمیل نشده است.
-        </p>
-    </div>
+<section
+    *ngIf="contract"
+>
+    <h1>
+        {{contractHelper.getContractTitle(contract.contractType,contract.project.projectType,contract.project)}}
+    </h1>
 
-    <customer-list
-        *ngIf="contract.customers && contract.customers.length > 0"
-        [customerList]="contract.customers"
-    ></customer-list>
-</section>
+    <input type="radio" id="tabCustomers" name="contractDetailTab" checked>
+    <label for="tabCustomers">
+        خریداران
+    </label>
+    <section>
+        <b
+            *ngIf="contract && (!contract.customers || contract.customers.length ==0)"
+        >
+                اطلاعات خریداران تکمیل نشده است.
+        </b>
 
-<section>
+        <customer-list
+            *ngIf="contract && contract.customers && contract.customers.length > 0"
+            [customerList]="contract.customers"
+        ></customer-list>
+    </section>
 
-    <div
-        *ngIf="!contract.projectItem"
-    >
-        <p>
+    <input type="radio" id="tabProjectItem" name="contractDetailTab" checked>
+    <label for="tabProjectItem">
+        موضوع قرارداد
+    </label>
+    
+    <section>
+
+        <b
+            *ngIf= "!contract.projectItem"
+        >
             اطلاعات مورد قرارداد تکمیل نشده است.
-        </p>
+        </b>
         
-    </div>
+        <project-item-detail
+            *ngIf= "contract.projectItem && contract.project && contract.project.projectType"
+            [projectType]= "contract.project.projectType"
+            [projectItem]= "contract.projectItem"
+        ></project-item-detail>
 
-    <project-item-detail
-        *ngIf="contract.projectItem"
-        [projectType]="contract.project.projectType"
-        [projectItem]="contract.projectItem"
-    ></project-item-detail>
+    </section>
 
-</section>
 
-<section>
-    <div
-        *ngIf="!contract.payablePrice"
-    >
-        <p>
+    <input type="radio" id="tabPayablePrice" name="contractDetailTab" >
+    <label for="tabPayablePrice">
+        بهاری قرارداد
+    </label>
+    
+    <section>
+        <b
+            *ngIf="!contract.payablePrice"
+        >
             اطلاعات مبلغ نهایی تکمیل نشده است
-        </p>
-    </div>
-    <div
-        *ngIf="contract.payablePrice"
-    >
-        <dl>
+        </b>
+
+        <dl
+            *ngIf="contract.payablePrice"
+        >
             <dt>
                 تخفیف
             </dt>
@@ -67,25 +78,42 @@
                 ></price-label>
             </dd>
         </dl>
-    </div>
-</section>
+    </section>
+    
+    
 
-<input type="radio" id="tabpayments" name="contractDetailTab" checked>
-<label for="tabpayments">
-    پرداخت ها
-</label>
-<section>
-    <div
-        *ngIf="!contract.contractPayments || contract.contractPayments.length ==0"
-    >
-        <p>
-            اطلاعات پرداخت ها تکمیل نشده است
-        </p>
-    </div>
+    <input type="radio" id="tabPayments" name="contractDetailTab" checked>
+    <label for="tabPayments">
+        پرداخت ها
+    </label>
+    <section>
+        <div
+            *ngIf="!contract.contractPayments || contract.contractPayments.length ==0"
+        >
+            <p>
+                اطلاعات پرداخت ها تکمیل نشده است
+            </p>
+        </div>
 
-    <contract-payment-by-contract-list
-        *ngIf="contract.contractPayments && contract.contractPayments.length > 0"
-        [contractPaymentList]="contract.contractPayments"
-    ></contract-payment-by-contract-list>
+        <contract-payment-by-contract-list
+            *ngIf="contract.contractPayments && contract.contractPayments.length > 0"
+            [contractPaymentList]="contract.contractPayments"
+        ></contract-payment-by-contract-list>
 
+    </section>
+
+    <input type="radio" id="tabContent" name="contractDetailTab" checked>
+    <label for="tabContent">
+        متن قرارداد
+    </label>
+    <section>
+        <b
+            *ngIf="!contract.content"
+        >
+            متن قرارداد ثبت نشده
+        </b>
+        <div
+            [innerHTML]="contract.content"
+        ></div>
+    </section>
 </section>

@@ -66,14 +66,13 @@
                 </label>
 
                 <input
-                    type="number"
+                    type="tel"
                     id="txtPostalCode"
                     name="txtPostalCode"
                     maxlength="10"
                     minlength="10"
                     [(ngModel)]= "customer.postalCode"
                     required
-
                 >
             </li>
 
@@ -139,7 +138,9 @@
             [validationResult]="validationResult"
         ></validation-result>
 
-        <ul class="action-list">
+        <ul
+            class="action-list"
+        >
             <li>
                 <button
                     type="button"

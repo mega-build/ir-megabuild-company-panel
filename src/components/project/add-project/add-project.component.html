@@ -1,9 +1,18 @@
 <form
     class="container"
 >
+
     <legend class="normal-legend">
-        پروژه جدید
+        افزودن پروژه جدید
     </legend>
+
+    <a
+        [routerLink]="['../list']"
+        class="closeModal"
+    >
+        انصراف
+    </a>
+
     <fieldset
         [disabled]="isLoading"
     >
@@ -65,7 +74,9 @@
             [validationResult]="validationResult"
         ></validation-result>
         
-        <ul>
+        <ul
+            class="action-list"
+        >
             <li>
                 <button
                     type="button"

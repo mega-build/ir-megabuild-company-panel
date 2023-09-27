@@ -12,7 +12,7 @@ export class ContractPaymentPanelComponent
 	{
 		contractPaymentList: any[]=[];
 		isLoading: boolean = false;
-		filterOptions: any ={};
+		filterOptions!: any;
 		
 		constructor
 		(

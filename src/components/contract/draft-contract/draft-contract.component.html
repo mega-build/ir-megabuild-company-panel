@@ -29,11 +29,19 @@
 <form
     class="container"
 >
-    <legend class="contract-legend">
+    <legend
+        class="contract-legend"
+    >
         اطلاعات اولیه
     </legend>
 
-    
+    <a
+        [routerLink]="['/','contractManagement','list','draft']"
+        class="closeModal"
+    >
+        انصراف
+    </a>
+
     <fieldset
         [disabled]="isLoading"
     >
@@ -121,7 +129,7 @@
             <li>
                     
                 <a 
-                    [routerLink]="['/','home']"
+                    [routerLink]="['/','contractManagement','list','draft']"
                     class="secondary"
                 >
                     انصراف

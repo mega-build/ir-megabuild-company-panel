@@ -2,10 +2,18 @@
     *ngIf="isLoading"
 ></loading>
 
+<a
+    [routerLink]="['/','contractManagement','list','requested']"
+    class="closeModal"
+>
+    بازگشت به لیست
+</a>
+
 <contract-full-detail
     *ngIf="!isLoading && contract"
     [contract]="contract"
 ></contract-full-detail>
+
 <ul>
     <li>
         <button

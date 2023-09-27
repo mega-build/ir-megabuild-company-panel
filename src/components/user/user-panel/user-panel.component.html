@@ -9,7 +9,7 @@
     *ngIf="isLoading"
 ></loading>
 <ul
-    *ngIf="!isLoading"
+    *ngIf="!isLoading && userList.length > 0"
     class="user-panel"
 >
     <ul class="user-panel-header">
@@ -58,4 +58,9 @@
         </ul>
     </li>
 </ul>
+
+<empty-list
+    *ngIf="!isLoading && userList.length == 0"
+></empty-list>
+
 </section>

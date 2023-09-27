@@ -1,37 +1,4 @@
-<section
-    id="secContractInfo"
->
-    <dl>
-        <dt>
-            عنوان
-        </dt>
-        <dd>
-            {{contractReview.contract.contractNumber}}
-        </dd>
-
-        <dt>
-            پروژه
-        </dt>
-        <dd>
-            {{contractReview.contract.project.title}}
-        </dd>
-
-        <dt>
-            مورد قرارداد
-        </dt>
-        <dd>
-            <project-item-detail
-                [projectType]="contractReview.contract.project.projectType"
-                [projectItem]="contractReview.contract.projectItem"
-            ></project-item-detail>
-        </dd>
-    </dl>
-</section>
-<section
-    id="secContractPaymentInfo"
->
-    <contract-payment-by-contract-panel
-        [contractId]="contractReview.contract._id"
-    ></contract-payment-by-contract-panel>
-</section>
+<contract-full-detail
+    [contract]="contractReview.contract"
+></contract-full-detail>
 

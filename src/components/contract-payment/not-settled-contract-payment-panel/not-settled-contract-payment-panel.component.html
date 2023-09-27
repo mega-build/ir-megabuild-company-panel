@@ -12,11 +12,7 @@
         [contractPaymentList] = 'contractPaymentList'
     ></contract-payment-list>
     
-    <div
+    <empty-list
         *ngIf="!isLoading && contractPaymentList.length == 0"
-        class="container empty"
-        
-    >
-        پرداخت انجام نشده وجود ندارد.
-    </div>
+    ></empty-list>
 </section>

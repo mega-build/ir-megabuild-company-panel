@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PriceHelper } from 'src/helper/priceHelper';
+import { ContractHelper } from 'src/helper/contractHelper';
 
 @Component(
 	{
@@ -12,23 +12,8 @@ export class ContractListItemComponent
 	{
 		@Input() contract: any={};
 
-		constructor(
-			private priceHelper:PriceHelper
+		constructor
+		(
+			public contractHelper:ContractHelper
 		){}
-
-		getPaymentPrice
-		():string
-			{
-				return this.priceHelper.priceWithCommas(
-					this.contract.payablePrice
-				)
-			}
-
-		getPaymentPriceInWord
-		():string
-			{
-				return this.priceHelper.priceToWord(
-					this.contract.payablePrice
-				)
-			}
 	}

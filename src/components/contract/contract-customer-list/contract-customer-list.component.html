@@ -18,7 +18,10 @@
     >
         افزودن خریدار
     </a>
-    <ul>
+
+    <ul
+        *ngIf="!isLoading && contractCustomerList.length > 0"
+    >
         <li
             class="contract-customer"
             *ngFor = 'let contractCustomer of contractCustomerList'
@@ -37,8 +40,14 @@
                     </button>
                 </li>
             </ul>
+            
         </li>
     </ul>
+
+    <empty-list
+        *ngIf="!isLoading && contractCustomerList.length == 0"
+    ></empty-list>
+
 </section>
 
 <!-- <section>

@@ -8,15 +8,19 @@
     *ngIf="isLoading"
 ></loading>
 
+<a
+    [routerLink]="['/','contractManagement','addContract']"
+    role="button"
+    class="add-item"
+>
+    ثبت قرارداد جدید
+</a>
+
 <contract-list
     *ngIf="!isLoading && contractList.length > 0"
     [contractList]="contractList"
 ></contract-list>
 
-<div
+<empty-list
     *ngIf="!isLoading && contractList.length == 0"
-    class="container empty"
-    
->
-    قرارداد در حال تکمیل وجود ندارد
-</div>
+></empty-list>

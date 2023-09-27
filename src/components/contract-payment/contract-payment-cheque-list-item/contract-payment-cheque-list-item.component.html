@@ -7,6 +7,24 @@
     </dd>
 
     <dt>
+        مبلغ
+    </dt>
+    <dd>
+        <price-label
+            [price]="chequeContractPayment.price"
+        ></price-label>
+    </dd>
+
+    <dt>
+        مورد فروش
+    </dt>
+    <dd>
+        <project-item-abbreviation
+            [projectItem]="chequeContractPayment.contract.projectItem"
+        ></project-item-abbreviation>
+    </dd>
+
+    <dt>
         حساب
     </dt>
     <dd
@@ -28,23 +46,9 @@
         
     </dd>
 
-    <dt>
-        مورد فروش
-    </dt>
-    <dd>
-        <project-item-abbreviation
-            [projectItem]="chequeContractPayment.contract.projectItem"
-        ></project-item-abbreviation>
-    </dd>
+    
 
-    <dt>
-        مبلغ
-    </dt>
-    <dd>
-        <price-label
-            [price]="chequeContractPayment.price"
-        ></price-label>
-    </dd>
+    
 
     <dt>
         شماره چک
@@ -85,11 +89,11 @@
         {{chequeContractPayment.dueDateShamsi}}
     </dd>
 
-    <dt>
+    <!-- <dt>
         پرداخت شده
     </dt>
     <dd>
         {{chequeContractPayment.isSettled}}
-    </dd>
+    </dd> -->
 
 </dl>

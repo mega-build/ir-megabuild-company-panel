@@ -15,9 +15,6 @@
     [contractTemplateList] = "contractTemplateList"
 ></contract-template-list>
 
-<div
+<empty-list
     *ngIf="!isLoading && contractTemplateList.length == 0"
-    class="container empty"
->
-    قالب پروژه ی وجود ندارد.
-</div>
+></empty-list>
