@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
@@ -13,14 +14,15 @@ import { ContractService } from 'src/services/contract/contract.service';
 export class AccpetRequestedContractComponent implements OnInit
 	{
 		isLoading:boolean = false;
-		contractId:string = "";
-		contract: any= {};
+		contractId!: string;
+		contract!: any;
 
 		constructor
 		(
 			private route: ActivatedRoute,
 			private router: Router,
-			private contractService: ContractService
+			private contractService: ContractService,
+			private errorHelper: ErrorHelper
 		){}
 
 		ngOnInit
@@ -28,8 +30,19 @@ export class AccpetRequestedContractComponent implements OnInit
 			{
 				this.route.params.subscribe(params => 
 					{
-						this.contractId = params['contractId']; 
-						this.getContract();
+						this.contractId = params['contractId'];
+						if
+						(
+							this.contractId
+						)
+							{
+								this.getContract();
+							}
+						else
+							{
+								this.navigateToRequestedContractList();
+							}
+						
 					}
 				);
 				
@@ -58,18 +71,7 @@ export class AccpetRequestedContractComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 				
 			}
@@ -91,9 +93,7 @@ export class AccpetRequestedContractComponent implements OnInit
 
 						// show message 
 						
-						this.router.navigate(
-							['contractManagement','list','requested']
-						);
+						this.navigateToRequestedContractList();
 					}
 				catch
 				(
@@ -101,18 +101,7 @@ export class AccpetRequestedContractComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 			}
 
@@ -130,11 +119,7 @@ export class AccpetRequestedContractComponent implements OnInit
 						console.log(data.result);
 						this.isLoading = false;
 
-						// show message 
-
-						this.router.navigate(
-							['contractManagement','list','requested']
-						);
+						this.navigateToRequestedContractList();
 					}
 				catch
 				(
@@ -142,19 +127,16 @@ export class AccpetRequestedContractComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
+			}
+
+		navigateToRequestedContractList
+		():void
+			{
+				this.router.navigate(
+					['/','contractManagement','list','requested']
+				);
 			}
 
 	}

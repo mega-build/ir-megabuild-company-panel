@@ -81,6 +81,8 @@ export class UserService
 		setAccess
 		(
 			userId:string,
+			isAddContractTemplate:boolean,
+			isAddProject:boolean,
             isAddContract:boolean,
 			isUserManager:boolean,
 			isCustomerManager:boolean,
@@ -93,6 +95,8 @@ export class UserService
 				let headers: HttpHeaders = new HttpHeaders();
 				let body: any = {
 					userId:userId,
+					isAddContractTemplate: isAddContractTemplate,
+					isAddProject: isAddProject,
 					isAddContract: isAddContract,
 					isUserManager: isUserManager,
 					isCustomerManager: isCustomerManager,

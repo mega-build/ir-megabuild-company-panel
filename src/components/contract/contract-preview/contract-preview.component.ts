@@ -85,21 +85,21 @@ export class ContractPreviewComponent
 		async requestConfirmation
 		():Promise<void>
 			{
-				
-
 				try
 					{
 						this.isLoading = true;
+
 						const data = await this.contractService
 							.requestContractConfirmation(
 								this.contractId
 							);
 						console.log(data.result);
+
 						this.isLoading = false;
 
 						// show success message
 						this.router.navigate(
-							['contractManagement','list','draft']
+							['/','contractManagement','detail','contractId',this.contractId,'requestReview']
 						);
 					}
 				catch

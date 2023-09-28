@@ -1,8 +1,14 @@
 <panel-navigation></panel-navigation>
 
-<loading
+<h2
+    class="container"
+>
+    قرارداد های در حال انتظار بررسی
+</h2>
+
+<loading-list
     *ngIf="isLoading"
-></loading>
+></loading-list>
 
 <contract-review-list
     *ngIf="!isLoading && contractReviewList.length > 0"

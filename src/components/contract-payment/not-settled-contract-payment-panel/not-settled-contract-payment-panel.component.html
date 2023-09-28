@@ -3,16 +3,16 @@
         پرداخت های واریز نشده
     </h2>
     
-    <loading
+    <loading-list
         *ngIf="isLoading"
-    ></loading>
+    ></loading-list>
     
     <contract-payment-list 
-        *ngIf="!isLoading && contractPaymentList.length > 0"
+        *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
         [contractPaymentList] = 'contractPaymentList'
     ></contract-payment-list>
     
     <empty-list
-        *ngIf="!isLoading && contractPaymentList.length == 0"
+        *ngIf="!isLoading && contractPaymentList && contractPaymentList.length == 0"
     ></empty-list>
 </section>

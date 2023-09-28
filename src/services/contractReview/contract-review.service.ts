@@ -78,19 +78,21 @@ export class ContractReviewService
 				return result;
 			};
 
-		get
+		async get
 		(
 			contractReviewId: string
-		): any
+		): Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 
 				let url = `${this.URL_CONTRACT_REVIEW_GET}/${contractReviewId}`;
 
-				return this.httpInteceptor.getWithAuth(
+				const result = await this.httpInteceptor.getWithAuth_(
 					url,
 					headers
 				);
+
+				return result;
 			}
 
 		async setReviewResult

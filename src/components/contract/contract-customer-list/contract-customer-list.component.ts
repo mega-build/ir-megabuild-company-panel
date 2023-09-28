@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractCustomerService } from 'src/services/contractCustomer/contract-customer.service';
 
 @Component(
@@ -15,7 +16,7 @@ export class ContractCustomerListComponent implements OnInit
 
 		@Input() contractId: string = "";
 
-		contractCustomerList: any[]=[]
+		contractCustomerList!: any[];
 
 		isLoading:boolean = false;
 
@@ -24,7 +25,8 @@ export class ContractCustomerListComponent implements OnInit
 		constructor
 		(
 			private route: ActivatedRoute,
-			private contractCustomerService: ContractCustomerService
+			private contractCustomerService: ContractCustomerService,
+			private errorHelper:ErrorHelper
 		){}
 		
 		async getAllContractCustomerList
@@ -33,12 +35,13 @@ export class ContractCustomerListComponent implements OnInit
 				try
 					{
 						this.isLoading = true;
+
 						const data = await this.contractCustomerService
 							.getAllByContract(
 								this.contractId
 							);
-						console.log(data.contractCustomerList);
 						this.contractCustomerList = data.contractCustomerList;
+
 						this.isLoading = false;
 					}
 				catch
@@ -47,18 +50,7 @@ export class ContractCustomerListComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 			}
 
@@ -86,18 +78,7 @@ export class ContractCustomerListComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 
 			}
@@ -113,8 +94,22 @@ export class ContractCustomerListComponent implements OnInit
 					{
 						this.route.parent.parent.params.subscribe(params => 
 							{
-								this.contractId = params['contractId']; 
-								this.getAllContractCustomerList();
+								let contractIdParameter:string = params['contractId']; 
+
+								if
+								(
+									contractIdParameter
+								)
+									{
+										this.contractId = contractIdParameter;
+										this.getAllContractCustomerList();
+
+									}
+								else
+									{
+										alert("آدرس اشتباه است");
+										//navigatte to home
+									}
 							}
 						);
 					}
@@ -127,8 +122,6 @@ export class ContractCustomerListComponent implements OnInit
 			customer:any
 		):void
 			{
-				console.log(customer);
-				
 				this.selectedCustomer = customer;
 				this.addCustomer();
 			}
@@ -156,18 +149,7 @@ export class ContractCustomerListComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 			}
 	}

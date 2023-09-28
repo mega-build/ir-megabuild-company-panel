@@ -1,4 +1,11 @@
-<form class="container">
+<loading
+    *ngIf="isLoading"
+></loading>
+
+<form
+    class="container"
+    *ngIf="!isLoading && user"
+>
     <legend>
         سطح دسترسی کاربر
     </legend>
@@ -6,6 +13,34 @@
         [disabled]="isLoading"
     >
         <ul class="user-access-form">
+            <li>
+                <label
+                    for="chkAddContractTemplate"
+                >
+                    ثبت قالب قرارداد
+                </label>
+                <input
+                    type="checkbox"
+                    id = "chkAddContractTemplate"
+                    name = "chkAddContractTemplate"
+                    [(ngModel)]= "user.isAddContractTemplate"
+                >
+            </li>
+
+            <li>
+                <label
+                    for="chkAddProject"
+                >
+                    اضافه کردن پروژه جدید
+                </label>
+                <input
+                    type="checkbox"
+                    id = "chkAddProject"
+                    name = "chkAddProject"
+                    [(ngModel)]= "user.isAddProject"
+                >
+            </li>
+
             <li>
                 <label
                     for="chkAddContract"
@@ -20,7 +55,7 @@
                 >
             </li>
             
-            <li>
+            <!-- <li>
                 
                 <label
                     for="chkUserManagement"
@@ -33,9 +68,9 @@
                     name = "chkUserManagement"
                     [(ngModel)]= "user.isUserManager"
                 >
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
                 
                 <label
                     for="chkCustomerManagement"
@@ -48,7 +83,7 @@
                     name = "chkCustomerManagement"
                     [(ngModel)]= "user.isCustomerManager"
                 >
-            </li>
+            </li> -->
             
             <li>
                 <label

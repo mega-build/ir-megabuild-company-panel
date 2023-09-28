@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
 @Component(
@@ -13,24 +14,25 @@ import { ContractPaymentService } from 'src/services/contractPayment/contract-pa
 export class ContractPaymentByContractPanelComponent implements OnInit
 	{
 
-		@Input() contractId: string = "";
+		@Input() contractId!: string;
 		@Output() onPaymentListLengthChanged = new EventEmitter<number>();
 
-		contractPaymentList: any[]=[]
+		contractPaymentList!: any[];
 		isLoading: boolean = false;
 
 		constructor
 		(
-			private contractPaymentService: ContractPaymentService
+			private contractPaymentService: ContractPaymentService,
+			private errorHelper:ErrorHelper
 		){}
 
 		ngOnInit
 		(): void
 			{
-				this.getAllContractPaymentList();
+				this.getAllContractPaymentListByContract();
 			}
 
-		async getAllContractPaymentList
+		async getAllContractPaymentListByContract
 		(): Promise<void>
 			{
 				try
@@ -41,7 +43,6 @@ export class ContractPaymentByContractPanelComponent implements OnInit
 								this.contractId
 							)
 
-						console.log(data.contractPaymentList);
 						this.contractPaymentList = data.contractPaymentList;
 
 						this.onPaymentListLengthChanged.emit(this.contractPaymentList.length);
@@ -55,25 +56,14 @@ export class ContractPaymentByContractPanelComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-							if
-							(
-								error.error &&
-								error.error.message
-							)
-								{
-									alert(error.error.message);
-								}
-							else
-								{
-									alert(error)
-								}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 				
 			}
 
 		onItemRemoved():void
 			{
-				this.getAllContractPaymentList();
+				this.getAllContractPaymentListByContract();
 			}
 
 	}

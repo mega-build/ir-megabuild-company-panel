@@ -13,15 +13,14 @@ import { UserService } from 'src/services/user/user.service';
 export class SetUserAccessComponent implements OnInit
 	{
 		isLoading:boolean = false;
-		userId:string = "";
-		user: any= {};
+		userId!:string;
+		user!: any;
 
 		constructor
-			(
-				private route: ActivatedRoute,
-				private userService: UserService
-			)
-				{}
+		(
+			private route: ActivatedRoute,
+			private userService: UserService
+		){}
 				
 		ngOnInit
 		(): void 
@@ -36,7 +35,19 @@ export class SetUserAccessComponent implements OnInit
 								this.userId = params['userId']; 
 								console.log(this.userId);
 								
-								this.getUser();
+								if
+								(
+									this.userId
+								)
+									{
+										this.getUser();
+									}
+								else
+									{
+										alert("آدرس مورد نظر اشتباه میباشد.")
+
+									}
+								
 							}
 						);
 					}
@@ -87,6 +98,8 @@ export class SetUserAccessComponent implements OnInit
 				this.userService
 					.setAccess(
 						this.userId,
+						this.user.isAddContractTemplate,
+						this.user.isAddProject,
 						this.user.isAddContract,
 						this.user.isUserManager,
 						this.user.isCustomerManager,

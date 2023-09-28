@@ -123,6 +123,7 @@ import { ProjectItemResidentialDetailComponent } from '../components/projectItem
 import { ProjectItemLandParcelDetailComponent } from '../components/projectItem/project-item-land-parcel-detail/project-item-land-parcel-detail.component';
 import { CustomerListLabelComponent } from '../components/customer/customer-list-label/customer-list-label.component';
 import { EmptyListComponent } from '../components/share/empty-list/empty-list.component';
+import { LoadingListComponent } from '../components/share/loading-list/loading-list.component';
 
 
 
@@ -248,7 +249,8 @@ import { EmptyListComponent } from '../components/share/empty-list/empty-list.co
     ProjectItemResidentialDetailComponent,
     ProjectItemLandParcelDetailComponent,
     CustomerListLabelComponent,
-    EmptyListComponent
+    EmptyListComponent,
+    LoadingListComponent
   ],
   imports: [
     BrowserModule,

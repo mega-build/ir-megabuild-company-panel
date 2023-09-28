@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
 	{
-		selector: 'app-edit-contract',
+		selector: 'edit-contract',
 		templateUrl: './edit-contract.component.html',
 		styleUrls: ['./edit-contract.component.css']
 	}
@@ -14,16 +15,16 @@ export class EditContractComponent implements OnInit
 	{
 
 		isLoading:boolean = false;
-		contractId:string = "";
-		contract: any= {};
+		contractId!:string ;
+		contract!: any;
 
 
 		constructor
-			(
-				private route: ActivatedRoute,
-				private contractService: ContractService
-			)
-				{}
+		(
+			private route: ActivatedRoute,
+			private contractService: ContractService,
+			private errorHelper: ErrorHelper
+		){}
 
 		ngOnInit
 		(): void 
@@ -31,7 +32,17 @@ export class EditContractComponent implements OnInit
 				this.route.params.subscribe(params => 
 					{
 						this.contractId = params['contractId']; 
-						this.getContract();
+						if
+						(
+							this.contractId
+						)
+							{
+								this.getContract();
+							}
+						else
+							{
+								alert("آدرس اشتباه")
+							}
 					}
 				);
 				
@@ -58,7 +69,7 @@ export class EditContractComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						alert(error.error);
+						this.errorHelper.showErrorAsAlert(error);
 					}
 			}
 

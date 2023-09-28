@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ContractHelper } from 'src/helper/contractHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 import { ContractReviewService } from 'src/services/contractReview/contract-review.service';
 
@@ -16,7 +17,7 @@ export class RequestContractReviewComponent implements OnInit
 
 		isLoading:boolean = false;
 		contractId:string = "";
-		contract: any= {};
+		contract!: any;
 		selectedUserList: any[] = [];
 		contractReviewList: any[]= [];
 
@@ -24,8 +25,10 @@ export class RequestContractReviewComponent implements OnInit
 		constructor
 			(
 				private route: ActivatedRoute,
+				private router: Router,
 				private contractService: ContractService,
-				private contractReviewService: ContractReviewService
+				private contractReviewService: ContractReviewService,
+				public contractHelper: ContractHelper
 			){}
 
 		ngOnInit
@@ -150,6 +153,10 @@ export class RequestContractReviewComponent implements OnInit
 									console.log(data);
 
 								}
+						);
+
+						this.router.navigate(
+							['/','contractManagement','detail','contractId',this.contractId,'requestReview']
 						);
 
 						this.isLoading = false;

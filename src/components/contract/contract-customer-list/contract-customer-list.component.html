@@ -1,12 +1,9 @@
 <edit-contract-navigation
     [contractId]="contractId"
     [isInCustomerListSection]= true
-    [hasAnyCostomer] = 'contractCustomerList.length > 0'
+    [hasAnyCostomer] = 'contractCustomerList && contractCustomerList.length > 0'
 ></edit-contract-navigation>
 
-<loading
-    *ngIf="isLoading"
-></loading>
 
 <section
     class="container"
@@ -19,8 +16,12 @@
         افزودن خریدار
     </a>
 
+    <loading-list
+        *ngIf="isLoading"
+    ></loading-list>
+
     <ul
-        *ngIf="!isLoading && contractCustomerList.length > 0"
+        *ngIf="!isLoading && contractCustomerList && contractCustomerList.length > 0"
     >
         <li
             class="contract-customer"
@@ -45,7 +46,7 @@
     </ul>
 
     <empty-list
-        *ngIf="!isLoading && contractCustomerList.length == 0"
+        *ngIf="!isLoading && contractCustomerList && contractCustomerList.length == 0"
     ></empty-list>
 
 </section>

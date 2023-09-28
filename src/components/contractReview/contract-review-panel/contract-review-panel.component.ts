@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractReviewService } from 'src/services/contractReview/contract-review.service';
 
 @Component(
@@ -11,15 +12,15 @@ import { ContractReviewService } from 'src/services/contractReview/contract-revi
 
 export class ContractReviewPanelComponent implements OnInit
 	{
-		contractReviewList: any[]=[];
+		contractReviewList!: any[];
 		isLoading: boolean = false;
 
 		
 		constructor
-			(
-				private contractReviewService: ContractReviewService
-			)
-				{}
+		(
+			private contractReviewService: ContractReviewService,
+			private errorHelper: ErrorHelper
+		){}
 			
 		ngOnInit
 		(): void 
@@ -36,8 +37,6 @@ export class ContractReviewPanelComponent implements OnInit
 							this.isLoading = true;
 							
 							const data = await this.contractReviewService.getAll()
-							
-							console.log(data.contractReviewList);
 							this.contractReviewList = data.contractReviewList;
 							
 							this.isLoading = false;
@@ -48,23 +47,9 @@ export class ContractReviewPanelComponent implements OnInit
 					)
 						{
 							this.isLoading = false;
-							if
-							(
-								error.error &&
-								error.error.message
-							)
-								{
-									alert(error.error.message);
-								}
-							else
-								{
-									alert(error)
-								}
+							this.errorHelper.showErrorAsAlert(error);
 						}
 
-					
-					
-					
 				}
 
 	}

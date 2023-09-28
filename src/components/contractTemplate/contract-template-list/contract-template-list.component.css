@@ -1,0 +1,14 @@
+  ol .contract-list-item {
+    display: flex;
+    padding: 16px 0;
+    border-bottom: 1px solid #EAECF0;
+  }
+  ol .contract-list-item:last-child{
+    border-bottom: none;
+  }
+  contract-list-item{
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    flex: 1 0 100%;
+  }

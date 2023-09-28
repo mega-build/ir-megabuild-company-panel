@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractReviewService } from 'src/services/contractReview/contract-review.service';
 
 @Component(
 	{
-		selector: 'app-review-contract-review',
+		selector: 'review-contract-review',
 		templateUrl: './review-contract-review.component.html',
 		styleUrls: ['./review-contract-review.component.css']
 	}
@@ -14,46 +15,68 @@ export class ReviewContractReviewComponent implements OnInit
 	{
 
 		isLoading:boolean = false;
-		contractReviewId:string = "";
-		contractReview: any= {};
+		contractReviewId!: string ;
+		contractReview!: any;
 
 
 		constructor
-			(
-				private route: ActivatedRoute,
-				private contractReviewService: ContractReviewService
-			)
-				{}
+		(
+			private route: ActivatedRoute,
+			private router: Router,
+			private contractReviewService: ContractReviewService,
+			private errorHelper: ErrorHelper
+		){}
 
 		ngOnInit
 		(): void 
 			{
 				this.route.params.subscribe(params => 
 					{
-						this.contractReviewId = params['contractReviewId']; 
-						this.getContractReviewId();
+						this.contractReviewId = params['contractReviewId'];
+						if
+						(
+							this.contractReviewId
+						)
+							{
+								this.getContractReviewId();
+							}
+						else
+							{
+								alert("آدرس نا مشخص")
+							}
+						
 					}
 				);
 				
 			}
 
-		getContractReviewId
-		(): void
+		async getContractReviewId
+		(): Promise<void>
 			{
-				this.isLoading = true;
-				this.contractReviewService
-					.get(
-						this.contractReviewId
-					)
-					.subscribe(
-						(data: any) => 
-							{
-								console.log(data.contractReview);
-								this.contractReview = data.contractReview;
-								this.isLoading = false;
-								
-							}
-					)
+
+				try
+					{
+
+						this.isLoading = true;
+
+						const data = await this.contractReviewService
+							.get(
+								this.contractReviewId
+							)
+
+						console.log(data.contractReview);
+						this.contractReview = data.contractReview;
+							
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						this.errorHelper.showErrorAsAlert(error);
+					}
 			}
 
 		async approve
@@ -65,14 +88,16 @@ export class ReviewContractReviewComponent implements OnInit
 						this.isLoading = true;
 
 						const data = await this.contractReviewService
-						.setReviewResult(
-							this.contractReviewId,
-							true,
-							false
-						)
+							.setReviewResult(
+								this.contractReviewId,
+								true,
+								false
+							)
 
 						console.log(data);
 						this.isLoading = false;
+
+						this.navigateToContractReviewList();
 					}
 				catch
 				(
@@ -80,19 +105,7 @@ export class ReviewContractReviewComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 			}
 		async reject
@@ -104,14 +117,15 @@ export class ReviewContractReviewComponent implements OnInit
 						this.isLoading = true;
 
 						const data = await this.contractReviewService
-						.setReviewResult(
-							this.contractReviewId,
-							false,
-							true
-						)
+							.setReviewResult(
+								this.contractReviewId,
+								false,
+								true
+							)
 
 						console.log(data);
 						this.isLoading = false;
+						this.navigateToContractReviewList();
 					}
 				catch
 				(
@@ -119,20 +133,16 @@ export class ReviewContractReviewComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
+			}
+
+		navigateToContractReviewList
+		():void
+			{
+				this.router.navigate(
+					['contractReviewManagement','list','pending']
+				);
 			}
 		
 	}

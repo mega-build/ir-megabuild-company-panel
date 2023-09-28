@@ -1,18 +1,9 @@
 <ol
     class="container"
 >
-
-    <ul>
-        <li>
-            عنوان
-        </li>
-        <li>
-            آدرس
-        </li>
-    </ul>
-
     <li
         *ngFor = 'let contractTemplate of contractTemplateList'
+        class="contract-list-item"
     >
         <contract-template-list-item
             [contractTemplate]="contractTemplate"

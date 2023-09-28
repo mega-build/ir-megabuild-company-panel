@@ -6,7 +6,7 @@
     [routerLink]="['/','contractManagement','list','requested']"
     class="closeModal"
 >
-    بازگشت به لیست
+    لیست قرارداد های در انتظار تایید
 </a>
 
 <contract-full-detail
@@ -14,20 +14,36 @@
     [contract]="contract"
 ></contract-full-detail>
 
-<ul>
-    <li>
-        <button
-            (click)="accpet()"
-        >
-            تایید پیش نویس قرارداد
-        </button>
-    </li>
+<form
+    *ngIf="!isLoading && contract"
+>
+    <legend>
+        تعیین وضعیت بررسی
+    </legend>
 
-    <li>
-        <button
-            (click)="reject()"
-        >
-            رد پیش نویس قرارداد
-        </button>
-    </li>
-</ul>
+    <fieldset
+        [disabled]="isLoading"
+    >
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="accpet()"
+                    class="primary"
+                >
+                    تایید پیش نویس قرارداد
+                </button>
+            </li>
+            <li>
+                <button
+                    type="button"
+                    (click)="reject()"
+                    class="secondary"
+                >
+                    رد پیش نویس قرارداد
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+    

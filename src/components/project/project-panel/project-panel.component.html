@@ -1,14 +1,16 @@
-<section class="container">
-        <a
+<section
+    class="container"
+>
+    <a
         [routerLink]="['../add']"
         class="add-item"
     >
         پروژه جدید
     </a>
 
-    <loading
+    <loading-list
         *ngIf="isLoading"
-    ></loading>
+    ></loading-list>
 
     <project-list
         *ngIf="!isLoading && projectList && projectList.length > 0"

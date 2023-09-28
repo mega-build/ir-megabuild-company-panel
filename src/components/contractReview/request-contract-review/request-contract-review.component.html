@@ -1,9 +1,21 @@
+<loading
+    *ngIf="isLoading"
+></loading>
+
 <form
+    *ngIf="!isLoading && contract"
     class="container"
 >
     <legend class="contract-legend">
-        درخواست بررسی قرارداد
+        درخواست بررسی {{contractHelper.getContractTitle(contract.contractType,contract.project.projectType,contract.project)}}
     </legend>
+
+    <a 
+        [routerLink]="['/','contractManagement','list','draft']"
+        class="closeModal"
+    >
+        انصراف
+    </a>
 
     <fieldset
         [disabled]="isLoading"
@@ -27,7 +39,11 @@
                 </button>
             </li>
             <li >
-                <a href="#" class="secondary">انصراف</a>
+                <a 
+                    [routerLink]="['/','contractManagement','list','draft']"
+                >
+                    انصراف
+                </a>
             </li>
         </ul>
     </fieldset>

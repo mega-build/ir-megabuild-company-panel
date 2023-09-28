@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
 @Component(
@@ -10,13 +11,14 @@ import { ContractPaymentService } from 'src/services/contractPayment/contract-pa
 )
 export class ContractPaymentPanelComponent
 	{
-		contractPaymentList: any[]=[];
+		contractPaymentList!: any[];
 		isLoading: boolean = false;
 		filterOptions!: any;
 		
 		constructor
 		(
-			private contractPaymentService: ContractPaymentService
+			private contractPaymentService: ContractPaymentService,
+			private errorHelper:ErrorHelper
 		){}
 
 		setFilter
@@ -54,8 +56,6 @@ export class ContractPaymentPanelComponent
 									this.filterOptions.startDate,
 									this.filterOptions.endDate
 								);
-							
-							console.log(data.contractPaymentList);
 							this.contractPaymentList = data.contractPaymentList;
 							
 							this.isLoading = false;
@@ -66,18 +66,7 @@ export class ContractPaymentPanelComponent
 					)
 						{
 							this.isLoading = false;
-							if
-							(
-								error.error &&
-								error.error.message
-							)
-								{
-									alert(error.error.message);
-								}
-							else
-								{
-									alert(error)
-								}
+							this.errorHelper.showErrorAsAlert(error);
 						}
 
 				}

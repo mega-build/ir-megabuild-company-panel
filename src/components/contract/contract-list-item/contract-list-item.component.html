@@ -99,21 +99,11 @@
         <a
             *ngIf="contract.isDraft"
             [routerLink]="['../../editContract','contractId',contract._id,'customerList','list']"
-
         >
             ویرایش
         </a>
     </li>
 
-    <li>
-        <a
-            *ngIf="contract.isDraft && contractHelper.isContractDataCompleted(contract)"
-            [routerLink]="['../../detail','contractId',contract._id,'requestReview']"
-        >
-            درخواست بررسی
-        </a>
-    </li>
-    
     <li>
         <a
             *ngIf="contract.isDraft && contractHelper.isContractDataCompleted(contract)"

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractTemplateService } from 'src/services/contractTemplate/contract-template.service';
 
 @Component(
@@ -12,12 +13,13 @@ import { ContractTemplateService } from 'src/services/contractTemplate/contract-
 export class ContractTemplatePanelComponent  implements OnInit
 	{
 
-		contractTemplateList: any[]= [];
+		contractTemplateList!: any[];
 		isLoading: boolean = false;
 
 		constructor
 		(
-			private contractTemplateService: ContractTemplateService
+			private contractTemplateService: ContractTemplateService,
+			private errorHelper:ErrorHelper
 		){}
 			
 		ngOnInit
@@ -34,7 +36,6 @@ export class ContractTemplatePanelComponent  implements OnInit
 							this.isLoading = true;
 
 							const data = await this.contractTemplateService.getAll()
-							console.log(data.contractTemplateList);
 							this.contractTemplateList = data.contractTemplateList;
 
 							this.isLoading = false;
@@ -45,7 +46,7 @@ export class ContractTemplatePanelComponent  implements OnInit
 					)
 						{
 							this.isLoading = false;
-							alert(error.error);
+							this.errorHelper.showErrorAsAlert(error);
 						}
 					
 				}

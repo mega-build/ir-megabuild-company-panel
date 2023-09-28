@@ -1,12 +1,13 @@
 <panel-navigation></panel-navigation>
+
 <section class="container">
     <h2>
         قرارداد های تایید شده
     </h2>
 
-    <loading
+    <loading-list
         *ngIf="isLoading"
-    ></loading>
+    ></loading-list>
 
     <contract-list
         *ngIf="!isLoading && contractList.length > 0"
@@ -16,4 +17,5 @@
     <empty-list
         *ngIf="!isLoading && contractList.length == 0"
     ></empty-list>
+
 </section>

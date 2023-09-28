@@ -1,4 +1,12 @@
-<section class="container">   
+<section class="container">
+
+    <a
+        [routerLink]="['/','contractReviewManagement','list','pending']"
+        class="closeModal"
+    >
+        بازگشت به لیست
+    </a>
+
     <contract-review-detail
         *ngIf="!isLoading && contractReview"
         [contractReview]="contractReview"
@@ -7,24 +15,37 @@
     <loading
         *ngIf="isLoading"
     ></loading>
-    <ul>
-        <li>
-            <button
-                type="button"
-                (click)="approve()"
-                class="primary"
-            >
-                تایید
-            </button>
-        </li>
-        <li>
-            <button
-                type="button"
-                (click)="reject()"
-                class="secondary"
-            >
-                رد
-            </button>
-        </li>
-    </ul>
+    <form
+        *ngIf="!isLoading && contractReview"
+    >
+        <legend>
+            تعیین وضعیت بررسی
+        </legend>
+
+        <fieldset
+            [disabled]="isLoading"
+        >
+            <ul>
+                <li>
+                    <button
+                        type="button"
+                        (click)="approve()"
+                        class="primary"
+                    >
+                        تایید
+                    </button>
+                </li>
+                <li>
+                    <button
+                        type="button"
+                        (click)="reject()"
+                        class="secondary"
+                    >
+                        رد
+                    </button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    
 </section>

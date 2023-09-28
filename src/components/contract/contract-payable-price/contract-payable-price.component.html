@@ -1,14 +1,25 @@
+<loading
+    *ngIf="isLoading"
+></loading>
+
 <edit-contract-navigation
+    *ngIf="contractId && contract"
     [contractId]="contractId"
     [isInPayablePriceSection]= true
     [hasProjectItem]="contract.projectItem !=undefined"
     [hasPayablePrice]="payablePrice!=undefined && payablePrice!=0"
 ></edit-contract-navigation>
 
-<form class="container">
-    <legend class="contract-legend">
-        ثبت قیمت نهایی قرارداد
+<form
+    class="container"
+    *ngIf="!isLoading && contract"
+>
+    <legend
+        class="contract-legend"
+    >
+        بهاری موضوع قرارداد
     </legend>
+
     <fieldset
         [disabled]="isLoading"
     >

@@ -2,8 +2,16 @@
     class="container"
 >
     <legend>
-        قالب پروژه جدید
+        افزودن قالب قرارداد 
     </legend>
+
+    <a
+        [routerLink]="['../list']"
+        class="closeModal"
+    >
+        انصراف
+    </a>
+
     <fieldset
         [disabled]="isLoading"
     >
@@ -30,7 +38,7 @@
                 <label
                     for="txtHtmlContent"
                 >
-                    آدرس:
+                    محتوا:
                 </label>
 
                 <textarea

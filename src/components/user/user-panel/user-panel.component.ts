@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { UserService } from 'src/services/user/user.service';
 
 @Component(
@@ -12,23 +13,24 @@ import { UserService } from 'src/services/user/user.service';
 export class UserPanelComponent implements OnInit
 	{
 
-		userList: any[] = [];
+		userList!: any[];
 		isLoading: boolean = false;
 
 		constructor
 		(
-			private userService: UserService
+			private userService: UserService,
+			private errorHelper: ErrorHelper
 		){}
 
-		ngOnInit(): void {
-			this.getAllUsers();
-		}
+		ngOnInit
+		(): void 
+			{
+				this.getAllUsers();
+			}
 
 		async getAllUsers
 		():Promise<void>
 			{
-				
-
 				try 
 					{
 						this.isLoading = true;
@@ -46,18 +48,7 @@ export class UserPanelComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 				
 			}

@@ -10,9 +10,13 @@
         محتوا
     </dt>
     <dd>
-        <div
-            [innerHTML]="contractTemplate.htmlContent"
-        ></div>
-        
+        <details>
+            <summary>
+                مشاهده متن
+            </summary>
+            <section
+                [innerHTML]="contractTemplate.htmlContent"
+            ></section>
+        </details>
     </dd>
 </dl>

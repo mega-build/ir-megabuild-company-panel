@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ProjectService } from 'src/services/project/project.service';
 
 @Component(
@@ -13,12 +14,13 @@ export class ProjectPanelComponent implements OnInit
 {
 	@Output() setProject = new EventEmitter<any>();
 
-	projectList: any[]= [];
+	projectList!: any[];
 	isLoading: boolean = false;
 
 	constructor
 	(
-		private projectService: ProjectService
+		private projectService: ProjectService,
+		private errorHelper:ErrorHelper
 	){}
 				
 	ngOnInit
@@ -28,38 +30,26 @@ export class ProjectPanelComponent implements OnInit
 		}
 
 	async getAllProjectList
-		(): Promise<void>
-			{
-				try
-					{
-						this.isLoading = true;
+	(): Promise<void>
+		{
+			try
+				{
+					this.isLoading = true;
 
-						const data = await this.projectService.getAll();
-						console.log(data.projectList);
-						this.projectList = data.projectList;
+					const data = await this.projectService.getAll();
+					this.projectList = data.projectList;
 
-						this.isLoading = false;
-					}
-				catch
-				(
-					error:any
-				)
-					{
-						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
-					}
+					this.isLoading = false;
+				}
+			catch
+			(
+				error:any
+			)
+				{
+					this.isLoading = false;
+					this.errorHelper.showErrorAsAlert(error);
+				}
 
-			}
+		}
 
 }

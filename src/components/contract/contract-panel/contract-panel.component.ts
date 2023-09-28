@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
@@ -11,7 +12,7 @@ import { ContractService } from 'src/services/contract/contract.service';
 
 export class ContractPanelComponent
 	{
-		contractList: any[]=[];
+		contractList!: any[];
 		filterOptions: any ={};
 		selectedProject:any ={};
 		selectedSort:string="";
@@ -43,7 +44,8 @@ export class ContractPanelComponent
 		
 		constructor
 		(
-			private contractService: ContractService
+			private contractService: ContractService,
+			private errorHelper:ErrorHelper
 		){}
 			
 
@@ -59,8 +61,6 @@ export class ContractPanelComponent
 							.getAllByProject(
 								this.selectedProject._id
 							);
-						
-						console.log(data.contractList);
 						this.contractList = data.contractList;
 						
 						this.isLoading = false;
@@ -71,18 +71,7 @@ export class ContractPanelComponent
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 				
 			}

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
@@ -13,11 +14,11 @@ import { ContractService } from 'src/services/contract/contract.service';
 export class ContractPayablePriceComponent implements OnInit
 	{
 
-		contractId: string = "";
-		contract:any ={};
+		contractId!: string;
+		contract!:any;
 
-		payablePrice: number = 0;
-		discount: number = 0;
+		payablePrice!: number;
+		discount!: number;
 
 		isLoading:boolean = false;
 		validationResult: any ={};
@@ -25,9 +26,10 @@ export class ContractPayablePriceComponent implements OnInit
 		constructor
 		(
 			private route: ActivatedRoute,
-			private contractService: ContractService
-		)
-			{}
+			private contractService: ContractService,
+			private errorHelper:ErrorHelper
+
+		){}
 
 		setDiscount
 		(
@@ -103,18 +105,7 @@ export class ContractPayablePriceComponent implements OnInit
 						)
 							{
 								this.isLoading = false;
-								if
-								(
-									error.error &&
-									error.error.message
-								)
-									{
-										alert(error.error.message);
-									}
-								else
-									{
-										alert(error)
-									}
+								this.errorHelper.showErrorAsAlert(error);
 							}
 
 					}
@@ -135,8 +126,20 @@ export class ContractPayablePriceComponent implements OnInit
 					{
 						this.route.parent.params.subscribe(params => 
 							{
-								this.contractId = params['contractId'];
-								this.getContract();
+								let contractIdParameter = params['contractId'];
+								if
+								(
+									contractIdParameter
+								)
+									{
+										this.contractId = contractIdParameter;
+										this.getContract();
+									}
+								else
+									{
+										alert("آدرس اشتباه است")
+									}
+								
 							}
 						);
 					}
@@ -168,18 +171,7 @@ export class ContractPayablePriceComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 				
 			}

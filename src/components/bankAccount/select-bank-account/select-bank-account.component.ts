@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { BankAccountService } from 'src/services/bankAccount/bank-account.service';
 
 @Component(
@@ -13,15 +14,15 @@ export class SelectBankAccountComponent implements OnInit
 	{
 		@Output() setBankAccount = new EventEmitter<any>();
 
-		bankAccountList: any[]= [];
+		bankAccountList!: any[];
 		selectedBankAccount:any = {};
 		isLoading: boolean = false;
 
 		constructor
-			(
-				private bankAccountService: BankAccountService
-			)
-				{}
+		(
+			private bankAccountService: BankAccountService,
+			private errorHelper: ErrorHelper
+		){}
 			
 		ngOnInit
 		(): void 
@@ -46,7 +47,7 @@ export class SelectBankAccountComponent implements OnInit
 					)
 						{
 							this.isLoading = false;
-							alert(error.error);
+							this.errorHelper.showErrorAsAlert(error);
 						}
 					
 				}

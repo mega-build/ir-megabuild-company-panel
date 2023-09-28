@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
@@ -10,54 +11,45 @@ import { ContractService } from 'src/services/contract/contract.service';
 )
 
 export class AccpetedContractPanelComponent implements OnInit
-{
-	contractList: any[]=[];
-	isLoading: boolean = false;
+	{
+		contractList!: any[];
+		isLoading: boolean = false;
 
-	constructor
+		constructor
 		(
-			private contractService: ContractService
+			private contractService: ContractService,
+			private errorHelper: ErrorHelper
+			
 		){}
 
-	ngOnInit(): void {
-		this.getAllAcceptedContractList()
-	}
-		
-
-	async getAllAcceptedContractList
-	(): Promise<void>
-		{
-
-			try
-				{
-					this.isLoading = true;
-					
-					const data = await this.contractService.getAllAccepted();
-					
-					console.log(data.contractList);
-					this.contractList = data.contractList;
-					
-					this.isLoading = false;
-				}
-			catch
-			(
-				error:any
-			)
-				{
-					this.isLoading = false;
-					if
-					(
-						error.error &&
-						error.error.message
-					)
-						{
-							alert(error.error.message);
-						}
-					else
-						{
-							alert(error)
-						}
-				}
-			
+		ngOnInit(): void {
+			this.getAllAcceptedContractList()
 		}
-}
+			
+
+		async getAllAcceptedContractList
+		(): Promise<void>
+			{
+
+				try
+					{
+						this.isLoading = true;
+						
+						const data = await this.contractService.getAllAccepted();
+						
+						console.log(data.contractList);
+						this.contractList = data.contractList;
+						
+						this.isLoading = false;
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						this.errorHelper.showErrorAsAlert(error);
+					}
+				
+			}
+	}

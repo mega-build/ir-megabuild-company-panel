@@ -2,13 +2,15 @@
 
 <a
     [routerLink]="['../add']"
+    role="button"
+    class="add-item"
 >
     قالب جدید
 </a>
 
-<loading
+<loading-list
     *ngIf="isLoading"
-></loading>
+></loading-list>
 
 <contract-template-list
     *ngIf="!isLoading && contractTemplateList && contractTemplateList.length > 0"
@@ -16,5 +18,5 @@
 ></contract-template-list>
 
 <empty-list
-    *ngIf="!isLoading && contractTemplateList.length == 0"
+    *ngIf="!isLoading && contractTemplateList && contractTemplateList.length == 0"
 ></empty-list>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
 @Component(
@@ -12,17 +13,20 @@ import { ContractPaymentService } from 'src/services/contractPayment/contract-pa
 export class NotSettledContractPaymentPanelComponent  implements OnInit
 {
 
-	contractPaymentList: any[]=[];
+	contractPaymentList!: any[];
 	isLoading: boolean = false;
 
 	constructor
-		(
-			private contractPaymentService: ContractPaymentService
-		){}
+	(
+		private contractPaymentService: ContractPaymentService,
+		private errorHelper: ErrorHelper
+	){}
 
-	ngOnInit(): void {
-		this.getAllNotSettledContractPaymentList()
-	}
+	ngOnInit
+	(): void
+		{
+			this.getAllNotSettledContractPaymentList()
+		}
 		
 
 	async getAllNotSettledContractPaymentList
@@ -46,18 +50,7 @@ export class NotSettledContractPaymentPanelComponent  implements OnInit
 			)
 				{
 					this.isLoading = false;
-					if
-					(
-						error.error &&
-						error.error.message
-					)
-						{
-							alert(error.error.message);
-						}
-					else
-						{
-							alert(error)
-						}
+					this.errorHelper.showErrorAsAlert(error);
 				}
 			
 		}
