@@ -3,9 +3,8 @@ dl dt {
 }
 dl {
   display: flex;
-  flex: 1 0 84%;
-  max-width: 84%;
-  margin-right: 12px;
+  flex: 1 0 90%;
+  max-width: 90%;
 }
 ul {
   display: flex;
@@ -14,22 +13,25 @@ ul {
 dl dd {
   font-size: 14px;
   color: #101828;
-  flex: 1 0 16.3%;
-  max-width: 16.3%;
+  flex:0 0 12%;
+}
+contract-list-item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex: 0 0 90%;
 }
 .contract-review-header li {
   flex: 1 0 16%;
   max-width: 16%;
 }
 
-
 ul {
-  flex: 1 0 13.7%;
-  max-width: 13.7%;
-  margin-right: -21px;
+  flex: 1 0 10%;
+  max-width: 10%;
 }
 
-dl dd:nth-child(2){
-    flex: 1 0 3%;
-    max-width: 3%;
-}
+/* dl dd:nth-child(2) {
+  flex: 1 0 3%;
+  max-width: 3%;
+} */

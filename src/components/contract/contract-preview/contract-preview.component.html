@@ -1,21 +1,24 @@
-<contract-full-detail
+<section class="container">
+    <contract-full-detail
     [contract]="contract"
 ></contract-full-detail>
-<ul>
-    <li>
-        <button
-            type="button"
-            (click)="requestConfirmation()"
-            class="primary"
-        >
-            تایید نهایی
-        </button>
-    </li>
-    <li>
-        <a 
-            [routerLink]="['/','contractManagement','list','draft']"
-        >
-            انصراف
-        </a>
-    </li>
-</ul>
+    <ul class="action-list">
+        <li>
+            <button
+                type="button"
+                (click)="requestConfirmation()"
+                class="primary"
+            >
+                تایید نهایی
+            </button>
+        </li>
+        <li>
+            <a 
+                [routerLink]="['/','contractManagement','list','draft']"
+                class="secondary"
+            >
+                انصراف
+            </a>
+        </li>
+    </ul>
+</section>

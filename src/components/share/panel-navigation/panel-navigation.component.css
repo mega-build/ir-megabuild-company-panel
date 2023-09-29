@@ -52,8 +52,10 @@ nav {
   z-index: 2;
 }
 .menu ul li {
-  border-bottom: 1px solid #eaecf0;
   padding-bottom: 12px ;
+}
+.menu ul .border{
+  border-bottom: 1px solid #eaecf0;
 }
 .menu button{
   border: none;
@@ -69,5 +71,5 @@ company-logo{
   padding: 10px;
   position: absolute;
   right: 0;
-  
+
 }
