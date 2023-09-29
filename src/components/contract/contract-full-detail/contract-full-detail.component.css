@@ -1,0 +1,36 @@
+section.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+section.container > section {
+  display: none;
+}
+section.container input[type="radio"]:checked + label + section {
+  display: block;
+  flex: 0 0 100%;
+}
+h1 {
+  color: #101828;
+  font-size: 16px;
+  font-weight: 700;
+  flex: 0 0 100%;
+  margin: 32px 0 16px 0;
+}
+section.container label {
+  order: -1;
+  flex: 0 0 20%;
+  text-align: center;
+}
+input[type="radio"] {
+  display: none;
+}
+label {
+  color: #667085;
+  font-size: 16px;
+  padding-bottom: 16px;
+  cursor: pointer;
+}
+input[type="radio"]:checked + label {
+  color: #7f56d9;
+  border-bottom: 1px solid #7f56d9;
+}
