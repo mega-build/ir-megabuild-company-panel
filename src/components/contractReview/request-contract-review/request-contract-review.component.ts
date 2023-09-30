@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContractHelper } from 'src/helper/contractHelper';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 import { ContractReviewService } from 'src/services/contractReview/contract-review.service';
 
@@ -18,27 +19,41 @@ export class RequestContractReviewComponent implements OnInit
 		isLoading:boolean = false;
 		contractId:string = "";
 		contract!: any;
-		selectedUserList: any[] = [];
-		contractReviewList: any[]= [];
+		selectedUserList!: any[];
+		contractReviewList!: any[];
 
 
 		constructor
-			(
-				private route: ActivatedRoute,
-				private router: Router,
-				private contractService: ContractService,
-				private contractReviewService: ContractReviewService,
-				public contractHelper: ContractHelper
-			){}
+		(
+			private route: ActivatedRoute,
+			private router: Router,
+			private contractService: ContractService,
+			private contractReviewService: ContractReviewService,
+			public contractHelper: ContractHelper,
+			private errorHelper:ErrorHelper
+		){}
 
 		ngOnInit
 		(): void 
 			{
 				this.route.params.subscribe(params => 
 					{
-						this.contractId = params['contractId']; 
-						this.getContract();
-						this.getAllContractReviewByContract(this.contractId);
+						let contractIdParameter = params['contractId'];
+						if
+						(
+							contractIdParameter
+						)
+							{
+								this.contractId = contractIdParameter; 
+								this.getContract();
+								this.getAllContractReviewByContract(this.contractId);
+							}
+						else
+							{
+								alert("محتوای درخواستی نامعتبر است.");
+								this.nvaigate_requestedContractList();
+							}
+						
 					}
 				);
 				
@@ -68,18 +83,7 @@ export class RequestContractReviewComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 			}
 
@@ -106,18 +110,7 @@ export class RequestContractReviewComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 				
 			}
@@ -155,11 +148,8 @@ export class RequestContractReviewComponent implements OnInit
 								}
 						);
 
-						this.router.navigate(
-							['/','contractManagement','detail','contractId',this.contractId,'requestReview']
-						);
-
 						this.isLoading = false;
+						this.nvaigate_requestedContractList();
 					}
 				catch
 				(
@@ -167,20 +157,17 @@ export class RequestContractReviewComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 
 				
+			}
+
+		nvaigate_requestedContractList
+		():void
+			{
+				this.router.navigate(
+					['/','contractManagement','list','requested']
+				);
 			}
 	}

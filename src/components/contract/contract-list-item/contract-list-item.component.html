@@ -79,9 +79,17 @@
         وضعیت بررسی
     </dt>
     <dd>
-        <ul>
+        <i
+            class="contractReviewsInfo"
+        >
+            info
+        </i>
+        <ul
+            *ngIf="contract && contract.contractReviews && contract.contractReviews.length > 0"
+            class="hide"
+        >
             <li
-            *ngFor = 'let contractReview of contract.contractReviews'
+                *ngFor = 'let contractReview of contract.contractReviews'
             >
                 <contract-review-icon
                     [contractReview] = "contractReview"
@@ -110,6 +118,15 @@
             [routerLink]="['../../editContract','contractId',contract._id,'preview']"
         >
             ثبت قطعی
+        </a>
+    </li>
+
+    <li>
+        <a
+            *ngIf="!contract.isDraft && contract.isRequested && contractHelper.isContractDataCompleted(contract)"
+            [routerLink]="['/','contractManagement','detail','contractId',contract._id,'requestReview']"
+        >
+            درخواست بررسی
         </a>
     </li>
     

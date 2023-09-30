@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ChequeContractPaymentHelper } from 'src/helper/contractPayment/chequeContractPaymentHelper';
 import { DeedContractPaymentHelper } from 'src/helper/contractPayment/deedContractPaymentHelper';
 import { DipositContractPaymentHelper } from 'src/helper/contractPayment/dipositContractPaymentHelper';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 
@@ -19,13 +20,10 @@ export class ContractContentComponent implements OnInit
 	{
 
 		isLoading:boolean = false;
-		contractId:string = "";
-		contract: any= {};
+		contractId!:string;
+		contract!: any;
 
 		content :string ="";
-
-		paragraphList:any[] =[];
-
 
 		selectedContractTemplate:any={};
 
@@ -159,7 +157,8 @@ export class ContractContentComponent implements OnInit
 				private contractService: ContractService,
 				private chequeContractPaymentHelper: ChequeContractPaymentHelper,
 				private dipositContractPaymentHelper: DipositContractPaymentHelper,
-				private deedContractPaymentHelper: DeedContractPaymentHelper
+				private deedContractPaymentHelper: DeedContractPaymentHelper,
+				private errorHelper: ErrorHelper
 			)
 				{}
 
@@ -168,8 +167,20 @@ export class ContractContentComponent implements OnInit
 			{
 				this.route.params.subscribe(params => 
 					{
-						this.contractId = params['contractId']; 
-						this.getContract();
+						let contractIdParameter = params['contractId'];
+						if
+						(
+							contractIdParameter	
+						)
+							{
+								this.contractId =  contractIdParameter
+								this.getContract();
+							}
+						else
+							{
+								alert("آدرس اشتباه");
+							}
+						
 					}
 				);
 
@@ -189,6 +200,7 @@ export class ContractContentComponent implements OnInit
 							);
 						console.log(data.contract);
 						this.contract = data.contract;
+						this.content = data.contract.content;
 						this.isLoading = false;
 					}
 				catch
@@ -197,21 +209,21 @@ export class ContractContentComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						alert(error.error);
+						this.errorHelper.showErrorAsAlert(error);
 					}
 				
 			}
 
-		addTitle
-		():void
-			{
-				const titleContnet = this.getTitle(
-					this.contract.contractType,
-					this.contract.project.projectType
-				);
+		// addTitle
+		// ():void
+		// 	{
+		// 		const titleContnet = this.getTitle(
+		// 			this.contract.contractType,
+		// 			this.contract.project.projectType
+		// 		);
 
-				this.paragraphList.push(titleContnet)
-			}
+		// 		this.paragraphList.push(titleContnet)
+		// 	}
 
 		getTitle
 		(
@@ -222,16 +234,16 @@ export class ContractContentComponent implements OnInit
 				return ` قرارداد ${contractType.title} ${projectType.title}`;
 			}
 
-		addCustomersContent
-		():void
-			{
-				const customersContent = this.getCustomersContent(
-					this.contract.customers
-				);
+		// addCustomersContent
+		// ():void
+		// 	{
+		// 		const customersContent = this.getCustomersContent(
+		// 			this.contract.customers
+		// 		);
 
-				this.paragraphList.push(customersContent)
+		// 		this.paragraphList.push(customersContent)
 
-			}
+		// 	}
 
 		getCustomersContent
 		(
@@ -251,17 +263,17 @@ export class ContractContentComponent implements OnInit
 				return result;
 			}
 
-		addProjectItemContent
-		():void
-			{
-				const contet = this.getProjectItemContent(
-					this.contract.contractType,
-					this.contract.project.projectType,
-					this.contract.project,
-					this.contract.projectItem
-				);
-				this.paragraphList.push(contet)
-			}
+		// addProjectItemContent
+		// ():void
+		// 	{
+		// 		const contet = this.getProjectItemContent(
+		// 			this.contract.contractType,
+		// 			this.contract.project.projectType,
+		// 			this.contract.project,
+		// 			this.contract.projectItem
+		// 		);
+		// 		this.paragraphList.push(contet)
+		// 	}
 
 		getProjectItemContent
 		(
@@ -291,18 +303,18 @@ export class ContractContentComponent implements OnInit
 				return `بهای موضوع قرارداد از قرار هر مترمربع ${this.priceWithCommas(projectItem.unitPrice)} (${this.priceToWord(projectItem.unitPrice)} ريال) که با توجه مساحت تقریبی موضوع قرارداد(${projectItem.buildupArea} متر مربع)، جمعا  ${this.priceWithCommas(projectItem.buildupArea*projectItem.unitPrice)} ريال میباشد که با احتساب ${this.priceWithCommas(contract.discount)} ريال تخفیف، به شرح آتی پرداخت میگردد.`
 			}
 
-		addPaymentListContent
-		():void
-			{
-				const content = this.getPaymentListContent(
-					this.contract.contractPayments
-				);
-				console.log('content');
-				console.log(content);
+		// addPaymentListContent
+		// ():void
+		// 	{
+		// 		const content = this.getPaymentListContent(
+		// 			this.contract.contractPayments
+		// 		);
+		// 		console.log('content');
+		// 		console.log(content);
 				
 				
-				this.paragraphList.push(content)
-			}
+		// 		this.paragraphList.push(content)
+		// 	}
 
 		getPaymentListContent
 		(
@@ -319,27 +331,30 @@ export class ContractContentComponent implements OnInit
 								currentContractPayment.contractPaymentMethod.componentName == "CHEQUE"
 							)
 								{
-									return this.chequeContractPaymentHelper.getContractContent(
+									let result = this.chequeContractPaymentHelper.getContractContent(
 										currentContractPayment
 									);
+									return `<li>${result}</li>`
 								}
 							else if
 							(
 								currentContractPayment.contractPaymentMethod.componentName == "DIPOSIT"
 							)
 								{
-									return this.dipositContractPaymentHelper.getContractContent(
+									let result = this.dipositContractPaymentHelper.getContractContent(
 										currentContractPayment
 									);
+									return `<li>${result}</li>`
 								}
 							else if
 							(
 								currentContractPayment.contractPaymentMethod.componentName == "DEED"
 							)
 								{
-									return this.deedContractPaymentHelper.getContractContent(
+									let result =  this.deedContractPaymentHelper.getContractContent(
 										currentContractPayment
 									);
+									return `<li>${result}</li>`
 								}
 							else
 								{
@@ -354,9 +369,9 @@ export class ContractContentComponent implements OnInit
 				ماده 2 ) بهاي موضوع قرارداد :
 				</h2>
 				<br>
-				<p>
-				${result}
-				</p>
+				<ol>
+					${result}
+				</ol>
 				`
 
 				return result;
@@ -383,8 +398,6 @@ export class ContractContentComponent implements OnInit
 			{
 				try
 					{
-						console.log('here');
-						
 						this.isLoading = true;
 						const data = await this.contractService
 							.setContent(
@@ -400,7 +413,7 @@ export class ContractContentComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						alert(error.error);
+						this.errorHelper.showErrorAsAlert(error);
 					}
 			}
 	}

@@ -15,15 +15,26 @@ export class ErrorHelper
             {
                 if
                 (
-                    error.error &&
-                    error.error.message
+                    error.status == 0
                 )
                     {
-                        alert(error.error.message);
+                        alert("خطا در دسترسی به سرور. لطفا اتصال به اینترنت را بررسی کنید.")
                     }
                 else
                     {
-                        alert(error)
+                        if
+                        (
+                            error.error &&
+                            error.error.message
+                        )
+                            {
+                                alert(error.error.message);
+                            }
+                        else
+                            {
+                                alert(error)
+                            }
                     }
+                
             }
     }

@@ -34,3 +34,12 @@ dl ul {
   font-size: 9px;
   margin-right: -21px;
 }
+
+.hide {
+  display: none;
+}
+
+.contractReviewsInfo:hover + .hide {
+  display: block;
+  color: red;
+}

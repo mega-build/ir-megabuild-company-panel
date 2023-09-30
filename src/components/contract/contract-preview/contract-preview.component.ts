@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
@@ -13,15 +14,16 @@ import { ContractService } from 'src/services/contract/contract.service';
 export class ContractPreviewComponent
 	{
 
-		contractId: string = "";
-		contract: any;
+		contractId!: string;
+		contract!: any;
 		isLoading: boolean = false;
 
 		constructor
 		(
 			private route: ActivatedRoute,
 			private router: Router,
-			private contractService : ContractService
+			private contractService : ContractService,
+			private errorHelper: ErrorHelper
 		){}
 
 		ngOnInit
@@ -34,8 +36,21 @@ export class ContractPreviewComponent
 					{
 						this.route.parent.params.subscribe(params => 
 							{
-								this.contractId = params['contractId']; 
-								this.getContract();
+								let contractIdParameter = params['contractId'];
+								if
+								(
+									contractIdParameter
+								)
+									{
+										this.contractId = contractIdParameter;
+										this.getContract();
+									}
+								else
+									{
+										alert("آدرس اشتباه");
+										this.nvaigate_darftedContractList();
+									}
+								
 							}
 						);
 					}
@@ -66,20 +81,8 @@ export class ContractPreviewComponent
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
-				
 			}
 
 		async requestConfirmation
@@ -96,11 +99,8 @@ export class ContractPreviewComponent
 						console.log(data.result);
 
 						this.isLoading = false;
-
-						// show success message
-						this.router.navigate(
-							['/','contractManagement','detail','contractId',this.contractId,'requestReview']
-						);
+					
+						this.nvaigate_darftedContractList();
 					}
 				catch
 				(
@@ -108,18 +108,14 @@ export class ContractPreviewComponent
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
+			}
+
+		nvaigate_darftedContractList
+		():void
+			{
+				const navigtaionParamterList = ['/','contractManagement','list','draft'];
+				this.router.navigate(navigtaionParamterList);
 			}
 	}

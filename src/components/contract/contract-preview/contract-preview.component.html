@@ -1,24 +1,50 @@
-<section class="container">
+<section
+    class="container"
+>
+
+    <loading
+        *ngIf="isLoading"
+    ></loading>
+
     <contract-full-detail
-    [contract]="contract"
-></contract-full-detail>
-    <ul class="action-list">
-        <li>
-            <button
-                type="button"
-                (click)="requestConfirmation()"
-                class="primary"
-            >
-                تایید نهایی
-            </button>
-        </li>
-        <li>
-            <a 
-                [routerLink]="['/','contractManagement','list','draft']"
-                class="secondary"
-            >
-                انصراف
-            </a>
-        </li>
-    </ul>
+        *ngIf = "contract"
+        [contract]="contract"
+    ></contract-full-detail>
+
+    <form>
+
+        <legend>
+            تعیین وضعیت قرارداد
+        </legend>
+
+        <loading
+            *ngIf = "isLoading"
+        ></loading>
+        
+        <fieldset
+            [disabled]="isLoading"
+        >
+            <ul class="action-list">
+                <li>
+                    <button
+                        type="button"
+                        (click)="requestConfirmation()"
+                        class="primary"
+                    >
+                        تایید نهایی
+                    </button>
+                </li>
+                <li>
+                    <a 
+                        [routerLink]="['/','contractManagement','list','draft']"
+                        class="secondary"
+                    >
+                        انصراف
+                    </a>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+
+    
 </section>

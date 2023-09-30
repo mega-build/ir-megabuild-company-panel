@@ -1,16 +1,11 @@
-<select-contract-template
-    (setContractTemplate)="setContractTemplate($event)"
-></select-contract-template>
+
 
 <!-- <p
     *ngIf="!isLoading && contract"
 >
     {{getContent()}}
 </p> -->
-<loading
-    *ngIf="isLoading"
-></loading>
-<section
+<!-- <section
     *ngIf="!isLoading && contract"
 >
     <ul>
@@ -44,9 +39,9 @@
             </button>
         </li>
     </ul>
-</section>
+</section> -->
 
-<section>
+<!-- <section>
     <ul>
         <li
             *ngFor = 'let paragraph of paragraphList'
@@ -69,30 +64,76 @@
             <hr>
         </li>
     </ul>
-</section>
+</section> -->
+<loading
+    *ngIf="isLoading"
+></loading>
+<form
+    *ngIf="contract"
+>
+    <legend>
+        ثبت متن قرارداد
+    </legend>
+    <fieldset
+        [disabled]="isLoading"
+    >
+        <ul>
+            <li>
+                <label
+                    for="cmpSelectContractTemplate"
+                >
+                    قالب قرارداد:
+                </label>
+                <select-contract-template
+                    id="cmpSelectContractTemplate"
+                    name ='cmpSelectContractTemplate'
+                    (setContractTemplate)="setContractTemplate($event)"
+                ></select-contract-template>
+            </li>
+            <li>
+                <div
+                    *ngIf="!isLoading && contract"
+                    [innerHTML]="content"
+                ></div>
+                
 
-<ul>
-    <li>
-        <button
-            (click)="saveContent()"
-        >
-            ذخیره
-        </button>
-    </li>
-</ul>
+                <textarea
+                    *ngIf="!isLoading && contract"
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    [value]="content"
+                ></textarea>
+            </li>
+        </ul>
 
-<div
-    *ngIf="!isLoading && contract"
-    [innerHTML]="content"
-></div>
- 
+        <loading
+            *ngIf="isLoading"
+        ></loading>
 
-<textarea
-    *ngIf="!isLoading && contract"
-    name=""
-    id=""
-    cols="30"
-    rows="10"
-    [value]="content"
-></textarea>
+        <ul>
+            <li>
+                <button
+                    (click)="saveContent()"
+                    class="primary"
+                >
+                    ذخیره
+                </button>
+            </li>
+
+            <li>
+                <a
+                    [routerLink]="['/','contractManagement','list','draft']"
+                    class="secondary"
+                >
+                    انصراف
+                </a>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+
+
+
 

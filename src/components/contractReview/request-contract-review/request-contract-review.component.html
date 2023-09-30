@@ -1,21 +1,26 @@
+<a 
+    [routerLink]="['/','contractManagement','list','requested']"
+    class="closeModal"
+>
+    لیست قرارداد های در انتظار بررسی
+</a>
+
 <loading
     *ngIf="isLoading"
 ></loading>
 
-<form
+<contract-full-detail
     *ngIf="!isLoading && contract"
+    [contract]="contract"
+></contract-full-detail>
+
+<form
+    *ngIf="contract"
     class="container"
 >
     <legend class="contract-legend">
         درخواست بررسی {{contractHelper.getContractTitle(contract.contractType,contract.project.projectType,contract.project)}}
     </legend>
-
-    <a 
-        [routerLink]="['/','contractManagement','list','draft']"
-        class="closeModal"
-    >
-        انصراف
-    </a>
 
     <fieldset
         [disabled]="isLoading"
@@ -40,7 +45,7 @@
             </li>
             <li >
                 <a 
-                    [routerLink]="['/','contractManagement','list','draft']"
+                    [routerLink]="['/','contractManagement','list','requested']"
                 >
                     انصراف
                 </a>

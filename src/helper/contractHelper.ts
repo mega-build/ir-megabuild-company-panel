@@ -25,8 +25,6 @@ export class ContractHelper
             contract:any
         ):boolean
             {
-                console.log('sss');
-                
                 if
                 (
                     contract &&
