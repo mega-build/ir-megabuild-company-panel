@@ -97,7 +97,7 @@
                 </dt>
                 <dd>
                     <price-label
-                        [price]="calculateTotalPrice()"
+                        [price]="projectItemHelper.calculateTotalPrice(residentialProjectItem.buildupArea,residentialProjectItem.unitPrice)"
                     ></price-label>
                 </dd>
             </dl>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DateHelper } from 'src/helper/dateHelper';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
 @Component(
@@ -22,9 +23,9 @@ export class AddContractPaymentDepositComponent
 		constructor
 		(
 			private contractPaymentService: ContractPaymentService,
-			private dateHelper:DateHelper
-		)
-			{}
+			private dateHelper:DateHelper,
+			private errorHelper:ErrorHelper
+		){}
 
 		setBankAccount(
 			bankAccount:any
@@ -130,19 +131,7 @@ export class AddContractPaymentDepositComponent
 						)
 							{
 								this.isLoading = false;
-								
-								if
-								(
-									error.error &&
-									error.error.message
-								)
-									{
-										alert(error.error.message);
-									}
-								else
-									{
-										alert(error)
-									}
+								this.errorHelper.showErrorAsAlert(error);
 							}
 					}
 				

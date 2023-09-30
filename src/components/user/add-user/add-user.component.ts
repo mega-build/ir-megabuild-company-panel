@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { UserService } from 'src/services/user/user.service';
 
 @Component(
@@ -11,16 +13,15 @@ import { UserService } from 'src/services/user/user.service';
 
 export class AddUserComponent
 	{
-
-		@Output() onUserAdded = new EventEmitter<any>();
-
 		user:any = {};
 		isLoading:boolean = false;
-		validationResult: any ={};
+		validationResult!: any;
 
 		constructor
 		(
-			private userService: UserService
+			private userService: UserService,
+			private errorHelper: ErrorHelper,
+			private router: Router
 		){}
 
 		validate
@@ -105,8 +106,9 @@ export class AddUserComponent
 							this.user._id = data.userId
 
 							this.isLoading = false;
+
+							this.navigate_userList();
 							
-							this.onUserAdded.emit(this.user);
 						}
 					catch
 					(
@@ -114,20 +116,15 @@ export class AddUserComponent
 					)
 						{
 							this.isLoading = false;
-							
-							if
-							(
-								error.error &&
-								error.error.message
-							)
-								{
-									alert(error.error.message);
-								}
-							else
-								{
-									alert(error)
-								}
+							this.errorHelper.showErrorAsAlert(error);
 						}
 					}
+			}
+
+		navigate_userList
+		():void
+			{
+				const nvaigationRouteList = ['/','userManagement','list'];
+				this.router.navigate(nvaigationRouteList);
 			}
 	}

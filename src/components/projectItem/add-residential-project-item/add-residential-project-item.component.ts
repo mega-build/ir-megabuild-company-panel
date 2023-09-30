@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
+import { ProjectItemHelper } from 'src/helper/projectItemHelper';
 import { ProjectItemService } from 'src/services/projectItem/project-item.service';
 
 @Component(
@@ -23,9 +25,10 @@ export class AddResidentialProjectItemComponent
 
 		constructor
 		(
-			private projectItemService: ProjectItemService
-		)
-			{}
+			private projectItemService: ProjectItemService,
+			public projectItemHelper: ProjectItemHelper,
+			private errorHelper:ErrorHelper
+		){}
 
 		setPrice
 		(
@@ -117,41 +120,12 @@ export class AddResidentialProjectItemComponent
 						)
 							{
 								this.isLoading = false;
-								
-								if
-								(
-									error.error &&
-									error.error.message
-								)
-									{
-										alert(error.error.message);
-									}
-								else
-									{
-										alert(error)
-									}
+								this.errorHelper.showErrorAsAlert(error);
 							}
 					}
 
 			}
 
-		calculateTotalPrice
-		():number
-			{
-				if
-				(
-					this.residentialProjectItem.buildupArea &&
-					this.residentialProjectItem.unitPrice
-				)
-					{
-						const totalPriceNumber = this.residentialProjectItem.buildupArea * this.residentialProjectItem.unitPrice;
-						return totalPriceNumber;
-					}
-				else
-					{
-						return 0
-					}
-			}
-		
+	
 	}
 

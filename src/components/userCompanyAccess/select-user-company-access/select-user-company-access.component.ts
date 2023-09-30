@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { UserCompanyAccessService } from 'src/services/userCompanyAccess/user-company-access.service';
 import { LocalStorageService } from 'src/share/services/local-storage/local-storage.service';
 
@@ -17,7 +18,7 @@ export class SelectUserCompanyAccessComponent implements OnInit
 	@Output() setUserCompanyAccess = new EventEmitter<any>();
 	@Input() selectedUserCompanyAccess:any ={};
 
-	userCompanyAccessList: any[]= [];
+	userCompanyAccessList!: any[];
 	isLoading: boolean = false;
 	
 		
@@ -25,7 +26,8 @@ export class SelectUserCompanyAccessComponent implements OnInit
 	(
 		private router: Router,
 		private userCompanyAccessService: UserCompanyAccessService,
-		private localStorageService: LocalStorageService
+		private localStorageService: LocalStorageService,
+		private errorHelper: ErrorHelper
 	){}
 			
 	ngOnInit
@@ -56,18 +58,7 @@ export class SelectUserCompanyAccessComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 
 			}
@@ -85,6 +76,12 @@ export class SelectUserCompanyAccessComponent implements OnInit
 			this.selectedUserCompanyAccess = userCompanyAccess;
 			this.localStorageService.setUserCompanyAccess(this.selectedUserCompanyAccess);
 			
+			this.navigateToHome();
+		}
+
+	navigateToHome
+	():void
+		{
 			const nvaigationRouteList = ['home'];
 			this.router.navigate(nvaigationRouteList);
 		}

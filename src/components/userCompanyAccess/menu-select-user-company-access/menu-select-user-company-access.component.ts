@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { UserCompanyAccessService } from 'src/services/userCompanyAccess/user-company-access.service';
 import { LocalStorageService } from 'src/share/services/local-storage/local-storage.service';
 
@@ -12,18 +13,17 @@ import { LocalStorageService } from 'src/share/services/local-storage/local-stor
 
 export class MenuSelectUserCompanyAccessComponent implements OnInit
 {
-
-	@Output() setUserCompanyAccess = new EventEmitter<any>();
 	@Input() selectedUserCompanyAccess:any ={};
 
-	userCompanyAccessList: any[]= [];
+	userCompanyAccessList!: any[];
 	isLoading: boolean  = false;
 	
 		
 	constructor
 	(
 		private userCompanyAccessService: UserCompanyAccessService,
-		private localStorageService: LocalStorageService
+		private localStorageService: LocalStorageService,
+		private errorHelper:ErrorHelper
 	){}
 			
 	ngOnInit
@@ -70,18 +70,7 @@ export class MenuSelectUserCompanyAccessComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 
 			}
@@ -98,7 +87,6 @@ export class MenuSelectUserCompanyAccessComponent implements OnInit
 		{
 			this.selectedUserCompanyAccess = userCompanyAccess;
 			this.localStorageService.setUserCompanyAccess(this.selectedUserCompanyAccess);
-			this.setUserCompanyAccess.emit(this.selectedUserCompanyAccess);
 			location.reload()
 		}
 }

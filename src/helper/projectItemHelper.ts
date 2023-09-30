@@ -49,4 +49,25 @@ export class ProjectItemHelper
 						return false;
 					}
 			}
+
+		calculateTotalPrice
+		(
+			area:number,
+			unitPrice:number
+		):number
+			{
+				if
+				(
+					area &&
+					unitPrice
+				)
+					{
+						const totalPriceNumber = area * unitPrice;
+						return totalPriceNumber;
+					}
+				else
+					{
+						return 0
+					}
+			}
     }

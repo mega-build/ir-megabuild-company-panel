@@ -1,8 +1,9 @@
 <loading
     *ngIf="isLoading"
 ></loading>
+
 <ul
-    *ngIf="!isLoading && userList.length > 0"
+    *ngIf="!isLoading && userList && userList.length > 0"
 >
     <li
         *ngFor = 'let user of userList'
@@ -25,5 +26,5 @@
 </ul>
 
 <empty-list
-    *ngIf="!isLoading && userList.length == 0"
+    *ngIf="!isLoading && userList && userList.length == 0"
 ></empty-list>

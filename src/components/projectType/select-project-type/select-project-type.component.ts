@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ProjectTypeService } from 'src/services/projectType/project-type.service';
 
 @Component(
@@ -15,14 +16,14 @@ export class SelectProjectTypeComponent implements OnInit
 		@Output() setProjectType = new EventEmitter<any>();
 		@Input() selectedProjectType:any ={};
 
-		projectTypeList: any[]=[]
+		projectTypeList!: any[];
 		isLoading: boolean = false;
 		
 		constructor
-			(
-				private projectTypeService: ProjectTypeService
-			)
-				{}
+		(
+			private projectTypeService: ProjectTypeService,
+			private errorHelper: ErrorHelper
+		){}
 			
 		ngOnInit
 		(): void 
@@ -47,18 +48,7 @@ export class SelectProjectTypeComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 			}
 

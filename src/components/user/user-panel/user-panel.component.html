@@ -1,68 +1,68 @@
 <section class="container">
     <a
-        [routerLink]="['add']"
+        [routerLink]="['/','userManagement','add']"
         class="add-item"
     >
         افزودن کاربر
     </a>
 
-<loading-list
-    *ngIf="isLoading"
-></loading-list>
+    <loading-list
+        *ngIf="isLoading"
+    ></loading-list>
 
-<ul
-    *ngIf="!isLoading && userList && userList.length > 0"
-    class="user-panel"
->
-    <ul class="user-panel-header">
-        <li>نام و نام خانوادگی</li>
-        <li>ایمیل</li>
-        <li>سطح دسترسی</li>
-        <li>فعال / غیرفعال</li>
-    </ul>
-    <li
-        *ngFor = 'let user of userList'
-        class="user-info"
+    <ul
+        *ngIf="!isLoading && userList && userList.length > 0"
+        class="user-panel"
     >
-        <dl>
-            <dt>
-                نام
-            </dt>
-            <dd>
-                {{user.firstname}}
-            </dd>
-
-            <dt>
-                نام خانوادگی
-            </dt>
-            <dd>
-                {{user.lastname}}
-            </dd>
-
-            <dt>
-                نام کاربری
-            </dt>
-            <dd>
-                {{user.username}}
-            </dd>
-        </dl>
-
-        <ul>
-            <li>
-                ویرایش
-            </li>
-
-            <li>
-                <a href="/userManagement/setAccess;userId={{user._id}}">
-                    دسترسی
-                </a>
-            </li>
+        <ul class="user-panel-header">
+            <li>نام و نام خانوادگی</li>
+            <li>ایمیل</li>
+            <li>سطح دسترسی</li>
+            <li>فعال / غیرفعال</li>
         </ul>
-    </li>
-</ul>
+        <li
+            *ngFor = 'let user of userList'
+            class="user-info"
+        >
+            <dl>
+                <dt>
+                    نام
+                </dt>
+                <dd>
+                    {{user.firstname}}
+                </dd>
 
-<empty-list
-    *ngIf="!isLoading && userList && userList.length == 0"
-></empty-list>
+                <dt>
+                    نام خانوادگی
+                </dt>
+                <dd>
+                    {{user.lastname}}
+                </dd>
+
+                <dt>
+                    نام کاربری
+                </dt>
+                <dd>
+                    {{user.username}}
+                </dd>
+            </dl>
+
+            <ul>
+                <li>
+                    ویرایش
+                </li>
+
+                <li>
+                    <a href="/userManagement/setAccess;userId={{user._id}}">
+                        دسترسی
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <empty-list
+        *ngIf="!isLoading && userList && userList.length == 0"
+    ></empty-list>
 
 </section>

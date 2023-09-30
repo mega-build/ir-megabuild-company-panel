@@ -190,8 +190,12 @@ export const routes: Routes = [
         ]
     },
     {
-        path:'userManagement', component: UserManagementComponent,
+        path:'userManagement',
         children:[
+            {
+                path: 'list',
+                component: UserManagementComponent
+            },
             {
                 path: 'add',
                 component: AddUserComponent

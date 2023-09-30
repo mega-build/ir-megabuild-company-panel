@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
+import { ProjectItemHelper } from 'src/helper/projectItemHelper';
 import { ProjectItemService } from 'src/services/projectItem/project-item.service';
 
 @Component(
@@ -22,9 +24,10 @@ export class AddLandParcelProjectItemComponent
 
 		constructor
 		(
-			private projectItemService: ProjectItemService
-		)
-			{}
+			private projectItemService: ProjectItemService,
+			private errorHelper:ErrorHelper,
+			public projectItemHelper: ProjectItemHelper,
+		){}
 
 		setPrice
 		(
@@ -114,39 +117,10 @@ export class AddLandParcelProjectItemComponent
 						)
 							{
 								this.isLoading = false;
-								if
-								(
-									error.error &&
-									error.error.message
-								)
-									{
-										alert(error.error.message);
-									}
-								else
-									{
-										alert(error)
-									}
+								this.errorHelper.showErrorAsAlert(error);
 							}
 					}
 
 			}
 
-		calculateTotalPrice
-		():number
-			{
-				if
-				(
-					this.landParcelProjectItem.area &&
-					this.landParcelProjectItem.unitPrice
-				)
-					{
-						const totalPriceNumber = this.landParcelProjectItem.area * this.landParcelProjectItem.unitPrice;
-						return totalPriceNumber;
-					}
-				else
-					{
-						return 0
-					}
-				
-			}
 	}

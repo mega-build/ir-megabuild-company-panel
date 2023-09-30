@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { UserService } from 'src/services/user/user.service';
 
 @Component(
@@ -14,16 +15,15 @@ export class SelectUserListComponent implements OnInit
 
 		@Output() onSelectedUserChanged = new EventEmitter<any>();
 
-		selectedUserList: any[]=[];
-
-		userList: any[] = [];
+		selectedUserList!: any[];
+		userList!: any[];
 		isLoading: boolean = false;
 
 		constructor
 		(
-			private userService: UserService
-		)
-			{}
+			private userService: UserService,
+			private errorHelper: ErrorHelper
+		){}
 
 		ngOnInit(): void {
 			this.getAllUsers();
@@ -32,7 +32,6 @@ export class SelectUserListComponent implements OnInit
 		async getAllUsers
 		():Promise<void>
 			{
-				
 				this.isLoading = true;
 
 					try 
@@ -49,18 +48,7 @@ export class SelectUserListComponent implements OnInit
 					)
 						{
 							this.isLoading = false;
-							if
-							(
-								error.error &&
-								error.error.message
-							)
-								{
-									alert(error.error.message);
-								}
-							else
-								{
-									alert(error)
-								}
+							this.errorHelper.showErrorAsAlert(error);
 						}
 			}
 

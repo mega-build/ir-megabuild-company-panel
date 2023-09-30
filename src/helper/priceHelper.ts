@@ -118,6 +118,10 @@ export class PriceHelper
             args?: any
         ): any
             {
+                if (!value) {
+                    return this.zero;
+                }
+
                 if (value === 0) {
                     return this.zero;
                 }

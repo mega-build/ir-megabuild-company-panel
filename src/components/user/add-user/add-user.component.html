@@ -1,8 +1,23 @@
-<form class="container">
-    <legend class="normal-legend">
+<form
+    class="container"
+>
+
+    <legend
+        class="normal-legend"
+    >
         افزودن کاربر جدید
     </legend>
-    <fieldset>
+
+    <a
+        [routerLink]="['/','userManagement','list']"
+        class="closeModal"
+    >
+        انصراف
+    </a>
+
+    <fieldset
+        [disabled]="isLoading"
+    >
         <ul>
             <li>
                 <label
@@ -78,7 +93,7 @@
         ></loading>
 
         <validation-result
-            *ngIf="validationResult.hasError"
+            *ngIf="validationResult && validationResult.hasError"
             [validationResult]="validationResult"
         ></validation-result>
 
@@ -95,7 +110,7 @@
 
             <li>
                 <a
-                    [routerLink]="['..']"
+                    [routerLink]="['/','userManagement','list']"
                     class="secondary"
                 >
                     انصراف

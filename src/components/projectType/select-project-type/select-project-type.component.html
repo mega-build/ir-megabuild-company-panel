@@ -3,7 +3,7 @@
 ></loading>
 
 <ul
-    *ngIf="!isLoading"
+    *ngIf="!isLoading && projectTypeList && projectTypeList.length > 0"
 >
     <li
         *ngFor = 'let projectType of projectTypeList'
@@ -24,3 +24,9 @@
         </label>
     </li>
 </ul>
+
+<b
+    *ngIf="!isLoading && projectTypeList && projectTypeList.length == 0"
+>
+    موردی ثبت نشده است
+</b>
