@@ -9,6 +9,8 @@ import { Injectable } from '@angular/core';
 export class LocalStorageService 
 	{
 		AUTH_TOKEN_KEY : string = 'AUTH_TOKEN';
+		FIRSTNAME_KEY : string = 'FIRSTNAME';
+		LASTNAME_KEY : string = 'LASTNAME';
 		COMPANY_KEY : string = 'COMPANY';
 		USER_COMPANY_ACCESS_KEY: string = 'USER_COMPANY_ACCESS';
 
@@ -26,6 +28,36 @@ export class LocalStorageService
 		(): string
 			{
 				let value: string = localStorage.getItem(this.AUTH_TOKEN_KEY) || "";
+				return value;
+			}
+
+		setFirstname
+		(
+			firstname: string
+		):void
+			{
+				localStorage.setItem(this.FIRSTNAME_KEY, firstname);
+			}
+	
+		getFirstname
+		(): string
+			{
+				let value: string = localStorage.getItem(this.FIRSTNAME_KEY) || "";
+				return value;
+			}
+
+		setLastname
+		(
+			lastname: string
+		):void
+			{
+				localStorage.setItem(this.LASTNAME_KEY, lastname);
+			}
+	
+		getLastname
+		(): string
+			{
+				let value: string = localStorage.getItem(this.LASTNAME_KEY) || "";
 				return value;
 			}
 

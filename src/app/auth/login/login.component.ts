@@ -13,16 +13,21 @@ import { LocalStorageService } from 'src/share/services/local-storage/local-stor
 export class LoginComponent
 	{
 
-		constructor(
+		constructor
+		(
 			private router: Router,
 			private localStorageService: LocalStorageService
-		) {
-			let auth = this.localStorageService.getAuthToken();
-			if(auth){
-				this.router.navigate(['home']);
+		)
+			{
+				let auth = this.localStorageService.getAuthToken();
+
+				if
+				(
+					auth
+				)
+					{
+						this.router.navigate(['company']);
+					}
 			}
-		}
 	
-		ngOnInit(): void {}
-		
 	}

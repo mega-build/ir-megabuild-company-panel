@@ -12,13 +12,33 @@ import { LocalStorageService } from 'src/share/services/local-storage/local-stor
 
 export class PanelNavigationComponent
 	{
+		user:any;
 		isLoading: boolean = false;
 
 		constructor
 		(
 			private localStorageService: LocalStorageService,
 			private router: Router
-		){}
+		){
+			let firstname = this.localStorageService.getFirstname();
+			let lastname = this.localStorageService.getLastname();
+
+			if
+			(
+				firstname &&
+				lastname
+			)
+				{
+					this.user = {
+						firstname: firstname,
+						lastname: lastname
+					}
+				}
+			else
+				{
+					this.navigate_login()
+				}
+		}
 
 		getWorkingCompany
 		():any
@@ -60,5 +80,11 @@ export class PanelNavigationComponent
 								alert(error)
 							}
 					}
+			}
+
+		navigate_login
+		():void
+			{
+				this.router.navigate(['login']);
 			}
 	}
