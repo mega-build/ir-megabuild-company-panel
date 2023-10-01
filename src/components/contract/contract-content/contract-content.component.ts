@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ContractHelper } from 'src/helper/contractHelper';
 import { ChequeContractPaymentHelper } from 'src/helper/contractPayment/chequeContractPaymentHelper';
 import { DeedContractPaymentHelper } from 'src/helper/contractPayment/deedContractPaymentHelper';
 import { DipositContractPaymentHelper } from 'src/helper/contractPayment/dipositContractPaymentHelper';
@@ -52,9 +53,10 @@ export class ContractContentComponent implements OnInit
 			const result = htmlTemplate
 				.replace(
 					'{{TITLE}}',
-					this.getTitle(
+					this.contractHelper.getContractTitle(
 						this.contract.contractType,
-						this.contract.project.projectType
+						this.contract.project.projectType,
+						this.contract.project
 					)
 				)
 				.replace(
@@ -96,9 +98,10 @@ export class ContractContentComponent implements OnInit
 							this.contract.project
 						)
 							{
-								this.content = this.getTitle(
+								this.content = this.contractHelper.getContractTitle(
 									this.contract.contractType,
 									this.contract.project.projectType,
+									this.contract.project
 								);
 							}
 						if
@@ -168,7 +171,8 @@ export class ContractContentComponent implements OnInit
 				private dipositContractPaymentHelper: DipositContractPaymentHelper,
 				private deedContractPaymentHelper: DeedContractPaymentHelper,
 				private errorHelper: ErrorHelper,
-				private router:Router
+				private router:Router,
+				private contractHelper:ContractHelper
 			)
 				{}
 
@@ -235,15 +239,6 @@ export class ContractContentComponent implements OnInit
 
 		// 		this.paragraphList.push(titleContnet)
 		// 	}
-
-		getTitle
-		(
-			contractType:any,
-			projectType:any
-		):string
-			{
-				return ` قرارداد ${contractType.title} ${projectType.title}`;
-			}
 
 		// addCustomersContent
 		// ():void
@@ -370,13 +365,9 @@ export class ContractContentComponent implements OnInit
 				).join('</br>');
 
 				result = `
-				<h2>
-				ماده 2 ) بهاي موضوع قرارداد :
-				</h2>
-				<br>
-				<ol>
-					${result}
-				</ol>
+					<ol>
+						${result}
+					</ol>
 				`
 
 				return result;
