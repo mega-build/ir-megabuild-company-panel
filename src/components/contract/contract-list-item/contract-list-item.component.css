@@ -4,8 +4,8 @@ div {
 }
 dl {
   display: flex;
-  max-width: 87.5%;
-  flex: 1 0 87.5%;
+  max-width: 86.8%;
+  flex: 1 0 86.8%;
   margin: 0 12px 0 0;
 }
 
@@ -17,10 +17,8 @@ dl dd {
   color: #101828;
   font-size: 14px;
   font-weight: 400;
-  flex: 1 0 14%;
-  max-width: 14%;
+  flex: 1 0 11%;
   text-overflow: ellipsis;
-  overflow: hidden;
   height: 1.6em;
   white-space: nowrap;
 }
@@ -35,11 +33,38 @@ dl ul {
   margin-right: -21px;
 }
 
-.hide {
+dl ul.hide {
   display: none;
 }
-
-.contractReviewsInfo:hover + .hide {
+.contractReviewsInfo {
+  width: 70%;
   display: block;
-  color: red;
+  text-indent: -90000px;
+  overflow: hidden;
+  background: url("../../../assets/images/icons/info-circle.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.contractReviewsInfo:hover + .hide {
+  display: flex;
+  background-color: #101828;
+  border-radius: 8px;
+  padding: 12px;
+  flex-direction: column;
+  gap: 6px;
+  position: absolute;
+}
+.customer-list-label{
+  color: #101828;
+  font-size: 14px;
+  font-weight: 400;
+  flex: 1 0 14%;
+  max-width: 14%;
+  flex: 1 0 11%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 1.6em;
+  white-space: nowrap;
 }

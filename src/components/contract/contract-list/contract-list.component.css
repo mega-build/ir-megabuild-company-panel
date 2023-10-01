@@ -13,8 +13,8 @@ ol {
   flex-wrap: nowrap;
 }
 .contract-list-header li {
-  flex: 0 0 12.5%;
-  max-width: 12.5%;
+  flex: 0 0 11%;
+  max-width: 11%;
 }
 ol .contract-list-item {
   display: flex;

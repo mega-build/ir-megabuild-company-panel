@@ -1,0 +1,18 @@
+u {
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 16px;
+  padding: 2px 8px;
+}
+.drafted,
+.requested {
+  color: #344054;
+  border: 1px solid #eaecf0;
+  background: #f9fafb;
+}
+.accepted,
+.concluded {
+  color: #067647;
+  border: 1px solid #abefc6;
+  background: #ecfdf3;
+}
