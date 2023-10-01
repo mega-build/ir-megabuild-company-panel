@@ -11,7 +11,6 @@
 
 <section
     *ngIf="!isLoading && projectItem"
-    class="container"
 >
     <project-item-detail
         [projectType]="projectItem.project.projectType"
@@ -21,6 +20,7 @@
     <button
         type="button"
         (click)="removeProjectItem()"
+        class="remove-btn"
     >
         حذف
     </button>
@@ -59,7 +59,6 @@
 </section>
 
 <nav
-    class="container"
 >
     <ul>
         <li>

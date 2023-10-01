@@ -1,11 +1,11 @@
-section.container {
+section.details {
   display: flex;
   flex-wrap: wrap;
 }
-section.container > section {
+section.details > section {
   display: none;
 }
-section.container input[type="radio"]:checked + label + section {
+section.details input[type="radio"]:checked + label + section {
   display: block;
   flex: 0 0 100%;
 }
@@ -16,7 +16,7 @@ h1 {
   flex: 0 0 100%;
   margin: 32px 0 16px 0;
 }
-section.container label {
+section.details label {
   order: -1;
   flex: 0 0 20%;
   text-align: center;

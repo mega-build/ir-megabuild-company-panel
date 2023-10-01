@@ -37,3 +37,10 @@ fieldset ul:first-child {
 .action-list button{
   width: 15%;
 }
+form{
+  position: relative;
+}
+.closeModal{
+  position: absolute;
+  top: 0;
+}

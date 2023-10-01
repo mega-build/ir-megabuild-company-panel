@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     height: 40vh;
+    width: auto;
   }
   .empty::before {
     content: url("../../../assets/images/icons/empty.svg");
