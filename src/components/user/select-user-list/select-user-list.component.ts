@@ -15,7 +15,7 @@ export class SelectUserListComponent implements OnInit
 
 		@Output() onSelectedUserChanged = new EventEmitter<any>();
 
-		selectedUserList!: any[];
+		selectedUserList: any[]=[];
 		userList!: any[];
 		isLoading: boolean = false;
 

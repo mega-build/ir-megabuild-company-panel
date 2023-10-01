@@ -124,6 +124,7 @@ import { ProjectItemLandParcelDetailComponent } from '../components/projectItem/
 import { CustomerListLabelComponent } from '../components/customer/customer-list-label/customer-list-label.component';
 import { EmptyListComponent } from '../components/share/empty-list/empty-list.component';
 import { LoadingListComponent } from '../components/share/loading-list/loading-list.component';
+import { UserLabelComponent } from '../components/user/user-label/user-label.component';
 
 
 
@@ -250,7 +251,8 @@ import { LoadingListComponent } from '../components/share/loading-list/loading-l
     ProjectItemLandParcelDetailComponent,
     CustomerListLabelComponent,
     EmptyListComponent,
-    LoadingListComponent
+    LoadingListComponent,
+    UserLabelComponent
   ],
   imports: [
     BrowserModule,

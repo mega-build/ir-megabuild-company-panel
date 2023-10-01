@@ -17,11 +17,14 @@
             [value]="user._id"
             (change)="selectedUserChanged(refEl,user)"
         >
-        <label
+        <!-- <label
             for= "chkUser{{user._id}}"
         >
             {{user.firstname}} {{user.lastname}}
-        </label>
+        </label> -->
+        <user-label
+            [user]="user"
+        ></user-label>
     </li>
 </ul>
 

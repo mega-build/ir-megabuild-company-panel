@@ -12,6 +12,14 @@
             </summary>
             <ul>
 
+                <li
+                    *ngIf="user"
+                >
+                    <user-label
+                        [user]="user"
+                    ></user-label>
+                </li>
+
                 <li class="border">
                     
                     <a 
