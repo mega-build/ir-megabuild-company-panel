@@ -124,7 +124,7 @@ export class AddUserComponent
 		navigate_userList
 		():void
 			{
-				const nvaigationRouteList = ['/','userManagement','list'];
+				const nvaigationRouteList = ['/','userManagement','detail','userId',this.user._id,'setAccess'];
 				this.router.navigate(nvaigationRouteList);
 			}
 	}

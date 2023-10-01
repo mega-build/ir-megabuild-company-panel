@@ -68,9 +68,8 @@
 <loading
     *ngIf="isLoading"
 ></loading>
-<form
-    *ngIf="contract"
->
+
+<form>
     <legend>
         ثبت متن قرارداد
     </legend>
@@ -92,18 +91,18 @@
             </li>
             <li>
                 <div
-                    *ngIf="!isLoading && contract"
+                    *ngIf="contract"
                     [innerHTML]="content"
                 ></div>
                 
 
                 <textarea
-                    *ngIf="!isLoading && contract"
-                    name=""
-                    id=""
+                    *ngIf="contract"
+                    name="txtContent"
+                    id="txtContent"
                     cols="30"
                     rows="10"
-                    [value]="content"
+                    [(ngModel)]="content"
                 ></textarea>
             </li>
         </ul>

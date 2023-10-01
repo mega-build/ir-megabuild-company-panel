@@ -1,19 +1,7 @@
-<section class="container">
-    <loading
+<loading
     *ngIf="isLoading"
 ></loading>
 
-<a
-    [routerLink]="['/','contractManagement','list','requested']"
-    class="closeModal"
->
-    لیست قرارداد های در انتظار تایید
-</a>
-
-<contract-full-detail
-    *ngIf="!isLoading && contract"
-    [contract]="contract"
-></contract-full-detail>
 
 <form
     *ngIf="!isLoading && contract"
@@ -22,17 +10,10 @@
         تعیین وضعیت بررسی
     </legend>
 
-    <a 
-        [routerLink]="['/','contractManagement','list','requested']"
-        class="closeModal"
-    >
-        انصراف
-    </a>
-
     <fieldset
         [disabled]="isLoading"
     >
-        <ul class="action-list">
+        <ul>
             <li>
                 <button
                     type="button"
@@ -51,8 +32,19 @@
                     رد پیش نویس قرارداد
                 </button>
             </li>
+            <li>
+                <a
+                    [routerLink]="['/','contractManagement','list','requested']"
+                >
+                    مشاهده لیست
+                </a>
+            </li>
         </ul>
     </fieldset>
 </form>
     
-</section>
+
+<contract-full-detail
+    *ngIf="!isLoading && contract"
+    [contract]="contract"
+></contract-full-detail>

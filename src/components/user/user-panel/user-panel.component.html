@@ -15,9 +15,12 @@
         class="user-panel"
     >
         <ul class="user-panel-header">
-            <li>نام و نام خانوادگی</li>
-            <li>ایمیل</li>
-            <li>سطح دسترسی</li>
+            <li>
+                نام و نام خانوادگی
+            </li>
+            <li>
+                نام کاربری
+            </li>
             <li>فعال / غیرفعال</li>
         </ul>
         <li
@@ -26,18 +29,14 @@
         >
             <dl>
                 <dt>
-                    نام
+                    کاربر
                 </dt>
                 <dd>
-                    {{user.firstname}}
+                    <user-label
+                        [user]="user"
+                    ></user-label>
                 </dd>
 
-                <dt>
-                    نام خانوادگی
-                </dt>
-                <dd>
-                    {{user.lastname}}
-                </dd>
 
                 <dt>
                     نام کاربری
@@ -48,12 +47,11 @@
             </dl>
 
             <ul>
-                <li>
-                    ویرایش
-                </li>
 
                 <li>
-                    <a href="/userManagement/setAccess;userId={{user._id}}">
+                    <a
+                        [routerLink]="['/','userManagement','detail','userId',user._id,'setAccess']"
+                    >
                         دسترسی
                     </a>
                 </li>

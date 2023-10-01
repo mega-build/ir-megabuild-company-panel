@@ -1,22 +1,12 @@
 <section class="container">
 
-    <a
-        [routerLink]="['/','contractReviewManagement','list','pending']"
-        class="closeModal"
-    >
-        بازگشت به لیست
-    </a>
-
-    <contract-review-detail
-        *ngIf="!isLoading && contractReview"
-        [contractReview]="contractReview"
-    ></contract-review-detail>
     
+
     <loading
         *ngIf="isLoading"
     ></loading>
     <form
-        *ngIf="!isLoading && contractReview"
+        *ngIf="contractReview"
     >
         <legend>
             تعیین وضعیت بررسی
@@ -44,8 +34,22 @@
                         رد
                     </button>
                 </li>
+                <li>
+                    <a
+                        [routerLink]="['/','contractReviewManagement','list','pending']"
+                    >
+                        بازگشت به لیست
+                    </a>
+                </li>
             </ul>
         </fieldset>
     </form>
+
+    <contract-review-detail
+        *ngIf="!isLoading && contractReview"
+        [contractReview]="contractReview"
+    ></contract-review-detail>
+    
+    
     
 </section>
