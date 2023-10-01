@@ -1,0 +1,7 @@
+.action-list{
+    flex-direction: column;
+}
+.action-list li button{
+    width: 100%;
+    margin-bottom: 8px;
+}
