@@ -201,11 +201,13 @@ export const routes: Routes = [
                 component: AddUserComponent
             },
             {
-                path: 'setAccess',
-                component: SetUserAccessComponent,
-                data:{
-                    userId:undefined
-                },
+                path: 'detail/userId/:userId',
+                children:[
+                    {
+                        path: 'setAccess',
+                        component: SetUserAccessComponent
+                    }
+                ]
             },
         ]
     },

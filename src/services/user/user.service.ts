@@ -78,7 +78,7 @@ export class UserService
 				return result;
 			}
 
-		setAccess
+		async setAccess
 		(
 			userId:string,
 			isAddContractTemplate:boolean,
@@ -90,7 +90,7 @@ export class UserService
 			isContractPaymentManager:boolean,
 			isContractReviwer:boolean,
 			isActive:boolean
-		):any
+		):Promise<any>
 			{
 				let headers: HttpHeaders = new HttpHeaders();
 				let body: any = {
@@ -105,10 +105,12 @@ export class UserService
 					isContractReviwer: isContractReviwer,
 					isActive: isActive
 				};
-				return this.httpInteceptor.postWithAuth(
+				const result = await this.httpInteceptor.postWithAuth_(
 					this.URL_USER_SET_ACCESS,
 					headers,
 					body
 				);
+
+				return result;
 			}
 	}

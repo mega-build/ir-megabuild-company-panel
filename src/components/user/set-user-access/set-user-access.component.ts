@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { UserService } from 'src/services/user/user.service';
 
 @Component(
@@ -19,7 +20,9 @@ export class SetUserAccessComponent implements OnInit
 		constructor
 		(
 			private route: ActivatedRoute,
-			private userService: UserService
+			private router:Router,
+			private userService: UserService,
+			private errorHelper:ErrorHelper,
 		){}
 				
 		ngOnInit
@@ -32,20 +35,19 @@ export class SetUserAccessComponent implements OnInit
 					{
 						this.route.params.subscribe(params => 
 							{
-								this.userId = params['userId']; 
-								console.log(this.userId);
-								
+								let userIdParameter = params['userId']; 
 								if
 								(
-									this.userId
+									userIdParameter
 								)
 									{
+										this.userId = userIdParameter; 
 										this.getUser();
 									}
 								else
 									{
-										alert("آدرس مورد نظر اشتباه میباشد.")
-
+										alert("آدرس مورد نظر اشتباه میباشد.");
+										this.navigate_userList();
 									}
 								
 							}
@@ -75,44 +77,52 @@ export class SetUserAccessComponent implements OnInit
 				)
 					{
 						this.isLoading = false;
-						if
-						(
-							error.error &&
-							error.error.message
-						)
-							{
-								alert(error.error.message);
-							}
-						else
-							{
-								alert(error)
-							}
+						this.errorHelper.showErrorAsAlert(error);
 					}
 
 			}
 
-		save
-		():void
+		async save
+		():Promise<void>
 			{
 				this.isLoading = true;
-				this.userService
-					.setAccess(
-						this.userId,
-						this.user.isAddContractTemplate,
-						this.user.isAddProject,
-						this.user.isAddContract,
-						this.user.isUserManager,
-						this.user.isCustomerManager,
-						this.user.isContractManager,
-						this.user.isContractPaymentManager,
-						this.user.isContractReviwer,
-						this.user.isActive
-					)
-					.subscribe(
-						(data: any) => 
-							{
-								this.isLoading = false;
-							}
-					)
+
+				try 
+					{
+						const data = await this.userService
+							.setAccess(
+								this.userId,
+								this.user.isAddContractTemplate,
+								this.user.isAddProject,
+								this.user.isAddContract,
+								this.user.isUserManager,
+								this.user.isCustomerManager,
+								this.user.isContractManager,
+								this.user.isContractPaymentManager,
+								this.user.isContractReviwer,
+								this.user.isActive
+							);
+						
+						this.isLoading = false;
+
+						this.navigate_userList();
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						this.errorHelper.showErrorAsAlert(error);
+					}
+
+				
+			}
+
+		navigate_userList
+		():void
+			{
+				const nvaigationRouteList = ['/','userManagement','list'];
+				this.router.navigate(nvaigationRouteList);
 			}
 	}

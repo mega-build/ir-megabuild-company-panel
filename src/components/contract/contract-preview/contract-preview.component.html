@@ -1,14 +1,8 @@
-<section
->
+<section>
 
     <loading
         *ngIf="isLoading"
     ></loading>
-
-    <contract-full-detail
-        *ngIf = "contract"
-        [contract]="contract"
-    ></contract-full-detail>
 
     <form>
 
@@ -44,6 +38,13 @@
             </ul>
         </fieldset>
     </form>
+
+    <contract-full-detail
+        *ngIf = "contract"
+        [contract]="contract"
+    ></contract-full-detail>
+
+    
 
     
 </section>

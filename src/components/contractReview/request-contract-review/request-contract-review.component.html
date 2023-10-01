@@ -1,18 +1,6 @@
-<a 
-    [routerLink]="['/','contractManagement','list','requested']"
-    class="closeModal"
->
-    لیست قرارداد های در انتظار بررسی
-</a>
-
 <loading
     *ngIf="isLoading"
 ></loading>
-
-<contract-full-detail
-    *ngIf="!isLoading && contract"
-    [contract]="contract"
-></contract-full-detail>
 
 <form
     *ngIf="contract"
@@ -53,3 +41,11 @@
         </ul>
     </fieldset>
 </form>
+
+
+<contract-full-detail
+    *ngIf="!isLoading && contract"
+    [contract]="contract"
+></contract-full-detail>
+
+
