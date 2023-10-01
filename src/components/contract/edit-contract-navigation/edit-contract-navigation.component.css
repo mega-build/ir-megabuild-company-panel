@@ -1,17 +1,30 @@
 nav ul {
-    display: flex;
-    justify-content: space-between;
-    border: 2px solid #eaecf0;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-  }
-  nav ul li a {
-    color: #101828;
-    font-size: 14px;
-  }
-  
-  nav ul li.current{
-    color: rgb(128, 0, 6);
-    font-style: unset;
-  }
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #eaecf0;
+  padding: 4px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+nav ul li a {
+  color: #101828;
+  font-size: 14px;
+}
+nav ul li {
+  padding: 4px 0;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+}
+nav ul .current {
+  background-color: #7f56d9;
+}
+nav ul .current a{
+  color: #fff;
+}
+nav ul i {
+  cursor: not-allowed;
+  color: #c8c9ca;
+  font-style: unset;
+  font-size: 14px;
+}
