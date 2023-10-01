@@ -7,18 +7,20 @@
   gap: 16px;
 }
 #secProgress ol li {
-  color: #101828;
+  color: #c8c9ca;
   font-size: 14px;
   width: 100%;
   text-align: center;
   padding: 16px 0;
   border-radius: 8px;
   background-color: #fff;
+  cursor: not-allowed;
 }
 #secProgress ol li.active {
   background-color: #f6f1ff;
   color: #7f56d9;
   border: 1px solid #7F56D9;
+  cursor: default;
 }
 
 
