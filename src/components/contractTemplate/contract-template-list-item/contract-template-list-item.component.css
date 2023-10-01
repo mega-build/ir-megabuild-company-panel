@@ -1,33 +1,27 @@
-  dl {
-    display: flex;
-    max-width: 87.5%;
-    flex: 1 0 87.5%;
-    margin: 0 12px 0 0;
-  }
-  
-  dl dt {
-    display: none;
-  }
-  
-  dl dd {
-    color: #101828;
-    font-size: 14px;
-    font-weight: 400;
-    flex: 1 0 14%;
-    max-width: 14%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    height: 1.6em;
-    white-space: nowrap;
-  }
-  dl ul {
-    display: flex;
-  }
-  .listItemActionMenu {
-    display: flex;
-    flex: 1 0 12.5%;
-    max-width: 12.5%;
-    font-size: 9px;
-    margin-right: -21px;
-  }
-  
+dl {
+  width: 100%;
+}
+dl dt {
+  display: none;
+}
+
+dl ul {
+  display: flex;
+}
+dl dd{
+  padding: 16px;
+}
+dl dd:nth-child(2) {
+  color: #101828;
+  font-size: 16px;
+  font-weight: 700;
+}
+dl dd:nth-child(4) {
+  border-top: 1px solid #eaecf0;
+  color: #7F56D9;
+  font-size: 14px;
+}
+section{
+  font-size: 14px;
+  color: #101828;
+}

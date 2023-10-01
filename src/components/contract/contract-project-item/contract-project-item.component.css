@@ -33,3 +33,20 @@ nav ul li a {
   font-family: IRANSansWeb;
   padding: 8px 0;
 }
+section{
+  position: relative;
+}
+.remove-btn{
+  background-color: transparent;
+  border: none;
+  text-indent: -900000px;
+  overflow: hidden;
+  background: url("../../../assets/images/icons/trash-03.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 30px;
+  top: 25px;
+}
