@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChequeContractPaymentHelper } from 'src/helper/contractPayment/chequeContractPaymentHelper';
 import { DeedContractPaymentHelper } from 'src/helper/contractPayment/deedContractPaymentHelper';
 import { DipositContractPaymentHelper } from 'src/helper/contractPayment/dipositContractPaymentHelper';
@@ -67,6 +67,15 @@ export class ContractContentComponent implements OnInit
 					'{{PAYMENTS}}',
 					this.getPaymentListContent(
 						this.contract.contractPayments
+					)
+				)
+				.replace(
+					'{{SUBJECT}}',
+					this.getProjectItemContent(
+						this.contract.contractType,
+						this.contract.project.projectType,
+						this.contract.project,
+						this.contract.projectItem,
 					)
 				)
 			return result;
@@ -158,7 +167,8 @@ export class ContractContentComponent implements OnInit
 				private chequeContractPaymentHelper: ChequeContractPaymentHelper,
 				private dipositContractPaymentHelper: DipositContractPaymentHelper,
 				private deedContractPaymentHelper: DeedContractPaymentHelper,
-				private errorHelper: ErrorHelper
+				private errorHelper: ErrorHelper,
+				private router:Router
 			)
 				{}
 
@@ -179,6 +189,7 @@ export class ContractContentComponent implements OnInit
 						else
 							{
 								alert("آدرس اشتباه");
+								this.navigate_contractDetail();
 							}
 						
 					}
@@ -284,13 +295,7 @@ export class ContractContentComponent implements OnInit
 		):string
 			{
 				return `
-				<h2>
-				ماده 1) موضوع قرارداد
-				</h2>
-				<br>
-				<p>
 				موضوع قرارداد عبارت است از ${contractType.title} ${projectType.title} شماره ${projectItem.unit} واقع در طبقه ${projectItem.floor} بلوک ${projectItem.block} ${project.title} با زیربنای حدودا ${projectItem.buildupArea} متر مربع طبق نقشه پیوست به نشانی ${project.address}
-				</p>
 				`
 			}
 
@@ -402,10 +407,12 @@ export class ContractContentComponent implements OnInit
 						const data = await this.contractService
 							.setContent(
 								this.contractId,
-								this.getContent()
+								this.content
 							);
 						console.log(data.result);
 						this.isLoading = false;
+
+						this.navigate_contractDetail();
 					}
 				catch
 				(
@@ -415,5 +422,12 @@ export class ContractContentComponent implements OnInit
 						this.isLoading = false;
 						this.errorHelper.showErrorAsAlert(error);
 					}
+			}
+
+		navigate_contractDetail
+		():void
+			{
+				const nvaigationRouteList = ['contractManagement','list','draft'];
+				this.router.navigate(nvaigationRouteList);
 			}
 	}

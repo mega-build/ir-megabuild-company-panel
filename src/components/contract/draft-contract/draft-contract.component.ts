@@ -157,7 +157,7 @@ export class DraftContractComponent
 								
 								this.contractId = data.contractId
 								this.isLoading = false;
-								this.navigateToAddCustomer();
+								this.navigate_contractDetail();
 							}
 						catch
 						(
@@ -182,7 +182,7 @@ export class DraftContractComponent
 				
 			}
 
-		navigateToAddCustomer
+		navigate_contractDetail
 		():void
 			{
 				const nvaigationRouteList = ['contractManagement','editContract','contractId',this.contractId,"customerList",'list'];
