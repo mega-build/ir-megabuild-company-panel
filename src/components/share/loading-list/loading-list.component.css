@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     height: 40vh;
+    width: auto;
   }
   .loadingList::before {
     content: url("../../../assets/images/icons/empty.svg");
