@@ -65,74 +65,72 @@
         </li>
     </ul>
 </section> -->
-<loading
-    *ngIf="isLoading"
-></loading>
-
-<form>
-    <legend>
-        ثبت متن قرارداد
-    </legend>
-    <fieldset
-        [disabled]="isLoading"
-    >
-        <ul>
-            <li>
-                <label
-                    for="cmpSelectContractTemplate"
-                >
-                    قالب قرارداد:
-                </label>
-                <select-contract-template
-                    id="cmpSelectContractTemplate"
-                    name ='cmpSelectContractTemplate'
-                    (setContractTemplate)="setContractTemplate($event)"
-                ></select-contract-template>
-            </li>
-            <li>
-                <div
-                    *ngIf="contract"
-                    [innerHTML]="content"
-                ></div>
-                
-
-                <textarea
-                    *ngIf="contract"
-                    name="txtContent"
-                    id="txtContent"
-                    cols="30"
-                    rows="10"
-                    [(ngModel)]="content"
-                ></textarea>
-            </li>
-        </ul>
-
+<section class="container">
         <loading
-            *ngIf="isLoading"
-        ></loading>
+        *ngIf="isLoading"
+    ></loading>
 
-        <ul>
-            <li>
-                <button
-                    (click)="saveContent()"
-                    class="primary"
-                >
-                    ذخیره
-                </button>
-            </li>
+    <form>
+        <legend class="contract-legend">
+            ثبت متن قرارداد
+        </legend>
+        <fieldset
+            [disabled]="isLoading"
+        >
+            <ul>
+                <li>
+                    <label
+                        for="cmpSelectContractTemplate"
+                    >
+                        قالب قرارداد:
+                    </label>
+                    <select-contract-template
+                        id="cmpSelectContractTemplate"
+                        name ='cmpSelectContractTemplate'
+                        (setContractTemplate)="setContractTemplate($event)"
+                    ></select-contract-template>
+                </li>
+                <li>
+                    <div
+                        *ngIf="contract"
+                        [innerHTML]="content"
+                    ></div>
+                    
 
-            <li>
-                <a
-                    [routerLink]="['/','contractManagement','list','draft']"
-                    class="secondary"
-                >
-                    انصراف
-                </a>
-            </li>
-        </ul>
-    </fieldset>
-</form>
+                    <textarea
+                        *ngIf="contract"
+                        name="txtContent"
+                        id="txtContent"
+                        cols="30"
+                        rows="10"
+                        [(ngModel)]="content"
+                    ></textarea>
+                </li>
+            </ul>
 
+            <loading
+                *ngIf="isLoading"
+            ></loading>
 
+            <ul class="action-list">
+                <li>
+                    <button
+                        (click)="saveContent()"
+                        class="primary"
+                    >
+                        ذخیره
+                    </button>
+                </li>
 
-
+                <li>
+                    <a
+                        [routerLink]="['/','contractManagement','list','draft']"
+                        class="secondary"
+                    >
+                        انصراف
+                    </a>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</section>

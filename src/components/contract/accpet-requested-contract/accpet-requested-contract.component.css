@@ -1,7 +1,28 @@
-.action-list{
-    flex-direction: column;
+legend {
+  display: none;
 }
-.action-list li button{
-    width: 100%;
-    margin-bottom: 8px;
+.action-list {
+  flex-direction: row-reverse;
+  justify-content: center;
+  border-bottom: 1px solid #eaecf0;
+  background: #fff;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  gap: 16px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+}
+.action-list li {
+  flex: 0 0 14%;
+
+}
+.action-list li:last-child {
+  flex: 0 0 69%;
+}
+.action-list li button,
+.action-list li a {
+  width: 100%;
+
 }

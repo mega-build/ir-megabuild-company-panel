@@ -1,1 +1,13 @@
 @import url("../contract-payment-deposit-list-item/contract-payment-deposit-list-item.component.css");
+
+dl dd:last-child,
+dl dt.last {
+  flex: 0 0 16.5%;
+}
+
+dl dd {
+  flex: 0 0 16.5%;
+}
+dl dt {
+  flex: 0 0 16.5%;
+}

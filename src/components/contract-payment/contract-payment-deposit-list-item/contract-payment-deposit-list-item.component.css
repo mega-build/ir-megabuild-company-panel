@@ -23,17 +23,22 @@ dl dd {
 }
 
 dl dd {
-  flex: 0 0 20%;
+  flex: 0 0 12.5%;
   order: -1;
   color: #101828;
   font-size: 12px;
 }
+
 dl dt{
-  flex: 0 0 20%;
+  flex: 0 0 12.5%;
   order: -2;
   color: #667085;
   font-size: 12px;
   margin-bottom: 4px;
+}
+dl dd:last-child,
+dl dt.last{
+  flex: 0 0 50%;
 }
 ul {
   /* display: flex;

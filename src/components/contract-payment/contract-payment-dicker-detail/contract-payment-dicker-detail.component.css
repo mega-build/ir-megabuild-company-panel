@@ -1,1 +1,15 @@
 @import url("../contract-payment-dicker-list-item/contract-payment-dicker-list-item.component.css");
+
+dl dd {
+    flex: 0 0 25%;
+
+  }
+  
+  dl dt{
+    flex: 0 0 25%;
+
+  }
+  dl dd:last-child,
+  dl dt.last{
+    flex: 0 0 25%;
+  }

@@ -1,1 +1,15 @@
 @import url("../contract-payment-deed-list-item/contract-payment-deed-list-item.component.css");
+
+
+dl dd {
+    flex: 0 0 16.5%;
+  }
+  
+  dl dt{
+    flex: 0 0 16.5%;
+
+  }
+  dl dd:last-child,
+  dl dt.last{
+    flex: 0 0 16.5%;
+  }

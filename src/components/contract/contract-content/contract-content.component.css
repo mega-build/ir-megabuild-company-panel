@@ -1,0 +1,16 @@
+label {
+  display: none;
+}
+li {
+  position: relative;
+}
+.action-list li a{
+    float: left;
+}
+.action-list{
+    margin: 32px 0;
+}
+.action-list button,
+.action-list a {
+  width: 35%;
+}
