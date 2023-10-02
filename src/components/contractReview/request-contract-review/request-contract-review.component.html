@@ -10,6 +10,23 @@
         درخواست بررسی {{contractHelper.getContractTitle(contract.contractType,contract.project.projectType,contract.project)}}
     </legend>
 
+    <ul
+        *ngIf="contractReviewList && contractReviewList.length > 0"
+    >
+        <li
+            *ngFor="let contractReview of contractReviewList"
+        >
+            <user-label
+                [user]="contractReview.user"
+            ></user-label>
+            <button
+                (click)="removeContractReview(contractReview)"
+            >
+                حذف
+            </button>
+        </li>
+    </ul>
+
     <fieldset
         [disabled]="isLoading"
     >

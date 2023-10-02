@@ -163,6 +163,14 @@ export class RequestContractReviewComponent implements OnInit
 				
 			}
 
+		removeContractReview
+		(
+			contractReview:any
+		):void
+			{
+				
+			}
+
 		nvaigate_requestedContractList
 		():void
 			{

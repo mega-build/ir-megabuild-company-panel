@@ -26,17 +26,17 @@ export class SelectUserListComponent implements OnInit
 		){}
 
 		ngOnInit(): void {
-			this.getAllUsers();
+			this.getAllReviewer();
 		}
 
-		async getAllUsers
+		async getAllReviewer
 		():Promise<void>
 			{
 				this.isLoading = true;
 
 					try 
 						{
-							const data = await this.userService.getAll()
+							const data = await this.userService.getAllReviewer()
 							
 							console.log(data.userList);
 							this.userList = data.userList;
