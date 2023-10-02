@@ -12,14 +12,7 @@ dl{
     padding-bottom: 16px;
     margin-bottom: -16px;
 }
-dd:nth-child(2){
-    background-color: #7F56D9;
-    padding: 10px;
-    border-radius: 6px;
-    color: #fff;
-    padding: 7px 10px;
-    line-height: 20px;
-}
+
 
 img {
   width: 50px;

@@ -1,8 +1,22 @@
-.action-list {
-  flex-direction: column;
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.action-list li button,
-.action-list li a {
+form legend{
+  flex: 0 0 68%;
+}
+form fieldset{
+  flex: 0 0 30%;
+}
+
+form button,
+form a{
   width: 100%;
-  margin-bottom: 16px;
+}
+.action-list{
+  gap: 8px;
+  margin-bottom: 42px;
+  margin-top: 10px;
 }

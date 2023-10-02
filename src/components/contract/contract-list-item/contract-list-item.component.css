@@ -56,7 +56,7 @@ dl ul.hide {
   gap: 6px;
   position: absolute;
 }
-.customer-list-label{
+.customer-list-label {
   color: #101828;
   font-size: 14px;
   font-weight: 400;
@@ -67,4 +67,22 @@ dl ul.hide {
   overflow: hidden;
   height: 1.6em;
   white-space: nowrap;
+}
+.downloadbtn {
+  background-color: transparent;
+  background: url("../../../assets/images/icons/share-02.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  text-indent: -900000px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  padding: 14px;
+  height: 20px;
+  width: 20px;
+}
+.listItemActionMenu{
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

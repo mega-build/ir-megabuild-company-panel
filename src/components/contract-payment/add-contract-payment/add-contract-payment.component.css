@@ -5,3 +5,6 @@ ul:last-child {
 ul:last-child li button {
   width: 15%;
 }
+legend{
+  display: none;
+}
