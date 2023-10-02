@@ -1,4 +1,3 @@
-
 ul li dt {
   display: none;
 }
@@ -9,22 +8,21 @@ ul li dt {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 .user-panel-header {
   background-color: #eaecf0;
   border-radius: 12px 12px 0 0;
   display: flex;
   padding: 12px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 100%;
 }
 .user-panel-header li {
   color: #667085;
   font-size: 12px;
   text-align: right;
-  flex: 1 0 25%;
-  max-width: 25%;
+  flex: 1 0 33%;
+  max-width: 33%;
 }
 ul li dl dd {
   color: #101828;
@@ -34,26 +32,27 @@ ul li dl dd {
 .user-info {
   display: flex;
   flex-wrap: nowrap;
+  border-bottom: 1px solid #eaecf0;
+  padding: 16px 0 16px 16px;
   width: 100%;
 }
 .user-info dl {
   display: flex;
   flex-wrap: nowrap;
-  flex: 1 0 75%;
-  max-width: 75%;
+  flex: 1 0 66%;
+  max-width: 66%;
   margin-right: 12px;
 }
 .user-info dl dd {
-  flex: 1 0 33%;
-  max-width: 33%;
+  width: 100%;
 }
 .user-info ul {
   display: flex;
-  flex: 1 0 25%;
-  max-width: 25%;
-  margin-right: -21px;
 }
 .user-info ul li {
   color: #101828;
   font-size: 14px;
+}
+.user-info ul {
+  flex: 0 0 33%;
 }
