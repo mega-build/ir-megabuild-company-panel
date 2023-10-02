@@ -19,7 +19,8 @@ export class RequestContractReviewComponent implements OnInit
 		isLoading:boolean = false;
 		contractId:string = "";
 		contract!: any;
-		selectedUserList!: any[];
+		//selectedUserList!: any[];
+		selectedUserCompanyAccessList!:any[];
 		contractReviewList!: any[];
 
 
@@ -115,13 +116,22 @@ export class RequestContractReviewComponent implements OnInit
 				
 			}
 
-		selectedUserChanged
+		// selectedUserChanged
+		// (
+		// 	selectedUserList:any[]
+		// ):void
+		// 	{
+		// 		console.log(selectedUserList);
+		// 		this.selectedUserList = selectedUserList;
+		// 	}
+
+		selectedUserCompanyAccessChanged
 		(
-			selectedUserList:any[]
+			selectedUserCompanyAccessList:any[]
 		):void
 			{
-				console.log(selectedUserList);
-				this.selectedUserList = selectedUserList;
+				console.log(selectedUserCompanyAccessList);
+				this.selectedUserCompanyAccessList = selectedUserCompanyAccessList;
 			}
 
 		requestReview
@@ -132,15 +142,15 @@ export class RequestContractReviewComponent implements OnInit
 
 						this.isLoading = true;
 
-						this.selectedUserList.forEach(
+						this.selectedUserCompanyAccessList.forEach(
 							async (
-								user:any
+								userCompanyAccess:any
 							)=>
 								{
 									const data = await this.contractReviewService
 										.add(
 											this.contract._id,
-											user._id
+											userCompanyAccess._id
 										)
 
 									console.log(data);

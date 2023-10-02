@@ -125,6 +125,7 @@ import { CustomerListLabelComponent } from '../components/customer/customer-list
 import { EmptyListComponent } from '../components/share/empty-list/empty-list.component';
 import { LoadingListComponent } from '../components/share/loading-list/loading-list.component';
 import { UserLabelComponent } from '../components/user/user-label/user-label.component';
+import { SelectContractReviewerUserCompanyAccessListComponent } from '../components/userCompanyAccess/select-contract-reviewer-user-company-access-list/select-contract-reviewer-user-company-access-list.component';
 
 
 
@@ -252,7 +253,8 @@ import { UserLabelComponent } from '../components/user/user-label/user-label.com
     CustomerListLabelComponent,
     EmptyListComponent,
     LoadingListComponent,
-    UserLabelComponent
+    UserLabelComponent,
+    SelectContractReviewerUserCompanyAccessListComponent
   ],
   imports: [
     BrowserModule,

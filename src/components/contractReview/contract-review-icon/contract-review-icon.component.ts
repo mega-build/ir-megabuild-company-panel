@@ -47,34 +47,49 @@ export class ContractReviewIconComponent
 		getStatusTitle
 		():string
 			{
-				const userTitle = `${this.contractReview.user.firstname} ${this.contractReview.user.lastname}`
 				if
 				(
-					!this.contractReview.isReviewed
+					this.contractReview &&
+					this.contractReview.userCompanyAccess &&
+					this.contractReview.userCompanyAccess.user &&
+					this.contractReview.userCompanyAccess.user.firstname &&
+					this.contractReview.userCompanyAccess.user.lastname
 				)
 					{
-						return `در انتظار بررسی توسط ${userTitle}`;
+						const userTitle = `${this.contractReview.userCompanyAccess.user.firstname} ${this.contractReview.userCompanyAccess.user.lastname}`
+						if
+						(
+							!this.contractReview.isReviewed
+						)
+							{
+								return `در انتظار بررسی توسط ${userTitle}`;
+							}
+						else if
+						(
+							this.contractReview.isReviewed &&
+							this.contractReview.isApproved
+						)
+							{
+								return ` تایید شده توسط ${userTitle}`;
+							}
+						else if
+						(
+							this.contractReview.isReviewed &&
+							this.contractReview.isRejected
+						)
+							{
+								return `رد شده توسط ${userTitle}`;
+							}
+						else 
+							{
+								return `نامشخص توسط${userTitle}`;
+							}
 					}
-				else if
-				(
-					this.contractReview.isReviewed &&
-					this.contractReview.isApproved
-				)
+				else
 					{
-						return ` تایید شده توسط ${userTitle}`;
+						return 'عدم انطباق اطلاعات'
 					}
-				else if
-				(
-					this.contractReview.isReviewed &&
-					this.contractReview.isRejected
-				)
-					{
-						return `رد شده توسط ${userTitle}`;
-					}
-				else 
-					{
-						return `نامشخص توسط${userTitle}`;
-					}
+				
 			}
 
 	}

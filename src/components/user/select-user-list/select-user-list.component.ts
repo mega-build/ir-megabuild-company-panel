@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ErrorHelper } from 'src/helper/errorHelper';
-import { UserService } from 'src/services/user/user.service';
+import { UserCompanyAccessService } from 'src/services/userCompanyAccess/user-company-access.service';
 
 @Component(
 	{
@@ -16,12 +16,12 @@ export class SelectUserListComponent implements OnInit
 		@Output() onSelectedUserChanged = new EventEmitter<any>();
 
 		selectedUserList: any[]=[];
-		userList!: any[];
+		userCompanyAccessList!: any[];
 		isLoading: boolean = false;
 
 		constructor
 		(
-			private userService: UserService,
+			private userCompanyAccessService: UserCompanyAccessService,
 			private errorHelper: ErrorHelper
 		){}
 
@@ -36,10 +36,11 @@ export class SelectUserListComponent implements OnInit
 
 					try 
 						{
-							const data = await this.userService.getAllReviewer()
+							const data = await this.userCompanyAccessService.getAllReviewer()
 							
-							console.log(data.userList);
-							this.userList = data.userList;
+							console.log(data.userCompanyAccessList);
+							this.userCompanyAccessList = data.userCompanyAccessList;
+							
 							this.isLoading = false;
 						}
 					catch

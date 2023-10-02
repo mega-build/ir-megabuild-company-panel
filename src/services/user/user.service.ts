@@ -16,7 +16,6 @@ export class UserService
 		private URL_USER_GETALL: string = `${environment.API_URL}/user`;
 		private URL_USER_ADD: string = `${environment.API_URL}/user`;
 		private URL_USER_SET_ACCESS: string = `${environment.API_URL}/user/setAccess`;
-		private URL_USER_GETALL_BY_FILTER: string = `${environment.API_URL}/user/filter`;
 
 		constructor
 		(
@@ -53,20 +52,7 @@ export class UserService
 				return result;
 			}
 
-		async getAllReviewer
-		(): Promise<any>
-			{
-				let headers: HttpHeaders = new HttpHeaders();
-
-				let url = `${this.URL_USER_GETALL_BY_FILTER}/contractReviewer`
-
-				const result = await this.httpInteceptor.getWithAuth_(
-					url,
-					headers
-				);
-				
-				return result;
-			}
+		
 
 		async create
 		(

@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class UserCompanyAccessService {
 
 	private URL_USER_COMPANY_ACCESS_GETALL: string = `${environment.API_URL}/userCompanyAccess`;
+	private URL_USER_COMPANY_ACCESS_GETALL_BY_FILTER: string = `${environment.API_URL}/userCompanyAccess/filter`;
 
 	constructor
 	(
@@ -27,5 +28,20 @@ export class UserCompanyAccessService {
 
 			return result;
 
+		}
+
+	async getAllReviewer
+	(): Promise<any>
+		{
+			let headers: HttpHeaders = new HttpHeaders();
+
+			let url = `${this.URL_USER_COMPANY_ACCESS_GETALL_BY_FILTER}/contractReviewer`
+
+			const result = await this.httpInteceptor.getWithAuth_(
+				url,
+				headers
+			);
+			
+			return result;
 		}
 }

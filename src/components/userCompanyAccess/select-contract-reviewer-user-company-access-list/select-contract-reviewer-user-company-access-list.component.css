@@ -1,0 +1,14 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  ul li {
+    display: flex;
+    gap: 12px;
+  }
+  ul li label {
+    color: #101828;
+    font-size: 16px;
+  }
+  

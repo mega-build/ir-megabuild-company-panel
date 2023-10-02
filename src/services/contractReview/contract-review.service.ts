@@ -27,7 +27,7 @@ export class ContractReviewService
 		async add
 		(
 			contractId: string,
-			userId: string
+			userCompanyAccessId: string
 		):Promise<any>
 			{
 				{
@@ -35,7 +35,7 @@ export class ContractReviewService
 
 					let body: any = {
 						contractId: contractId,
-						userId: userId
+						userCompanyAccessId: userCompanyAccessId
 					};
 
 					const result = await  this.httpInteceptor.postWithAuth_(

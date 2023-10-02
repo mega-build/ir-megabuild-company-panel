@@ -30,9 +30,13 @@
     <fieldset
         [disabled]="isLoading"
     >
-        <select-user-list
+        <!-- <select-user-list
             (onSelectedUserChanged)= "selectedUserChanged($event)"
-        ></select-user-list>
+        ></select-user-list> -->
+
+        <select-contract-reviewer-user-company-access-list
+            (onSelectedUserCompanyAccessChanged)="selectedUserCompanyAccessChanged($event)"
+        ></select-contract-reviewer-user-company-access-list>
 
         <loading
             *ngIf="isLoading"

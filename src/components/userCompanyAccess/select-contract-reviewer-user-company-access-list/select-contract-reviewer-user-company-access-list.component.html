@@ -1,0 +1,33 @@
+<loading
+    *ngIf="isLoading"
+></loading>
+
+<ul
+    *ngIf="!isLoading && userCompanyAccessList && userCompanyAccessList.length > 0"
+>
+    <li
+        *ngFor = 'let userCompanyAccess of userCompanyAccessList'
+    >
+    
+        <input
+            #refEl
+            type="checkbox"
+            id="chkUser{{userCompanyAccess._id}}"
+            name="chkUser{{userCompanyAccess._id}}"
+            [value]="userCompanyAccess._id"
+            (change)="selectedUserChanged(refEl,userCompanyAccess)"
+        >
+        <!-- <label
+            for= "chkUser{{user._id}}"
+        >
+            {{user.firstname}} {{user.lastname}}
+        </label> -->
+        <user-label
+            [user]="userCompanyAccess.user"
+        ></user-label>
+    </li>
+</ul>
+
+<empty-list
+    *ngIf="!isLoading && userCompanyAccessList && userCompanyAccessList.length == 0"
+></empty-list>

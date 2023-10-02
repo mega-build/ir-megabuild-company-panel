@@ -96,6 +96,10 @@
                 ></contract-review-icon>
             </li>
         </ul>
+        <u
+            *ngIf="contract && contract.contractReviews && contract.contractReviews.length == 0"
+            title="درخواستی ثبت نشده است."
+        ></u>
     </dd>
     
 </dl>
