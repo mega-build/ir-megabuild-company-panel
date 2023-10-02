@@ -2,9 +2,14 @@
     *ngIf="isLoading"
 ></loading>
 
+<user-label
+    *ngIf="userCompanyAccess && userCompanyAccess.user"
+    [user]="userCompanyAccess.user"
+></user-label>
+
 <form
     class="container"
-    *ngIf="!isLoading && user"
+    *ngIf="userCompanyAccess"
 >
     <legend class="contract-legend">
         سطح دسترسی کاربر
@@ -23,7 +28,7 @@
                     type="checkbox"
                     id = "chkAddContractTemplate"
                     name = "chkAddContractTemplate"
-                    [(ngModel)]= "user.isAddContractTemplate"
+                    [(ngModel)]= "userCompanyAccess.isAddContractTemplate"
                 >
             </li>
 
@@ -37,7 +42,7 @@
                     type="checkbox"
                     id = "chkAddProject"
                     name = "chkAddProject"
-                    [(ngModel)]= "user.isAddProject"
+                    [(ngModel)]= "userCompanyAccess.isAddProject"
                 >
             </li>
 
@@ -51,7 +56,7 @@
                     type="checkbox"
                     id = "chkAddContract"
                     name = "chkAddContract"
-                    [(ngModel)]= "user.isAddContract"
+                    [(ngModel)]= "userCompanyAccess.isAddContract"
                 >
             </li>
             
@@ -95,7 +100,7 @@
                     type="checkbox"
                     id = "chkViewContractList"
                     name = "chkViewContractList"
-                    [(ngModel)]= "user.isContractManager"
+                    [(ngModel)]= "userCompanyAccess.isContractManager"
                 >
                 
             </li>
@@ -110,7 +115,7 @@
                     type="checkbox"
                     id = "chkViewContractPaymentList"
                     name = "chkViewContractPaymentList"
-                    [(ngModel)]= "user.isContractPaymentManager"
+                    [(ngModel)]= "userCompanyAccess.isContractPaymentManager"
                 >
                 
             </li>
@@ -125,7 +130,7 @@
                     type="checkbox"
                     id = "chkJustReviewContract"
                     name = "chkJustReviewContract"
-                    [(ngModel)]= "user.isContractReviwer"
+                    [(ngModel)]= "userCompanyAccess.isContractReviwer"
                 >
                 
             </li>
@@ -140,7 +145,7 @@
                     type="checkbox"
                     id = "chkIsAvctive"
                     name = "chkIsAvctive"
-                    [(ngModel)]= "user.isActive"
+                    [(ngModel)]= "userCompanyAccess.isActive"
                 >
                 
             </li>

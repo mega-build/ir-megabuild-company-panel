@@ -17,7 +17,7 @@
             *ngFor="let contractReview of contractReviewList"
         >
             <user-label
-                [user]="contractReview.user"
+                [user]="contractReview.userCompanyAccess.user"
             ></user-label>
             <button
                 (click)="removeContractReview(contractReview)"

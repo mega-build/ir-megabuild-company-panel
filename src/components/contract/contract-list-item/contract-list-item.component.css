@@ -49,7 +49,7 @@ dl ul.hide {
 }
 .contractReviewsInfo:hover + .hide {
   display: flex;
-  background-color: #101828;
+  background-color: #b5c6e9;
   border-radius: 8px;
   padding: 12px;
   flex-direction: column;

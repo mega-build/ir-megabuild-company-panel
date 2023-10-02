@@ -1,0 +1,66 @@
+<section class="container">
+    <a
+        [routerLink]="['/','userManagement','add']"
+        class="add-item"
+    >
+        افزودن کاربر
+    </a>
+
+    <loading-list
+        *ngIf="isLoading"
+    ></loading-list>
+
+    <ul
+        *ngIf="!isLoading && userCompanyAccessList && userCompanyAccessList.length > 0"
+        class="user-panel"
+    >
+        <ul class="user-panel-header">
+            <li>
+                نام و نام خانوادگی
+            </li>
+            <li>
+                نام کاربری
+            </li>
+            <li>فعال / غیرفعال</li>
+        </ul>
+        <li
+            *ngFor = 'let userCompanyAccess of userCompanyAccessList'
+            class="user-info"
+        >
+            <dl>
+                <dt>
+                    کاربر
+                </dt>
+                <dd>
+                    <user-label
+                        [user]="userCompanyAccess.user"
+                    ></user-label>
+                </dd>
+
+
+                <dt>
+                    نام کاربری
+                </dt>
+                <dd>
+                    {{userCompanyAccess.user.username}}
+                </dd>
+            </dl>
+
+            <ul>
+
+                <li>
+                    <a
+                        [routerLink]="['/','userCompanyAccessManagement','detail','userCompanyAccessId',userCompanyAccess._id,'setAccess']"
+                    >
+                        دسترسی
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <empty-list
+        *ngIf="!isLoading && userCompanyAccessList && userCompanyAccessList.length == 0"
+    ></empty-list>
+
+</section>

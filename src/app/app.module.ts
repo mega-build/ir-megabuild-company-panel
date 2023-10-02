@@ -36,7 +36,6 @@ import { ProjectItemDetailComponent } from '../components/projectItem/project-it
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserPanelComponent } from '../components/user/user-panel/user-panel.component';
 import { AddUserComponent } from '../components/user/add-user/add-user.component';
-import { SetUserAccessComponent } from '../components/user/set-user-access/set-user-access.component';
 import { PanelNavigationComponent } from '../components/share/panel-navigation/panel-navigation.component';
 import { ProjectManagementComponent } from './project-management/project-management.component';
 import { ProjectPanelComponent } from '../components/project/project-panel/project-panel.component';
@@ -126,6 +125,8 @@ import { EmptyListComponent } from '../components/share/empty-list/empty-list.co
 import { LoadingListComponent } from '../components/share/loading-list/loading-list.component';
 import { UserLabelComponent } from '../components/user/user-label/user-label.component';
 import { SelectContractReviewerUserCompanyAccessListComponent } from '../components/userCompanyAccess/select-contract-reviewer-user-company-access-list/select-contract-reviewer-user-company-access-list.component';
+import { SetUserCompanyAccessPermissionComponent } from '../components/userCompanyAccess/set-user-company-access-permission/set-user-company-access-permission.component';
+import { UserCompanyAccessPanelComponent } from '../components/userCompanyAccess/user-company-access-panel/user-company-access-panel.component';
 
 
 
@@ -165,7 +166,6 @@ import { SelectContractReviewerUserCompanyAccessListComponent } from '../compone
     UserManagementComponent,
     UserPanelComponent,
     AddUserComponent,
-    SetUserAccessComponent,
     PanelNavigationComponent,
     ProjectManagementComponent,
     ProjectPanelComponent,
@@ -254,7 +254,9 @@ import { SelectContractReviewerUserCompanyAccessListComponent } from '../compone
     EmptyListComponent,
     LoadingListComponent,
     UserLabelComponent,
-    SelectContractReviewerUserCompanyAccessListComponent
+    SelectContractReviewerUserCompanyAccessListComponent,
+    SetUserCompanyAccessPermissionComponent,
+    UserCompanyAccessPanelComponent
   ],
   imports: [
     BrowserModule,

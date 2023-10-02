@@ -2,5 +2,9 @@
     [title]="getStatusTitle()"
     [ngClass]="getStatusClass()"
 >
-{{getStatusTitle()}}
+    <user-label
+        [user]="contractReview.userCompanyAccess.user"
+    ></user-label>
+    :
+    {{getStatusTitle()}}
 </u>

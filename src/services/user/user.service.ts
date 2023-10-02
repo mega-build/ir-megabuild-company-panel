@@ -15,7 +15,6 @@ export class UserService
 		private URL_USER_GET: string = `${environment.API_URL}/user`;
 		private URL_USER_GETALL: string = `${environment.API_URL}/user`;
 		private URL_USER_ADD: string = `${environment.API_URL}/user`;
-		private URL_USER_SET_ACCESS: string = `${environment.API_URL}/user/setAccess`;
 
 		constructor
 		(
@@ -80,39 +79,5 @@ export class UserService
 				return result;
 			}
 
-		async setAccess
-		(
-			userId:string,
-			isAddContractTemplate:boolean,
-			isAddProject:boolean,
-            isAddContract:boolean,
-			isUserManager:boolean,
-			isCustomerManager:boolean,
-			isContractManager:boolean,
-			isContractPaymentManager:boolean,
-			isContractReviwer:boolean,
-			isActive:boolean
-		):Promise<any>
-			{
-				let headers: HttpHeaders = new HttpHeaders();
-				let body: any = {
-					userId:userId,
-					isAddContractTemplate: isAddContractTemplate,
-					isAddProject: isAddProject,
-					isAddContract: isAddContract,
-					isUserManager: isUserManager,
-					isCustomerManager: isCustomerManager,
-					isContractManager: isContractManager,
-					isContractPaymentManager: isContractPaymentManager,
-					isContractReviwer: isContractReviwer,
-					isActive: isActive
-				};
-				const result = await this.httpInteceptor.postWithAuth_(
-					this.URL_USER_SET_ACCESS,
-					headers,
-					body
-				);
-
-				return result;
-			}
+		
 	}

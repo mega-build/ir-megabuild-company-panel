@@ -16,6 +16,7 @@ export class AddUserComponent
 		user:any = {};
 		isLoading:boolean = false;
 		validationResult!: any;
+		userCompanyAccessId!:string;
 
 		constructor
 		(
@@ -103,11 +104,12 @@ export class AddUserComponent
 								);
 	
 							console.log(data.userId);
-							this.user._id = data.userId
+							//this.user._id = data.userId
+							this.userCompanyAccessId = data.userCompanyAccessId
 
 							this.isLoading = false;
 
-							this.navigate_userList();
+							this.navigate_setPermission();
 							
 						}
 					catch
@@ -127,4 +129,13 @@ export class AddUserComponent
 				const nvaigationRouteList = ['/','userManagement','detail','userId',this.user._id,'setAccess'];
 				this.router.navigate(nvaigationRouteList);
 			}
+
+		navigate_setPermission
+		():void
+			{
+				const nvaigationRouteList = ['/','userCompanyAccessManagement','detail','userCompanyAccessId',this.userCompanyAccessId,'setAccess'];
+				this.router.navigate(nvaigationRouteList);
+			}
+
+
 	}

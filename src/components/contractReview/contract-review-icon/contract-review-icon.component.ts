@@ -56,13 +56,14 @@ export class ContractReviewIconComponent
 					this.contractReview.userCompanyAccess.user.lastname
 				)
 					{
-						const userTitle = `${this.contractReview.userCompanyAccess.user.firstname} ${this.contractReview.userCompanyAccess.user.lastname}`
+						const userTitle = '';//`${this.contractReview.userCompanyAccess.user.firstname} ${this.contractReview.userCompanyAccess.user.lastname}`
 						if
 						(
 							!this.contractReview.isReviewed
 						)
 							{
-								return `در انتظار بررسی توسط ${userTitle}`;
+								//return `در انتظار بررسی توسط ${userTitle}`;
+								return `در انتظار بررسی`;
 							}
 						else if
 						(
@@ -70,7 +71,8 @@ export class ContractReviewIconComponent
 							this.contractReview.isApproved
 						)
 							{
-								return ` تایید شده توسط ${userTitle}`;
+								//return ` تایید شده توسط ${userTitle}`;
+								return `تایید شده`;
 							}
 						else if
 						(
@@ -78,11 +80,13 @@ export class ContractReviewIconComponent
 							this.contractReview.isRejected
 						)
 							{
-								return `رد شده توسط ${userTitle}`;
+								//return `رد شده توسط ${userTitle}`;
+								return `رد شده`;
 							}
 						else 
 							{
-								return `نامشخص توسط${userTitle}`;
+								//return `نامشخص توسط${userTitle}`;
+								return `نامشخص`;
 							}
 					}
 				else

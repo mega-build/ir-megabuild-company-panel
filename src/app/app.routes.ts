@@ -8,7 +8,6 @@ import { ContractCustomerListComponent } from '../components/contract/contract-c
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContractProjectItemComponent } from 'src/components/contract/contract-project-item/contract-project-item.component';
 import { UserManagementComponent } from './user-management/user-management.component';
-import { SetUserAccessComponent } from 'src/components/user/set-user-access/set-user-access.component';
 import { AddUserComponent } from 'src/components/user/add-user/add-user.component';
 import { ProjectManagementComponent } from './project-management/project-management.component';
 import { AddProjectComponent } from 'src/components/project/add-project/add-project.component';
@@ -34,6 +33,8 @@ import { ContractTemplatePanelComponent } from 'src/components/contractTemplate/
 import { ReviewContractPaymentComponent } from 'src/components/contract-payment/review-contract-payment/review-contract-payment.component';
 import { NotSettledContractPaymentPanelComponent } from 'src/components/contract-payment/not-settled-contract-payment-panel/not-settled-contract-payment-panel.component';
 import { SelectCompanyComponent } from './select-company/select-company.component';
+import { SetUserCompanyAccessPermissionComponent } from 'src/components/userCompanyAccess/set-user-company-access-permission/set-user-company-access-permission.component';
+import { UserCompanyAccessPanelComponent } from 'src/components/userCompanyAccess/user-company-access-panel/user-company-access-panel.component';
 
 export const routes: Routes = [
     {
@@ -201,14 +202,26 @@ export const routes: Routes = [
                 component: AddUserComponent
             },
             {
-                path: 'detail/userId/:userId',
-                children:[
-                    {
-                        path: 'setAccess',
-                        component: SetUserAccessComponent
-                    }
-                ]
+                path: 'setAccess/userCompanyAccessId/:userCompanyAccessId',
+                component: SetUserCompanyAccessPermissionComponent
             },
+            {
+                path: 'detail/userId/:userId',
+                children:[]
+            },
+        ]
+    },
+    {
+        path:'userCompanyAccessManagement',
+        children:[
+            {
+                path: 'list',
+                component: UserCompanyAccessPanelComponent
+            },
+            {
+                path: 'detail/userCompanyAccessId/:userCompanyAccessId/setAccess',
+                component: SetUserCompanyAccessPermissionComponent
+            }
         ]
     },
     
