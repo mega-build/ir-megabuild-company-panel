@@ -50,3 +50,6 @@ section:last-child b {
 label{
   display: none;
 }
+customer-label{
+  cursor: pointer;
+}

@@ -1,0 +1,7 @@
+.action-list li button,
+.action-list li a{
+    width: 30%;
+}
+.action-list li a{
+    float: left;
+}

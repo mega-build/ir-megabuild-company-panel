@@ -1,7 +1,7 @@
 <form
     class="container"
 >
-    <legend>
+    <legend class="contract-legend">
         افزودن قالب قرارداد 
     </legend>
 
@@ -60,7 +60,7 @@
             [validationResult]="validationResult"
         ></validation-result>
         
-        <ul>
+        <ul class="action-list">
             <li>
                 <button
                     type="button"
@@ -69,10 +69,11 @@
                 >
                     ثبت
                 </button>
-
+            </li>
+            <li>
                 <a
-                    [routerLink]="['../list']"
-                    class="secondary"
+                [routerLink]="['../list']"
+                class="secondary"
                 >
                     انصراف
                 </a>

@@ -3,6 +3,8 @@ form{
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 40px;
 }
 form legend{
   flex: 0 0 68%;
@@ -19,4 +21,14 @@ form a{
   gap: 8px;
   margin-bottom: 42px;
   margin-top: 10px;
+}
+
+form::after{
+  content: "";
+  width: 100%;
+  height: 16px;
+  background-color: #F2F4F7;
+  position: absolute;
+  bottom: 0;
+  padding: 0 40px;
 }
