@@ -1,0 +1,19 @@
+.user-access-form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.user-access-form li{
+    display: flex;
+     justify-content: center;
+    flex-direction: row-reverse;
+    gap: 6px;
+    flex: 0 0 16%;
+}
+.action-list a,
+.action-list button{
+    width: 35%;
+}
+.action-list a{
+    float: left;
+}
