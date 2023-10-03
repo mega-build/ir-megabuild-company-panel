@@ -1,5 +1,6 @@
 <u
     *ngIf="company"
-    [ngClass]="'cc_'+company._id"
+    class="company_logo"
     [id] = "'cc_'+company._id"
+    [style.background-image]="'url(' + getLogoUrl() + ')'"
 ></u>

@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: IRANSansWeb;
-  src: url("assets/fonts/IRANSansWeb.woff2");
+  src: url("https://assets.megabuild.ir/fonts/IRANSansWeb.woff");
 }
 body {
   font-family: IRANSansWeb;
@@ -17,30 +17,30 @@ body {
   font-family: IRANSansWeb;
   font-style: normal;
   font-weight: bold;
-  src: url("assets/fonts/IRANSansWeb_Bold.woff2");
+  src: url("https://assets.megabuild.ir/fonts/IRANSansWeb_Bold.woff2");
 }
 @font-face {
   font-family: IRANSansWeb;
   font-style: normal;
   font-weight: 500;
-  src: url("assets/fonts/IRANSansWeb.woff2");
+  src: url("https://assets.megabuild.ir/fonts/IRANSansWeb.woff2");
 }
 @font-face {
   font-family: IRANSansWeb;
   font-style: normal;
   font-weight: 300;
-  src: url("assets/fonts/IRANSansWeb.woff2");
+  src: url("https://assets.megabuild.ir/fonts/IRANSansWeb.woff2");
 }
 @font-face {
   font-family: IRANSansWeb;
   font-style: normal;
   font-weight: 200;
-  src: url("assets/fonts/IRANSansWeb.woff2");
+  src: url("https://assets.megabuild.ir/fonts/IRANSansWeb.woff2");
 }
 
 @font-face {
   font-family: IRANSansWeb;
-  src: url("assets/fonts/IRANSansWebNum.woff2");
+  src: url("https://assets.megabuild.ir/fonts/IRANSansWebNum.woff2");
 }
 .container {
   width: 100%;

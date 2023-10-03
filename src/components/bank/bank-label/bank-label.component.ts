@@ -10,9 +10,9 @@ import { Component, Input } from '@angular/core';
 
 export class BankLabelComponent
 	{
-		@Input() bank: any = {};
+		@Input() bank!:any;
 
-		getLogUrl
+		getLogoUrl
 		():string
 			{
 				return `https://assets.megabuild.ir/bank/logo/${this.bank._id.toString()}.svg`;
