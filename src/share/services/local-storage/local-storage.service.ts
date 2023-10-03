@@ -11,6 +11,7 @@ export class LocalStorageService
 		AUTH_TOKEN_KEY : string = 'AUTH_TOKEN';
 		FIRSTNAME_KEY : string = 'FIRSTNAME';
 		LASTNAME_KEY : string = 'LASTNAME';
+		ID_KEY: string = 'ID';
 		COMPANY_KEY : string = 'COMPANY';
 		USER_COMPANY_ACCESS_KEY: string = 'USER_COMPANY_ACCESS';
 
@@ -58,6 +59,21 @@ export class LocalStorageService
 		(): string
 			{
 				let value: string = localStorage.getItem(this.LASTNAME_KEY) || "";
+				return value;
+			}
+
+		setId
+		(
+			_id: string
+		):void
+			{
+				localStorage.setItem(this.ID_KEY, _id);
+			}
+	
+		getId
+		(): string
+			{
+				let value: string = localStorage.getItem(this.ID_KEY) || "";
 				return value;
 			}
 

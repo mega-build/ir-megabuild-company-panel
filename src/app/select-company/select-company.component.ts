@@ -21,16 +21,19 @@ export class SelectCompanyComponent
 			{
 				let firstname = this.localStorageService.getFirstname();
 				let lastname = this.localStorageService.getLastname();
+				let _id = this.localStorageService.getId();
 
 				if
 				(
 					firstname &&
-					lastname
+					lastname &&
+					_id
 				)
 					{
 						this.user = {
 							firstname: firstname,
-							lastname: lastname
+							lastname: lastname,
+							_id: _id
 						}
 					}
 				else

@@ -11,9 +11,10 @@ import { Component, Input } from '@angular/core';
 export class UserLabelComponent
 	{
 		@Input() user!:any;
+
 		getPhotoUrl
 		():string
 			{
-				return "https://assets.megabuild.ir/user/6484a5445b3d84cfe46a9b30.png";
+				return `https://assets.megabuild.ir/user/${this.user._id.toString()}.png`;
 			}
 	}

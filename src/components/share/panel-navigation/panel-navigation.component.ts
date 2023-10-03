@@ -22,14 +22,17 @@ export class PanelNavigationComponent
 		){
 			let firstname = this.localStorageService.getFirstname();
 			let lastname = this.localStorageService.getLastname();
+			let _id = this.localStorageService.getId();
 
 			if
 			(
 				firstname &&
-				lastname
+				lastname &&
+				_id
 			)
 				{
 					this.user = {
+						_id: _id,
 						firstname: firstname,
 						lastname: lastname
 					}
