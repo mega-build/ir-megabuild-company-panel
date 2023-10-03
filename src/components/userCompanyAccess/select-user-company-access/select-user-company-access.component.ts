@@ -47,7 +47,6 @@ export class SelectUserCompanyAccessComponent implements OnInit
 
 						const data = await this.userCompanyAccessService.getAll();
 
-						console.log(data.userCompanyAccessList);
 						this.userCompanyAccessList = data.userCompanyAccessList;
 
 						this.isLoading = false;
@@ -76,10 +75,10 @@ export class SelectUserCompanyAccessComponent implements OnInit
 			this.selectedUserCompanyAccess = userCompanyAccess;
 			this.localStorageService.setUserCompanyAccess(this.selectedUserCompanyAccess);
 			
-			this.navigateToHome();
+			this.navigate_home();
 		}
 
-	navigateToHome
+	navigate_home
 	():void
 		{
 			const nvaigationRouteList = ['home'];

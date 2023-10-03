@@ -20,7 +20,10 @@
                     ></user-label>
                 </li>
 
-                <li class="border">
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isUserManager"
+                    class="border"
+                >
                     
                     <a 
                         [routerLink]="['/','userManagement','list']"
@@ -29,16 +32,21 @@
                     </a>
                 </li>
 
-                <li >
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isUserManager"
+                >
                     
                     <a 
                         [routerLink]="['/','userCompanyAccessManagement','list']"
                     >
-                        مدیریت کاربران 2
+                        سطح دسترسی
                     </a>
                 </li>
 
-                <li class="border">
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isAddContractTemplate"
+                    class="border"
+                >
                     
                     <a 
                         [routerLink]="['/','contractTemplateManagement','list']"
@@ -48,7 +56,10 @@
                 </li>
 
     
-                <li class="border">
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isAddProject"
+                    class="border"
+                >
                     
                     <a 
                         [routerLink]="['/','projectManagement','list']"
@@ -58,7 +69,9 @@
                 </li>
 
 
-                <li>
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isAddContract"
+                >
                     
                     <a 
                         [routerLink]="['/','contractManagement','addContract']"
@@ -68,7 +81,9 @@
                 </li>
     
     
-                <li>
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isAddContract"
+                >
                     
                     <a 
                         [routerLink]="['/','contractManagement','list','draft']"
@@ -77,17 +92,21 @@
                     </a>
                 </li>
 
-                <li>
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isContractManager"
+                >
                     
                     <a 
-                        href= "/contractManagement/list/filter"
+                        [routerLink]="['/','contractManagement','list','filter']"
                     >
                         فیلتر قراردادها
                     </a>
                 </li>
 
 
-                <li>
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isContractManager"
+                >
                     <a 
                         [routerLink]="['/','contractManagement','list','requested']"
                     >
@@ -95,7 +114,9 @@
                     </a>
                 </li>
 
-                <li>
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isContractReviewer"
+                >
                     <a 
                         href= "/contractReviewManagement/list/pending"
                     >
@@ -103,7 +124,10 @@
                     </a>
                 </li>
 
-                <li class="border">
+                <li
+                    *ngIf="userCompanyAccess && (userCompanyAccess.isContractManager || userCompanyAccess.isAddContract)"
+                    class="border"
+                >
                     <a 
                         [routerLink]="['/','contractManagement','list','accepted']"
                     >
@@ -112,7 +136,9 @@
                 </li>
 
     
-                <li>
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isContractPaymentManager"
+                >
                     <a 
                         [routerLink]="['/','contractPaymentManagement','list','filter']"
                     >
@@ -120,7 +146,9 @@
                     </a>
                 </li>
 
-                <li>
+                <li
+                    *ngIf="userCompanyAccess && userCompanyAccess.isContractPaymentManager"
+                >
                     <a 
                         [routerLink]="['/','contractPaymentManagement','list','notSettled']"
                     >

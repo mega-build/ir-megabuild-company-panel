@@ -77,6 +77,40 @@ export class LocalStorageService
 				return value;
 			}
 
+		getUser
+		():any
+			{
+				let _id = this.getId();
+				let firstname = this.getFirstname();
+				let lastname = this.getLastname();
+
+				if
+				(
+					_id && 
+					_id != "" &&
+					firstname && 
+					firstname != "" &&
+					lastname && 
+					lastname != "" 
+
+				)
+					{
+						const user = {
+							_id: _id,
+							firstname: firstname,
+							lastname: lastname
+						}
+		
+						return user;
+					}
+				else
+					{
+						return undefined;
+					}
+
+				
+			}
+
 		setUserCompanyAccess
 		(
 			userCompanyAccess: any

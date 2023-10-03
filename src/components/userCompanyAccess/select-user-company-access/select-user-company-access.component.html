@@ -7,7 +7,7 @@
 </h2>
 
 <ul
-    *ngIf="!isLoading && userCompanyAccessList.length > 0"
+    *ngIf="!isLoading && userCompanyAccessList && userCompanyAccessList.length > 0"
 >
     <li
         *ngFor = 'let userCompanyAccess of userCompanyAccessList'
@@ -34,5 +34,5 @@
 </ul>
 
 <empty-list
-    *ngIf="!isLoading && userCompanyAccessList.length == 0"
+    *ngIf="!isLoading && userCompanyAccessList && userCompanyAccessList.length == 0"
 ></empty-list>

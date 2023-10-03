@@ -14,32 +14,35 @@ export class PanelNavigationComponent
 	{
 		user:any;
 		isLoading: boolean = false;
+		userCompanyAccess!:any;
 
 		constructor
 		(
 			private localStorageService: LocalStorageService,
 			private router: Router
 		){
-			let firstname = this.localStorageService.getFirstname();
-			let lastname = this.localStorageService.getLastname();
-			let _id = this.localStorageService.getId();
-
+			
+			let userFormLogacStorage = this.localStorageService.getUser();
 			if
 			(
-				firstname &&
-				lastname &&
-				_id
+				userFormLogacStorage
 			)
 				{
-					this.user = {
-						_id: _id,
-						firstname: firstname,
-						lastname: lastname
-					}
+					this.user = userFormLogacStorage;
 				}
 			else
 				{
 					this.navigate_login()
+				}
+
+			let userCompanyAccessFromLocalStorage = this.localStorageService.getUserCompanyAccess();
+
+			if
+			(
+				userCompanyAccessFromLocalStorage
+			)
+				{
+					this.userCompanyAccess = userCompanyAccessFromLocalStorage;
 				}
 		}
 
@@ -60,9 +63,10 @@ export class PanelNavigationComponent
 						this.isLoading = true;
 
 						this.localStorageService.logout();
-						this.router.navigate(['/']);
-
+						
 						this.isLoading = false;
+
+						this.navigate_login()
 					}
 				catch
 				(
@@ -88,6 +92,6 @@ export class PanelNavigationComponent
 		navigate_login
 		():void
 			{
-				this.router.navigate(['login']);
+				this.router.navigate(['/']);
 			}
 	}
