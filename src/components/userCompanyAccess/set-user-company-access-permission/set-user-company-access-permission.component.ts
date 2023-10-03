@@ -100,7 +100,7 @@ export class SetUserCompanyAccessPermissionComponent implements OnInit
 							this.userCompanyAccess.isCustomerManager,
 							this.userCompanyAccess.isContractManager,
 							this.userCompanyAccess.isContractPaymentManager,
-							this.userCompanyAccess.isContractReviwer,
+							this.userCompanyAccess.isContractReviewer,
 							this.userCompanyAccess.isActive
 						);
 					
@@ -123,7 +123,7 @@ export class SetUserCompanyAccessPermissionComponent implements OnInit
 	navigate_userList
 	():void
 		{
-			const nvaigationRouteList = ['/','userManagement','list'];
+			const nvaigationRouteList = ['/','userCompanyAccessManagement','list'];
 			this.router.navigate(nvaigationRouteList);
 		}
 

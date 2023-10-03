@@ -12,10 +12,10 @@
     *ngIf="userCompanyAccess"
 >
     <legend class="contract-legend">
-        سطح دسترسی کاربر
+        تعیین سطح دسترسی کاربر
     </legend>
     <fieldset
-        [disabled]="isLoading"
+        [disabled]="isLoading || !userCompanyAccess"
     >
         <ul class="user-access-form">
             <li>
@@ -130,7 +130,7 @@
                     type="checkbox"
                     id = "chkJustReviewContract"
                     name = "chkJustReviewContract"
-                    [(ngModel)]= "userCompanyAccess.isContractReviwer"
+                    [(ngModel)]= "userCompanyAccess.isContractReviewer"
                 >
                 
             </li>
@@ -166,7 +166,7 @@
             </li>
             <li>
                 <a 
-                    [routerLink]="['/','userManagement','list']"
+                    [routerLink]="['/','userCompanyAccessManagement','list']"
                     class="secondary">
                     انصراف
                 </a>

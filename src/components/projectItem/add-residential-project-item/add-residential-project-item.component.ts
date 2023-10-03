@@ -55,7 +55,7 @@ export class AddResidentialProjectItemComponent
 			
 				if(!residentialProjectItem.unitPrice){
 					validationResult.hasError = true;
-					validationResult.messageList.push("بخش واحد را وارد کنید.");
+					validationResult.messageList.push("بخش مبلغ واحد را وارد کنید.");
 				}
 			
 			

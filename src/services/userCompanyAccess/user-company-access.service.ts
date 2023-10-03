@@ -87,7 +87,7 @@ export class UserCompanyAccessService {
 		isCustomerManager:boolean,
 		isContractManager:boolean,
 		isContractPaymentManager:boolean,
-		isContractReviwer:boolean,
+		isContractReviewer:boolean,
 		isActive:boolean
 	):Promise<any>
 		{
@@ -101,7 +101,7 @@ export class UserCompanyAccessService {
 				isCustomerManager: isCustomerManager,
 				isContractManager: isContractManager,
 				isContractPaymentManager: isContractPaymentManager,
-				isContractReviwer: isContractReviwer,
+				isContractReviewer: isContractReviewer,
 				isActive: isActive
 			};
 			const result = await this.httpInteceptor.postWithAuth_(
