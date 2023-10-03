@@ -11,4 +11,10 @@ import { Component, Input } from '@angular/core';
 export class CompanyLogoComponent
 	{
 		@Input() company!:any;
+
+		getLogoUrl
+		():string
+			{
+				return `https://assets.megabuild.ir/company/logo/${this.company._id.toString()}.svg`;
+			}
 	}

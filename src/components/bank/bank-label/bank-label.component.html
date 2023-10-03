@@ -1,21 +1,22 @@
 <dl
-        
-    >
-        <dt>
-            لوگو بانک
-        </dt>
+    *ngIf="bank" 
+>
+    <dt>
+        لوگو بانک
+    </dt>
 
-        <dd
-            [ngClass]="'bank_'+ bank.title"
-            class="bank-logo"
-        >
-        </dd>
-        
-        <dt>
-            عنوان
-        </dt>
-        <dd class="bank-title">
-            {{bank.title_fa}}
-        </dd>
+    <dd
+        [ngClass]="'bank_'+ bank.title"
+        class="bank-logo"
+        [style.background-image]="'url(' + getLogoUrl() + ')'"
+    >
+    </dd>
+    
+    <dt>
+        عنوان
+    </dt>
+    <dd class="bank-title">
+        {{bank.title_fa}}
+    </dd>
 
 </dl>

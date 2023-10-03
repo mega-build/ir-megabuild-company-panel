@@ -15,4 +15,5 @@ dl .bank-title {
 .bank-logo{
   width: 40px;
   height: 40px;
+  background-size: contain;
 }

@@ -1,6 +1,5 @@
 
-.cc_649006c87e7601d06532983d {
-  background: url("https://assets.megabuild.ir/company/logo/649006c87e7601d06532983d.svg");
+.company_logo {
   display: block;
   background-color: #fff;
   background-position: center;
@@ -8,16 +7,4 @@
   width: 100%;
   height: 100%;
   background-size: contain;
-}
-
-.cc_649007037e7601d06532983e {
-  background: url("https://assets.megabuild.ir/company/logo/649007037e7601d06532983e.svg");
-  display: block;
-  background-color: #fff;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: contain;
-
 }

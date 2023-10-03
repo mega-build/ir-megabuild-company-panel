@@ -19,22 +19,17 @@ export class SelectCompanyComponent
 			private router:Router
 		)
 			{
-				let firstname = this.localStorageService.getFirstname();
-				let lastname = this.localStorageService.getLastname();
-
+				let userFormLogacStorage = this.localStorageService.getUser();
 				if
 				(
-					firstname &&
-					lastname
+					userFormLogacStorage
 				)
 					{
-						this.user = {
-							firstname: firstname,
-							lastname: lastname
-						}
+						this.user = userFormLogacStorage;
 					}
 				else
 					{
+						this.localStorageService.logout();
 						this.navigate_login()
 					}
 			}
@@ -42,6 +37,6 @@ export class SelectCompanyComponent
 		navigate_login
 		():void
 			{
-				this.router.navigate(['login']);
+				this.router.navigate(['/']);
 			}
 	}

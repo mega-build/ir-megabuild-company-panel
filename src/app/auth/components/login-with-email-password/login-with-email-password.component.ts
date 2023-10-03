@@ -85,10 +85,14 @@ export class LoginWithEmailPasswordComponent
 								
 								let authToken: string = data.token;
 								let firstname: string = data.firstname;
-								var lastname: string = data.lastname;
+								let lastname: string = data.lastname;
+								let _id: string = data._id;
+
+								
 								this.localStorageService.setAutToken(authToken);
 								this.localStorageService.setFirstname(firstname);
 								this.localStorageService.setLastname(lastname);
+								this.localStorageService.setId(_id);
 								this.navigate_company();
 							}
 						catch

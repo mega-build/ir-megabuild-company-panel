@@ -1,9 +1,17 @@
-<dl>
+<dl
+    *ngIf="user"
+>
     <dt>
         تصویر
     </dt>
     <dd>
-        <img src="https://assets.megabuild.ir/user/6484a5445b3d84cfe46a9b30.png" alt="">
+        <!-- [ngStyle]="{'background-image': 'url(' + getPhotoUrl() + ')'}" -->
+        <!-- <div
+            
+            [style.background-image]="'url(' + getPhotoUrl() + ')'"
+        ></div> -->
+
+        <img [src]="getPhotoUrl()" alt="">
     </dd>
 
     <dt>
