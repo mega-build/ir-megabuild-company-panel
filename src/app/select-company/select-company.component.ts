@@ -29,6 +29,7 @@ export class SelectCompanyComponent
 					}
 				else
 					{
+						this.localStorageService.logout();
 						this.navigate_login()
 					}
 			}

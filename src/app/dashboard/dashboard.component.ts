@@ -30,6 +30,7 @@ export class DashboardComponent
 				}
 			else
 				{
+					this.localStorageService.logout();
 					this.navigate_login()
 				}
 

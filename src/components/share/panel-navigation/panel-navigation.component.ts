@@ -32,6 +32,7 @@ export class PanelNavigationComponent
 				}
 			else
 				{
+					this.localStorageService.logout();
 					this.navigate_login()
 				}
 
