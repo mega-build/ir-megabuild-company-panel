@@ -2,7 +2,18 @@
 
 <ul class="container">
 
-    <li>
+    <li
+        *ngIf="user"
+    >
+        <user-label
+            [user]="user"
+        ></user-label>
+    </li>
+
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isUserManager"
+        class="border"
+    >
         
         <a 
             [routerLink]="['/','userManagement','list']"
@@ -11,9 +22,21 @@
         </a>
     </li>
 
-    <hr>
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isUserManager"
+    >
+        
+        <a 
+            [routerLink]="['/','userCompanyAccessManagement','list']"
+        >
+            سطح دسترسی
+        </a>
+    </li>
 
-    <li>
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isAddContractTemplate"
+        class="border"
+    >
         
         <a 
             [routerLink]="['/','contractTemplateManagement','list']"
@@ -22,9 +45,11 @@
         </a>
     </li>
 
-    <hr>
 
-    <li>
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isAddProject"
+        class="border"
+    >
         
         <a 
             [routerLink]="['/','projectManagement','list']"
@@ -33,9 +58,10 @@
         </a>
     </li>
 
-    <hr>
 
-    <li>
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isAddContract"
+    >
         
         <a 
             [routerLink]="['/','contractManagement','addContract']"
@@ -44,54 +70,65 @@
         </a>
     </li>
 
-    <li>
-        
-        <a 
-            href= "/contractManagement/list/filter"
-        >
-            فیلتر قراردادها
-        </a>
-    </li>
 
-    <li>
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isAddContract"
+    >
         
         <a 
-            href= "/contractManagement/list/draft"
+            [routerLink]="['/','contractManagement','list','draft']"
         >
             قرارداد های در حال انجام
         </a>
     </li>
 
-    <li>
-        <a 
-            href= "/contractReviewManagement/list/pending"
-        >
-            بررسی قرارداد ها
-        </a>
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isContractManager"
+    >
         
+        <a 
+            [routerLink]="['/','contractManagement','list','filter']"
+        >
+            فیلتر قراردادها
+        </a>
     </li>
 
-    <li>
+
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isContractManager"
+    >
         <a 
             [routerLink]="['/','contractManagement','list','requested']"
         >
             قرارداد های در انتظار تایید نهایی
         </a>
-        
     </li>
 
-    <li>
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isContractReviewer"
+    >
+        <a 
+            href= "/contractReviewManagement/list/pending"
+        >
+            بررسی قرارداد ها
+        </a>
+    </li>
+
+    <li
+        *ngIf="userCompanyAccess && (userCompanyAccess.isContractManager || userCompanyAccess.isAddContract)"
+        class="border"
+    >
         <a 
             [routerLink]="['/','contractManagement','list','accepted']"
         >
             قرارداد های نهایی شده
         </a>
-        
     </li>
 
-    <hr>
 
-    <li>
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isContractPaymentManager"
+    >
         <a 
             [routerLink]="['/','contractPaymentManagement','list','filter']"
         >
@@ -99,17 +136,14 @@
         </a>
     </li>
 
-    <li>
+    <li
+        *ngIf="userCompanyAccess && userCompanyAccess.isContractPaymentManager"
+    >
         <a 
             [routerLink]="['/','contractPaymentManagement','list','notSettled']"
         >
             پرداخت های واریز نشده
         </a>
     </li>
-
-    <hr>
-
     
 </ul>
-
-
