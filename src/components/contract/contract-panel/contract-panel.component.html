@@ -16,6 +16,17 @@
     فیلتر نمایش لیست قراردها را تکمیل کنید.
 </div>
 
+<ul>
+    <li>
+        <button
+            (click)="downloadDoc()"
+            class="downloadbtn"
+        >
+            دانلود
+        </button>
+    </li>
+</ul>
+
 <contract-list
     *ngIf="!isLoading && contractList && contractList.length > 0"
     [contractList]="contractList"

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContractTemplateService } from 'src/services/contractTemplate/contract-template.service';
 
@@ -15,6 +15,7 @@ export class AddContractTemplateComponent
 		contractTemplate:any = {};
 		isLoading:boolean= false;
 		validationResult: any ={};
+		@ViewChild('textarea') textarea!: ElementRef<HTMLTextAreaElement>;
 
 		constructor
 		(
@@ -113,6 +114,46 @@ export class AddContractTemplateComponent
 								}
 						}
 					}
+				
+			}
+
+			makeH2
+			():void
+				{
+					//let txtarea = document.getElementById("txtHtmlContent")|| undefined;
+
+					if
+					(
+						this.textarea
+					)
+						{
+							
+							// Obtain the index of the first selected character
+							let start = this.textarea.nativeElement.selectionStart;
+
+							// // Obtain the index of the last selected character
+							let finish = this.textarea.nativeElement.selectionEnd;
+
+							console.log(`start: ${start} | end :${finish}`);
+
+							let currentContent = this.contractTemplate.htmlContent;
+							let output = [currentContent.slice(0, start), '<h2>',currentContent.slice(start, finish),'</h2>', currentContent.slice(finish)].join('');
+							
+							this.contractTemplate.htmlContent  = output;
+							
+						}
+
+					
+				}
+
+			makeH3
+			():void
+				{
+
+				}
+
+			view(start:any,end:any):void{
+				console.log('here');
 				
 			}
 	}

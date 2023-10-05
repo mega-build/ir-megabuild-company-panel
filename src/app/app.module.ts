@@ -129,11 +129,6 @@ import { SetUserCompanyAccessPermissionComponent } from '../components/userCompa
 import { UserCompanyAccessPanelComponent } from '../components/userCompanyAccess/user-company-access-panel/user-company-access-panel.component';
 
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -263,6 +258,7 @@ import { UserCompanyAccessPanelComponent } from '../components/userCompanyAccess
     RouterModule,
     AppRoutingModule,
     ShareModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

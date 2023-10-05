@@ -47,9 +47,25 @@
                     [(ngModel)]= "contractTemplate.htmlContent"
                     rows="15"
                     required
+                    (select)="view(textarea.selectionStart, textarea.selectionEnd)"
+                    #textarea
                 ></textarea>
 
                 <ol>
+                    <li>
+                        <button
+                            (click)="makeH2()"
+                        >
+                            ماده
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            (click)="makeH3()"
+                        >
+                            تبصره
+                        </button>
+                    </li>
                     <li>
                         <small>
                             عنوان قرارداد: TITLE
