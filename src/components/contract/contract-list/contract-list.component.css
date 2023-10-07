@@ -37,6 +37,7 @@ contract-list-item{
     flex-direction: column;
     gap: 8px;
     padding: 0 15px;
+    margin-bottom: 40px;
   }
   .contract-list-header{
     display: none;
@@ -44,10 +45,13 @@ contract-list-item{
   ol .contract-list-item{
     border: 1px solid #eaecf0;
     border-radius: 8px;
-    padding: 12px;
+    padding: 0;
   }
   ol .contract-list-item:last-child{
     border-bottom: 1px solid #eaecf0;
     border-radius: 8px;
+  }
+  contract-list-item{
+    display: block;
   }
 }

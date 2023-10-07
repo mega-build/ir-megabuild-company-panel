@@ -18,3 +18,28 @@ ul li a {
   display: block;
   text-align: center;
 }
+
+section ul{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+section ul li{
+  border-radius: 6px;
+  border: 1px solid  #EAECF0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 16px;
+} 
+section ul li .remove-btn{
+  border: none;
+  background-color: transparent;
+  text-indent: -90000px;
+  overflow: hidden;
+  background: url("../../../assets/images/icons/trash-03.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: fit-content;
+
+}

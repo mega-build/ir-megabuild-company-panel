@@ -1,7 +1,7 @@
 .loadingList {
     color: #667085;
     font-size: 16px;
-    border: 2px solid #eaecf0;
+    /* border: 2px solid #eaecf0; */
     border-radius: 12px;
     text-align: center;
     display: flex;

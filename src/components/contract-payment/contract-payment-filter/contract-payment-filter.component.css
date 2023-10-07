@@ -39,8 +39,10 @@ fieldset ul:first-child{
 form {
   margin: 32px auto;
 }
-
-.secondary {
+legend{
+  display: none;
+}
+.primary {
   margin-top: 24px;
   width: 10%;
 }

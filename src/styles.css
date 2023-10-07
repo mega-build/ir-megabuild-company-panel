@@ -313,6 +313,17 @@ button {
   justify-content: center;
   padding: 10px 0;
   font-weight: 700;
+  transition: all 0.3s;
+}
+.add-item:hover{
+  background-color: #7F56D9;
+  color: #fff;
+  transition: all 0.3;
+}
+.add-item:hover::before{
+  content: url("./assets/images/icons/plus-white.svg");
+  transition: all 0.3;
+
 }
 .add-item::before {
   content: url("./assets/images/icons/plus-black.svg");
@@ -320,6 +331,8 @@ button {
   width: 20px;
   height: 20px;
   margin-left: 8px;
+  transition: all 0.3;
+
 }
 .closeModal{
   color: #7F56D9;

@@ -9,6 +9,7 @@ section div{
     padding: 32px;
     margin: auto;
     border-radius: 8px;
+    overflow: hidden;
 }
 section div + .container{
     background-color: red;
