@@ -30,8 +30,24 @@ contract-list-item{
   max-width: 100%;
   flex: 1 0 100%;
 }
-
-/* ol li {
-  border: 2px solid #eaecf0;
-  border-radius: 8px;
-} */
+@media (max-width: 992.8px) {
+  ol{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 15px;
+  }
+  .contract-list-header{
+    display: none;
+  }
+  ol .contract-list-item{
+    border: 1px solid #eaecf0;
+    border-radius: 8px;
+    padding: 12px;
+  }
+  ol .contract-list-item:last-child{
+    border-bottom: 1px solid #eaecf0;
+    border-radius: 8px;
+  }
+}

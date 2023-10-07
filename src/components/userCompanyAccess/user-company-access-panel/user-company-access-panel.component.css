@@ -1,59 +1,98 @@
 ul li dt {
-    display: none;
+  display: none;
+}
+
+.user-panel {
+  border: 1px solid #eaecf0;
+  border-radius: 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.user-panel-header {
+  background-color: #eaecf0;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  padding: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.user-panel-header li {
+  color: #667085;
+  font-size: 12px;
+  text-align: right;
+  flex: 1 0 33%;
+  max-width: 33%;
+}
+ul li dl dd {
+  color: #101828;
+  font-size: 14px;
+}
+
+.user-info {
+  display: flex;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #eaecf0;
+  padding: 16px 0 16px 16px;
+  width: 100%;
+}
+.user-info dl {
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 1 0 66%;
+  max-width: 66%;
+  margin-right: 12px;
+}
+.user-info dl dd {
+  width: 100%;
+}
+.user-info ul {
+  display: flex;
+}
+.user-info ul li {
+  color: #101828;
+  font-size: 14px;
+}
+.user-info ul {
+  flex: 0 0 33%;
+}
+
+@media (max-width: 992.8px) {
+  .add-item {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 90%;
+    background-color: #7f56d9;
+    color: #fff;
+    border: 1px solid #7f56d9;
   }
-  
   .user-panel {
-    border: 1px solid #eaecf0;
-    border-radius: 12px;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
+    border: none;
+    gap: 8px;
+    margin-bottom: 40px;
   }
   .user-panel-header {
-    background-color: #eaecf0;
-    border-radius: 12px 12px 0 0;
-    display: flex;
-    padding: 12px;
-    flex-wrap: wrap;
-    width: 100%;
+    display: none;
   }
-  .user-panel-header li {
-    color: #667085;
-    font-size: 12px;
-    text-align: right;
-    flex: 1 0 33%;
-    max-width: 33%;
-  }
-  ul li dl dd {
-    color: #101828;
-    font-size: 14px;
-  }
-  
   .user-info {
-    display: flex;
-    flex-wrap: nowrap;
-    border-bottom: 1px solid #eaecf0;
-    padding: 16px 0 16px 16px;
-    width: 100%;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 12px;
+    border: 1px solid #eaecf0;
   }
   .user-info dl {
-    display: flex;
-    flex-wrap: nowrap;
-    flex: 1 0 66%;
-    max-width: 66%;
-    margin-right: 12px;
-  }
-  .user-info dl dd {
-    width: 100%;
+    display: block;
+    margin-right: 0;
+    padding: 16px;
   }
   .user-info ul {
-    display: flex;
+    border-top: 1px solid #eaecf0;
+    padding: 12px 16px;
   }
-  .user-info ul li {
-    color: #101828;
-    font-size: 14px;
+  dd:nth-child(4) {
+    margin-right: 56px;
   }
-  .user-info ul {
-    flex: 0 0 33%;
-  }
-  
+}
