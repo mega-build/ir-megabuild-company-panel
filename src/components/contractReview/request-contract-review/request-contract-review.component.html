@@ -2,7 +2,7 @@
     *ngIf="isLoading"
 ></loading>
 
-<section>
+<section class="container">
     <h2>
         کاربران بررسی کننده این قرارداد
     </h2>
@@ -17,6 +17,7 @@
             ></user-label>
             <button
                 (click)="removeContractReview(contractReview)"
+                class="remove-btn"
             >
                 حذف
             </button>
@@ -68,9 +69,11 @@
 </form>
 
 
-<contract-full-detail
+<section class="container">
+    <contract-full-detail
     *ngIf="!isLoading && contract"
     [contract]="contract"
-></contract-full-detail>
+    ></contract-full-detail>
 
+</section>
 

@@ -11,9 +11,25 @@ ul {
 }
 
 dl dd {
-  font-size: 14px;
-  color: #101828;
-  flex:0 0 12%;
+  font-size: 12px;
+  border-radius: 16px;
+  padding: 2px 8px;
+ 
+}
+.cri_pending {
+  border: 1px solid #eaecf0;
+  background: #f9fafb;
+  color: #344054;
+}
+.cri_rejected {
+  border: 1px solid #fecdca;
+  background: #fef3f2;
+  color: #b42318;
+}
+.cri_approved {
+  border: 1px solid #abefc6;
+  background: #ecfdf3;
+  color: #067647;
 }
 contract-list-item {
   display: flex;
@@ -31,7 +47,26 @@ ul {
   max-width: 10%;
 }
 
-/* dl dd:nth-child(2) {
-  flex: 1 0 3%;
-  max-width: 3%;
-} */
+@media (max-width: 992.8px) {
+  dl {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+  dl dd{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
+
+  contract-list-item {
+    display: block;
+  }
+  ul {
+    position: absolute;
+    bottom: 28px;
+    font-size: 12px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}

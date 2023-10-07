@@ -21,7 +21,28 @@ ul{
 .contract-review{
   padding: 16px 0;
   border: 1px solid #EAECF0;
+  position: relative;
+
 }
 .contract-review:last-child{
   border-radius: 0 0 12px 12px;
+}
+
+@media (max-width: 992.8px) {
+  ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+  .contract-review-header {
+    display: none;
+  }
+  .contract-review{
+    border-radius: 12px;
+  }
+  .contract-review:last-child{
+    border-radius: 12px;
+  }
+  
 }
