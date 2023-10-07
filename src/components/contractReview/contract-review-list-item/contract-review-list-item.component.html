@@ -2,33 +2,16 @@
     <contract-list-item
         [contract]="contractReview.contract"
     ></contract-list-item>
-    <!-- <dt>
-        عنوان
-    </dt>
-    <dd>
-        {{contractReview.contract.contractNumber}}
-    </dd> 
-
-    <dt>
-        پروژه
-    </dt>
-    <dd>
-        {{contractReview.contract.project.title}}
-    </dd> -->
 
     <dt>
         وضعیت بررسی
     </dt>
-    <dd>
+    <dd
+        [ngClass]="getStatusClass()"
+    >
         {{getStatusValue()}}
     </dd>
     
-    <!-- [projectType]= "contractReview.contract.project.projectType" -->
-
-    <!-- <project-item-abbreviation
-        
-        [projectItem] = "contractReview.contract.projectItem"
-    ></project-item-abbreviation> -->
 </dl>
 <ul>
     <li>

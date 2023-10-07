@@ -46,4 +46,36 @@ export class ContractReviewListItemComponent
 					}
 				
 			}
+
+		getStatusClass
+		():string
+			{
+				if
+				(
+					!this.contractReview.isReviewed
+				)
+					{
+						return "cri_pending";
+					}
+				else if
+				(
+					this.contractReview.isReviewed &&
+					this.contractReview.isApproved
+				)
+					{
+						return "cri_approved";
+					}
+				else if
+				(
+					this.contractReview.isReviewed &&
+					this.contractReview.isRejected
+				)
+					{
+						return "cri_rejected";
+					}
+				else 
+					{
+						return "cri_unknown";
+					}
+			}
 	}
