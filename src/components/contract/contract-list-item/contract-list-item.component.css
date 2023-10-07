@@ -30,7 +30,7 @@ dl ul {
   flex: 1 0 12.5%;
   max-width: 12.5%;
   font-size: 9px;
-  margin-right: -21px;
+  margin-right: -5px;
 }
 
 dl ul.hide {
@@ -81,6 +81,17 @@ dl ul.hide {
   height: 20px;
   width: 20px;
 }
+.edit-btn{
+  text-indent: -9000px;
+  background: url("../../../assets/images/icons/edit-01.svg");
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  display: block;
+  color: rgba(0, 0, 0, 0);
+}
 .listItemActionMenu {
   display: flex;
   align-items: center;
@@ -88,14 +99,33 @@ dl ul.hide {
 }
 @media (max-width: 992.8px) {
   dl{
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: max-content max-content;  
+    gap: 8px;
+    padding: 12px;
+    margin: 0;
+    column-gap: 18px;
   }
-  dd dt {
-    display: block;
+  dl dt {
+    display: block !important;
     color: #667085;
     font-size: 12px;
   }
   dl dd {
     font-size: 12px;
+    overflow: unset;
+  }
+  .listItemActionMenu{
+    display: flex;
+    flex: 0 0 100%;
+    margin-right: 0;
+    padding: 12px;
+    max-width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid #EAECF0;
+    margin-top: 6px;
+  }
+  .listItemActionMenu li:empty{
+    display: none;
   }
 }

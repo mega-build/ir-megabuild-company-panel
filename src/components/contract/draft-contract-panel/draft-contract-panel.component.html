@@ -4,7 +4,8 @@
     قرارداد های در حال تکمیل
 </h2>
 
-<a
+<section class="container">
+    <a
     [routerLink]="['/','contractManagement','addContract']"
     role="button"
     class="add-item"
@@ -12,6 +13,7 @@
     ثبت قرارداد جدید
 </a>
 
+</section>
 <loading-list
     *ngIf="isLoading"
 ></loading-list>
@@ -21,6 +23,3 @@
     [contractList]="contractList"
 ></contract-list>
 
-<empty-list
-    *ngIf="!isLoading && contractList.length == 0"
-></empty-list>
