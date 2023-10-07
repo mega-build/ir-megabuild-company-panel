@@ -146,6 +146,7 @@
     </li>
 
     <li
+        *ngIf="!contract.isDraft && !contract.isRequested && contract.isAccepted"
     >
         <button
             (click)="downloadDoc()"

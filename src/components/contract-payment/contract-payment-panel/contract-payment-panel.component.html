@@ -2,9 +2,23 @@
     جستجوی پرداخت ها
 </h2>
 
-<contract-payment-filter
-    (setFilter) = 'setFilter($event)'
-></contract-payment-filter>
+<ul>
+    <li>
+        <contract-payment-filter
+            (setFilter) = 'setFilter($event)'
+        ></contract-payment-filter>
+    </li>
+    <li
+        *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
+    >
+        <button
+            (click)="downloadDoc()"
+            class="downloadbtn"
+        >
+            دانلود
+        </button>
+    </li>
+</ul>
 
 <div
     *ngIf="!filterOptions"
@@ -16,6 +30,8 @@
 <loading-list
     *ngIf="isLoading"
 ></loading-list>
+
+
 
 <contract-payment-list 
     *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
