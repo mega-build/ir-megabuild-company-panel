@@ -144,20 +144,33 @@ export class ContractPaymentHelper
                         <head><meta charset='utf-8'><title>لیست قراردادها</title>
                         <style>
                         @font-face {
-                                font-family:"IRANSansWeb";
-                                src: url('https://assets.megabuild.ir/fonts/IRANSansWeb_Bold.woff2');
+                            font-family: "IRANSansWeb";
+                            src: url("https://assets.megabuild.ir/fonts/IRANSansWeb_Bold.woff2");
                         }
-                        @page WordSection1
-                            {size:792.0pt 612.0pt;
-                            mso-page-orientation:landscape;
-                            margin:72.0pt 72.0pt 72.0pt 72.0pt;
-                            mso-header-margin:36.0pt;
-                            mso-footer-margin:36.0pt;
-                            mso-paper-source:0;}
-                        div.WordSection1
-                            {page:WordSection1;}
-                        body{
-                            font-family:"Tahoma","2  Koodak","B Jadid", "IRANSansWeb";
+                        @page WordSection1 {
+                            size: 792pt 612pt;
+                            mso-page-orientation: landscape;
+                            margin: 72pt 72pt 72pt 72pt;
+                            mso-header-margin: 36pt;
+                            mso-footer-margin: 36pt;
+                            mso-paper-source: 0;
+                        }
+                        div.WordSection1 {
+                            page: WordSection1;
+                        }
+                        body {
+                            font-family: "Tahoma", "2  Koodak", "B Jadid", "IRANSansWeb";
+                        }
+                        table {
+                            border-spacing: 0;
+                        }
+                        th{
+                            border:1px solid #000;
+                        }
+                        td {
+                            border-bottom: 1px solid #000;
+                            border-left:1px solid #000;
+                            border-right: 1px solid #000;
                         }
                         </style>
                         </head><body><div class=WordSection1>`;
