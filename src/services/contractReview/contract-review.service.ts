@@ -11,17 +11,17 @@ import { environment } from 'src/environments/environment';
 
 export class ContractReviewService
 	{
-
-		private URL_CONTRACT_CUSTOMER_GETALL_BY_CONTRACT: string = 'http://localhost:2001/contractCustomer';
 		private URL_CONTRACT_REVIEW_ADD: string = `${environment.API_URL}/contractReview`;
 		private URL_CONTRACT_REVIEW_GET: string = `${environment.API_URL}/contractReview`;
+		private URL_CONTRACT_CUSTOMER_REMOVE: string = `${environment.API_URL}/contractReview`;
 		private URL_CONTRACT_REVIEW_GET_ALL: string = `${environment.API_URL}/contractReview`;
 		private URL_CONTRACT_REVIEW_GET_ALL_BY_CONTRACT: string = `${environment.API_URL}/contractReview/byContract`;
 		private URL_CONTRACT_REVIEW_SET_REVIEW_RESULT: string = `${environment.API_URL}/contractReview/setReviewResult`;
 
-		constructor(
+		constructor
+		(
 			private httpInteceptor: AuthHttpInterceptorService,
-		) { }
+		){}
 		
 
 		async add
@@ -119,4 +119,21 @@ export class ContractReviewService
 				return result;
 			}
 		
+		async remove
+		(
+			contractReviewId: string
+		): Promise<any>
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+
+				const url = `${this.URL_CONTRACT_CUSTOMER_REMOVE}/${contractReviewId}`;
+
+				const result = await this.httpInteceptor.deleteWithAuth_(
+					url,
+					headers,
+					{}
+				);
+
+				return result;
+			}
 	}

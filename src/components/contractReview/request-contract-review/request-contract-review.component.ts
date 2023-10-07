@@ -173,12 +173,32 @@ export class RequestContractReviewComponent implements OnInit
 				
 			}
 
-		removeContractReview
+		async removeContractReview
 		(
 			contractReview:any
-		):void
+		):Promise<void>
 			{
-				
+				try
+					{
+
+						this.isLoading = true;
+
+						const data = await this.contractReviewService
+										.remove(
+											contractReview._id
+										)
+
+						this.isLoading = false;
+						this.getAllContractReviewByContract(this.contractId);
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						this.errorHelper.showErrorAsAlert(error);
+					}
 			}
 
 		nvaigate_requestedContractList

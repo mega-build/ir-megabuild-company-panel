@@ -2,14 +2,10 @@
     *ngIf="isLoading"
 ></loading>
 
-<form
-    *ngIf="contract"
-    class="container"
->
-    <legend class="contract-legend">
-        درخواست بررسی {{contractHelper.getContractTitle(contract.contractType,contract.project.projectType,contract.project)}}
-    </legend>
-
+<section>
+    <h2>
+        کاربران بررسی کننده این قرارداد
+    </h2>
     <ul
         *ngIf="contractReviewList && contractReviewList.length > 0"
     >
@@ -26,13 +22,21 @@
             </button>
         </li>
     </ul>
+</section>
+
+<form
+    *ngIf="contract"
+    class="container"
+>
+    <legend class="contract-legend">
+        درخواست بررسی {{contractHelper.getContractTitle(contract.contractType,contract.project.projectType,contract.project)}}
+    </legend>
+
+    
 
     <fieldset
         [disabled]="isLoading"
     >
-        <!-- <select-user-list
-            (onSelectedUserChanged)= "selectedUserChanged($event)"
-        ></select-user-list> -->
 
         <select-contract-reviewer-user-company-access-list
             (onSelectedUserCompanyAccessChanged)="selectedUserCompanyAccessChanged($event)"
