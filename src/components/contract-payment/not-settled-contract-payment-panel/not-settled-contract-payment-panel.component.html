@@ -6,6 +6,17 @@
     <loading-list
         *ngIf="isLoading"
     ></loading-list>
+
+    <ul>
+        <li>
+            <button
+                (click)="downloadDoc()"
+                class="downloadbtn"
+            >
+                دانلود
+            </button>
+        </li>
+    </ul>
     
     <contract-payment-list 
         *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"

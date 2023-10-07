@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContractPaymentHelper } from 'src/helper/contractPayment/contractPaymentHelper';
 import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
@@ -19,7 +20,8 @@ export class NotSettledContractPaymentPanelComponent  implements OnInit
 	constructor
 	(
 		private contractPaymentService: ContractPaymentService,
-		private errorHelper: ErrorHelper
+		private errorHelper: ErrorHelper,
+		private contractPaymentHelper: ContractPaymentHelper
 	){}
 
 	ngOnInit
@@ -38,8 +40,6 @@ export class NotSettledContractPaymentPanelComponent  implements OnInit
 					this.isLoading = true;
 					
 					const data = await this.contractPaymentService.getAllNotSettled();
-					
-					console.log(data.contractList);
 					this.contractPaymentList = data.contractPaymentList;
 					
 					this.isLoading = false;
@@ -54,4 +54,21 @@ export class NotSettledContractPaymentPanelComponent  implements OnInit
 				}
 			
 		}
+
+	async downloadDoc
+	():Promise<void>
+		{
+			const paymentListWithoutDicker = this.contractPaymentHelper.getPaymentListWithoutDicker(this.contractPaymentList);
+			const sourceHTML = this.contractPaymentHelper.generateContractReportTable(paymentListWithoutDicker);
+			
+			const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+			const fileDownload = document.createElement("a");
+			document.body.appendChild(fileDownload);
+			fileDownload.href = source;
+			fileDownload.download = `لیست پرداخت ها.doc`;
+			fileDownload.click();
+			document.body.removeChild(fileDownload);
+		}
 	}
+
+	

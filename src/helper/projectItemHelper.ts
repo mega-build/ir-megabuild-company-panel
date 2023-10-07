@@ -70,4 +70,47 @@ export class ProjectItemHelper
 						return 0
 					}
 			}
+
+		getProjectItemReportCells
+		(
+			projectItem:any
+		):string
+		{
+			let blockContent = '-'
+			let floorContent = '-'
+			let unitContent = '-'
+
+			if
+			(
+				projectItem &&
+				projectItem.block
+			)
+				{
+					blockContent = projectItem.block
+				}
+
+			if
+			(
+				projectItem &&
+				projectItem.floor
+			)
+				{
+					floorContent = projectItem.floor
+				}
+
+			if
+			(
+				projectItem &&
+				projectItem.unit
+			)
+				{
+					unitContent = projectItem.unit
+				}
+			
+			return `
+				<td>${blockContent}</td>
+                <td>${floorContent}</td>
+                <td>${unitContent}</td>
+			`
+		}
     }
