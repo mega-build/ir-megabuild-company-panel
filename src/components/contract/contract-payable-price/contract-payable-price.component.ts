@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ErrorHelper } from 'src/helper/errorHelper';
+import { ProjectItemHelper } from 'src/helper/projectItemHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
@@ -27,7 +28,8 @@ export class ContractPayablePriceComponent implements OnInit
 		(
 			private route: ActivatedRoute,
 			private contractService: ContractService,
-			private errorHelper:ErrorHelper
+			private errorHelper:ErrorHelper,
+			public projectItemHelper: ProjectItemHelper
 
 		){}
 
@@ -45,6 +47,14 @@ export class ContractPayablePriceComponent implements OnInit
 		):void
 			{
 				this.payablePrice = price;
+			}
+
+		setValueFromProjectItemDate
+		():void
+			{
+				this.setDiscount(0);
+				const total = this.projectItemHelper.calculateTotalPrice(this.contract.projectItem);
+				this.setPayablePrice(total)
 			}
 
 		validate
@@ -175,4 +185,5 @@ export class ContractPayablePriceComponent implements OnInit
 					}
 				
 			}
+
 	}

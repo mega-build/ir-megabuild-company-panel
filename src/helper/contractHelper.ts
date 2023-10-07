@@ -19,6 +19,7 @@ export class ContractHelper
             private customerHelper: CustomerHelper,
             private projectItemHelper: ProjectItemHelper
         ){}
+
         getContractTitle
         (
             contractType: any,
@@ -150,5 +151,18 @@ export class ContractHelper
                         <td>${this.priceHelper.priceWithCommas(this.contractPaymentHelper.getDeedPriceFromPaymentList(contract.contractPayments))}</td>
                     </tr>
                 `
+            }
+
+        getContractPayablePriceDescription
+        (
+            contract:any,
+            totalRegisteredPaymentListPrice: number
+        ):string
+            {
+                const payablePrice = contract.payablePrice;
+                const remainingPrice = contract.payablePrice - totalRegisteredPaymentListPrice;
+                return `
+                    بهای موضوع قرارداد برابر با ${this.priceHelper.priceWithCommas(payablePrice)} ریال میباشد. مجموع پرداخت های ثبت شده تا کنون برابر با ${this.priceHelper.priceWithCommas(totalRegisteredPaymentListPrice)} ریال است. مبلغ باقی مانده تا تکمیل پرداخت ها برابر با ${this.priceHelper.priceWithCommas(remainingPrice)} می باشد.
+                `;
             }
     }

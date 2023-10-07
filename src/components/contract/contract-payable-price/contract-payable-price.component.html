@@ -10,6 +10,19 @@
     [hasPayablePrice]="payablePrice!=undefined && payablePrice!=0"
 ></edit-contract-navigation>
 
+<section
+    *ngIf="!isLoading && contract"
+    style="background-color: red;"
+>
+    {{projectItemHelper.getProjectItemCalculationPrice(contract.projectItem)}}
+
+    <button
+        (click)="setValueFromProjectItemDate()"
+    >
+        درج در مبلغ نهایی
+    </button>
+</section>
+
 <form
     *ngIf="!isLoading && contract"
 >

@@ -250,4 +250,22 @@ export class ContractPaymentHelper
                     </tr>
                 `
             }
+
+        getTotalPaymentPriceFromList
+        (
+            contractPaymentList:any[]
+        ):number
+        {
+            let total = contractPaymentList.reduce(
+                (
+                    total,
+                    contractPayment:any
+                )=>
+                    {
+                        return parseInt(total) + parseInt(contractPayment.price)
+                    }
+                ,0
+            )
+            return total;
+        }
     }

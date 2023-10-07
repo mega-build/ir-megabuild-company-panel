@@ -1,5 +1,6 @@
 
 import { Injectable } from '@angular/core';
+import { PriceHelper } from './priceHelper';
 
 @Injectable(
 	{
@@ -9,6 +10,11 @@ import { Injectable } from '@angular/core';
 
 export class ProjectItemHelper
 	{
+
+		constructor(
+            private priceHelper: PriceHelper
+        ){}
+
         isResidentailProjectItem
 		(
             projectType: any
@@ -50,7 +56,7 @@ export class ProjectItemHelper
 					}
 			}
 
-		calculateTotalPrice
+		calculateTotalPrice1
 		(
 			area:number,
 			unitPrice:number
@@ -113,4 +119,51 @@ export class ProjectItemHelper
                 <td>${unitContent}</td>
 			`
 		}
+
+		calculateTotalPrice
+		(
+			projectItem:any
+		):number
+			{
+				if
+				(
+					projectItem &&
+					projectItem.unitPrice &&
+					projectItem.area 
+					
+				)
+					{
+						const totla = projectItem.area * projectItem.unitPrice;
+						return totla;
+					}
+				else if
+				(
+					projectItem &&
+					projectItem.unitPrice &&
+					projectItem.buildupArea 
+				)
+					{
+						const totla = projectItem.buildupArea * projectItem.unitPrice;
+						return totla;
+					}
+				else
+					{
+						return 0;
+					}
+				
+			}
+
+		getProjectItemCalculationPrice
+		(
+			projectItem:any
+		):string
+			{
+				const area = projectItem.area || projectItem.buildupArea;
+				const unitPrice = projectItem.unitPrice;
+				const totla = area * unitPrice;
+				
+				return `
+				مساحت ثبت شده در موضوع قرارداد، برابر با ${area} متر مربع به ارزش متری ${this.priceHelper.priceWithCommas(unitPrice)} ریال که در مجموع ${this.priceHelper.priceWithCommas(totla)} ریال میباشد.
+				`;
+			}
     }

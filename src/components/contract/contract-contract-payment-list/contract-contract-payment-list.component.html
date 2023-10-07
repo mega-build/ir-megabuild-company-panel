@@ -9,6 +9,13 @@
 <section
 >
 
+    <section
+        *ngIf="!isLoading && contract"
+        style="background-color: red;"
+    >
+        {{contractHelper.getContractPayablePriceDescription(contract,totalRegisteredPaymentListPrice)}}
+    </section>
+
     <a
         [routerLink]="['../add']"
         role="button"
@@ -20,6 +27,7 @@
     <contract-payment-by-contract-panel
         [contractId] = "contractId"
         (onPaymentListLengthChanged) = "paymentListLengthChanged($event)"
+        (onPaymentTotalPriceChanged) = "paymentTotalPriceChanged($event)"
     ></contract-payment-by-contract-panel>
 
 </section>

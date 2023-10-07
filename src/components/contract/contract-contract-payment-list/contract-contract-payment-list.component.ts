@@ -1,5 +1,9 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ContractHelper } from 'src/helper/contractHelper';
+import { ErrorHelper } from 'src/helper/errorHelper';
+import { ProjectItemHelper } from 'src/helper/projectItemHelper';
+import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
 	{
@@ -14,32 +18,20 @@ export class ContractContractPaymentListComponent implements OnInit
 
 		@Input() contractId: string = "";
 
+		contract!:any;
 		contractPaymentList: any[]=[]
 		isLoading:boolean = false;
 		hasAnyPayment:boolean = false;
+		totalRegisteredPaymentListPrice:number = 0;
 
 		constructor
 		(
-			private route: ActivatedRoute
+			private route: ActivatedRoute,
+			private contractService: ContractService,
+			public contractHelper: ContractHelper,
+			private errorHelper:ErrorHelper
 		){}
 		
-		ngOnInit
-		(): void
-			{
-				if
-				(
-					this.route.parent &&
-					this.route.parent.parent
-				)
-					{
-						this.route.parent.parent.params.subscribe(params => 
-							{
-								this.contractId = params['contractId']; 
-							}
-						);
-					}
-			}
-
 		paymentListLengthChanged
 		(
 			paymentListLength:number
@@ -59,6 +51,73 @@ export class ContractContractPaymentListComponent implements OnInit
 						this.hasAnyPayment = true;
 					}
 				
+				
+			}
+
+		paymentTotalPriceChanged
+		(
+			totalPrice:number
+		)
+			{
+				this.totalRegisteredPaymentListPrice = totalPrice;
+			}
+
+		ngOnInit
+		(): void
+			{
+				if
+				(
+					this.route.parent &&
+					this.route.parent.parent
+				)
+					{
+						this.route.parent.parent.params.subscribe(params => 
+							{
+								let contractIdParameter = params['contractId'];
+								if
+								(
+									contractIdParameter
+								)
+									{
+										this.contractId = contractIdParameter;
+										this.getContract();
+									}
+								else
+									{
+										alert("آدرس اشتباه است")
+									}
+								
+							}
+						);
+					}
+				
+				
+			}
+
+		async getContract
+		(): Promise<void>
+			{
+
+				try
+					{
+						this.isLoading = true;
+						const data = await this.contractService
+							.get(
+								this.contractId
+							);
+						console.log(data.contract);
+						const contract = data.contract;
+						this.contract = contract;
+						this.isLoading = false;
+					}
+				catch
+				(
+					error: any
+				)
+					{
+						this.isLoading = false;
+						this.errorHelper.showErrorAsAlert(error);
+					}
 				
 			}
 

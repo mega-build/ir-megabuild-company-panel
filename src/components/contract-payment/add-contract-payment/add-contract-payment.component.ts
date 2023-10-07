@@ -12,8 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AddContractPaymentComponent implements OnInit
 	{
 
-		contractId= "";
-
+		contractId!:string;
 		selectedContractPaymentMethod:any = {};
 
 		constructor
@@ -25,8 +24,6 @@ export class AddContractPaymentComponent implements OnInit
 		ngOnInit
 		(): void
 			{
-				console.log('asdfasd');
-				
 				if
 				(
 					this.route.parent &&
