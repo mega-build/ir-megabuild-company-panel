@@ -11,6 +11,3 @@ section div{
     border-radius: 8px;
     overflow: hidden;
 }
-section div + .container{
-    background-color: red;
-}

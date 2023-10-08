@@ -11,9 +11,11 @@
 
     <section
         *ngIf="!isLoading && contract"
-        style="background-color: red;"
+        class="message"
     >
-        {{contractHelper.getContractPayablePriceDescription(contract,totalRegisteredPaymentListPrice)}}
+        <span>
+            {{contractHelper.getContractPayablePriceDescription(contract,totalRegisteredPaymentListPrice)}}
+        </span>
     </section>
 
     <a

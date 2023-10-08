@@ -1,0 +1,22 @@
+.message {
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .message span {
+    color: #101828;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    border-radius: 12px;
+    border: 1px solid #eaecf0;
+    background: #fff;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .message span::before {
+    content: url("../../../assets/images/icons/icon-outline.svg");
+    height: 38px;
+    width: 38px;
+  }
