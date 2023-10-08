@@ -1,45 +1,41 @@
 <section class="container">
-    <h2 class="contract-legend">
-        جستجوی پرداخت ها
-    </h2>
-    
-</section>
-<ul>
-    <li>
+
+    <header>
+        <h2>
+            جستجوی پرداخت ها
+        </h2>   
+
         <contract-payment-filter
             (setFilter) = 'setFilter($event)'
         ></contract-payment-filter>
-    </li>
-    <li
-        *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
-    >
+
         <button
+            *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
             (click)="downloadDoc()"
             class="downloadbtn"
         >
             دانلود
         </button>
-    </li>
-</ul>
+    </header>
+    
+    <div
+        *ngIf="!filterOptions"
+        class="container empty"
+    >
+        فیلتر نمایش لیست پرداخت را تکمیل کنید.
+    </div>
+    
+    <loading-list
+        *ngIf="isLoading"
+    ></loading-list>
+    
+    <contract-payment-list 
+        *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
+        [contractPaymentList] = 'contractPaymentList'
+    ></contract-payment-list>
+    
+    <empty-list
+        *ngIf="filterOptions && !isLoading && contractPaymentList && contractPaymentList.length == 0"
+    ></empty-list>
 
-<div
-    *ngIf="!filterOptions"
-    class="container empty"
->
-    فیلتر نمایش لیست پرداخت را تکمیل کنید.
-</div>
-
-<loading-list
-    *ngIf="isLoading"
-></loading-list>
-
-
-
-<contract-payment-list 
-    *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
-    [contractPaymentList] = 'contractPaymentList'
-></contract-payment-list>
-
-<empty-list
-    *ngIf="filterOptions && !isLoading && contractPaymentList && contractPaymentList.length == 0"
-></empty-list>
+</section>

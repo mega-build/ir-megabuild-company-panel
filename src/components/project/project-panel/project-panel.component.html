@@ -1,12 +1,18 @@
 <section
     class="container"
 >
-    <a
-        [routerLink]="['../add']"
-        class="add-item"
-    >
-        پروژه جدید
-    </a>
+    <header>
+        <h2>
+            پروژه ها
+        </h2>
+        <a
+            [routerLink]="['../add']"
+            class="add-item"
+        >
+            پروژه جدید
+        </a>
+    </header>
+    
 
     <loading-list
         *ngIf="isLoading"

@@ -1,22 +1,33 @@
 <panel-navigation></panel-navigation>
 
-<a
-    [routerLink]="['../add']"
-    role="button"
-    class="add-item"
->
-    قالب جدید
-</a>
+<section class="container">
 
-<loading-list
-    *ngIf="isLoading"
-></loading-list>
+    <header>
+        <h2>
+            قالب های قرارداد
+        </h2>
+        <a
+            [routerLink]="['../add']"
+            role="button"
+            class="add-item"
+        >
+            قالب جدید
+        </a>
+    </header>
 
-<contract-template-list
-    *ngIf="!isLoading && contractTemplateList && contractTemplateList.length > 0"
-    [contractTemplateList] = "contractTemplateList"
-></contract-template-list>
+    
 
-<empty-list
-    *ngIf="!isLoading && contractTemplateList && contractTemplateList.length == 0"
-></empty-list>
+    <loading-list
+        *ngIf="isLoading"
+    ></loading-list>
+
+    <contract-template-list
+        *ngIf="!isLoading && contractTemplateList && contractTemplateList.length > 0"
+        [contractTemplateList] = "contractTemplateList"
+    ></contract-template-list>
+
+    <empty-list
+        *ngIf="!isLoading && contractTemplateList && contractTemplateList.length == 0"
+    ></empty-list>
+    
+</section>

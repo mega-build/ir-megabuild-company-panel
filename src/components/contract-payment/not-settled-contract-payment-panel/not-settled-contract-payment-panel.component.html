@@ -1,23 +1,22 @@
 <section class="container">
-    <h2>
-        پرداخت های واریز نشده
-    </h2>
+    <header>
+        <h2>
+            پرداخت های واریز نشده
+        </h2>
+        <button
+            *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
+            (click)="downloadDoc()"
+            class="downloadbtn"
+        >
+            دانلود
+        </button>
+    </header>
+    
     
     <loading-list
         *ngIf="isLoading"
     ></loading-list>
 
-    <ul>
-        <li>
-            <button
-                (click)="downloadDoc()"
-                class="downloadbtn"
-            >
-                دانلود
-            </button>
-        </li>
-    </ul>
-    
     <contract-payment-list 
         *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
         [contractPaymentList] = 'contractPaymentList'
@@ -26,4 +25,5 @@
     <empty-list
         *ngIf="!isLoading && contractPaymentList && contractPaymentList.length == 0"
     ></empty-list>
+
 </section>
