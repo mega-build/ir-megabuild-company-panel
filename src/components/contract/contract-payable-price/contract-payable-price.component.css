@@ -1,9 +1,38 @@
-.primary{
-    width: 100%;
-    margin-top: 24px;
+.primary {
+  width: 100%;
+  margin-top: 24px;
 }
-fieldset ul:first-child{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+fieldset ul:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.message {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+.message span {
+  color: #101828;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 1px solid #eaecf0;
+  background: #fff;
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 84%;
+}
+.message span::before {
+  content: url("../../../assets/images/icons/icon-outline.svg");
+  height: 38px;
+  width: 38px;
+}
+.message .primary {
+  width: fit-content;
+  flex: 0 0 14%;
+  margin-top: 0;
 }
