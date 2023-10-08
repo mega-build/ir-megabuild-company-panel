@@ -1,10 +1,16 @@
 <section class="container">
-    <a
-        [routerLink]="['/','userManagement','add']"
-        class="add-item"
-    >
-        افزودن کاربر
-    </a>
+    <header>
+        <h2>
+            لیست کاربران
+        </h2>
+        <a
+            [routerLink]="['/','userManagement','add']"
+            class="add-item"
+        >
+            افزودن کاربر
+        </a>
+    </header>
+    
 
     <loading-list
         *ngIf="isLoading"
