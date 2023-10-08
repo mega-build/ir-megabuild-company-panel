@@ -12,12 +12,13 @@
 
 <section
     *ngIf="!isLoading && contract"
-    style="background-color: red;"
+    class="message"
 >
-    {{projectItemHelper.getProjectItemCalculationPrice(contract.projectItem)}}
-
+    <span>    {{projectItemHelper.getProjectItemCalculationPrice(contract.projectItem)}}
+    </span>
     <button
         (click)="setValueFromProjectItemDate()"
+        class="primary"
     >
         درج در مبلغ نهایی
     </button>

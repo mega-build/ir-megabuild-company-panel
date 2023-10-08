@@ -119,6 +119,9 @@ form fieldset {
     transition: 0.5s;
   }
 }
+u{
+  text-decoration: none;
+}
 
 .main-modal {
   background-color: rgba(10, 22, 41, 0.5);
