@@ -25,18 +25,21 @@ dl dd {
 }
 
 dl dd {
-  flex: 0 0 12.5%;
+  flex: 0 0 12%;
   color: #101828;
   font-size: 12px;
   order: -1;
 }
 dl dt{
-  flex: 0 0 12.5%;
+  flex: 0 0 12%;
   color: #667085;
   font-size: 12px;
   margin-bottom: 4px;
   order: -2;
-
+}
+dl dt.bank-account,
+dl dd.bank-account{
+  flex: 0 0 16%;
 }
 ul {
   /* display: flex; */

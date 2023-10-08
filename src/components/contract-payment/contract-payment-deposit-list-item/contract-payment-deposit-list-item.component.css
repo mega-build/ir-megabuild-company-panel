@@ -23,22 +23,26 @@ dl dd {
 }
 
 dl dd {
-  flex: 0 0 12.5%;
+  flex: 0 0 12%;
   order: -1;
   color: #101828;
   font-size: 12px;
 }
 
 dl dt{
-  flex: 0 0 12.5%;
+  flex: 0 0 12%;
   order: -2;
   color: #667085;
   font-size: 12px;
   margin-bottom: 4px;
 }
+dl dt.bank-account,
+dl dd.bank-account{
+  flex: 0 0 16%;
+}
 dl dd:last-child,
 dl dt.last{
-  flex: 0 0 50%;
+  flex: 0 0 48%;
 }
 ul {
   /* display: flex;
