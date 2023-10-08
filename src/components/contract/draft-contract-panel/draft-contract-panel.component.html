@@ -1,25 +1,36 @@
 <panel-navigation></panel-navigation>
 
-<h2 class="container">
-    قرارداد های در حال تکمیل
-</h2>
+
+
+
 
 <section class="container">
-    <a
-    [routerLink]="['/','contractManagement','addContract']"
-    role="button"
-    class="add-item"
->
-    ثبت قرارداد جدید
-</a>
+
+    <header>
+
+        <h2>
+            قرارداد های در حال تکمیل
+        </h2>
+    
+        <a
+            [routerLink]="['/','contractManagement','addContract']"
+            role="button"
+            class="add-item"
+        >
+            ثبت قرارداد جدید
+        </a>
+    
+    </header>
+   
+    <loading-list
+        *ngIf="isLoading"
+    ></loading-list>
+
+    <contract-list
+        *ngIf="!isLoading && contractList.length > 0"
+        [contractList]="contractList"
+    ></contract-list>
 
 </section>
-<loading-list
-    *ngIf="isLoading"
-></loading-list>
 
-<contract-list
-    *ngIf="!isLoading && contractList.length > 0"
-    [contractList]="contractList"
-></contract-list>
 
