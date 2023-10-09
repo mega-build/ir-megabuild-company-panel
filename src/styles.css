@@ -85,6 +85,13 @@ body {
 form fieldset {
   border: none;
 }
+.header {
+  display: flex;
+  align-items: center;
+}
+.header h2{
+  flex: 0 0 80%;
+}
 .main-add-btn {
   font-size: 14px;
   font-weight: bold;
@@ -119,7 +126,7 @@ form fieldset {
     transition: 0.5s;
   }
 }
-u{
+u {
   text-decoration: none;
 }
 
@@ -145,7 +152,7 @@ u{
     transform: scale(1);
   }
 }
-select-project{
+select-project {
   position: relative;
 }
 .aclass {
@@ -257,6 +264,8 @@ textarea {
   font-family: IRANSansWeb;
   padding: 12px;
   box-sizing: border-box;
+  resize: none;
+  line-height: 30px;
 }
 /* Inputs Style End */
 
@@ -309,7 +318,7 @@ button {
   font-size: 14px;
   border: 1px solid #d0d5dd;
   border-radius: 8px;
-  width: 80%;
+  width: 100%;
   margin: 32px auto;
   display: flex;
   align-items: center;
@@ -317,16 +326,16 @@ button {
   padding: 10px 0;
   font-weight: 700;
   transition: all 0.3s;
+  flex: 0 0 20%;
 }
-.add-item:hover{
-  background-color: #7F56D9;
+.add-item:hover {
+  background-color: #7f56d9;
   color: #fff;
   transition: all 0.3;
 }
-.add-item:hover::before{
+.add-item:hover::before {
   content: url("./assets/images/icons/plus-white.svg");
   transition: all 0.3;
-
 }
 .add-item::before {
   content: url("./assets/images/icons/plus-black.svg");
@@ -335,10 +344,9 @@ button {
   height: 20px;
   margin-left: 8px;
   transition: all 0.3;
-
 }
-.closeModal{
-  color: #7F56D9;
+.closeModal {
+  color: #7f56d9;
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -346,7 +354,7 @@ button {
   width: 100%;
   justify-content: end;
 }
-.closeModal::before{
+.closeModal::before {
   content: url("assets/images/icons/x-circle.svg");
   width: 16px;
   height: 16px;
@@ -422,7 +430,7 @@ details summary {
   border-radius: 8px;
 }
 /* Draft Contact End */
-.normal-legend{
+.normal-legend {
   color: #101828;
   font-size: 18px;
   font-weight: 700;

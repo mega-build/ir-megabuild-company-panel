@@ -1,10 +1,7 @@
 dl {
     display: grid;
     align-items: center;
-    grid-template-columns: minmax(min-content, max-content) minmax(
-        min-content,
-        max-content
-      );
+    grid-template-columns: max-content max-content;
     gap: 8px;
   }
   dl dt {

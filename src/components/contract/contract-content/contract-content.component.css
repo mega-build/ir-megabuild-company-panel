@@ -14,3 +14,8 @@ li {
 .action-list a {
   width: 35%;
 }
+fieldset ul:first-child{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

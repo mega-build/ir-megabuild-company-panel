@@ -1,4 +1,5 @@
-<loading
+<div>
+    <loading
     *ngIf="isLoading"
 ></loading>
 
@@ -8,6 +9,7 @@
     </h2>
     <ul
         *ngIf="contractReviewList && contractReviewList.length > 0"
+        class="action-list"
     >
         <li
             *ngFor="let contractReview of contractReviewList"
@@ -25,49 +27,51 @@
     </ul>
 </section>
 
-<form
-    *ngIf="contract"
-    class="container"
->
-    <legend class="contract-legend">
-        درخواست بررسی {{contractHelper.getContractTitle(contract.contractType,contract.project.projectType,contract.project)}}
-    </legend>
-
-    
-
-    <fieldset
-        [disabled]="isLoading"
+<section  class="container">
+        <form
+        *ngIf="contract"
+      
     >
+        <legend class="contract-legend">
+            درخواست بررسی {{contractHelper.getContractTitle(contract.contractType,contract.project.projectType,contract.project)}}
+        </legend>
 
-        <select-contract-reviewer-user-company-access-list
-            (onSelectedUserCompanyAccessChanged)="selectedUserCompanyAccessChanged($event)"
-        ></select-contract-reviewer-user-company-access-list>
-
-        <loading
-            *ngIf="isLoading"
-        ></loading>
         
-        <ul>
-            <li>
-                <button
-                    type="button"
-                    (click)="requestReview()"
-                    class="primary"
-                >
-                    ثبت درخواست 
-                </button>
-            </li>
-            <li >
-                <a 
-                    [routerLink]="['/','contractManagement','list','requested']"
-                >
-                    انصراف
-                </a>
-            </li>
-        </ul>
-    </fieldset>
-</form>
 
+        <fieldset
+            [disabled]="isLoading"
+        >
+
+            <select-contract-reviewer-user-company-access-list
+                (onSelectedUserCompanyAccessChanged)="selectedUserCompanyAccessChanged($event)"
+            ></select-contract-reviewer-user-company-access-list>
+
+            <loading
+                *ngIf="isLoading"
+            ></loading>
+            
+            <ul>
+                <li>
+                    <button
+                        type="button"
+                        (click)="requestReview()"
+                        class="primary"
+                    >
+                        ثبت درخواست 
+                    </button>
+                </li>
+                <li >
+                    <a 
+                        [routerLink]="['/','contractManagement','list','requested']"
+                    >
+                        انصراف
+                    </a>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+
+</section>
 
 <section class="container">
     <contract-full-detail
@@ -77,3 +81,5 @@
 
 </section>
 
+
+</div>
