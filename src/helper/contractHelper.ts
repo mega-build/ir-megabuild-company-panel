@@ -56,11 +56,52 @@ export class ContractHelper
                     }
             }
 
+        generateContractReportTableTitle
+        (
+            companyName:string,
+            projectTitle:string,
+            startDateShamsi:string,
+            endDateShamsi:string
+        ):string
+            {
+                const result = `
+                    <h1>فهرست قرارداد های صادره</h1>
+                    <table>
+                        <tr>
+                            <th>شرکت</th>
+                            <th>پروژه</th>
+                            <th>از تاریخ</th>
+                            <th>تا تاریخ</th>
+                        </tr>
+                        <tr>
+                            <td>${companyName}</td>
+                            <td>${projectTitle}</td>
+                            <td>${startDateShamsi}</td>
+                            <td>${endDateShamsi}</td>
+                        </tr>
+                    </table>
+                    </hr>
+                `;
+
+                return result;
+            }
+
         generateContractReportTable
         (
+            companyName:string,
+            projectTitle:string,
+            startDateShamsi:string,
+            endDateShamsi:string,
             contractList:any[]
         ):string
             {
+                const reportHeader = this.generateContractReportTableTitle(
+                    companyName,
+                    projectTitle,
+                    startDateShamsi,
+                    endDateShamsi
+                );
+
                 let tableHeader = this.generateContractReportTableHeader();
 				
 				let tableRowListContent:string ="";
@@ -84,9 +125,9 @@ export class ContractHelper
                             @page WordSection1 {
                                 size: 792pt 612pt;
                                 mso-page-orientation: landscape;
-                                margin: 72pt 72pt 72pt 72pt;
-                                mso-header-margin: 36pt;
-                                mso-footer-margin: 36pt;
+                                margin: 2pt 2pt 2pt 2pt;
+                                mso-header-margin: 1pt;
+                                mso-footer-margin: 1pt;
                                 mso-paper-source: 0;
                             }
                             div.WordSection1 {
@@ -109,7 +150,7 @@ export class ContractHelper
                             </style>
 						</head><body><div class=WordSection1>`;
 				const footer = "</div></body></html>";
-				const sourceHTML = header+tableContent+footer;
+				const sourceHTML = header + reportHeader + tableContent + footer;
 
                 return sourceHTML;
             }

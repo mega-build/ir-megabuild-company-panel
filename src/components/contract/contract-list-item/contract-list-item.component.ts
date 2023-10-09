@@ -20,7 +20,7 @@ export class ContractListItemComponent
 		downloadDoc
 		():void
 			{
-				var header = `<html xmlns:o='urn:schemas-microsoft-com:office:office'
+				const header = `<html xmlns:o='urn:schemas-microsoft-com:office:office'
 						xmlns:w='urn:schemas-microsoft-com:office:word' 
 						xmlns='http://www.w3.org/TR/REC-html40' lang='fa' dir='rtl'>
 						<head><meta charset='utf-8'><title>${this.contract.contractNumber}</title>
@@ -34,11 +34,11 @@ export class ContractListItemComponent
 						}
 						</style>
 						</head><body>`;
-				var footer = "</body></html>";
-				var sourceHTML = header+this.contract.content+footer;
+				const footer = "</body></html>";
+				const sourceHTML = header+this.contract.content+footer;
 				
-				var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-				var fileDownload = document.createElement("a");
+				const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+				let fileDownload = document.createElement("a");
 				document.body.appendChild(fileDownload);
 				fileDownload.href = source;
 				fileDownload.download = `${this.contract.contractNumber}.doc`;

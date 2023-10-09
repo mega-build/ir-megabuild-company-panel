@@ -81,7 +81,13 @@ export class ContractPanelComponent
 		async downloadDoc
 		():Promise<void>
 			{
-				const sourceHTML = this.contractHelper.generateContractReportTable(this.contractList);
+				const sourceHTML = this.contractHelper.generateContractReportTable(
+					"companyName",
+					this.filterOptions.project.title,
+					this.filterOptions.startDateShamsi,
+					this.filterOptions.endDateShamsi,
+					this.contractList
+				);
 				
 				const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
 				const fileDownload = document.createElement("a");
