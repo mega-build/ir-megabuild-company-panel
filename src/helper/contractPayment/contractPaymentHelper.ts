@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { PriceHelper } from '../priceHelper';
 import { CustomerHelper } from '../customerHelper';
 import { ProjectItemHelper } from '../projectItemHelper';
+import { ChequeContractPaymentHelper } from './chequeContractPaymentHelper';
+import { DipositContractPaymentHelper } from './dipositContractPaymentHelper';
+import { DeedContractPaymentHelper } from './deedContractPaymentHelper';
 
 @Injectable(
 	{
@@ -14,7 +17,10 @@ export class ContractPaymentHelper
         constructor(
             private priceHelper: PriceHelper,
             private customerHelper: CustomerHelper,
-            private projectItemHelper: ProjectItemHelper
+            private projectItemHelper: ProjectItemHelper,
+            private chequeContractPaymentHelper: ChequeContractPaymentHelper,
+            private dipositContractPaymentHelper: DipositContractPaymentHelper,
+            private deedContractPaymentHelper: DeedContractPaymentHelper,
         ){}
 
         getDeedPriceFromPaymentList(
@@ -268,4 +274,45 @@ export class ContractPaymentHelper
             )
             return total;
         }
+
+        getContractContent
+        (
+            contractPayment:any
+        ):string
+            {
+                if
+                (
+                    contractPayment.contractPaymentMethod.componentName == "CHEQUE"
+                )
+                    {
+                        let result = this.chequeContractPaymentHelper.getContractContent(
+                            contractPayment
+                        );
+                        return `<li>${result}</li>`
+                    }
+                else if
+                (
+                    contractPayment.contractPaymentMethod.componentName == "DIPOSIT"
+                )
+                    {
+                        let result = this.dipositContractPaymentHelper.getContractContent(
+                            contractPayment
+                        );
+                        return `<li>${result}</li>`
+                    }
+                else if
+                (
+                    contractPayment.contractPaymentMethod.componentName == "DEED"
+                )
+                    {
+                        let result =  this.deedContractPaymentHelper.getContractContent(
+                            contractPayment
+                        );
+                        return `<li>${result}</li>`
+                    }
+                else
+                    {
+                        return '';
+                    }
+            }
     }

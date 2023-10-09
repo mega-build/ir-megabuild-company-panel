@@ -41,17 +41,14 @@
                     محتوا:
                 </label>
 
-                <textarea
-                    id="txtHtmlContent"
-                    name="txtHtmlContent"
-                    [(ngModel)]= "contractTemplate.htmlContent"
-                    rows="15"
-                    required
-                    (select)="view(textarea.selectionStart, textarea.selectionEnd)"
-                    #textarea
-                ></textarea>
-
                 <ol>
+                    <li>
+                        <button
+                            (click)="makeH1()"
+                        >
+                            عنوان
+                        </button>
+                    </li>
                     <li>
                         <button
                             (click)="makeH2()"
@@ -67,29 +64,80 @@
                         </button>
                     </li>
                     <li>
-                        <small>
-                            عنوان قرارداد: TITLE
-                        </small>
+                        <button
+                            (click)="makeOl()"
+                        >
+                            لیست
+                        </button>
                     </li>
                     <li>
-                        <small>
-                            لیست مشتریان : CUSTOMERS
-                        </small>
-                    </li>
-                    <li>
-                        <small>
-                            لیست پرداخت ها: PAYMENTS
-                        </small>
-                    </li>
-
-                    <li>
-                        <small>
-                            موضوع قرارداد: SUBJECT
-                        </small>
+                        <button
+                            (click)="makeLi()"
+                        >
+                            لیست ایتم
+                        </button>
                     </li>
                 </ol>
-                
+                <ol>
+                    <li>
+                        <button
+                            (click)="insertContractTitle()"
+                        >
+                            درج عنوان
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            (click)="insertCustomers()"
+                        >
+                            درج خریداران
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            (click)="insertPayments()"
+                        >
+                            درج پرداخت ها
+                        </button>
+                    </li>
+                    <li>
+                        
+                        <button
+                            (click)="insertSubject()"
+                        >
+                            درج موضوع قراداد
+                        </button>
+                    </li>
+                    <li>
+                        
+                        <button
+                            (click)="insertPayablePrice()"
+                        >
+                            درج بهای موضوع قراداد
+                        </button>
+                    </li>
+                </ol>
 
+                <textarea
+                    id="txtHtmlContent"
+                    name="txtHtmlContent"
+                    [(ngModel)]= "contractTemplate.htmlContent"
+                    rows="15"
+                    required
+                    (select)="view(textarea.selectionStart, textarea.selectionEnd)"
+                    #textarea
+                ></textarea>
+
+            </li>
+            <li>
+                <label for="prgPreive">
+                    پیش نمایش
+                </label>
+                <div
+                    id = "prgPreive"
+                    name = "prgPreive"
+                    [innerHTML]="contractTemplate.htmlContent"
+                ></div>
             </li>
         </ul>
 

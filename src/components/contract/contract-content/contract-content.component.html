@@ -1,72 +1,9 @@
 
 
-<!-- <p
-    *ngIf="!isLoading && contract"
+<section
+    class="container"
 >
-    {{getContent()}}
-</p> -->
-<!-- <section
-    *ngIf="!isLoading && contract"
->
-    <ul>
-        <li>
-            <button
-                (click)="addTitle()"
-            >
-                اضافه کردن عنوان قرارداد
-            </button>
-        </li>
-        <li>
-            <button
-                (click)="addCustomersContent()"
-            >
-                اضافه کردن خریدارن
-            </button>
-        </li>
-        <li>
-            <button
-                (click)="addProjectItemContent()"
-            >
-                اضافه کردن مورد فروش
-            </button>
-        </li>
-        
-        <li>
-            <button
-                (click)="addPaymentListContent()"
-            >
-                اضافه کردن لیست پرداخت ها
-            </button>
-        </li>
-    </ul>
-</section> -->
-
-<!-- <section>
-    <ul>
-        <li
-            *ngFor = 'let paragraph of paragraphList'
-        >
-            <div
-                [innerHTML]="paragraph"
-            ></div>
-            <ul>
-                <li>
-                    <button>
-                        ویرایش
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        حذف
-                    </button>
-                </li>
-            </ul>
-            <hr>
-        </li>
-    </ul>
-</section> -->
-<section class="container">
-        <loading
+    <loading
         *ngIf="isLoading"
     ></loading>
 

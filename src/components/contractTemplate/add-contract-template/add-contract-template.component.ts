@@ -1,5 +1,7 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ContractContentHelper } from 'src/helper/contractContentHelper';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractTemplateService } from 'src/services/contractTemplate/contract-template.service';
 
 @Component(
@@ -10,19 +12,27 @@ import { ContractTemplateService } from 'src/services/contractTemplate/contract-
 	}
 )
 
-export class AddContractTemplateComponent
+export class AddContractTemplateComponent implements OnInit
 	{
 		contractTemplate:any = {};
 		isLoading:boolean= false;
 		validationResult: any ={};
+
 		@ViewChild('textarea') textarea!: ElementRef<HTMLTextAreaElement>;
 
 		constructor
 		(
 			private router: Router,
 			private route: ActivatedRoute,
-			private contractTemplateService: ContractTemplateService
+			private contractTemplateService: ContractTemplateService,
+			private contractContentHelper:ContractContentHelper,
+			private errorHelper:ErrorHelper
+			
 		){}
+
+		ngOnInit(): void {
+			this.contractTemplate.htmlContent = this.contractContentHelper.getSampleTemplate();
+		}
 
 		validate
 		(
@@ -99,61 +109,161 @@ export class AddContractTemplateComponent
 					)
 						{
 							this.isLoading = false;
-							
-							if
-							(
-								error.error &&
-								error.error.message
-							)
-								{
-									alert(error.error.message);
-								}
-							else
-								{
-									alert(error)
-								}
+							this.errorHelper.showErrorAsAlert(error);
 						}
 					}
-				
 			}
 
-			makeH2
-			():void
-				{
-					//let txtarea = document.getElementById("txtHtmlContent")|| undefined;
+		getSelectedPartOfTextArea
+		():any
+			{
+				if
+				(
+					this.textarea
+				)
+					{
+						const startAt = this.textarea.nativeElement.selectionStart;
+						const finishAt = this.textarea.nativeElement.selectionEnd;
 
-					if
-					(
-						this.textarea
-					)
-						{
-							
-							// Obtain the index of the first selected character
-							let start = this.textarea.nativeElement.selectionStart;
+						const result = {
+							startAt: startAt,
+							finishAt: finishAt
+						};
 
-							// // Obtain the index of the last selected character
-							let finish = this.textarea.nativeElement.selectionEnd;
-
-							console.log(`start: ${start} | end :${finish}`);
-
-							let currentContent = this.contractTemplate.htmlContent;
-							let output = [currentContent.slice(0, start), '<h2>',currentContent.slice(start, finish),'</h2>', currentContent.slice(finish)].join('');
-							
-							this.contractTemplate.htmlContent  = output;
-							
-						}
-
-					
-				}
-
-			makeH3
-			():void
-				{
-
-				}
-
-			view(start:any,end:any):void{
-				console.log('here');
-				
+						return result;
+					}
+				else
+					{
+						return undefined;
+					}
 			}
+
+		makeH2
+		():void
+			{
+				this.addHtmlElementToSelectedPart("h2");
+			}
+
+		makeH3
+		():void
+			{
+				this.addHtmlElementToSelectedPart("h3");
+			}
+
+		makeH1
+		():void
+			{
+				this.addHtmlElementToSelectedPart("h1");
+			}
+
+		makeOl
+		():void
+			{
+				this.addHtmlElementToSelectedPart("ol");
+			}
+
+		makeLi
+		():void
+		{
+			this.addHtmlElementToSelectedPart("li");
+		}
+
+		addHtmlElementToSelectedPart
+		(
+			tag:string
+		):void
+			{
+				const selectedPartOfTextArea  = this.getSelectedPartOfTextArea();
+
+				if
+				(
+					selectedPartOfTextArea
+				)
+					{
+						let currentContent = this.contractTemplate.htmlContent;
+						let output = this.addHtmlElement(currentContent,selectedPartOfTextArea.startAt,selectedPartOfTextArea.finishAt,tag);
+						this.contractTemplate.htmlContent  = output;
+					}
+			}
+
+		addHtmlElement
+		(
+			content: string,
+			startAt: number,
+			finishAt:number,
+			tag:string
+		):string
+			{
+				let output = [content.slice(0, startAt), `<${tag}>`,content.slice(startAt, finishAt),`</${tag}>`, content.slice(finishAt)].join('');
+				return output
+			}
+
+		insertContractTitle
+		():void
+			{
+				this.insertContractPrameter(this.contractContentHelper.TITLE_PALACE_HOLDER);
+			}
+
+		insertCustomers
+		():void
+			{
+				
+				this.insertContractPrameter(this.contractContentHelper.CUSTOMERS_PALACE_HOLDER);
+			}
+
+		insertPayments
+		():void
+			{
+				this.insertContractPrameter(this.contractContentHelper.PAYMENTS_PALACE_HOLDER);
+			}
+
+		insertSubject
+		():void
+			{
+				this.insertContractPrameter(this.contractContentHelper.SUBJECT_PALACE_HOLDER);
+			}
+
+		insertPayablePrice
+		():void
+		{
+			this.insertContractPrameter(this.contractContentHelper.PAYABLE_PRICE_PALACE_HOLDER);
+		}
+
+		insertContractPrameter
+		(
+			palceHolder: string,
+		):void
+			{
+				const selectedPartOfTextArea  = this.getSelectedPartOfTextArea();
+				if
+				(
+					selectedPartOfTextArea
+				)
+					{
+						let currentContent = this.contractTemplate.htmlContent;
+						let output = this.insertContractPrameterAtPosition(currentContent,selectedPartOfTextArea.startAt,selectedPartOfTextArea.finishAt,palceHolder);
+						this.contractTemplate.htmlContent  = output;
+					}
+			}
+
+		
+
+		insertContractPrameterAtPosition
+		(
+			content: string,
+			startAt: number,
+			finishAt:number,
+			palceHolder:string
+		):string
+			{
+				let output = [content.slice(0, startAt), palceHolder,content.slice(startAt, finishAt), content.slice(finishAt)].join('');
+				return output
+			}
+
+			
+
+		view(start:any,end:any):void{
+			console.log('here');
+			
+		}
 	}
