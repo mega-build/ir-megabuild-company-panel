@@ -12,14 +12,14 @@
                 <label
                     for="txtBlock"
                 >
-                    بلوک:
+                    شماره بلوک:
                 </label>
                 <input
                     type="text"
                     id="txtBlock"
                     name="txtBlock"
                     maxlength="10"
-                    placeholder="بلوک"
+                    placeholder="شماره بلوک"
                     [(ngModel)]= "residentialProjectItem.block"
                 >
             </li>
@@ -44,7 +44,7 @@
                 <label
                     for="txtUnit"
                 >
-                    واحد:
+                    شماره واحد:
                 </label>
                 <input
                     type="text"
@@ -77,13 +77,14 @@
                 <label
                     for="txtUnitPrice"
                 >
-                    مبلغ واحد:
+                   مبلغ هر متر مربع:
                 </label>
                 
                 <price-input
                     id = 'txtPrice'
                     name = 'txtPrice'
                     (setPrice)="setPrice($event)"
+                    
                 ></price-input>
             </li>
 
