@@ -32,3 +32,8 @@ form::after{
   bottom: 0;
   padding: 0 40px;
 }
+@media (max-width: 992.8px) {
+ form fieldset{
+  flex: 0 0 100%;
+ }
+}

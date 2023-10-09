@@ -1,3 +1,16 @@
+div{
+  background-color: #F2F4F7;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+section{
+  background-color: #fff;
+  padding: 15px 32px;
+  border-radius: 8px;
+  margin: 16px auto;
+}
+
 legend {
   margin: 24px 0;
 }
@@ -19,20 +32,20 @@ ul li a {
   text-align: center;
 }
 
-section ul{
+section ul.action-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-section ul li{
+section ul.action-list li {
   border-radius: 6px;
-  border: 1px solid  #EAECF0;
+  border: 1px solid #eaecf0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 4px 16px;
-} 
-section ul li .remove-btn{
+}
+section ul li .remove-btn {
   border: none;
   background-color: transparent;
   text-indent: -90000px;
@@ -41,5 +54,24 @@ section ul li .remove-btn{
   background-position: center;
   background-repeat: no-repeat;
   width: fit-content;
-
+}
+form {
+  margin-bottom: 60px;
+}
+form ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+form ul li {
+  flex: 0 0 10%;
+}
+@media (max-width: 992.8px) {
+  form ul {
+    flex-direction: column;
+  }
+  form ul li {
+    flex: 0 0 100%;
+    width: 100%;
+  }
 }

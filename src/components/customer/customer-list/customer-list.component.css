@@ -1,0 +1,13 @@
+ol{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contract-list-item {
+  border-radius: 8px;
+  border-bottom: 1px solid #eaecf0;
+  padding-bottom: 16px;
+}
+.contract-list-item:last-child{
+    border-bottom: none;
+}
