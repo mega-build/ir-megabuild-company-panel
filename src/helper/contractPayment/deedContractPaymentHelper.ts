@@ -17,7 +17,7 @@ export class DeedContractPaymentHelper
             deedContractPayment: any
         ):string
             {
-                return `باقیمانده بهای موضوع قرارداد به مبلغ ${this.priceHelper.priceWithCommas(deedContractPayment.price)} (${this.priceHelper.priceToWord(deedContractPayment.price)} ريال) در روز انتقال سند واگذاری و قبل از واگذاری پرداخت میگردد.`
+                return `باقیمانده بهای موضوع قرارداد به مبلغ ${this.priceHelper.priceWithCommasForContractContent(deedContractPayment.price)} (${this.priceHelper.priceToWord(deedContractPayment.price)} ريال) در روز انتقال سند واگذاری و قبل از واگذاری پرداخت میگردد.`
             }
 
         

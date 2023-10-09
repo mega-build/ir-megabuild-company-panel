@@ -16,6 +16,15 @@ export class PriceHelper
             {
                 return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             }
+        
+        priceWithCommasForContractContent
+        (
+            price : number
+        ):string
+            {
+                const priceWithCommas = this.priceWithCommas(price);
+                return `${priceWithCommas}/-`;
+            }
 
         priceToWord
         (

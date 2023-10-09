@@ -143,7 +143,7 @@ export class ContractContentHelper
 		):string
 			{
                 const total : number = this.projectItemHelper.calculateTotalPrice(projectItem);
-				return `بهای موضوع قرارداد از قرار هر مترمربع ${this.priceHelper.priceWithCommas(projectItem.unitPrice)} (${this.priceHelper.priceToWord(projectItem.unitPrice)} ريال) که با توجه مساحت تقریبی موضوع قرارداد(${projectItem.buildupArea} متر مربع)، جمعا  ${this.priceHelper.priceWithCommas(total)} ريال میباشد که با احتساب ${this.priceHelper.priceWithCommas(contract.discount)} ريال تخفیف، به شرح آتی پرداخت میگردد.`
+				return `بهای موضوع قرارداد از قرار هر مترمربع ${this.priceHelper.priceWithCommasForContractContent(projectItem.unitPrice)} (${this.priceHelper.priceToWord(projectItem.unitPrice)} ريال) که با توجه مساحت تقریبی موضوع قرارداد(${projectItem.buildupArea} متر مربع)، جمعا  ${this.priceHelper.priceWithCommasForContractContent(total)} ريال میباشد که با احتساب ${this.priceHelper.priceWithCommasForContractContent(contract.discount)} ريال تخفیف، به شرح آتی پرداخت میگردد.`
 			}
 
         getCustomersContent

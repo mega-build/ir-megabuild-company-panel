@@ -23,7 +23,7 @@
     ></loading-list>
 
     <contract-list
-        *ngIf="!isLoading && contractList.length > 0"
+        *ngIf="!isLoading && contractList && contractList.length > 0"
         [contractList]="contractList"
     ></contract-list>
 

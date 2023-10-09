@@ -162,7 +162,7 @@ export class ContractHelper
                 const payablePrice = contract.payablePrice;
                 const remainingPrice = contract.payablePrice - totalRegisteredPaymentListPrice;
                 return `
-                    بهای موضوع قرارداد برابر با  ${this.priceHelper.priceWithCommas(payablePrice)} ریال میباشد. مجموع پرداخت های ثبت شده تاکنون   ${this.priceHelper.priceWithCommas(totalRegisteredPaymentListPrice)} ریال است. مبلغ باقی مانده تا تکمیل پرداخت ها برابر با ${this.priceHelper.priceWithCommas(remainingPrice)}ریال می باشد.
+                    بهای موضوع قرارداد برابر با  ${this.priceHelper.priceWithCommasForContractContent(payablePrice)} ریال میباشد. مجموع پرداخت های ثبت شده تاکنون   ${this.priceHelper.priceWithCommasForContractContent(totalRegisteredPaymentListPrice)} ریال است. مبلغ باقی مانده تا تکمیل پرداخت ها برابر با ${this.priceHelper.priceWithCommasForContractContent(remainingPrice)}ریال می باشد.
                 `;
             }
     }
