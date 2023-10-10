@@ -5,3 +5,30 @@ section {
   justify-content: center;
   height: 100vh;
 }
+h2{
+  margin: 0;
+  padding: 0;
+}
+div {
+  border-radius: 12px;
+  border: 1px solid #eaecf0;
+  padding: 64px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+user-label{
+  border-radius: 50px;
+  border: 1px solid  #EAECF0;
+  padding: 4px 16px;
+  margin-bottom: 40px;
+  margin-top: 32px;
+}
+
+@media (max-width: 992.8px) {
+  div{
+    padding: 16px;
+  }
+ }

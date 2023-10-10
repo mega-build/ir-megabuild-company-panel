@@ -59,7 +59,7 @@ ul li {
     display: grid;
     grid-template-columns: max-content max-content;
     column-gap: 22px;
-    row-gap: 15px;
+    row-gap: 8px;
     place-items: inherit;
     align-items: center;
   }

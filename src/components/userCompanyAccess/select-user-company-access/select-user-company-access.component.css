@@ -11,22 +11,36 @@ ul li {
   align-items: center;
   gap: 16px;
   position: relative;
+  border-bottom: 1px solid #eaecf0;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  width: 350px;
+  justify-content: space-between;
+}
+ul li:last-child {
+  border-bottom: none;
 }
 ul li input[type="radio"] {
-  width: fit-content;
-  margin: 0;
-  padding: 0;
+  display: none;
 }
 
 ul li label {
   color: #101828;
-  font-size: 22px;
+  font-size: 16px;
   margin: 0;
   padding: 0;
   cursor: pointer;
+  width: 100%;
+  text-align: right;
 }
 
-company-logo{
-  width:100px;
-  height: 100px;
+company-logo {
+  width: 70px;
+  height: 70px;
 }
+
+@media (max-width: 992.8px) {
+  ul li{
+    width: 250px;
+  }
+ }

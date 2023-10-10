@@ -18,8 +18,8 @@
   justify-content: space-between;
 }
 
-@media (max-width: 992.8px) {
-  .header {
-    display: block;
+@media (max-width: 1200.8px) {
+  contract-payment-filter {
+    flex: 0 0 100%;
   }
 }
