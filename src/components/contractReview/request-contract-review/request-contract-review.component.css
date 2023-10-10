@@ -34,26 +34,31 @@ ul li a {
 
 section ul.action-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 12px;
+  justify-content: start;
 }
 section ul.action-list li {
-  border-radius: 6px;
+  border-radius: 50px;
   border: 1px solid #eaecf0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 16px;
+  padding: 0px 16px;
+  width: max-content;
 }
 section ul li .remove-btn {
   border: none;
   background-color: transparent;
   text-indent: -90000px;
   overflow: hidden;
-  background: url("../../../assets/images/icons/trash-03.svg");
+  background: url("../../../assets/images/icons/x-close.svg");
   background-position: center;
   background-repeat: no-repeat;
-  width: fit-content;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
 }
 form {
   margin-bottom: 60px;
