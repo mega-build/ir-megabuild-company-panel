@@ -1,8 +1,22 @@
 <ol class="container">
     <ul class="contract-list-header">
         <li>شماره قرارداد</li>
-        <li>تاریخ قرارداد</li>
-        <li>تاریخ تحویل</li>
+        <li>
+            تاریخ قرارداد
+            <button
+                (click)="sortByContractDate()"
+            >
+                sort
+            </button>
+        </li>
+        <li>
+            تاریخ تحویل
+            <button
+                (click)="sortByContractFinishDate()"
+            >
+                sort
+            </button>
+        </li>
         <li>خریدار</li>
         <li>مبلغ قرارداد(ريال)</li>
         <li>مورد قرارداد</li>
