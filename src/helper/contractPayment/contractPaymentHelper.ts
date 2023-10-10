@@ -7,6 +7,7 @@ import { DipositContractPaymentHelper } from './dipositContractPaymentHelper';
 import { DeedContractPaymentHelper } from './deedContractPaymentHelper';
 import { DateHelper } from '../dateHelper';
 import { ReportHelper } from '../reportHelper';
+import { DickerContractPaymentHelper } from './dickerContractPaymentHelper';
 
 @Injectable(
 	{
@@ -23,6 +24,7 @@ export class ContractPaymentHelper
             private chequeContractPaymentHelper: ChequeContractPaymentHelper,
             private dipositContractPaymentHelper: DipositContractPaymentHelper,
             private deedContractPaymentHelper: DeedContractPaymentHelper,
+            private dickerContractPaymentHelper: DickerContractPaymentHelper,
             private dateHelper: DateHelper,
             private reportHelper:ReportHelper
         ){}
@@ -48,12 +50,9 @@ export class ContractPaymentHelper
             paymentList:any[]
         ):string
             {
-                console.log('paymenr');
-
                 const paymentMethodComponentNameList = this.getPaymentMethodComponentNameListFromPaymentList(paymentList);
 
                 return this.getContractPaymentTypeTextFromPaymentMethodComponentNameList(paymentMethodComponentNameList);
-               
 
             }
 
@@ -64,18 +63,22 @@ export class ContractPaymentHelper
             {
                 let filteredPaymentList:any[] = [];
 
-                for (let index = 0; index < paymentList.length; index++) {
-                    const currentPayment = paymentList[index];
-                    const currantPaymentComponentName = currentPayment.contractPaymentMethod.componentName;
-                    if
-                    (
-                        currantPaymentComponentName != "DICKER"
-                    )
-                        {
-                            filteredPaymentList.push(currentPayment) 
-                        }
-                    
-                }
+                for
+                (
+                    let index = 0; index < paymentList.length; index++
+                )
+                    {
+                        const currentPayment = paymentList[index];
+                        const currantPaymentComponentName = currentPayment.contractPaymentMethod.componentName;
+                        if
+                        (
+                            currantPaymentComponentName != "DICKER"
+                        )
+                            {
+                                filteredPaymentList.push(currentPayment) 
+                            }
+                        
+                    }
 
                 return filteredPaymentList;
             }
@@ -87,11 +90,15 @@ export class ContractPaymentHelper
             {
                 let paymentMethodComponentNameList :string[] = [];
 
-                for (let index = 0; index < paymentList.length; index++) {
-                    const element = paymentList[index].contractPaymentMethod.componentName;
-                    paymentMethodComponentNameList.push(element);
-                    
-                }
+                for
+                (
+                    let index = 0; index < paymentList.length; index++
+                )
+                    {
+                        const element = paymentList[index].contractPaymentMethod.componentName;
+
+                        paymentMethodComponentNameList.push(element);
+                    }
 
                 return paymentMethodComponentNameList;
             }
@@ -141,6 +148,7 @@ export class ContractPaymentHelper
         ):string
             {
                 const reportDateShamsi = this.dateHelper.getTodayShamsi();
+                
                 const result = `
                     <h1>
                         ${reportTitle}
@@ -316,6 +324,16 @@ export class ContractPaymentHelper
                 )
                     {
                         let result =  this.deedContractPaymentHelper.getContractContent(
+                            contractPayment
+                        );
+                        return `<li>${result}</li>`
+                    }
+                else if
+                (
+                    contractPayment.contractPaymentMethod.componentName == "DICKER"
+                )
+                    {
+                        let result =  this.dickerContractPaymentHelper.getContractContent(
                             contractPayment
                         );
                         return `<li>${result}</li>`

@@ -89,15 +89,14 @@ export class ContractContentComponent implements OnInit
 		}
 
 		constructor
-			(
-				private route: ActivatedRoute,
-				private contractService: ContractService,
-				private errorHelper: ErrorHelper,
-				private router:Router,
-				private contractHelper:ContractHelper,
-				private contractContentHelper: ContractContentHelper
-			)
-				{}
+		(
+			private route: ActivatedRoute,
+			private contractService: ContractService,
+			private errorHelper: ErrorHelper,
+			private router:Router,
+			private contractHelper:ContractHelper,
+			private contractContentHelper: ContractContentHelper
+		){}
 
 		ngOnInit
 		(): void 
@@ -116,7 +115,7 @@ export class ContractContentComponent implements OnInit
 						else
 							{
 								alert("آدرس اشتباه");
-								this.navigate_contractDetail();
+								this.navigate_contractDraftList();
 							}
 						
 					}
@@ -168,7 +167,7 @@ export class ContractContentComponent implements OnInit
 						console.log(data.result);
 						this.isLoading = false;
 
-						this.navigate_contractDetail();
+						this.navigate_contractDraftList();
 					}
 				catch
 				(
@@ -180,7 +179,7 @@ export class ContractContentComponent implements OnInit
 					}
 			}
 
-		navigate_contractDetail
+		navigate_contractDraftList
 		():void
 			{
 				const nvaigationRouteList = ['contractManagement','list','draft'];

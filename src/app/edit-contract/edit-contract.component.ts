@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
@@ -23,7 +23,8 @@ export class EditContractComponent implements OnInit
 		(
 			private route: ActivatedRoute,
 			private contractService: ContractService,
-			private errorHelper: ErrorHelper
+			private errorHelper: ErrorHelper,
+			private router: Router
 		){}
 
 		ngOnInit
@@ -31,17 +32,20 @@ export class EditContractComponent implements OnInit
 			{
 				this.route.params.subscribe(params => 
 					{
-						this.contractId = params['contractId']; 
+
+						let contractIdParameter = params['contractId'];
 						if
 						(
-							this.contractId
+							contractIdParameter	
 						)
 							{
+								this.contractId =  contractIdParameter
 								this.getContract();
 							}
 						else
 							{
-								alert("آدرس اشتباه")
+								alert("آدرس اشتباه");
+								this.navigate_contractDraftList();
 							}
 					}
 				);
@@ -55,12 +59,14 @@ export class EditContractComponent implements OnInit
 				try
 					{
 						this.isLoading = true;
+
 						const data = await this.contractService
 							.get(
 								this.contractId
 							);
-						console.log(data.contract);
+
 						this.contract = data.contract;
+
 						this.isLoading = false;
 					}
 				catch
@@ -71,6 +77,13 @@ export class EditContractComponent implements OnInit
 						this.isLoading = false;
 						this.errorHelper.showErrorAsAlert(error);
 					}
+			}
+
+		navigate_contractDraftList
+		():void
+			{
+				const nvaigationRouteList = ['contractManagement','list','draft'];
+				this.router.navigate(nvaigationRouteList);
 			}
 
 	}
