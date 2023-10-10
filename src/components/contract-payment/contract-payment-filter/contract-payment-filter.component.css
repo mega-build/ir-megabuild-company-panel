@@ -20,7 +20,7 @@ b {
   justify-content: center;
   flex-direction: row-reverse;
 }
-fieldset ul:first-child{
+fieldset ul:first-child {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -39,10 +39,16 @@ fieldset ul:first-child{
 form {
   margin: 32px auto;
 }
-legend{
+legend {
   display: none;
 }
 .primary {
   margin-top: 24px;
   width: 10%;
+}
+
+@media (max-width: 992.8px) {
+  .primary {
+    width: 100%;
+  }
 }

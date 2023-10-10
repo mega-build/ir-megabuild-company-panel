@@ -1,52 +1,55 @@
-<section class="container">
-    <loading
-    *ngIf="isLoading"
-></loading>
-
-
-<form
-    *ngIf="!isLoading && contract"
->
-    <legend>
-        تعیین وضعیت بررسی
-    </legend>
-
-    <fieldset
-        [disabled]="isLoading"
-    >
-        <ul class="action-list">
-            <li>
-                <button
-                    type="button"
-                    (click)="accpet()"
-                    class="primary"
-                >
-                    تایید پیش نویس قرارداد
-                </button>
-            </li>
-            <li>
-                <button
-                    type="button"
-                    (click)="reject()"
-                    class="secondary"
-                >
-                    رد پیش نویس قرارداد
-                </button>
-            </li>
-            <li>
-                <a
-                    [routerLink]="['/','contractManagement','list','requested']"
-                >
-                    مشاهده لیست
-                </a>
-            </li>
-        </ul>
-    </fieldset>
-</form>
+<div>
+        <loading
+        *ngIf="isLoading"
+    ></loading>
+ 
     
-
-<contract-full-detail
-    *ngIf="!isLoading && contract"
-    [contract]="contract"
-></contract-full-detail>
-</section>
+    <section class="container">
+        <form
+        *ngIf="!isLoading && contract"
+    >
+        <legend>
+            تعیین وضعیت بررسی
+        </legend>
+    
+        <fieldset
+            [disabled]="isLoading"
+        >
+            <ul class="action-list">
+                <li>
+                    <button
+                        type="button"
+                        (click)="accpet()"
+                        class="primary"
+                    >
+                        تایید پیش نویس قرارداد
+                    </button>
+                </li>
+                <li>
+                    <button
+                        type="button"
+                        (click)="reject()"
+                        class="secondary"
+                    >
+                        رد پیش نویس قرارداد
+                    </button>
+                </li>
+                <li>
+                    <a
+                        [routerLink]="['/','contractManagement','list','requested']"
+                    >
+                        مشاهده لیست
+                    </a>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    </section>
+        
+    <section class="container">
+    <contract-full-detail
+        *ngIf="!isLoading && contract"
+        [contract]="contract"
+    ></contract-full-detail>
+    </section>
+</div>

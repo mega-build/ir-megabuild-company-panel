@@ -5,10 +5,7 @@
             جستجوی دریافتی ها
         </h2>   
 
-        <contract-payment-filter
-            (setFilter) = 'setFilter($event)'
-        ></contract-payment-filter>
-
+        
         <button
             *ngIf="!isLoading && contractPaymentList && contractPaymentList.length > 0"
             (click)="downloadDoc()"
@@ -16,6 +13,10 @@
         >
             دانلود
         </button>
+        <contract-payment-filter
+            (setFilter) = 'setFilter($event)'
+        ></contract-payment-filter>
+
     </header>
     
     <div

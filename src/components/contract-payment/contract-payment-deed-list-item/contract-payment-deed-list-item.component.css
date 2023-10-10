@@ -37,7 +37,7 @@ dl dt {
   order: -2;
 }
 dl dt.bank-account,
-dl dd.bank-account{
+dl dd.bank-account {
   flex: 0 0 16%;
 }
 dl dd:last-child,
@@ -53,4 +53,24 @@ ul {
 }
 ul li {
   flex: 1 0 17%;
+}
+
+@media (max-width: 992.8px) {
+  dl {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    column-gap: 22px;
+    row-gap: 15px;
+    place-items: inherit;
+    align-items: center;
+  }
+  dl .project-name-dd{
+    grid-column: span 2;
+  }
+  dl dd{
+    order: 0;
+  }
+  dl dt{
+    order: 0;
+  }
 }
