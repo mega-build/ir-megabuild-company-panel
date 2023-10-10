@@ -19,7 +19,8 @@
 <ul class="container">
     <li>
         <button
-            (click)="downloadDoc()"
+            *ngIf="!isLoading && contractList && contractList.length > 0"
+            (click)="downloadReportDoc()"
             class="downloadbtn"
         >
             دانلود

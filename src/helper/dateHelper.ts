@@ -9,6 +9,18 @@ import { Injectable } from '@angular/core';
 export class DateHelper
 	{
 
+        getTodayShamsi():string
+            {
+                const today:Date = new Date();
+                const options : Intl.DateTimeFormatOptions= {
+                    weekday:"long",
+                    year:"numeric",
+                    month:"long",
+                    day:"numeric"
+                }
+                return today.toLocaleDateString('fa',options);
+                
+            }
 
         getDateTehranTimeZoneDateString
 		(

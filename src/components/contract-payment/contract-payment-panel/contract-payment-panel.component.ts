@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ContractPaymentHelper } from 'src/helper/contractPayment/contractPaymentHelper';
 import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
+import { LocalStorageService } from 'src/share/services/local-storage/local-storage.service';
 
 @Component(
 	{
@@ -15,12 +16,14 @@ export class ContractPaymentPanelComponent
 		contractPaymentList!: any[];
 		isLoading: boolean = false;
 		filterOptions!: any;
+		REPORT_TITLE: string = "فهرست دریافتی های صادره";
 		
 		constructor
 		(
 			private contractPaymentService: ContractPaymentService,
 			private errorHelper:ErrorHelper,
-			private contractPaymentHelper: ContractPaymentHelper
+			private contractPaymentHelper: ContractPaymentHelper,
+			private localStorageService: LocalStorageService
 		){}
 
 		setFilter
@@ -73,18 +76,42 @@ export class ContractPaymentPanelComponent
 
 				}
 
-		async downloadDoc
+		async downloadReportDoc
 		():Promise<void>
 			{
+
+				const companyName: string = this.localStorageService.getUserCompanyAccess().company.title;
+			
 				const paymentListWithoutDicker = this.contractPaymentHelper.getPaymentListWithoutDicker(this.contractPaymentList);
-				const sourceHTML = this.contractPaymentHelper.generateContractReportTable(paymentListWithoutDicker);
+				const sourceHTML = this.contractPaymentHelper.generateContractPaymentReportTable(
+					this.REPORT_TITLE,
+					companyName,
+					this.filterOptions.startDateShamsi,
+					this.filterOptions.endDateShamsi,
+					paymentListWithoutDicker
+				);
 				
 				const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-				const fileDownload = document.createElement("a");
-				document.body.appendChild(fileDownload);
+
+				this.downloadDoc(
+					document,
+					source,
+					`لیست پرداخت ها.doc`
+				)
+			}
+
+		downloadDoc
+		(
+			documentHtmlElement:any,
+			source:string,
+			fileName:string
+		):void
+			{
+				const fileDownload = documentHtmlElement.createElement("a");
+				documentHtmlElement.body.appendChild(fileDownload);
 				fileDownload.href = source;
-				fileDownload.download = `لیست پرداخت ها.doc`;
+				fileDownload.download = fileName;
 				fileDownload.click();
-				document.body.removeChild(fileDownload);
+				documentHtmlElement.body.removeChild(fileDownload);
 			}
 	}
