@@ -15,23 +15,38 @@ ol {
 .contract-list-header li {
   flex: 0 0 11%;
   max-width: 11%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 ol .contract-list-item {
   display: flex;
   padding: 16px 0;
-  border-bottom: 1px solid #EAECF0;
+  border-bottom: 1px solid #eaecf0;
 }
-ol .contract-list-item:last-child{
+ol .contract-list-item:last-child {
   border-bottom: none;
 }
-contract-list-item{
+contract-list-item {
   display: flex;
   flex-wrap: nowrap;
   max-width: 100%;
   flex: 1 0 100%;
 }
+.sort-btn {
+  background-color: transparent;
+  border: none;
+  text-indent: -90000px;
+  overflow: hidden;
+  background: url("../../../assets/images/icons/arrow-down.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+}
+
 @media (max-width: 992.8px) {
-  ol{
+  ol {
     border: none;
     display: flex;
     flex-direction: column;
@@ -39,19 +54,19 @@ contract-list-item{
     padding: 0 15px;
     margin-bottom: 40px;
   }
-  .contract-list-header{
+  .contract-list-header {
     display: none;
   }
-  ol .contract-list-item{
+  ol .contract-list-item {
     border: 1px solid #eaecf0;
     border-radius: 8px;
     padding: 0;
   }
-  ol .contract-list-item:last-child{
+  ol .contract-list-item:last-child {
     border-bottom: 1px solid #eaecf0;
     border-radius: 8px;
   }
-  contract-list-item{
+  contract-list-item {
     display: block;
   }
 }

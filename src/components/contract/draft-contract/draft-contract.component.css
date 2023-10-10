@@ -44,5 +44,20 @@ form{
 }
 .closeModal{
   position: absolute;
-  top: 0;
+  top: 16px;
+  left: 16px;
+}
+div{
+  background-color: #F2F4F7;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 100px;
+}
+section,
+form{
+  background-color: #fff;
+  padding: 15px 32px;
+  border-radius: 8px;
+  margin: 16px auto;
 }
