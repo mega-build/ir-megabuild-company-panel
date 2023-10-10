@@ -5,6 +5,8 @@ import { ProjectItemHelper } from '../projectItemHelper';
 import { ChequeContractPaymentHelper } from './chequeContractPaymentHelper';
 import { DipositContractPaymentHelper } from './dipositContractPaymentHelper';
 import { DeedContractPaymentHelper } from './deedContractPaymentHelper';
+import { DateHelper } from '../dateHelper';
+import { ReportHelper } from '../reportHelper';
 
 @Injectable(
 	{
@@ -21,6 +23,8 @@ export class ContractPaymentHelper
             private chequeContractPaymentHelper: ChequeContractPaymentHelper,
             private dipositContractPaymentHelper: DipositContractPaymentHelper,
             private deedContractPaymentHelper: DeedContractPaymentHelper,
+            private dateHelper: DateHelper,
+            private reportHelper:ReportHelper
         ){}
 
         getDeedPriceFromPaymentList(
@@ -128,12 +132,55 @@ export class ContractPaymentHelper
                     }
             }
 
-        generateContractReportTable
+        generateContractPaymentReportTableTitle
         (
+            reportTitle:string,
+            companyName:string,
+            startDateShamsi:string,
+            endDateShamsi:string,
+        ):string
+            {
+                const reportDateShamsi = this.dateHelper.getTodayShamsi();
+                const result = `
+                    <h1>
+                        ${reportTitle}
+                    </h1>
+                    <table>
+                        <tr>
+                            <th>شرکت</th>
+                            <th>از تاریخ</th>
+                            <th>تا تاریخ</th>
+                            <th>تاریخ گزارشگیری</th>
+                        </tr>
+                        <tr>
+                            <td>${companyName}</td>
+                            <td>${startDateShamsi}</td>
+                            <td>${endDateShamsi}</td>
+                            <td>${reportDateShamsi}</td>
+                        </tr>
+                    </table>
+                    </hr>
+                `;
+
+                return result;
+            }
+            
+        generateContractPaymentReportTable
+        (
+            reportTitle:string,
+            companyName:string,
+            startDateShamsi:string,
+            endDateShamsi:string,
             contractPaymentList:any[]
         ):string
             {
-                let tableHeader = this.generateContractPaymentReportTableHeader();
+                const reportHeader = this.generateContractPaymentReportTableTitle(
+                    reportTitle,
+                    companyName,
+                    startDateShamsi,
+                    endDateShamsi
+                );
+                const tableHeader = this.generateContractPaymentReportTableHeader();
                 
                 let tableRowList:string ="";
 
@@ -144,44 +191,7 @@ export class ContractPaymentHelper
 
                 const tableContent = `<table>${tableHeader}${tableRowList}</table>`;
 
-                const header = `<html xmlns:o='urn:schemas-microsoft-com:office:office'
-                        xmlns:w='urn:schemas-microsoft-com:office:word' 
-                        xmlns='http://www.w3.org/TR/REC-html40' lang='fa' dir='rtl'>
-                        <head><meta charset='utf-8'><title>لیست قراردادها</title>
-                        <style>
-                        @font-face {
-                            font-family: "IRANSansWeb";
-                            src: url("https://assets.megabuild.ir/fonts/IRANSansWeb_Bold.woff2");
-                        }
-                        @page WordSection1 {
-                            size: 792pt 612pt;
-                            mso-page-orientation: landscape;
-                            margin: 72pt 72pt 72pt 72pt;
-                            mso-header-margin: 36pt;
-                            mso-footer-margin: 36pt;
-                            mso-paper-source: 0;
-                        }
-                        div.WordSection1 {
-                            page: WordSection1;
-                        }
-                        body {
-                            font-family: "Tahoma", "2  Koodak", "B Jadid", "IRANSansWeb";
-                        }
-                        table {
-                            border-spacing: 0;
-                        }
-                        th{
-                            border:1px solid #000;
-                        }
-                        td {
-                            border-bottom: 1px solid #000;
-                            border-left:1px solid #000;
-                            border-right: 1px solid #000;
-                        }
-                        </style>
-                        </head><body><div class=WordSection1>`;
-                const footer = "</div></body></html>";
-                const sourceHTML = header+tableContent+footer;
+                const sourceHTML = this.reportHelper.HEADER + reportHeader + tableContent + this.reportHelper.FOOTER;
 
                 return sourceHTML;
             }

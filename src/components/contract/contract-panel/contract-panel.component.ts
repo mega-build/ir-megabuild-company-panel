@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ContractHelper } from 'src/helper/contractHelper';
 import { ErrorHelper } from 'src/helper/errorHelper';
 import { ContractService } from 'src/services/contract/contract.service';
+import { LocalStorageService } from 'src/share/services/local-storage/local-storage.service';
 
 @Component(
 	{
@@ -25,7 +26,6 @@ export class ContractPanelComponent
 			filterOptions:any
 		):void
 			{
-				console.log(filterOptions);
 				this.filterOptions = filterOptions;
 
 				if
@@ -35,7 +35,7 @@ export class ContractPanelComponent
 				)
 					{
 						this.selectedProject = filterOptions.project;
-						this.getAllContractListByProject();
+						this.getAllByProjectAndStartDateAndEndDate();
 					}
 				else
 					{
@@ -47,11 +47,12 @@ export class ContractPanelComponent
 		(
 			private contractService: ContractService,
 			private errorHelper:ErrorHelper,
-			private contractHelper: ContractHelper
+			private contractHelper: ContractHelper,
+			private localStorageService:LocalStorageService
 		){}
 			
 
-		async getAllContractListByProject
+		async getAllByProjectAndStartDateAndEndDate
 		(): Promise<void>
 			{
 
@@ -60,8 +61,10 @@ export class ContractPanelComponent
 						this.isLoading = true;
 						
 						const data = await this.contractService
-							.getAllByProject(
-								this.selectedProject._id
+							.getAllByProjectAndStartDateAndEndDate(
+								this.selectedProject._id,
+								this.filterOptions.startDate,
+								this.filterOptions.endDate
 							);
 						this.contractList = data.contractList;
 						
@@ -78,24 +81,42 @@ export class ContractPanelComponent
 				
 			}
 
-		async downloadDoc
+		async downloadReportDoc
 		():Promise<void>
 			{
+				const companyName: string = this.localStorageService.getUserCompanyAccess().company.title;
 				const sourceHTML = this.contractHelper.generateContractReportTable(
-					"companyName",
+					companyName,
 					this.filterOptions.project.title,
 					this.filterOptions.startDateShamsi,
 					this.filterOptions.endDateShamsi,
-					this.contractList
+					this.contractList,
 				);
 				
 				const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-				const fileDownload = document.createElement("a");
-				document.body.appendChild(fileDownload);
+
+				this.downloadDoc(
+					document,
+					source,
+					`لیست قراردادها.doc`
+				)
+			}
+
+			
+
+		downloadDoc
+		(
+			documentHtmlElement:any,
+			source:string,
+			fileName:string
+		):void
+			{
+				const fileDownload = documentHtmlElement.createElement("a");
+				documentHtmlElement.body.appendChild(fileDownload);
 				fileDownload.href = source;
-				fileDownload.download = `لیست قراردادها.doc`;
+				fileDownload.download = fileName;
 				fileDownload.click();
-				document.body.removeChild(fileDownload);
+				documentHtmlElement.body.removeChild(fileDownload);
 			}
 
 		
