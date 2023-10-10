@@ -1,15 +1,25 @@
-.empty{
-    color: #667085;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 24px;
-    height: 30vh;
+.empty {
+  color: #667085;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  height: 30vh;
 }
-.empty::before{
-    content: url("../../../assets/images/icons/empty.svg");
-    width: 64px;
-    height: 64px;
+.empty::before {
+  content: url("../../../assets/images/icons/empty.svg");
+  width: 64px;
+  height: 64px;
+}
+.header {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 992.8px) {
+  .header {
+    display: block;
+  }
 }

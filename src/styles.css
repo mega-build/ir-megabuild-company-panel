@@ -41,7 +41,9 @@ body {
 @font-face {
   font-family: IRANSansWeb;
   src: url("https://assets.megabuild.ir/fonts/IRANSansWebNum.woff2");
+  font-weight: 400;
 }
+
 .container {
   width: 100%;
   padding-right: 15px;

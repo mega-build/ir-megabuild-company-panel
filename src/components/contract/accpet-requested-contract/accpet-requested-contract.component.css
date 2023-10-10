@@ -1,10 +1,22 @@
+div{
+  background-color: #F2F4F7;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+section{
+  background-color: #fff;
+  padding: 15px 32px;
+  border-radius: 8px;
+  margin: 16px auto;
+}
+
 legend {
   display: none;
 }
 .action-list {
   flex-direction: row-reverse;
   justify-content: center;
-  border-bottom: 1px solid #eaecf0;
   background: #fff;
   padding-bottom: 12px;
   margin-bottom: 16px;
@@ -12,7 +24,6 @@ legend {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-
 }
 .action-list li {
   flex: 0 0 14%;
@@ -25,4 +36,11 @@ legend {
 .action-list li a {
   width: 100%;
 
+}
+
+@media (max-width: 992.8px) {
+  .action-list{
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 }
