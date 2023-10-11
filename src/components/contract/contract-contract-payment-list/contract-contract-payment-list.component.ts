@@ -1,8 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ContractHelper } from 'src/helper/contractHelper';
 import { ErrorHelper } from 'src/helper/errorHelper';
-import { ProjectItemHelper } from 'src/helper/projectItemHelper';
+import { PriceHelper } from 'src/helper/priceHelper';
 import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
@@ -23,14 +22,22 @@ export class ContractContractPaymentListComponent implements OnInit
 		isLoading:boolean = false;
 		hasAnyPayment:boolean = false;
 		totalRegisteredPaymentListPrice:number = 0;
+		
 
 		constructor
 		(
 			private route: ActivatedRoute,
 			private contractService: ContractService,
-			public contractHelper: ContractHelper,
-			private errorHelper:ErrorHelper
+			private errorHelper:ErrorHelper,
+			public priceHelper:PriceHelper
 		){}
+
+		getRemainingPrice
+		():number
+			{
+				const remainingPrice:number = this.contract.payablePrice - this.totalRegisteredPaymentListPrice;
+				return remainingPrice;
+			}
 		
 		paymentListLengthChanged
 		(

@@ -152,18 +152,4 @@ export class ProjectItemHelper
 					}
 				
 			}
-
-		getProjectItemCalculationPrice
-		(
-			projectItem:any
-		):string
-			{
-				const area = projectItem.area || projectItem.buildupArea;
-				const unitPrice = projectItem.unitPrice;
-				const totla = area * unitPrice;
-				
-				return `
-				مساحت ثبت شده در موضوع قرارداد، برابر با ${area} متر مربع به ارزش متری ${this.priceHelper.priceWithCommas(unitPrice)} ریال که در مجموع ${this.priceHelper.priceWithCommas(totla)} ریال میباشد.
-				`;
-			}
     }

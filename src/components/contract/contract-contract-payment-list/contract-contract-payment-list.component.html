@@ -9,15 +9,6 @@
 <section
 >
 
-    <section
-        *ngIf="!isLoading && contract"
-        class="message"
-    >
-        <span>
-            {{contractHelper.getContractPayablePriceDescription(contract,totalRegisteredPaymentListPrice)}}
-        </span>
-    </section>
-
     <a
         [routerLink]="['../add']"
         role="button"
@@ -25,6 +16,40 @@
     >
         افزودن پرداخت
     </a>
+
+    <section
+        *ngIf="!isLoading && contract"
+        class="message"
+    >
+        <dl>
+            <dt>
+                بهای قرارداد
+            </dt>
+            <dd>
+                <price-label
+                    [price]="contract.payablePrice"
+                ></price-label>
+            </dd>
+
+            <dt>
+                پرداخت های ثبت شده
+            </dt>
+            <dd>
+                <price-label
+                    [price]="totalRegisteredPaymentListPrice"
+                ></price-label>
+            </dd>
+
+            <dt>
+                باقی مانده تا تکمیل
+            </dt>
+            <dd>
+                <price-label
+                    [price]="getRemainingPrice()"
+                ></price-label>
+            </dd>
+        </dl>
+    </section>
 
     <contract-payment-by-contract-panel
         [contractId] = "contractId"

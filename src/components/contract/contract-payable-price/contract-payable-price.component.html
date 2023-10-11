@@ -14,8 +14,33 @@
     *ngIf="!isLoading && contract"
     class="message"
 >
-    <span>    {{projectItemHelper.getProjectItemCalculationPrice(contract.projectItem)}}
-    </span>
+    <dl>
+        <dt>
+            مساحت ثبت شده
+        </dt>
+        <dd>
+            {{contract.projectItem.area || contract.projectItem.buildupArea}}
+        </dd>
+
+        <dt>
+            قیمت هر متر
+        </dt>
+        <dd>
+            <price-label
+                [price]="contract.projectItem.unitPrice"
+            ></price-label>
+        </dd>
+
+        <dt>
+            مجموع قیمت
+        </dt>
+        <dd>
+            <price-label
+                [price]="projectItemHelper.calculateTotalPrice(contract.projectItem)"
+            ></price-label>
+        </dd>
+
+    </dl>
     <button
         (click)="setValueFromProjectItemDate()"
         class="primary"
