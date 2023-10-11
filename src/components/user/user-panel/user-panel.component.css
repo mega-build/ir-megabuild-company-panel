@@ -1,3 +1,7 @@
+section {
+  margin-bottom: 40px;
+}
+
 ul li dt {
   display: none;
 }
@@ -21,8 +25,25 @@ ul li dt {
   color: #667085;
   font-size: 12px;
   text-align: right;
-  flex: 1 0 33%;
-  max-width: 33%;
+  flex: 1 0 43%;
+  max-width: 43%;
+  margin-right: 12px;
+}
+.user-panel ul:nth-child(2) a {
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  color: #344054;
+  font-size: 14px;
+  padding: 8px 16px;
+  background: #fff;
+  transition: all 0.3s;
+
+}
+.user-panel ul:nth-child(2) a:hover{
+  background: #7F56D9;
+  border: 1px solid  #7F56D9;
+  transition: all 0.3s;
+  color: #fff;
 }
 ul li dl dd {
   color: #101828;
@@ -39,12 +60,16 @@ ul li dl dd {
 .user-info dl {
   display: flex;
   flex-wrap: nowrap;
-  flex: 1 0 66%;
-  max-width: 66%;
+  flex: 1 0 90%;
+  max-width: 90%;
   margin-right: 12px;
 }
 .user-info dl dd {
   width: 100%;
+}
+.user-info dl dd:nth-child(4) {
+  color: #667085;
+  font-size: 14px;
 }
 .user-info ul {
   display: flex;
@@ -54,5 +79,41 @@ ul li dl dd {
   font-size: 14px;
 }
 .user-info ul {
-  flex: 0 0 33%;
+  flex: 0 0 10%;
+}
+
+@media (max-width: 992.8px) {
+  .header {
+    display: block;
+  }
+  .user-panel-header {
+    display: none;
+  }
+  .user-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: none;
+  }
+  .user-info {
+    display: flex;
+    border-radius: 8px;
+    border: 1px solid #eaecf0;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    align-items: center;
+    justify-content: space-between;
+  }
+  .user-info dl {
+    display: flex;
+    flex-direction: column;
+    flex: 0;
+  }
+  .user-info dl dd:nth-child(4) {
+    margin-right: 36px;
+    color: #667085;
+    font-size: 12px;
+  }
+  .user-info ul {
+    flex: 0;
+  }
 }

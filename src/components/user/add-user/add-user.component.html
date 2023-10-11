@@ -1,121 +1,123 @@
-<form
-    class="container"
->
-
-    <legend
-        class="normal-legend"
+<div>
+        <form
+        class="container"
     >
-        افزودن کاربر جدید
-    </legend>
 
-    <a
-        [routerLink]="['/','userManagement','list']"
-        class="closeModal"
-    >
-        انصراف
-    </a>
+        <legend
+            class="normal-legend"
+        >
+            افزودن کاربر جدید
+        </legend>
 
-    <fieldset
-        [disabled]="isLoading"
-    >
-        <ul>
-            <li>
-                <label
-                    for="txtFirstname"
-                >
-                    نام:
-                </label>
+        <a
+            [routerLink]="['/','userManagement','list']"
+            class="closeModal"
+        >
+            انصراف
+        </a>
 
-                <input
-                    type="text"
-                    id="txtFirstname"
-                    name="txtFirstname"
-                    [(ngModel)]="user.firstname"
-                    maxlength="200"
-                    required
-                >
-            </li>
+        <fieldset
+            [disabled]="isLoading"
+        >
+            <ul>
+                <li>
+                    <label
+                        for="txtFirstname"
+                    >
+                        نام:
+                    </label>
 
-            <li>
-                <label
-                    for="txtLastname"
-                >
-                    نام خانوادگی:
-                </label>
+                    <input
+                        type="text"
+                        id="txtFirstname"
+                        name="txtFirstname"
+                        [(ngModel)]="user.firstname"
+                        maxlength="200"
+                        required
+                    >
+                </li>
 
-                <input
-                    type="text"
-                    id="txtLastname"
-                    name="txtLastname"
-                    [(ngModel)]="user.lastname"
-                    maxlength="200"
-                    required
-                >
-            </li>
+                <li>
+                    <label
+                        for="txtLastname"
+                    >
+                        نام خانوادگی:
+                    </label>
 
-            <li>
-                <label
-                    for="txtUsername"
-                >
-                    نام کاربری:
-                </label>
+                    <input
+                        type="text"
+                        id="txtLastname"
+                        name="txtLastname"
+                        [(ngModel)]="user.lastname"
+                        maxlength="200"
+                        required
+                    >
+                </li>
 
-                <input
-                    type="text"
-                    id="txtUsername"
-                    name="txtUsername"
-                    [(ngModel)]="user.username"
-                    maxlength="200"
-                    required
-                >
-            </li>
+                <li>
+                    <label
+                        for="txtUsername"
+                    >
+                        نام کاربری:
+                    </label>
 
-            <li>
-                <label
-                    for="txtPassword"
-                >
-                    رمز عبور
-                </label>
+                    <input
+                        type="text"
+                        id="txtUsername"
+                        name="txtUsername"
+                        [(ngModel)]="user.username"
+                        maxlength="200"
+                        required
+                    >
+                </li>
 
-                <input
-                    type="text"
-                    id="txtPassword"
-                    name="txtPassword"
-                    [(ngModel)]="user.password"
-                    maxlength="200"
-                    required
-                >
-            </li>
-        </ul>
+                <li>
+                    <label
+                        for="txtPassword"
+                    >
+                        رمز عبور
+                    </label>
 
-        <loading
-            *ngIf="isLoading"
-        ></loading>
+                    <input
+                        type="text"
+                        id="txtPassword"
+                        name="txtPassword"
+                        [(ngModel)]="user.password"
+                        maxlength="200"
+                        required
+                    >
+                </li>
+            </ul>
 
-        <validation-result
-            *ngIf="validationResult && validationResult.hasError"
-            [validationResult]="validationResult"
-        ></validation-result>
+            <loading
+                *ngIf="isLoading"
+            ></loading>
 
-        <ul>
-            <li>
-                <button
-                    type="button"
-                    (click)="createUser()"
-                    class="primary"
-                >
-                    ثبت
-                </button>
-            </li>
+            <validation-result
+                *ngIf="validationResult && validationResult.hasError"
+                [validationResult]="validationResult"
+            ></validation-result>
 
-            <li>
-                <a
-                    [routerLink]="['/','userManagement','list']"
-                    class="secondary"
-                >
-                    انصراف
-                </a>
-            </li>
-        </ul>
-    </fieldset>
-</form>
+            <ul>
+                <li>
+                    <button
+                        type="button"
+                        (click)="createUser()"
+                        class="primary"
+                    >
+                        ثبت
+                    </button>
+                </li>
+
+                <li>
+                    <a
+                        [routerLink]="['/','userManagement','list']"
+                        class="secondary"
+                    >
+                        انصراف
+                    </a>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</div>

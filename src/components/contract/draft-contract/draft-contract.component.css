@@ -19,10 +19,9 @@
 #secProgress ol li.active {
   background-color: #f6f1ff;
   color: #7f56d9;
-  border: 1px solid #7F56D9;
+  border: 1px solid #7f56d9;
   cursor: default;
 }
-
 
 fieldset ul:first-child {
   border-bottom: 1px solid #eaecf0;
@@ -32,32 +31,39 @@ fieldset ul:first-child {
   flex-direction: column;
   gap: 16px;
 }
-.action-list a{
+.action-list a {
   float: left;
 }
 .action-list a,
-.action-list button{
+.action-list button {
   width: 15%;
 }
-form{
+form {
   position: relative;
 }
-.closeModal{
+.closeModal {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 32px;
+  left: 32px;
 }
-div{
-  background-color: #F2F4F7;
+div {
+  background-color: #f2f4f7;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-bottom: 100px;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
-section,
-form{
+section{
   background-color: #fff;
-  padding: 15px 32px;
+  padding: 16px;
   border-radius: 8px;
   margin: 16px auto;
 }
+form {
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 8px;
+  margin: 16px auto;
+}
+

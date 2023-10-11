@@ -1,176 +1,179 @@
-<loading
-    *ngIf="isLoading"
-></loading>
-
-<user-label
-    *ngIf="userCompanyAccess && userCompanyAccess.user"
-    [user]="userCompanyAccess.user"
-></user-label>
-
-<form
-    class="container"
-    *ngIf="userCompanyAccess"
->
-    <legend class="contract-legend">
-        تعیین سطح دسترسی کاربر
-    </legend>
-    <fieldset
-        [disabled]="isLoading || !userCompanyAccess"
-    >
-        <ul class="user-access-form">
-            <li>
-                <label
-                    for="chkAddContractTemplate"
-                >
-                    ثبت قالب قرارداد
-                </label>
-                <input
-                    type="checkbox"
-                    id = "chkAddContractTemplate"
-                    name = "chkAddContractTemplate"
-                    [(ngModel)]= "userCompanyAccess.isAddContractTemplate"
-                >
-            </li>
-
-            <li>
-                <label
-                    for="chkAddProject"
-                >
-                    اضافه کردن پروژه جدید
-                </label>
-                <input
-                    type="checkbox"
-                    id = "chkAddProject"
-                    name = "chkAddProject"
-                    [(ngModel)]= "userCompanyAccess.isAddProject"
-                >
-            </li>
-
-            <li>
-                <label
-                    for="chkAddContract"
-                >
-                    ثبت قرارداد
-                </label>
-                <input
-                    type="checkbox"
-                    id = "chkAddContract"
-                    name = "chkAddContract"
-                    [(ngModel)]= "userCompanyAccess.isAddContract"
-                >
-            </li>
-            
-            <!-- <li>
-                
-                <label
-                    for="chkUserManagement"
-                >
-                    مدیریت کاربران
-                </label>
-                <input
-                    type="checkbox"
-                    id = "chkUserManagement"
-                    name = "chkUserManagement"
-                    [(ngModel)]= "user.isUserManager"
-                >
-            </li> -->
-
-            <!-- <li>
-                
-                <label
-                    for="chkCustomerManagement"
-                >
-                    مشاهده لیست خریداران
-                </label>
-                <input
-                    type="checkbox"
-                    id = "chkCustomerManagement"
-                    name = "chkCustomerManagement"
-                    [(ngModel)]= "user.isCustomerManager"
-                >
-            </li> -->
-            
-            <li>
-                <label
-                    for="chkViewContractList"
-                >
-                    مشاهده لیست قراردادها   
-                </label>
-                <input
-                    type="checkbox"
-                    id = "chkViewContractList"
-                    name = "chkViewContractList"
-                    [(ngModel)]= "userCompanyAccess.isContractManager"
-                >
-                
-            </li>
-
-            <li>
-                <label
-                    for="chkViewContractPaymentList"
-                >
-                    مشاهده لیست پرداخت ها   
-                </label>
-                <input
-                    type="checkbox"
-                    id = "chkViewContractPaymentList"
-                    name = "chkViewContractPaymentList"
-                    [(ngModel)]= "userCompanyAccess.isContractPaymentManager"
-                >
-                
-            </li>
-
-            <li>
-                <label
-                    for="chkJustReviewContract"
-                >
-                    فقط بررسی قرارداد   
-                </label>
-                <input
-                    type="checkbox"
-                    id = "chkJustReviewContract"
-                    name = "chkJustReviewContract"
-                    [(ngModel)]= "userCompanyAccess.isContractReviewer"
-                >
-                
-            </li>
-
-            <li>
-                <label
-                    for="chkIsAvctive"
-                >
-                    فعال/غیرفعال   
-                </label>
-                <input
-                    type="checkbox"
-                    id = "chkIsAvctive"
-                    name = "chkIsAvctive"
-                    [(ngModel)]= "userCompanyAccess.isActive"
-                >
-                
-            </li>
-        </ul>
-
-        <loading
+<div>
+    <section class="container">
+                <loading
             *ngIf="isLoading"
         ></loading>
-        <ul class="action-list">
-            <li>
-                <button
-                    type="button"
-                    (click)="save()"
-                    class="primary"
-                >
-                    ثبت
-                </button>
-            </li>
-            <li>
-                <a 
-                    [routerLink]="['/','userCompanyAccessManagement','list']"
-                    class="secondary">
-                    انصراف
-                </a>
-            </li>
-        </ul>
-    </fieldset>
-</form>
+
+        <user-label
+            *ngIf="userCompanyAccess && userCompanyAccess.user"
+            [user]="userCompanyAccess.user"
+        ></user-label>
+
+        <form
+            *ngIf="userCompanyAccess"
+        >
+            <legend class="contract-legend">
+                تعیین سطح دسترسی کاربر
+            </legend>
+            <fieldset
+                [disabled]="isLoading || !userCompanyAccess"
+            >
+                <ul class="user-access-form">
+                    <li>
+                        <label
+                            for="chkAddContractTemplate"
+                        >
+                            ثبت قالب قرارداد
+                        </label>
+                        <input
+                            type="checkbox"
+                            id = "chkAddContractTemplate"
+                            name = "chkAddContractTemplate"
+                            [(ngModel)]= "userCompanyAccess.isAddContractTemplate"
+                        >
+                    </li>
+
+                    <li>
+                        <label
+                            for="chkAddProject"
+                        >
+                            اضافه کردن پروژه جدید
+                        </label>
+                        <input
+                            type="checkbox"
+                            id = "chkAddProject"
+                            name = "chkAddProject"
+                            [(ngModel)]= "userCompanyAccess.isAddProject"
+                        >
+                    </li>
+
+                    <li>
+                        <label
+                            for="chkAddContract"
+                        >
+                            ثبت قرارداد
+                        </label>
+                        <input
+                            type="checkbox"
+                            id = "chkAddContract"
+                            name = "chkAddContract"
+                            [(ngModel)]= "userCompanyAccess.isAddContract"
+                        >
+                    </li>
+                    
+                    <!-- <li>
+                        
+                        <label
+                            for="chkUserManagement"
+                        >
+                            مدیریت کاربران
+                        </label>
+                        <input
+                            type="checkbox"
+                            id = "chkUserManagement"
+                            name = "chkUserManagement"
+                            [(ngModel)]= "user.isUserManager"
+                        >
+                    </li> -->
+
+                    <!-- <li>
+                        
+                        <label
+                            for="chkCustomerManagement"
+                        >
+                            مشاهده لیست خریداران
+                        </label>
+                        <input
+                            type="checkbox"
+                            id = "chkCustomerManagement"
+                            name = "chkCustomerManagement"
+                            [(ngModel)]= "user.isCustomerManager"
+                        >
+                    </li> -->
+                    
+                    <li>
+                        <label
+                            for="chkViewContractList"
+                        >
+                            مشاهده لیست قراردادها   
+                        </label>
+                        <input
+                            type="checkbox"
+                            id = "chkViewContractList"
+                            name = "chkViewContractList"
+                            [(ngModel)]= "userCompanyAccess.isContractManager"
+                        >
+                        
+                    </li>
+
+                    <li>
+                        <label
+                            for="chkViewContractPaymentList"
+                        >
+                            مشاهده لیست پرداخت ها   
+                        </label>
+                        <input
+                            type="checkbox"
+                            id = "chkViewContractPaymentList"
+                            name = "chkViewContractPaymentList"
+                            [(ngModel)]= "userCompanyAccess.isContractPaymentManager"
+                        >
+                        
+                    </li>
+
+                    <li>
+                        <label
+                            for="chkJustReviewContract"
+                        >
+                            فقط بررسی قرارداد   
+                        </label>
+                        <input
+                            type="checkbox"
+                            id = "chkJustReviewContract"
+                            name = "chkJustReviewContract"
+                            [(ngModel)]= "userCompanyAccess.isContractReviewer"
+                        >
+                        
+                    </li>
+
+                    <li>
+                        <label
+                            for="chkIsAvctive"
+                        >
+                            فعال/غیرفعال   
+                        </label>
+                        <input
+                            type="checkbox"
+                            id = "chkIsAvctive"
+                            name = "chkIsAvctive"
+                            [(ngModel)]= "userCompanyAccess.isActive"
+                        >
+                        
+                    </li>
+                </ul>
+
+                <loading
+                    *ngIf="isLoading"
+                ></loading>
+                <ul class="action-list">
+                    <li>
+                        <button
+                            type="button"
+                            (click)="save()"
+                            class="primary"
+                        >
+                            ثبت
+                        </button>
+                    </li>
+                    <li>
+                        <a 
+                            [routerLink]="['/','userCompanyAccessManagement','list']"
+                            class="secondary">
+                            انصراف
+                        </a>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </section>
+</div>

@@ -9,8 +9,33 @@ dd {
   color: #101828;
   font-size: 14px;
   font-weight: 400;
-  flex: 1 0 50%;
+  flex: 0 0 20%;
+}
+dd:nth-child(2){
+  font-weight: 700;
+}
+dd:nth-child(4){
+  padding-right: 8px;
+  color: #667085;
+}
+dd:last-child{
+  flex: 0 0 60%;
+  color: #667085;
+
 }
 dd:last-child{
     padding-right: 16px;
+}
+
+@media (max-width: 992.8px) {
+  dl{
+    flex-direction: column;
+    gap: 8px;
+  }
+  dd:nth-child(4){
+    padding-right: 0;
+  }
+  dd:last-child{
+    padding-right: 0;
+}
 }

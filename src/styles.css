@@ -8,7 +8,7 @@
 body {
   font-family: IRANSansWeb;
   padding: 0;
-  margin: 0 0 50px 0;
+  margin: 0;
   box-sizing: border-box;
   min-height: 100vh;
 }
@@ -91,43 +91,10 @@ form fieldset {
   display: flex;
   align-items: center;
 }
-.header h2{
+.header h2 {
   flex: 0 0 80%;
 }
-.main-add-btn {
-  font-size: 14px;
-  font-weight: bold;
-  padding: 8px 10px;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #91929e;
-  border-radius: 8px;
-  box-shadow: 0 1px 2px 0 rgb(184 200 224 / 22%);
-  border: solid 1px #d8e0f0;
-  background-color: #fff;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  &::before {
-    content: "";
-    background: url(/assets/images/icn-general-add-blue.svg);
-    margin-right: 8px;
-    -webkit-writing-mode: vertical-rl;
-    width: 20px;
-    display: inline-block;
-    height: 16px;
-  }
-  transition: 0.5s;
-  cursor: pointer;
 
-  &:hover {
-    border: solid 1px #91929e;
-    transition: 0.5s;
-  }
-}
 u {
   text-decoration: none;
 }
@@ -192,14 +159,12 @@ select {
   font-size: 14px;
 }
 
-.required {
-  &::after {
-    content: " *";
-    display: inline;
-    color: #f65160;
-    font-size: 16px;
-    opacity: 0.7;
-  }
+.required::after {
+  content: " *";
+  display: inline;
+  color: #f65160;
+  font-size: 16px;
+  opacity: 0.7;
 }
 
 h1,
