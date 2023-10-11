@@ -8,31 +8,49 @@ fieldset ul:first-child {
   gap: 24px;
 }
 .message {
-  display: flex;
-  gap: 8px;
   margin-top: 24px;
-}
-.message span {
-  color: #101828;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid #eaecf0;
-  background: #fff;
-  padding: 6px 14px;
+  padding: 16px;
+}
+.message dl {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 0 0 84%;
+  border-radius: 8px;
+  border: 1px solid #eaecf0;
+  flex-wrap: wrap;
 }
-.message span::before {
-  content: url("../../../assets/images/icons/icon-outline.svg");
-  height: 38px;
-  width: 38px;
+.message dl dt {
+  color: #667085;
+  font-size: 12px;
+  flex: 0 0 33%;
+  order: -1;
+  border-left: 1px solid #eaecf0;
+  padding: 8px;
 }
-.message .primary {
-  width: fit-content;
-  flex: 0 0 14%;
-  margin-top: 0;
+.message dl dd {
+  color: #101828;
+  font-size: 16px;
+  flex: 0 0 33%;
+  border-left: 1px solid #eaecf0;
+  padding: 0 8px 8px 8px;
+}
+.message dl dd:last-child {
+  border-left: none;
+}
+.message dl dt:nth-child(5) {
+  border-left: none;
+}
+
+.message .secondary {
+  width: 100%;
+  margin-top: 16px;
+  font-weight: 700;
+  transition: all 0.3s;
+
+}
+.message .secondary:hover{
+  background-color: #7F56D9;
+  border: 1px solid #7F56D9;
+  color: #fff;
+  transition: all 0.3s;
 }
