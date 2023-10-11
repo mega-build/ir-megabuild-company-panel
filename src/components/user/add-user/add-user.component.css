@@ -1,10 +1,25 @@
+div {
+  background-color: #f2f4f7;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 button {
   width: 100%;
 }
-form {
-  margin-top: 34px;
+.closeModal {
+  position: absolute;
+  top: 32px;
+  left: 32px;
 }
-
+form {
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  position: relative;
+}
 fieldset ul:nth-child(1) {
   margin-bottom: 34px;
   box-sizing: border-box;
@@ -24,7 +39,7 @@ fieldset ul:nth-child(1) li:nth-child(2) {
 fieldset ul:nth-child(1) li:nth-child(3) {
   margin: 12px 0;
 }
-.secondary{
+.secondary {
   color: #344054;
   background: #fff;
   border: 1px solid #d0d5dd;
@@ -36,4 +51,11 @@ fieldset ul:nth-child(1) li:nth-child(3) {
   font-family: IRANSansWeb;
   padding: 8px 0;
   text-align: center;
+}
+
+@media (max-width: 992.8px) {
+  form {
+    padding: 16px;
+    margin: 0 16px;
+  }
 }

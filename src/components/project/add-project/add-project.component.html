@@ -1,101 +1,103 @@
-<form
-    class="container"
->
-
-    <legend class="normal-legend">
-        افزودن پروژه جدید
-    </legend>
-
-    <a
-        [routerLink]="['../list']"
-        class="closeModal"
+<div>
+        <form
+        class="container"
     >
-        انصراف
-    </a>
 
-    <fieldset
-        [disabled]="isLoading"
-    >
-        <ul>
-            <li>
-                <label
-                    for="txtTitle"
-                >
-                    عنوان
-                </label>
+        <legend class="normal-legend">
+            افزودن پروژه جدید
+        </legend>
 
-                <input
-                    type="text"
-                    id="txtTitle"
-                    name="txtTitle"
-                    maxlength="200"
-                    [(ngModel)]= "project.title"
-                    required
-                    placeholder="نام یا عنوان پروژه"
-                >
-            </li>
-
-            <li>
-                <label
-                    for="cmpProjectType"
-                >
-                    نوع پروژه
-                </label>
-
-                <select-project-type
-                    id="cmpProjectType"
-                    name="cmpProjectType"
-                    (setProjectType)="setProjectType($event)"
-                ></select-project-type>
-            </li>
-
-            <li>
-                <label
-                    for="txtAddress"
-                >
-                    آدرس:
-                </label>
-
-                <textarea
-                    id="txtAddress"
-                    name="txtAddress"
-                    [(ngModel)]= "project.address"
-                    rows="3"
-                    required
-                    placeholder="آدرس دقیق پروژه"
-                ></textarea>
-            </li>
-        </ul>
-
-        <loading
-            *ngIf="isLoading"
-        ></loading>
-
-        <validation-result
-            *ngIf="validationResult.hasError"
-            [validationResult]="validationResult"
-        ></validation-result>
-        
-        <ul
-            class="action-list"
+        <a
+            [routerLink]="['../list']"
+            class="closeModal"
         >
-            <li>
-                <button
-                    type="button"
-                    (click)="save()"
-                    class="primary"
-                >
-                    ثبت
-                </button>
+            انصراف
+        </a>
 
-                <a
-                    [routerLink]="['../list']"
-                    class="secondary"
-                >
-                    انصراف
-                </a>
-            </li>
-        </ul>
+        <fieldset
+            [disabled]="isLoading"
+        >
+            <ul>
+                <li>
+                    <label
+                        for="txtTitle"
+                    >
+                        عنوان
+                    </label>
 
-    </fieldset>
-</form>
+                    <input
+                        type="text"
+                        id="txtTitle"
+                        name="txtTitle"
+                        maxlength="200"
+                        [(ngModel)]= "project.title"
+                        required
+                        placeholder="نام یا عنوان پروژه"
+                    >
+                </li>
+
+                <li>
+                    <label
+                        for="cmpProjectType"
+                    >
+                        نوع پروژه
+                    </label>
+
+                    <select-project-type
+                        id="cmpProjectType"
+                        name="cmpProjectType"
+                        (setProjectType)="setProjectType($event)"
+                    ></select-project-type>
+                </li>
+
+                <li>
+                    <label
+                        for="txtAddress"
+                    >
+                        آدرس:
+                    </label>
+
+                    <textarea
+                        id="txtAddress"
+                        name="txtAddress"
+                        [(ngModel)]= "project.address"
+                        rows="3"
+                        required
+                        placeholder="آدرس دقیق پروژه"
+                    ></textarea>
+                </li>
+            </ul>
+
+            <loading
+                *ngIf="isLoading"
+            ></loading>
+
+            <validation-result
+                *ngIf="validationResult.hasError"
+                [validationResult]="validationResult"
+            ></validation-result>
+            
+            <ul
+                class="action-list"
+            >
+                <li>
+                    <button
+                        type="button"
+                        (click)="save()"
+                        class="primary"
+                    >
+                        ثبت
+                    </button>
+
+                    <a
+                        [routerLink]="['../list']"
+                        class="secondary"
+                    >
+                        انصراف
+                    </a>
+                </li>
+            </ul>
+
+        </fieldset>
+    </form>
+</div>

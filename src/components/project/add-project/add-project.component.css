@@ -1,11 +1,26 @@
+div{
+  background-color: #F2F4F7;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 form{
-  margin-top: 32px;
+  padding: 32px;
+  border-radius: 12px;
+  background-color: #fff;
+  position: relative;
 }
 fieldset ul:first-child {
   display: flex;
   flex-direction: column;
   gap: 16px;
   box-sizing: border-box;
+}
+.closeModal{
+  left: 32px;
+  top: 32px;
+  position: absolute;
 }
 textarea {
   padding: 12px;
@@ -15,6 +30,8 @@ textarea {
 fieldset ul:last-child li {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 8px;
 }
 
 fieldset ul:last-child li a {
@@ -24,11 +41,18 @@ fieldset ul:last-child li a {
   border-radius: 8px;
   font-size: 14px;
   font-family: IRANSansWeb;
-  padding: 8px 10px;
-  width: 25%;
+  padding: 8px 0;
+  width: 100%;
   text-align: center;
 }
 
 fieldset ul:last-child li button {
-  width: 25%;
+  width: 100%;
+}
+
+@media (max-width: 1200.8px) {
+  form{
+    padding: 16px;
+    margin: 0 15px;
+  }
 }
