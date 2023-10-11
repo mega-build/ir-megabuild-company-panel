@@ -20,7 +20,7 @@ export class ContractCustomerListComponent implements OnInit
 
 		isLoading:boolean = false;
 
-		selectedCustomer:any = {};
+		selectedCustomer!:any;
 
 		constructor
 		(

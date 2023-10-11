@@ -195,8 +195,37 @@ export class ContractContentHelper
             projectItem:any
         ):string
             {
-                return `
-                موضوع قرارداد عبارت است از ${contractType.title} ${projectType.title} شماره ${projectItem.unit} واقع در طبقه ${projectItem.floor} بلوک ${projectItem.block} ${project.title} با زیربنای حدودا ${projectItem.buildupArea} متر مربع طبق نقشه پیوست به نشانی ${project.address}
-                `
+                if
+                (
+                    projectItem &&
+                    projectItem.unit &&
+                    projectItem.floor &&
+                    projectItem.block &&
+                    projectItem.buildupArea
+                )
+                    {
+                        return `
+                        موضوع قرارداد عبارت است از ${contractType.title} ${projectType.title} شماره ${projectItem.unit} واقع در طبقه ${projectItem.floor} بلوک ${projectItem.block} ${project.title} با زیربنای حدودا ${projectItem.buildupArea} متر مربع طبق نقشه پیوست به نشانی ${project.address}
+                        `        
+                    }
+                else if
+                (
+                    projectItem &&
+                    projectItem.unit &&
+                    projectItem.area
+                )
+                    {
+                        return `
+                        موضوع قرارداد عبارت است از ${contractType.title} ${projectType.title} شماره ${projectItem.unit} ${project.title} با زیربنای حدودا ${projectItem.area} متر مربع طبق نقشه پیوست به نشانی ${project.address}
+                        ` 
+                    }
+                else
+                    {
+                        return `
+                        <<اطلاعات صحیح نمیباشد>>
+                        `
+                    }
+                    
+                
             }
     }

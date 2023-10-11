@@ -1,5 +1,5 @@
 <edit-contract-navigation
-    [contractId]="contractId"
+    [contractId]= "contractId"
     [isInCustomerListSection]= true
     [hasAnyCostomer] = 'contractCustomerList && contractCustomerList.length > 0'
 ></edit-contract-navigation>
@@ -50,11 +50,6 @@
 
 </section>
 
-<!-- <section>
-    <add-contract-customer
-        (onSelectedCustomer) = 'selectCustomer($event)'
-    ></add-contract-customer>
-</section> -->
 
 <router-outlet></router-outlet>
 

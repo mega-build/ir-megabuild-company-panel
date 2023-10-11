@@ -1,14 +1,14 @@
+<edit-contract-navigation
+    *ngIf="contractId"
+    [contractId]= "contractId"
+    [isInPayablePriceSection]= "true"
+    [hasProjectItem]="contract && contract.projectItem !=undefined"
+    [hasPayablePrice]="payablePrice!=undefined && payablePrice!=0"
+></edit-contract-navigation>
+
 <loading
     *ngIf="isLoading"
 ></loading>
-
-<edit-contract-navigation
-    *ngIf="contractId && contract"
-    [contractId]="contractId"
-    [isInPayablePriceSection]= true
-    [hasProjectItem]="contract.projectItem !=undefined"
-    [hasPayablePrice]="payablePrice!=undefined && payablePrice!=0"
-></edit-contract-navigation>
 
 <section
     *ngIf="!isLoading && contract"

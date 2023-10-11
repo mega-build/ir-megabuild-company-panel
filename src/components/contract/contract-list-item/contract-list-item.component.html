@@ -112,6 +112,7 @@
             *ngIf="contract.isDraft"
             [routerLink]="['../../editContract','contractId',contract._id,'customerList','list']"
             class="edit-btn"
+            title="ویرایش"
         >
             ویرایش
         </a>
@@ -121,6 +122,7 @@
         <a
             *ngIf="contract.isDraft && contractHelper.isContractDataCompleted(contract)"
             [routerLink]="['../../editContract','contractId',contract._id,'preview']"
+            title="ثبت قطعی"
         >
             ثبت قطعی
         </a>
@@ -130,6 +132,7 @@
         <a
             *ngIf="!contract.isDraft && contract.isRequested && contractHelper.isContractDataCompleted(contract)"
             [routerLink]="['/','contractManagement','detail','contractId',contract._id,'requestReview']"
+            title="درخواست بررسی"
         >
             درخواست بررسی
         </a>
@@ -141,6 +144,7 @@
         <a
         
             [routerLink]="['../../detail','contractId',contract._id,'acceptRequest']"
+            title="تایید قرارداد"
         >
             تایید قرارداد
         </a>
@@ -152,8 +156,9 @@
         <button
             (click)="downloadDoc()"
             class="downloadbtn"
+            title="دانلود متن قرارداد"
         >
-            دانلود
+            دانلود متن قرارداد
         </button>
         
     </li>
