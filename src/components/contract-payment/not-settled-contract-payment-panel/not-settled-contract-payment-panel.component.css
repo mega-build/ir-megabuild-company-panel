@@ -1,0 +1,12 @@
+.header{
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+@media (max-width: 992.8px) {
+    .header{
+        margin-bottom: 20px;
+    }
+    .header h2{
+        flex: 0 0 100%;
+    }
+}

@@ -1,13 +1,30 @@
 contract-payment-cheque-list-item,
 contract-payment-deed-list-item,
 contract-payment-deposit-list-item,
-contract-payment-dicker-list-item{
+contract-payment-dicker-list-item {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  padding: 8px 16px 0 16px;
 }
-contract-payment-status-icon{
+contract-payment-status-icon {
   position: absolute;
   left: 12px;
   top: 12px;
+}
+
+ul {
+  border-top: 1px solid #eaecf0;
+  margin-top: 12px;
+  padding: 12px 16px 16px 16px;
+  display: flex;
+  width: 100%;
+  justify-content: left;
+}
+.secondary {
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  font-size: 14px;
+  color: #344054;
+  padding: 8px 16px;
 }

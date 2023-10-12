@@ -3,6 +3,7 @@ ol {
   border: 2px solid #eaecf0;
   border-radius: 8px;
   padding: 0;
+  margin-bottom: 40px;
 }
 .contract-list-header {
   display: flex;

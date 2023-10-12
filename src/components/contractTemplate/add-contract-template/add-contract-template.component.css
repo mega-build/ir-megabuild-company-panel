@@ -1,7 +1,38 @@
 .action-list li button,
-.action-list li a{
-    width: 30%;
+.action-list li a {
+  width: 30%;
 }
-.action-list li a{
-    float: left;
+.action-list li a {
+  float: left;
+}
+ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+ol li {
+  flex: 1 0 18%;
+}
+ol li button {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #7f56d9;
+  background: #7f56d9;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+ol li button:hover {
+  border: 1px solid #6941c6;
+  background: #6941c6;
+  transition: all 0.3s;
+}
+form{
+    margin-bottom: 40px;
+}
+label{
+    margin-top: 10px;
 }
