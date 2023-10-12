@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContractPaymentService } from 'src/services/contractPayment/contract-payment.service';
 
 @Component(
@@ -19,6 +19,7 @@ export class ReviewContractPaymentComponent implements OnInit
 		constructor
 		(
 			private route: ActivatedRoute,
+			private router: Router,
 			private contractPaymentService : ContractPaymentService
 		){}
 
@@ -97,7 +98,7 @@ export class ReviewContractPaymentComponent implements OnInit
 							
 								this.isLoading = false;
 
-								// navigate to list?
+								this.navigate_contractPaymentList();
 							}
 						catch
 						(
@@ -139,7 +140,7 @@ export class ReviewContractPaymentComponent implements OnInit
 					
 						this.isLoading = false;
 
-						// navigate to list?
+						this.navigate_contractPaymentList();
 					}
 				catch
 				(
@@ -162,5 +163,12 @@ export class ReviewContractPaymentComponent implements OnInit
 							}
 					}
 				
+			}
+
+		navigate_contractPaymentList
+		():void
+			{
+				const nvaigationRouteList = ['contractPaymentManagement','list','notSettled'];
+				this.router.navigate(nvaigationRouteList);
 			}
 	}
