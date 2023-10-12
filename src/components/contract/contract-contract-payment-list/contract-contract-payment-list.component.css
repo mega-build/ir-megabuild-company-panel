@@ -1,22 +1,34 @@
 .message {
-    gap: 8px;
-    margin-top: 24px;
-  }
-  .message span {
-    color: #101828;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    border-radius: 12px;
-    border: 1px solid #eaecf0;
-    background: #fff;
-    padding: 6px 14px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .message span::before {
-    content: url("../../../assets/images/icons/icon-outline.svg");
-    height: 38px;
-    width: 38px;
-  }
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  border: 1px solid #eaecf0;
+  padding: 16px;
+}
+.message dl {
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #eaecf0;
+  flex-wrap: wrap;
+}
+.message dl dt {
+  color: #667085;
+  font-size: 12px;
+  flex: 0 0 33%;
+  order: -1;
+  border-left: 1px solid #eaecf0;
+  padding: 8px;
+}
+.message dl dd {
+  color: #101828;
+  font-size: 16px;
+  flex: 0 0 33%;
+  border-left: 1px solid #eaecf0;
+  padding: 0 8px 8px 8px;
+}
+.message dl dd:last-child {
+  border-left: none;
+}
+.message dl dt:nth-child(5) {
+  border-left: none;
+}
