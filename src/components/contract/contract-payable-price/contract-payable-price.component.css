@@ -14,31 +14,27 @@ fieldset ul:first-child {
   padding: 16px;
 }
 .message dl {
-  display: flex;
-  border-radius: 8px;
-  border: 1px solid #eaecf0;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  border-right: 2px solid #7f56d9;
+  align-items: center;
 }
 .message dl dt {
   color: #667085;
   font-size: 12px;
-  flex: 0 0 33%;
-  order: -1;
-  border-left: 1px solid #eaecf0;
-  padding: 8px;
+  padding: 4px 12px 4px 4px;
 }
 .message dl dd {
   color: #101828;
   font-size: 16px;
-  flex: 0 0 33%;
-  border-left: 1px solid #eaecf0;
-  padding: 0 8px 8px 8px;
+  padding: 4px 12px 4px 4px;
 }
-.message dl dd:last-child {
-  border-left: none;
-}
-.message dl dt:nth-child(5) {
-  border-left: none;
+.message dl dt:nth-child(1) {
+  grid-column: span 2;
+  font-size: 14px;
+  color: #101828;
+  font-weight: 700;
+  padding: 0 12px 4px 4px;
 }
 
 .message .secondary {
@@ -46,11 +42,10 @@ fieldset ul:first-child {
   margin-top: 16px;
   font-weight: 700;
   transition: all 0.3s;
-
 }
-.message .secondary:hover{
-  background-color: #7F56D9;
-  border: 1px solid #7F56D9;
+.message .secondary:hover {
+  background-color: #7f56d9;
+  border: 1px solid #7f56d9;
   color: #fff;
   transition: all 0.3s;
 }
