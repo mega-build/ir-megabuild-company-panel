@@ -1,7 +1,55 @@
 <dl>
-    <contract-list-item
-        [contract]="contractReview.contract"
-    ></contract-list-item>
+    <dt>
+        شماره قرارداد
+    </dt>
+    <dd>
+        {{contractReview.contract.contractNumber}}
+    </dd>
+
+    <dt>
+        تاریخ قرارداد
+    </dt>
+    <dd>
+        {{contractReview.contract.contractDateShamsi}}
+    </dd>
+
+    <dt>
+        تاریخ تحویل
+    </dt>
+    <dd>
+        {{contractReview.contract.contractFinishDateShamsi}}
+    </dd>
+
+
+    <dt>
+        مبلغ قرارداد(ريال)
+    </dt>
+    <dd>
+        <u
+            *ngIf="!contractReview.contract.payablePrice"
+        >
+            ثبت نشده
+        </u>
+        <price-label
+            *ngIf="contractReview.contract.payablePrice"
+            [price]="contractReview.contract.payablePrice"
+        ></price-label>
+    </dd>
+
+    <dt>
+        مورد قرارداد
+    </dt>
+    <dd>
+        <u
+            *ngIf="!contractReview.contract.projectItem"
+        >
+            ثبت نشده
+        </u>
+        <project-item-abbreviation
+            *ngIf="contractReview.contract.projectItem"
+            [projectItem] = "contractReview.contract.projectItem"
+        ></project-item-abbreviation>
+    </dd>
 
     <dt>
         وضعیت بررسی
@@ -11,8 +59,10 @@
     >
         {{getStatusValue()}}
     </dd>
+   
     
 </dl>
+
 <ul>
     <li>
         <a
