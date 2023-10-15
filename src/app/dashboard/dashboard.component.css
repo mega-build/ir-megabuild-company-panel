@@ -1,42 +1,111 @@
+div {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+}
+section h2 {
+  color: #101828;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+section.user{
+  display: flex;
+  justify-content: center;
+}
 ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 32px;
+  gap: 32px;
   align-items: center;
 }
 ul li {
-  flex: 1 0 20%;
-  text-align: center;
+  flex: 0 0 30%;
+  transition: all 0.3s;
+
 }
 ul li a {
   color: #101828;
-  font-size: 16px;
-  padding: 32px 16px;
-  display: block;
+  font-size: 14px;
+  padding: 16px;
+  display: flex;
   background-color: #fff;
   transition: all 0.3s;
   border: 1px solid #eaecf0;
   border-radius: 8px;
-
-}
-ul li a:hover {
-  background-color: #7f56d9;
-  color: #fff;
-  transition: all 0.3s;
+  align-items: center;
+  gap: 16px;
+  position: relative;
 }
 
 ul .user {
   padding: 16px;
 }
+ul li:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
+ul li a::before {
+  width: 40px;
+  height: 40px;
+}
+ul li a::after {
+  width: 24px;
+  height: 24px;
+  content: url("../../assets/images/icons/dashboard/arrow-left.svg");
+  position: absolute;
+  left: 16px;
+}
+
+.contract li:nth-child(1) a::before {
+  content: url("../../assets/images/icons/dashboard/file-plus-02.svg");
+}
+.contract li:nth-child(2) a::before {
+  content: url("../../assets/images/icons/dashboard/layout-alt-04.svg");
+}
+.contract li:nth-child(3) a::before {
+  content: url("../../assets/images/icons/dashboard/file-attachment-04.svg");
+}
+.contract li:nth-child(4) a::before {
+  content: url("../../assets/images/icons/dashboard/file-07.svg");
+}
+.contract li:nth-child(5) a::before {
+  content: url("../../assets/images/icons/dashboard/file-question-02.svg");
+}
+.contract li:nth-child(6) a::before {
+  content: url("../../assets/images/icons/dashboard/file-check-02.svg");
+}
+.contract li:nth-child(7) a::before {
+  content: url("../../assets/images/icons/dashboard/file-search-02.svg");
+}
+.contract li:nth-child(8) a::before {
+  content: url("../../assets/images/icons/dashboard/briefcase-01.svg");
+}
+.payments li:nth-child(1) a::before {
+  content: url("../../assets/images/icons/dashboard/credit-card-edit.svg");
+}
+.payments li:nth-child(2) a::before {
+  content: url("../../assets/images/icons/dashboard/credit-card-x.svg");
+}
+.user-management li:nth-child(1) a::before {
+  content: url("../../assets/images/icons/dashboard/users-01.svg");
+}
+.user-management li:nth-child(2) a::before {
+  content: url("../../assets/images/icons/dashboard/user-square.svg");
+}
 
 @media (max-width: 992.8px) {
+  div{
+    gap: 32px;
+  }
   ul {
-    align-items: unset;
     margin-bottom: 40px;
+    gap: 8px;
   }
   ul li {
-    flex: 1 0 48%;
+    flex: 1 0 100%;
   }
   ul li a {
     font-size: 14px;

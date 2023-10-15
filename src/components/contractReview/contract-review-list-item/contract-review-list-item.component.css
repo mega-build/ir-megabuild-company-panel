@@ -3,8 +3,8 @@ dl dt {
 }
 dl {
   display: flex;
-  flex: 1 0 90%;
-  max-width: 90%;
+  flex: 1 0 83.5%;
+  max-width: 83.5%;
 }
 ul {
   display: flex;
@@ -14,22 +14,27 @@ dl dd {
   font-size: 12px;
   border-radius: 16px;
   padding: 2px 8px;
- 
+ flex: 0 0 16.6%;
 }
 .cri_pending {
   border: 1px solid #eaecf0;
   background: #f9fafb;
   color: #344054;
+  max-width: fit-content;
+
 }
 .cri_rejected {
   border: 1px solid #fecdca;
   background: #fef3f2;
   color: #b42318;
+  max-width: fit-content;
 }
 .cri_approved {
   border: 1px solid #abefc6;
   background: #ecfdf3;
   color: #067647;
+  max-width: fit-content;
+
 }
 contract-list-item {
   display: flex;
@@ -43,8 +48,8 @@ contract-list-item {
 }
 
 ul {
-  flex: 1 0 10%;
-  max-width: 10%;
+  flex: 1 0 14%;
+  max-width: 14%;
 }
 
 @media (max-width: 992.8px) {

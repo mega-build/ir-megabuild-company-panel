@@ -1,5 +1,5 @@
-section{
-    position: relative;
+section {
+  position: relative;
 }
 
 a {
@@ -29,8 +29,8 @@ ul li button {
   border-radius: 16px;
   width: 30%;
 }
-ul li{
-    width: 100%;
+ul li {
+  width: 100%;
 }
 ul li:first-child button {
   border: 1px solid #abefc6;
@@ -41,13 +41,22 @@ ul li:last-child button {
   border-radius: 16px;
   border: 1px solid #fecdca;
   background: #fef3f2;
-  color: #B42318;
+  color: #b42318;
   float: left;
 }
-legend{
-    color: #101828;
-    font-size: 18px;
-    font-weight: 700;
-    position: absolute;
-    top: 0;
+legend {
+  color: #101828;
+  font-size: 18px;
+  font-weight: 700;
+  position: absolute;
+  top: 0;
+}
+@media (max-width: 992.8px) {
+  ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+  ul li button {
+    width: 100%;
+  }
 }
