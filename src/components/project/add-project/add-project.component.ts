@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ErrorHelper } from 'src/helper/errorHelper';
 import { ProjectService } from 'src/services/project/project.service';
 
 @Component(
@@ -20,7 +21,8 @@ export class AddProjectComponent
 		(
 			private router: Router,
 			private route: ActivatedRoute,
-			private projectService: ProjectService
+			private projectService: ProjectService,
+			private errorHelper:ErrorHelper
 		){}
 
 		setProjectType
@@ -118,19 +120,7 @@ export class AddProjectComponent
 					)
 						{
 							this.isLoading = false;
-							
-							if
-							(
-								error.error &&
-								error.error.message
-							)
-								{
-									alert(error.error.message);
-								}
-							else
-								{
-									alert(error)
-								}
+							this.errorHelper.showErrorAsAlert(error);
 						}
 					}
 				

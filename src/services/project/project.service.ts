@@ -19,7 +19,7 @@ export class ProjectService
 		constructor
 		(
 			private httpInteceptor: AuthHttpInterceptorService,
-		) { }
+		){}
 
 		async getAll
 		(): Promise<any>

@@ -164,4 +164,23 @@ export class AuthHttpInterceptorService
 
 				return result;
 			}
+
+		async uploadWithAuth
+		(
+			url: string,
+			headers: HttpHeaders,
+			formData: any
+		):Promise<any>
+			{
+				const reuslt = await this.http
+					.post(
+						url,
+						formData,
+						{
+							headers: this.getAuthHeader(headers)
+						}
+					).toPromise();
+
+				return reuslt;
+			}
 	}

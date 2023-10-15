@@ -1,0 +1,91 @@
+<div>
+    <form
+    class="container"
+>
+
+    <legend class="normal-legend">
+        افزودن تصویر مورد قرارداد
+    </legend>
+
+    <a
+        [routerLink]="['../list']"
+        class="closeModal"
+    >
+        انصراف
+    </a>
+
+    <fieldset
+        [disabled]="isLoading"
+    >
+        <ul>
+            <li>
+                <label
+                    for="txtTitle"
+                >
+                    ای دی مورد قرارداد
+                </label>
+
+                <input
+                    type="text"
+                    id="txtTitle"
+                    name="txtTitle"
+                    maxlength="200"
+                    [(ngModel)]= "projectItemGallery.projectItemId"
+                    required
+                    placeholder="نام یا عنوان پروژه"
+                >
+            </li>
+
+            <li>
+                <label
+                    for="cmpProjectType"
+                >
+                    فایل
+                </label>
+
+                <input
+                    type="file"
+                    id="txtFile"
+                    name="txtFile"
+                    maxlength="200"
+                    (change)="onFileSelected($event)"
+                    required
+                    placeholder="نام یا عنوان پروژه"
+                >
+            </li>
+
+        </ul>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
+        
+        <ul
+            class="action-list"
+        >
+            <li>
+                <button
+                    type="button"
+                    (click)="save()"
+                    class="primary"
+                >
+                    ثبت
+                </button>
+
+                <a
+                    [routerLink]="['../list']"
+                    class="secondary"
+                >
+                    انصراف
+                </a>
+            </li>
+        </ul>
+
+    </fieldset>
+</form>
+</div>

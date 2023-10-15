@@ -127,6 +127,8 @@ import { UserLabelComponent } from '../components/user/user-label/user-label.com
 import { SelectContractReviewerUserCompanyAccessListComponent } from '../components/userCompanyAccess/select-contract-reviewer-user-company-access-list/select-contract-reviewer-user-company-access-list.component';
 import { SetUserCompanyAccessPermissionComponent } from '../components/userCompanyAccess/set-user-company-access-permission/set-user-company-access-permission.component';
 import { UserCompanyAccessPanelComponent } from '../components/userCompanyAccess/user-company-access-panel/user-company-access-panel.component';
+import { AddProjectItemGalleryComponent } from 'src/components/project-item-gallery/add-project-item-gallery/add-project-item-gallery.component';
+
 
 
 @NgModule({
@@ -251,7 +253,8 @@ import { UserCompanyAccessPanelComponent } from '../components/userCompanyAccess
     UserLabelComponent,
     SelectContractReviewerUserCompanyAccessListComponent,
     SetUserCompanyAccessPermissionComponent,
-    UserCompanyAccessPanelComponent
+    UserCompanyAccessPanelComponent,
+    AddProjectItemGalleryComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
 
 export class ContractPaymentStatusIconComponent
 	{
-		@Input() contractPayment: any={};
+		@Input() contractPayment!: any;
 
 		getStatus
 		():any
@@ -18,6 +18,19 @@ export class ContractPaymentStatusIconComponent
 
 				if
 				(
+					!this.contractPayment
+				)
+					{
+						{
+							return {
+								text: 'نامشخص',
+								class: 'unknown'
+							}
+						}
+					}
+				else if
+				(
+					this.contractPayment &&
 					this.contractPayment.isSettled == true
 				)
 					{

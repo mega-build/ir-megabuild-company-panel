@@ -35,6 +35,7 @@ import { NotSettledContractPaymentPanelComponent } from 'src/components/contract
 import { SelectCompanyComponent } from './select-company/select-company.component';
 import { SetUserCompanyAccessPermissionComponent } from 'src/components/userCompanyAccess/set-user-company-access-permission/set-user-company-access-permission.component';
 import { UserCompanyAccessPanelComponent } from 'src/components/userCompanyAccess/user-company-access-panel/user-company-access-panel.component';
+import { AddProjectItemGalleryComponent } from 'src/components/project-item-gallery/add-project-item-gallery/add-project-item-gallery.component';
 
 export const routes: Routes = [
     {
@@ -230,6 +231,15 @@ export const routes: Routes = [
     },
     {
         path:'setContractPaymentList', component: SetContractPaymentLisComponent,
+    },
+    {
+        path:'projectItemGalleryManagement',
+        children:[
+            {
+                path:'add',
+                component:AddProjectItemGalleryComponent
+            }
+        ]
     },
     {
         path:'contractPaymentManagement', component: ContractPaymentManagementComponent,

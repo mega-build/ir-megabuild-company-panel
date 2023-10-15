@@ -13,7 +13,7 @@ export class ProjectItemService
 	{
 
 		private URL_PROJECT_ITEM_GETALL: string = `${environment.API_URL}/projectItem`;
-		private URL_PROJECT_ITEM_GET: string = `${environment.API_URL}/projectItem`;;
+		private URL_PROJECT_ITEM_GET: string = `${environment.API_URL}/projectItem`;
 		private URL_PROJECT_ITEM_GET_BY_CONTRACT_ID: string = `${environment.API_URL}/projectItem/byContractId`;
 		private URL_PROJECT_ITEM_ADD_RESIDENTIAL: string = `${environment.API_URL}/projectItem/residential`;
 		private URL_PROJECT_ITEM_ADD_LAND_PACEL: string = `${environment.API_URL}/projectItem/landParcel`;
