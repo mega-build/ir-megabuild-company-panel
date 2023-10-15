@@ -7,7 +7,7 @@
     <form
         *ngIf="contractReview"
     >
-        <legend>
+        <legend class="normal-legend">
             تعیین وضعیت بررسی
         </legend>
 
@@ -38,6 +38,7 @@
                 <li>
                     <a
                         [routerLink]="['/','contractReviewManagement','list','pending']"
+                        class="closeModal"
                     >
                         بازگشت به لیست
                     </a>
