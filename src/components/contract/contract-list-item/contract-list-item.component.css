@@ -32,6 +32,36 @@ dl ul {
   font-size: 9px;
   margin-right: -5px;
 }
+.submit-btn{
+  text-indent: -9000px;
+  background: url("../../../assets/images/icons/clipboard-check.svg");
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+}
+.review-request-btn{
+  text-indent: -9000px;
+  background: url("../../../assets/images/icons/review-request.svg");
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+}
+.submit-contract-btn{
+  text-indent: -9000px;
+  background: url("../../../assets/images/icons/submit-contract.svg");
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+}
 
 dl ul.hide {
   display: none;
