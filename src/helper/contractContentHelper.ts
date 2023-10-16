@@ -42,10 +42,11 @@ export class ContractContentHelper
             <p>
             ${this.SUBJECT_PALACE_HOLDER}
             </p>
-            <h3>
-            تبصره1:
-            </h3>
             <p>
+            <b>
+            تبصره1:
+            </b>
+            
                 محتوای تبصره را در این بخش اضافه کنید.
             </p>
             <h2>
@@ -54,10 +55,11 @@ export class ContractContentHelper
             <p>
             ${this.PAYABLE_PRICE_PALACE_HOLDER}
             </p>
-            <h3>
-            تبصره2
-            </h3>
             <p>
+            <b>
+            تبصره2
+            </b>
+            
                 محتوای تبصره را در این بخش اضافه کنید.
             </p>
             <h2>
@@ -66,10 +68,11 @@ export class ContractContentHelper
             <p>
                 ${this.PAYMENTS_PALACE_HOLDER}
             </p>
-            <h3>
-            تبصره3
-            </h3>
             <p>
+            <b>
+            تبصره3
+            </b>
+            
                 محتوای تبصره را در این بخش اضافه کنید.
             </p>
             <h2>

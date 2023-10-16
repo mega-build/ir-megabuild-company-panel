@@ -144,10 +144,10 @@ export class AddContractTemplateComponent implements OnInit
 				this.addHtmlElementToSelectedPart("h2");
 			}
 
-		makeH3
+		makeB
 		():void
 			{
-				this.addHtmlElementToSelectedPart("h3");
+				this.addHtmlElementToSelectedPart("b");
 			}
 
 		makeH1
@@ -155,6 +155,12 @@ export class AddContractTemplateComponent implements OnInit
 			{
 				this.addHtmlElementToSelectedPart("h1");
 			}
+
+		makeP
+		():void
+		{
+			this.addHtmlElementToSelectedPart("p");
+		}
 
 		makeOl
 		():void
