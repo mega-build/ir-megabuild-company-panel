@@ -44,6 +44,12 @@ contract-list-item {
   background-repeat: no-repeat;
   width: 16px;
   height: 16px;
+  transition: all 0.3s;
+
+}
+.sort-btn.up{
+  transform: rotate(180deg);
+  transition: all 0.3s;
 }
 
 @media (max-width: 992.8px) {
