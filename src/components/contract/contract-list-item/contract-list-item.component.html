@@ -123,6 +123,7 @@
             *ngIf="contract.isDraft && contractHelper.isContractDataCompleted(contract)"
             [routerLink]="['../../editContract','contractId',contract._id,'preview']"
             title="ثبت قطعی"
+            class="submit-btn"
         >
             ثبت قطعی
         </a>
@@ -133,6 +134,8 @@
             *ngIf="!contract.isDraft && contract.isRequested && contractHelper.isContractDataCompleted(contract)"
             [routerLink]="['/','contractManagement','detail','contractId',contract._id,'requestReview']"
             title="درخواست بررسی"
+            class="review-request-btn"
+
         >
             درخواست بررسی
         </a>
@@ -145,6 +148,7 @@
         
             [routerLink]="['../../detail','contractId',contract._id,'acceptRequest']"
             title="تایید قرارداد"
+            class="submit-contract-btn"
         >
             تایید قرارداد
         </a>
