@@ -1,113 +1,137 @@
 <panel-navigation></panel-navigation>
 
 <div class="container">
-  <section *ngIf="user" class="user">
-    <user-label [user]="user"></user-label>
-  </section>
-  <section>
-    <h2>قراردادها</h2>
-    <ul class="contract">
-      <li *ngIf="userCompanyAccess && userCompanyAccess.isAddContract">
-        <a [routerLink]="['/', 'contractManagement', 'addContract']">
-          ثبت قرارداد جدید
-        </a>
-      </li>
-      <li
-        *ngIf="userCompanyAccess && userCompanyAccess.isAddContractTemplate"
-        class="border"
-      >
-        <a [routerLink]="['/', 'contractTemplateManagement', 'list']">
-          مدیریت قالب قرارداد
-        </a>
-      </li>
+	<section
+		*ngIf="user"
+		class="user"
+	>
+		<user-label [user]="user"></user-label>
+	</section>
 
-      <li *ngIf="userCompanyAccess && userCompanyAccess.isAddContract">
-        <a [routerLink]="['/', 'contractManagement', 'list', 'draft']">
-          قرارداد های در حال انجام
-        </a>
-      </li>
+	<section
+		*ngIf="userCompanyAccess && (userCompanyAccess.isAddContract || userCompanyAccess.isAddContractTemplate || userCompanyAccess.isAddProject || userCompanyAccess.isContractManager || userCompanyAccess.isContractReviewer)"
+	>
+		<h2>قراردادها</h2>
+		<ul class="contract">
+			<li
+				*ngIf="userCompanyAccess && userCompanyAccess.isAddContract"
+			>
+				<a [routerLink]="['/', 'contractManagement', 'addContract']">
+					ثبت قرارداد جدید
+				</a>
+			</li>
+			<li
+			*ngIf="userCompanyAccess && userCompanyAccess.isAddContractTemplate"
+			class="border"
+			>
+				<a [routerLink]="['/', 'contractTemplateManagement', 'list']">
+					مدیریت قالب قرارداد
+				</a>
+			</li>
 
-      <li
-        *ngIf="userCompanyAccess && userCompanyAccess.isAddProject"
-        class="border"
-      >
-        <a [routerLink]="['/', 'projectManagement', 'list']">
-          مدیریت پروژه ها
-        </a>
-      </li>
+			<li *ngIf="userCompanyAccess && userCompanyAccess.isAddContract">
+				<a [routerLink]="['/', 'contractManagement', 'list', 'draft']">
+					قرارداد های در حال انجام
+				</a>
+			</li>
 
-      <li *ngIf="userCompanyAccess && userCompanyAccess.isContractManager">
-        <a [routerLink]="['/', 'contractManagement', 'list', 'filter']">
-          فیلتر قراردادها
-        </a>
-      </li>
+			<li
+			*ngIf="userCompanyAccess && userCompanyAccess.isAddProject"
+			class="border"
+			>
+				<a [routerLink]="['/', 'projectManagement', 'list']">
+					مدیریت پروژه ها
+				</a>
+			</li>
 
-      <li *ngIf="userCompanyAccess && userCompanyAccess.isContractManager">
-        <a [routerLink]="['/', 'contractManagement', 'list', 'requested']">
-          قرارداد های در انتظار تایید نهایی
-        </a>
-      </li>
+			<li *ngIf="userCompanyAccess && userCompanyAccess.isContractManager">
+				<a [routerLink]="['/', 'contractManagement', 'list', 'filter']">
+					فیلتر قراردادها
+				</a>
+			</li>
 
-      <li *ngIf="userCompanyAccess && userCompanyAccess.isContractReviewer">
-        <a href="/contractReviewManagement/list/pending"> بررسی قرارداد ها </a>
-      </li>
+			<li *ngIf="userCompanyAccess && userCompanyAccess.isContractManager">
+				<a [routerLink]="['/', 'contractManagement', 'list', 'requested']">
+					قرارداد های در انتظار تایید نهایی
+				</a>
+			</li>
 
-      <li
-        *ngIf="
-          userCompanyAccess &&
-          (userCompanyAccess.isContractManager ||
-            userCompanyAccess.isAddContract)
-        "
-        class="border"
-      >
-        <a [routerLink]="['/', 'contractManagement', 'list', 'accepted']">
-          قرارداد های نهایی شده
-        </a>
-      </li>
-    </ul>
-  </section>
-  <section>
-    <h2>پرداخت‌ها</h2>
-    <ul class="payments">
-      <li
-        *ngIf="userCompanyAccess && userCompanyAccess.isContractPaymentManager"
-      >
-        <a [routerLink]="['/', 'contractPaymentManagement', 'list', 'filter']">
-          فیلتر پرداخت ها
-        </a>
-      </li>
+			<li *ngIf="userCompanyAccess && userCompanyAccess.isContractReviewer">
+				<a href="/contractReviewManagement/list/pending"> بررسی قرارداد ها </a>
+			</li>
 
-      <li
-        *ngIf="userCompanyAccess && userCompanyAccess.isContractPaymentManager"
-      >
-        <a
-          [routerLink]="[
-            '/',
-            'contractPaymentManagement',
-            'list',
-            'notSettled'
-          ]"
-        >
-          پرداخت های واریز نشده
-        </a>
-      </li>
-    </ul>
-  </section>
-  <section>
-    <h2>کاربران</h2>
-    <ul class="user-management">
-      <li
-        *ngIf="userCompanyAccess && userCompanyAccess.isUserManager"
-        class="border"
-      >
-        <a [routerLink]="['/', 'userManagement', 'list']"> مدیریت کاربران </a>
-      </li>
+			<li
+				*ngIf="
+					userCompanyAccess &&
+					(userCompanyAccess.isContractManager ||
+					userCompanyAccess.isAddContract)
+				"
+				class="border"
+			>
+				<a [routerLink]="['/', 'contractManagement', 'list', 'accepted']">
+					قرارداد های نهایی شده
+				</a>
+			</li>
+		</ul>
+	</section>
 
-      <li *ngIf="userCompanyAccess && userCompanyAccess.isUserManager">
-        <a [routerLink]="['/', 'userCompanyAccessManagement', 'list']">
-          سطح دسترسی
-        </a>
-      </li>
-    </ul>
-  </section>
+	<section
+		*ngIf="userCompanyAccess && userCompanyAccess.isContractPaymentManager"
+	>
+		<h2>پرداخت‌ها</h2>
+		<ul class="payments">
+			<li
+				*ngIf="userCompanyAccess && userCompanyAccess.isContractPaymentManager"
+			>
+				<a
+					[routerLink]="['/', 'contractPaymentManagement', 'list', 'filter']"
+				>
+					فیلتر پرداخت ها
+				</a>
+			</li>
+
+			<li
+				*ngIf="userCompanyAccess && userCompanyAccess.isContractPaymentManager"
+			>
+				<a
+					[routerLink]="[
+					'/',
+					'contractPaymentManagement',
+					'list',
+					'notSettled'
+					]"
+				>
+					پرداخت های واریز نشده
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<section
+		*ngIf="userCompanyAccess && userCompanyAccess.isUserManager"
+	>
+		<h2>کاربران</h2>
+		<ul class="user-management">
+			<li
+				*ngIf="userCompanyAccess && userCompanyAccess.isUserManager"
+				class="border"
+			>
+				<a
+					[routerLink]="['/', 'userManagement', 'list']"
+				>
+					مدیریت کاربران 
+				</a>
+			</li>
+
+			<li
+				*ngIf="userCompanyAccess && userCompanyAccess.isUserManager"
+			>
+				<a
+					[routerLink]="['/', 'userCompanyAccessManagement', 'list']"
+				>
+					سطح دسترسی
+				</a>
+			</li>
+		</ul>
+	</section>
 </div>
