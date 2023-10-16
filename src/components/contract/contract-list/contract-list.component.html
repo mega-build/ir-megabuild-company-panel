@@ -3,7 +3,9 @@
         <li>شماره قرارداد</li>
         <li>
             تاریخ قرارداد
-            <button class="sort-btn"
+            <button
+                class="sort-btn"
+                [ngClass]="contractDateSortType === 1?'up':''"
                 (click)="sortByContractDate()"
             >
                 sort
@@ -11,7 +13,9 @@
         </li>
         <li>
             تاریخ تحویل
-            <button class="sort-btn"
+            <button
+                class="sort-btn"
+                [ngClass]="contractFinishDateSortType === 1?'up':''"
                 (click)="sortByContractFinishDate()"
             >
                 sort
