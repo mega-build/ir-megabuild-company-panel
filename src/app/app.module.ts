@@ -128,6 +128,9 @@ import { SelectContractReviewerUserCompanyAccessListComponent } from '../compone
 import { SetUserCompanyAccessPermissionComponent } from '../components/userCompanyAccess/set-user-company-access-permission/set-user-company-access-permission.component';
 import { UserCompanyAccessPanelComponent } from '../components/userCompanyAccess/user-company-access-panel/user-company-access-panel.component';
 import { AddProjectItemGalleryComponent } from 'src/components/project-item-gallery/add-project-item-gallery/add-project-item-gallery.component';
+import { AddContractPayablePriceComponent } from 'src/components/contract-payable-price/add-contract-payable-price/add-contract-payable-price.component';
+import { ContractPayablePriceDetailComponent } from '../components/contract-payable-price/contract-payable-price-detail/contract-payable-price-detail.component';
+
 
 
 
@@ -254,7 +257,9 @@ import { AddProjectItemGalleryComponent } from 'src/components/project-item-gall
     SelectContractReviewerUserCompanyAccessListComponent,
     SetUserCompanyAccessPermissionComponent,
     UserCompanyAccessPanelComponent,
-    AddProjectItemGalleryComponent
+    AddProjectItemGalleryComponent,
+    AddContractPayablePriceComponent,
+    ContractPayablePriceDetailComponent
   ],
   imports: [
     BrowserModule,

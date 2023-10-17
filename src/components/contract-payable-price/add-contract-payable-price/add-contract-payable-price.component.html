@@ -1,0 +1,99 @@
+<dl>
+    <dt>جزئیات قیمت</dt>
+    <dt>
+        مساحت ثبت شده
+    </dt>
+    <dd>
+        {{contract.projectItem.area || contract.projectItem.buildupArea}}
+    </dd>
+
+    <dt>
+        قیمت هر متر
+    </dt>
+    <dd>
+        <price-label
+            [price]="contract.projectItem.unitPrice"
+        ></price-label>
+    </dd>
+
+    <dt>
+        مجموع قیمت
+    </dt>
+    <dd>
+        <price-label
+            [price]="projectItemHelper.calculateTotalPrice(contract.projectItem)"
+        ></price-label>
+    </dd>
+</dl>
+
+<button
+        (click)="setValueFromProjectItemDate()"
+        class="secondary"
+    >
+        درج در مبلغ نهایی
+    </button>
+
+<form>
+    <legend
+        class="contract-legend"
+    >
+        بهای موضوع قرارداد
+    </legend>
+
+    <fieldset
+        [disabled]="isLoading"
+    >
+        <ul>
+            <li>
+                <label
+                    for="cmpDiscount"
+                >
+                    مبلغ تخفیف
+                </label>
+
+                <price-input
+                    id = 'cmpDiscount'
+                    name = 'cmpDiscount'
+                    (setPrice)="setDiscount($event)"
+                    [price]="discount"
+                ></price-input>
+
+            </li>
+            <li>
+                <label
+                    for="cmpPayablePrice"
+                >
+                    مبلغ نهایی
+                </label>
+
+                <price-input
+                    id = 'cmpPayablePrice'
+                    name = 'cmpPayablePrice'
+                    (setPrice)="setPayablePrice($event)"
+                    [price]="payablePrice"
+                ></price-input>
+            </li>
+        </ul>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
+
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="save()"
+                    class="primary"
+                >
+                    ثبت
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

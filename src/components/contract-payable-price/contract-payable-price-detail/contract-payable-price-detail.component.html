@@ -1,0 +1,28 @@
+<loading
+    *ngIf="isLoading"
+></loading>
+<dl>
+    <dt>
+        تخفیف
+    </dt>
+    <dd>
+        <price-label
+            [price]="contract.discount"
+        ></price-label>
+    </dd>
+
+    <dt>
+        مبلغ نهایی
+    </dt>
+    <dd>
+        <price-label
+            [price]="contract.payablePrice"
+        ></price-label>
+    </dd>
+</dl>
+
+<button
+    (click)="removeContractPayablePrice()"
+>
+    حذف
+</button>
