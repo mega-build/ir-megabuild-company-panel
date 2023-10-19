@@ -130,6 +130,9 @@ import { UserCompanyAccessPanelComponent } from '../components/userCompanyAccess
 import { AddProjectItemGalleryComponent } from 'src/components/project-item-gallery/add-project-item-gallery/add-project-item-gallery.component';
 import { AddContractPayablePriceComponent } from 'src/components/contract-payable-price/add-contract-payable-price/add-contract-payable-price.component';
 import { ContractPayablePriceDetailComponent } from '../components/contract-payable-price/contract-payable-price-detail/contract-payable-price-detail.component';
+import { AddUserUserCompanyAccessComponent } from 'src/components/userCompanyAccess/add-user-user-company-access/add-user-user-company-access.component';
+import { CompanyLabelComponent } from '../components/company/company-label/company-label.component';
+
 
 
 
@@ -259,7 +262,9 @@ import { ContractPayablePriceDetailComponent } from '../components/contract-paya
     UserCompanyAccessPanelComponent,
     AddProjectItemGalleryComponent,
     AddContractPayablePriceComponent,
-    ContractPayablePriceDetailComponent
+    ContractPayablePriceDetailComponent,
+    AddUserUserCompanyAccessComponent,
+    CompanyLabelComponent
   ],
   imports: [
     BrowserModule,

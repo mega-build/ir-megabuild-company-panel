@@ -11,7 +11,9 @@ export class UserCompanyAccessService {
 	private URL_USER_COMPANY_ACCESS_GET: string = `${environment.API_URL}/userCompanyAccess/byId`;
 	private URL_USER_COMPANY_ACCESS_GETALL: string = `${environment.API_URL}/userCompanyAccess`;
 	private URL_USER_COMPANY_ACCESS_GETALL_BY_COMPANY: string = `${environment.API_URL}/userCompanyAccess/byCompany`;
-	private URL_USER_COMPANY_ACCESS_SET_PERMISSION: string = `${environment.API_URL}/userCompanyAccess`;
+	private URL_USER_COMPANY_ACCESS_GETALL_BY_USER: string = `${environment.API_URL}/userCompanyAccess/byUser`;
+	private URL_USER_COMPANY_ACCESS_ADD: string = `${environment.API_URL}/userCompanyAccess`;
+	private URL_USER_COMPANY_ACCESS_SET_PERMISSION: string = `${environment.API_URL}/userCompanyAccess/setUserAccess`;
 	private URL_USER_COMPANY_ACCESS_GETALL_BY_FILTER: string = `${environment.API_URL}/userCompanyAccess/filter`;
 
 	constructor
@@ -39,6 +41,23 @@ export class UserCompanyAccessService {
 
 			const result =  await this.httpInteceptor.getWithAuth_(
 				this.URL_USER_COMPANY_ACCESS_GETALL_BY_COMPANY,
+				headers
+			);
+
+			return result;
+		}
+
+	async getAllByUser
+	(
+		userId: string
+	): Promise<any>
+		{
+			let headers: HttpHeaders = new HttpHeaders();
+
+			let url = `${this.URL_USER_COMPANY_ACCESS_GETALL_BY_USER}/${userId}`;
+
+			const result =  await this.httpInteceptor.getWithAuth_(
+				url,
 				headers
 			);
 
@@ -106,6 +125,26 @@ export class UserCompanyAccessService {
 			};
 			const result = await this.httpInteceptor.postWithAuth_(
 				this.URL_USER_COMPANY_ACCESS_SET_PERMISSION,
+				headers,
+				body
+			);
+
+			return result;
+		}
+
+	async add
+	(
+		userId:string,
+		companyId:string
+	):Promise<any>
+		{
+			let headers: HttpHeaders = new HttpHeaders();
+			let body: any = {
+				newUserId:userId,
+				companyId: companyId
+			};
+			const result = await this.httpInteceptor.postWithAuth_(
+				this.URL_USER_COMPANY_ACCESS_ADD,
 				headers,
 				body
 			);

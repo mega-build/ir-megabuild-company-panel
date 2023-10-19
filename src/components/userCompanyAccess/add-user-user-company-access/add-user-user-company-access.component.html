@@ -1,0 +1,111 @@
+<loading
+    *ngIf="isLoading"
+></loading>
+
+<form
+    class="container"
+    *ngIf="!isLoading && user" 
+>
+
+    <legend
+        class="normal-legend"
+    >
+        تنظیم دسترسی کاربر به شرکت
+    </legend>
+
+    <a
+        [routerLink]="['/','userManagement','list']"
+        class="closeModal"
+    >
+        انصراف
+    </a>
+
+    <fieldset
+        [disabled]="isLoading"
+    >
+        <ul>
+            <li>
+                <label
+                    for="cmpUser"
+                >
+                    کاربر
+                </label>
+
+                <user-label
+                    id="cmpUser"
+                    name="cmpUser"
+                    [user]="user"
+                ></user-label>
+            </li>
+
+            <li>
+                <label
+                    for="ulCompanyList"
+                >
+                    انتخاب شرکت
+                </label>
+
+                <ul
+                    id="ulCompanyList"
+                    name="ulCompanyList"
+                    *ngIf="!isLoading &&  unassignedCompanyList && unassignedCompanyList.length > 0"
+                >
+                    <li
+                        *ngFor = 'let userCompanyAccess of unassignedCompanyList'
+                    >
+                    
+                        <input
+                            #refEl
+                            type="checkbox"
+                            id="chkUser{{userCompanyAccess._id}}"
+                            name="chkUser{{userCompanyAccess._id}}"
+                            [value]="userCompanyAccess._id"
+                            (change)="selectedCompanyChanged(refEl,userCompanyAccess.company)"
+                        >
+                        <company-label
+                            [company]="userCompanyAccess.company"
+                        ></company-label>
+                    </li>
+                </ul>
+
+                <div
+                    *ngIf="!isLoading &&  unassignedCompanyList && unassignedCompanyList.length == 0"
+                >
+                    کاربر به تمامی شرکت ها دسترسی دارد.
+                </div>
+            </li>
+
+        </ul>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+
+        <validation-result
+            *ngIf="validationResult && validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
+
+        <ul>
+            <li>
+                <button
+                    type="button"
+                    (click)="save()"
+                    class="primary"
+                >
+                    ثبت
+                </button>
+            </li>
+
+            <li>
+                <a
+                    [routerLink]="['/','userManagement','list']"
+                    class="secondary"
+                >
+                    انصراف
+                </a>
+            </li>
+        </ul>
+
+    </fieldset>
+</form>

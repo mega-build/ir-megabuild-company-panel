@@ -36,6 +36,7 @@ import { SelectCompanyComponent } from './select-company/select-company.componen
 import { SetUserCompanyAccessPermissionComponent } from 'src/components/userCompanyAccess/set-user-company-access-permission/set-user-company-access-permission.component';
 import { UserCompanyAccessPanelComponent } from 'src/components/userCompanyAccess/user-company-access-panel/user-company-access-panel.component';
 import { AddProjectItemGalleryComponent } from 'src/components/project-item-gallery/add-project-item-gallery/add-project-item-gallery.component';
+import { AddUserUserCompanyAccessComponent } from 'src/components/userCompanyAccess/add-user-user-company-access/add-user-user-company-access.component';
 
 export const routes: Routes = [
     {
@@ -203,8 +204,8 @@ export const routes: Routes = [
                 component: AddUserComponent
             },
             {
-                path: 'setAccess/userCompanyAccessId/:userCompanyAccessId',
-                component: SetUserCompanyAccessPermissionComponent
+                path: 'setAccess/userId/:userId',
+                component: AddUserUserCompanyAccessComponent
             },
             {
                 path: 'detail/userId/:userId',
@@ -218,6 +219,10 @@ export const routes: Routes = [
             {
                 path: 'list',
                 component: UserCompanyAccessPanelComponent
+            },
+            {
+                path: 'detail/userCompanyAccessId/:userCompanyAccessId/setAccess',
+                component: SetUserCompanyAccessPermissionComponent
             },
             {
                 path: 'detail/userCompanyAccessId/:userCompanyAccessId/setAccess',
