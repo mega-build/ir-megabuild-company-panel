@@ -326,6 +326,14 @@ button {
   width: 16px;
   height: 16px;
 }
+
+.review-btn{
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  font-size: 14px;
+  color: #344054;
+  padding: 8px 16px;
+}
 /* Buttons Style End*/
 
 /* Summary Details Style */

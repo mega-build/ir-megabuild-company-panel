@@ -1,7 +1,5 @@
-details summary {
-  text-indent: -800000px;
-}
-details {
+
+details summary{
   background: url("../../../assets/images/icons/building.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -11,6 +9,7 @@ details {
   padding: 10px;
   border-radius: 6px;
   position: relative;
+  text-indent: -800000px;
 }
 
 ul {
