@@ -1,6 +1,6 @@
 {
   "name": "construction-company-panel",
-  "version": "1.0.170",
+  "version": "1.0.171",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
