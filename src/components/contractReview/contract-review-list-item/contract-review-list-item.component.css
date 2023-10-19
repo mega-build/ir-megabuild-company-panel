@@ -14,14 +14,13 @@ dl dd {
   font-size: 12px;
   border-radius: 16px;
   padding: 2px 8px;
- flex: 0 0 16.6%;
+  flex: 0 0 16.6%;
 }
 .cri_pending {
   border: 1px solid #eaecf0;
   background: #f9fafb;
   color: #344054;
   max-width: fit-content;
-
 }
 .cri_rejected {
   border: 1px solid #fecdca;
@@ -34,7 +33,6 @@ dl dd {
   background: #ecfdf3;
   color: #067647;
   max-width: fit-content;
-
 }
 contract-list-item {
   display: flex;
@@ -51,27 +49,62 @@ ul {
   flex: 1 0 14%;
   max-width: 14%;
 }
+ul a {
+  text-indent: -9000px;
+  background: url("../../../assets/images/icons/review-request.svg");
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+}
 
 @media (max-width: 992.8px) {
+  
   dl {
-    display: block;
-    width: 100%;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 8px;
     max-width: 100%;
+    flex: 1 0 100%;
+    padding: 0 12px 0 0;
   }
-  dl dd{
-    position: absolute;
-    top: 12px;
-    left: 12px;
+  dl dt {
+    display: block;
+    color: #667085;
+    font-size: 12px;
+    align-items: center;
   }
 
   contract-list-item {
     display: block;
   }
   ul {
-    position: absolute;
-    bottom: 28px;
-    font-size: 12px;
-    left: 50%;
-    transform: translate(-50%, 0);
+    position: relative;
+    border-top: 1px solid #eaecf0;
+    display: block;
+    max-width: 100%;
+    margin-top: 12px;
+    padding: 12px 12px 0 12px;
+  }
+  ul a {
+    color: #667085;
+    font-size: 14px;
+    background: none;
+    text-indent: 0;
+    display: flex;
+    width: max-content;
+    overflow: auto;
+    gap: 8px;
+  }
+  ul a::before{
+    content: url("../../../assets/images/icons/review-request.svg");
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
   }
 }

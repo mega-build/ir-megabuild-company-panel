@@ -44,5 +44,7 @@ ul{
   .contract-review:last-child{
     border-radius: 12px;
   }
-  
+  contract-review-list-item{
+    display: block;
+  }
 }
