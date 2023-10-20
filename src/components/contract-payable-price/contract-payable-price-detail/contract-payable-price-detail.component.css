@@ -1,0 +1,40 @@
+dl {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  border-right: 2px solid #7f56d9;
+  align-items: center;
+}
+dl dt {
+  color: #667085;
+  font-size: 12px;
+  padding: 4px 12px 4px 4px;
+}
+dl dd {
+  color: #101828;
+  font-size: 16px;
+  padding: 4px 12px 4px 4px;
+}
+dl dt:nth-child(1) {
+  grid-column: span 2;
+  font-size: 14px;
+  color: #101828;
+  font-weight: 700;
+  padding: 0 12px 4px 4px;
+}
+
+.secondary {
+  width: 100%;
+  margin-top: 16px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+.secondary:hover {
+  background-color: #7f56d9;
+  border: 1px solid #7f56d9;
+  color: #fff;
+  transition: all 0.3s;
+}
+price-label {
+  color: #101828;
+  font-size: 12px;
+}

@@ -8,3 +8,6 @@ ul:last-child li button {
 legend{
   display: none;
 }
+.secondary{
+  float: left;
+}
