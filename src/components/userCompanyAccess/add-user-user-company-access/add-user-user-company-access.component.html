@@ -1,4 +1,5 @@
-<loading
+<div>
+    <loading
     *ngIf="isLoading"
 ></loading>
 
@@ -70,6 +71,7 @@
 
                 <div
                     *ngIf="!isLoading &&  unassignedCompanyList && unassignedCompanyList.length == 0"
+                    class="contract-legend"
                 >
                     کاربر به تمامی شرکت ها دسترسی دارد.
                 </div>
@@ -86,7 +88,7 @@
             [validationResult]="validationResult"
         ></validation-result>
 
-        <ul>
+        <ul class="action-list">
             <li>
                 <button
                     type="button"
@@ -109,3 +111,5 @@
 
     </fieldset>
 </form>
+
+</div>

@@ -34,3 +34,13 @@ dl dt:nth-child(1) {
   color: #fff;
   transition: all 0.3s;
 }
+price-label {
+  color: #101828;
+  font-size: 12px;
+}
+
+.primary{
+  margin-top: 32px;
+  width: 10%;
+  
+}
