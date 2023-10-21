@@ -10,5 +10,5 @@ import { Component, Input } from '@angular/core';
 
 export class ProjectListComponent
 	{
-		@Input() projectList: any[]=[];
+		@Input() projectList!: any[];
 	}
