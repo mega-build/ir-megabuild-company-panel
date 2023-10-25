@@ -1,71 +1,89 @@
 div {
-    background-color: #f2f4f7;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  form {
-    background-color: #fff;
-    padding: 32px;
-    border-radius: 12px;
-    position: relative;
-  }
-  .user-access-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+  background-color: #f2f4f7;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.normal-legend {
+  background-color: #fff;
+  height: 40vh;
+}
+form {
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  position: relative;
+}
+.user-access-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.user-access-form li {
+  display: flex;
+  justify-content: start;
+  flex-direction: row-reverse;
+  gap: 6px;
+  flex: 0 0 20%;
+}
+li label {
+  display: none;
+}
+.action-list a,
+.action-list button {
+  width: 35%;
+}
+.action-list a {
+  float: left;
+}
+.closeModal {
+  position: absolute;
+  left: 32px;
+  top: 32px;
+}
+
+#ulCompanyList {
+  display: flex;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+#ulCompanyList li {
+  flex: 0 0 50%;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+company-label {
+  display: inline-grid;
+  grid-template-columns: 100px 100px;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+}
+
+@media (max-width: 992.8px) {
+  section {
+    padding: 16px;
+    margin: 0 16px;
   }
   .user-access-form li {
-    display: flex;
-    justify-content: start;
-    flex-direction: row-reverse;
-    gap: 6px;
-    flex: 0 0 20%;
+    flex: 1 0 45%;
   }
-  li label {
-    display: none;
+  .action-list {
+    flex-direction: column;
+    gap: 8px;
   }
   .action-list a,
   .action-list button {
-    width: 35%;
+    width: 100%;
   }
-  .action-list a {
-    float: left;
+
+  #ulCompanyList li {
+    flex: 1 0 100%;
+    margin-bottom: 32px;
   }
-  .closeModal{
-    position: absolute;
-    left: 32px;
-    top: 32px;
+  company-label {
+    grid-template-columns: 165px 100px;
   }
- 
-  #ulCompanyList{
-    display: flex;
-    margin-top: 32px;
-  }
-  #ulCompanyList li{
-    flex: 0 0 50%;
-    display: flex;
-    gap: 8px;
-  }
-  company-label{
-    display: flex;
-  }
-  @media (max-width: 992.8px) {
-     section{
-      padding: 16px;
-      margin: 0 16px;
-     } 
-    .user-access-form li {
-      flex: 1 0 45%;
-    }
-    .action-list {
-      flex-direction: column;
-      gap: 8px;
-    }
-    .action-list a,
-    .action-list button {
-      width: 100%;
-    }
-  }
-  
+}
