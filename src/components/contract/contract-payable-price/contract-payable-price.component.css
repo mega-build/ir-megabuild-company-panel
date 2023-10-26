@@ -12,4 +12,8 @@ fieldset ul:first-child {
   border-radius: 8px;
   border: 1px solid #eaecf0;
   padding: 16px;
+  position: relative;
+}
+contract-payable-price-detail{
+  position: relative;
 }
