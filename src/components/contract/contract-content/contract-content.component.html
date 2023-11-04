@@ -26,6 +26,15 @@
                         name ='cmpSelectContractTemplate'
                         (setContractTemplate)="setContractTemplate($event)"
                     ></select-contract-template>
+
+                    <a
+                        [routerLink]="['/','contractTemplateManagement','add']"
+                        class="secondary"
+                        target="_blank"
+                    >
+                        اضافه کردن قالب قراداد جدید
+                    </a>
+
                 </li>
                 <li>
                     <div
