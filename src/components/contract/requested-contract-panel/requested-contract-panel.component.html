@@ -19,7 +19,7 @@
     ></contract-list>
     
     <empty-list
-        *ngIf="!isLoading && contractList.length == 0"
+        *ngIf="!isLoading && contractList && contractList.length == 0"
     ></empty-list>
 
 </section>
