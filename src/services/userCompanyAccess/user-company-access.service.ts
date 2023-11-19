@@ -141,7 +141,7 @@ export class UserCompanyAccessService {
 			let headers: HttpHeaders = new HttpHeaders();
 			let body: any = {
 				newUserId:userId,
-				companyId: companyId
+				newCompanyId: companyId
 			};
 			const result = await this.httpInteceptor.postWithAuth_(
 				this.URL_USER_COMPANY_ACCESS_ADD,
