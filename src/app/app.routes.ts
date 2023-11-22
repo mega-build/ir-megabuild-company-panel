@@ -37,6 +37,8 @@ import { SetUserCompanyAccessPermissionComponent } from 'src/components/userComp
 import { UserCompanyAccessPanelComponent } from 'src/components/userCompanyAccess/user-company-access-panel/user-company-access-panel.component';
 import { AddProjectItemGalleryComponent } from 'src/components/project-item-gallery/add-project-item-gallery/add-project-item-gallery.component';
 import { AddUserUserCompanyAccessComponent } from 'src/components/userCompanyAccess/add-user-user-company-access/add-user-user-company-access.component';
+import { EditContractTemplateComponent } from 'src/components/contractTemplate/edit-contract-template/edit-contract-template.component';
+
 
 export const routes: Routes = [
     {
@@ -62,6 +64,10 @@ export const routes: Routes = [
                 path: 'add',
                 component: AddContractTemplateComponent
             },
+            {
+                path: 'edit/:contractTemplateId',
+                component: EditContractTemplateComponent
+            }
         ]
     },
     {

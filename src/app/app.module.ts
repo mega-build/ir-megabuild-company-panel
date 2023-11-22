@@ -132,6 +132,7 @@ import { AddContractPayablePriceComponent } from 'src/components/contract-payabl
 import { ContractPayablePriceDetailComponent } from '../components/contract-payable-price/contract-payable-price-detail/contract-payable-price-detail.component';
 import { AddUserUserCompanyAccessComponent } from 'src/components/userCompanyAccess/add-user-user-company-access/add-user-user-company-access.component';
 import { CompanyLabelComponent } from '../components/company/company-label/company-label.component';
+import { EditContractTemplateComponent } from '../components/contractTemplate/edit-contract-template/edit-contract-template.component';
 
 
 
@@ -264,7 +265,8 @@ import { CompanyLabelComponent } from '../components/company/company-label/compa
     AddContractPayablePriceComponent,
     ContractPayablePriceDetailComponent,
     AddUserUserCompanyAccessComponent,
-    CompanyLabelComponent
+    CompanyLabelComponent,
+    EditContractTemplateComponent
   ],
   imports: [
     BrowserModule,

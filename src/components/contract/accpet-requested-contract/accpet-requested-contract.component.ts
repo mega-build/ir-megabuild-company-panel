@@ -134,8 +134,9 @@ export class AccpetRequestedContractComponent implements OnInit
 		navigateToRequestedContractList
 		():void
 			{
+				const requestedContractListUrlPartList:any[] = ['/','contractManagement','list','requested']
 				this.router.navigate(
-					['/','contractManagement','list','requested']
+					requestedContractListUrlPartList
 				);
 			}
 

@@ -20,3 +20,17 @@
         </details>
     </dd>
 </dl>
+<ul
+    class="listItemActionMenu"
+>
+    <li>
+        <a
+            *ngIf="contractTemplate"
+            [routerLink]="['/','contractTemplateManagement','edit',contractTemplate._id]"
+            class="edit-btn"
+            title="ویرایش"
+        >
+            ویرایش
+        </a>
+    </li>
+</ul>

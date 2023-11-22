@@ -18,6 +18,8 @@ export class AddContractTemplateComponent implements OnInit
 		isLoading:boolean= false;
 		validationResult: any ={};
 
+		contractTemplateListUrlPartList:any[] = ['/','contractTemplateManagement','list']
+
 		@ViewChild('textarea') textarea!: ElementRef<HTMLTextAreaElement>;
 
 		constructor
@@ -91,17 +93,11 @@ export class AddContractTemplateComponent implements OnInit
 									this.contractTemplate.htmlContent
 								);
 	
-							console.log(data.projectId);
 							this.contractTemplate._id = data.contractTemplateId
 	
 							this.isLoading = false;
 	
-							this.router.navigate(
-								["../list"],
-								{
-									relativeTo:this.route
-								}
-							);
+							this.navigate_contractTemplateList();
 						}
 					catch
 					(
@@ -272,4 +268,12 @@ export class AddContractTemplateComponent implements OnInit
 			console.log('here');
 			
 		}
+
+		navigate_contractTemplateList
+		():void
+			{
+				this.router.navigate(
+					this.contractTemplateListUrlPartList
+				);
+			}
 	}

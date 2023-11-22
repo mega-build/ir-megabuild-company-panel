@@ -133,6 +133,24 @@ export class AuthHttpInterceptorService
 				return reuslt;
 			}
 
+		async putWithAuth_(
+			url: string,
+			headers: HttpHeaders,
+			body: any
+		): Promise<any>
+			{
+				const reuslt = await this.http
+					.put(
+						url,
+						body,
+						{
+							headers: this.getAuthHeader(headers)
+						}
+					).toPromise();
+
+				return reuslt;
+			}
+
 		deleteWithAuth(
 			url: string,
 			headers: HttpHeaders,

@@ -2,7 +2,7 @@
     class="container"
 >
     <legend class="contract-legend">
-        افزودن قالب قرارداد 
+        ویرایش قالب قرارداد 
     </legend>
 
     <a
@@ -15,7 +15,9 @@
     <fieldset
         [disabled]="isLoading"
     >
-        <ul>
+        <ul
+            *ngIf = "!isLoading && contractTemplate"
+        >
             <li>
                 <label
                     for="txtTitle"
