@@ -19,6 +19,17 @@
                         [user]="user"
                     ></user-label>
                 </li>
+                <li
+                    *ngIf="userCompanyAccess"
+                    class="border"
+                >
+                    
+                    <a 
+                        [routerLink]="['/','home']"
+                    >
+                        خانه
+                    </a>
+                </li>
 
                 <li
                     *ngIf="userCompanyAccess && userCompanyAccess.isUserManager"

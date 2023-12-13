@@ -21,6 +21,7 @@
     <project-list
         *ngIf="!isLoading && projectList && projectList.length > 0"
         [projectList] = "projectList"
+        (onProjectRemoved)="getAllProjectList()"
     ></project-list>
 
 

@@ -15,6 +15,8 @@ export class ProjectService
 		private URL_PROJECT_GETALL: string = `${environment.API_URL}/project/list`;
 		private URL_PROJECT_GET: string = `${environment.API_URL}/project`;
 		private URL_PROJECT_ADD: string = `${environment.API_URL}/project`;
+		private URL_PROJECT_REMOVE: string = `${environment.API_URL}/project`;
+		
 
 		constructor
 		(
@@ -68,6 +70,24 @@ export class ProjectService
 					this.URL_PROJECT_ADD,
 					headers,
 					body
+				);
+
+				return result;
+			}
+
+		async remove
+		(
+			projectId: string
+		): Promise<any>
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+
+				const url = `${this.URL_PROJECT_REMOVE}/${projectId}`;
+
+				const result = await this.httpInteceptor.deleteWithAuth_(
+					url,
+					headers,
+					{}
 				);
 
 				return result;

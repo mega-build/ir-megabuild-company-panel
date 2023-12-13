@@ -18,3 +18,24 @@
         {{project.address}}
     </dd>
 </dl>
+
+<ul
+    class="listItemActionMenu"
+>
+    <loading
+        *ngIf="isLoading"
+    ></loading>
+    <li>
+        <button
+            (click)="remove()"
+            class="removebtn"
+            title="حذف پروژه {{project.title}}"
+            [disabled]="isLoading"
+        >
+            حذف پروژه {{project.title}}
+        </button>
+        
+    </li>
+    
+
+</ul>
