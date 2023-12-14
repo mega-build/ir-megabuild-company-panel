@@ -15,19 +15,28 @@ fieldset {
 }
 .search-btn {
   border: none;
-  background-color: transparent;
-  text-indent: -9000px;
+  border-radius: 8px;
+  background-color: #7f56d9;
   overflow: hidden;
-  background: url("../../../assets/images/icons/search-lg.svg");
-  background-position: center;
-  background-repeat: no-repeat;
   position: absolute;
   top: 0;
-  right: 12px;
+  right: 0;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  gap: 8px;
+}
+.search-btn::before {
+  content: "";
+  background: url("../../../assets/images/icons/search-lg-white.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
 }
 
 input#txtNationalCode {
-  padding-right: 40px;
+  padding-right: 90px;
 }
 section:last-child {
   border-radius: 8px;
@@ -47,9 +56,9 @@ section:last-child b {
   margin-bottom: 24px;
   display: block;
 }
-label{
+label {
   display: none;
 }
-customer-label{
+customer-label {
   cursor: pointer;
 }

@@ -20,12 +20,17 @@ ul li {
   color: #667085;
   font-size: 12px;
   font-weight: 400;
-  flex: 0 0 20%;
+  flex: 0 0 16.3%;
 }
 ul li:last-child {
   flex: 0 0 60%;
 }
 
+project-list-item{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
 @media (max-width: 992.8px) {
   ol{
     border: none;
@@ -39,5 +44,8 @@ ul li:last-child {
   }
   ul {
     display: none;
+  }
+  ol li:last-child {
+    border-bottom: inset;
   }
 }

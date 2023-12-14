@@ -4,6 +4,7 @@ dt {
 dl {
   display: flex;
   flex-wrap: wrap;
+  flex: 0 0 80%;
 }
 dd {
   color: #101828;
@@ -11,31 +12,63 @@ dd {
   font-weight: 400;
   flex: 0 0 20%;
 }
-dd:nth-child(2){
+dd:nth-child(2) {
   font-weight: 700;
 }
-dd:nth-child(4){
+dd:nth-child(4) {
   padding-right: 8px;
   color: #667085;
 }
-dd:last-child{
+dd:last-child {
   flex: 0 0 60%;
   color: #667085;
-
 }
-dd:last-child{
-    padding-right: 16px;
+dd:last-child {
+  padding-right: 16px;
 }
 
+ul {
+  position: relative;
+  flex: 0 0 20%;
+}
+
+ul button {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  color: #344054;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+ul button::before{
+  content: url("../../../assets/images/icons/trash-03.svg");
+  width: 24px;
+  height: 24px;
+}
 @media (max-width: 992.8px) {
-  dl{
+  dl {
     flex-direction: column;
     gap: 8px;
+    flex: 0 0 100%;
   }
-  dd:nth-child(4){
+  dd{
+    flex: 0 0 100%;
+  }
+  dd:nth-child(4) {
     padding-right: 0;
   }
-  dd:last-child{
+  dd:last-child {
     padding-right: 0;
-}
+    flex: 0 0 100%;
+  }
+  ul{
+    width: 100%;
+    flex: 0 0 100%;
+    margin-top: 16px;
+  }
 }
