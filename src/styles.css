@@ -319,7 +319,7 @@ button {
   align-items: center;
   gap: 4px;
   width: 100%;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .closeModal::before {
   content: url("assets/images/icons/x-circle.svg");

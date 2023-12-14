@@ -9,7 +9,7 @@ a {
   display: flex;
   margin: 32px 0;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 a::after {
   content: url("../../../assets/images/icons/chevron-down.svg");
