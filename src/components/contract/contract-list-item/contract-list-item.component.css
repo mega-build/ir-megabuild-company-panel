@@ -32,7 +32,7 @@ dl ul {
   font-size: 9px;
   margin-right: -5px;
 }
-.submit-btn{
+.submit-btn {
   text-indent: -9000px;
   background: url("../../../assets/images/icons/clipboard-check.svg");
   width: 24px;
@@ -42,7 +42,7 @@ dl ul {
   display: block;
   overflow: hidden;
 }
-.review-request-btn{
+.review-request-btn {
   text-indent: -9000px;
   background: url("../../../assets/images/icons/review-request.svg");
   width: 24px;
@@ -52,7 +52,7 @@ dl ul {
   display: block;
   overflow: hidden;
 }
-.submit-contract-btn{
+.submit-contract-btn {
   text-indent: -9000px;
   background: url("../../../assets/images/icons/submit-contract.svg");
   width: 24px;
@@ -111,7 +111,7 @@ dl ul.hide {
   height: 20px;
   width: 20px;
 }
-.edit-btn{
+.edit-btn {
   text-indent: -9000px;
   background: url("../../../assets/images/icons/edit-01.svg");
   overflow: hidden;
@@ -127,10 +127,11 @@ dl ul.hide {
   align-items: center;
   gap: 8px;
 }
+
 @media (max-width: 992.8px) {
-  dl{
+  dl {
     display: grid;
-    grid-template-columns: max-content max-content;  
+    grid-template-columns: max-content max-content;
     gap: 8px;
     padding: 12px;
     margin: 0;
@@ -145,17 +146,17 @@ dl ul.hide {
     font-size: 12px;
     overflow: unset;
   }
-  .listItemActionMenu{
+  .listItemActionMenu {
     display: flex;
     flex: 0 0 100%;
     margin-right: 0;
     padding: 12px;
     max-width: 100%;
     justify-content: space-between;
-    border-top: 1px solid #EAECF0;
+    border-top: 1px solid #eaecf0;
     margin-top: 6px;
   }
-  .listItemActionMenu li:empty{
+  .listItemActionMenu li:empty {
     display: none;
   }
 }
