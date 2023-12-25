@@ -4,6 +4,7 @@ require('dotenv').config({
 });
 
 
+
 const USER = process.env.SERVER_USER;
 const PASSWORD = process.env.SERVER_PASSWORD;
 const HOST = process.env.SERVER_HOST;

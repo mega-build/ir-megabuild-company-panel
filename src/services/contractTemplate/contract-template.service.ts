@@ -16,6 +16,7 @@ export class ContractTemplateService
 		private URL_CONTRACT_TEMPLATE_GETALL: string = `${environment.API_URL}/contractTemplate`;
 		private URL_CONTRACT_TEMPLATE_GET: string = `${environment.API_URL}/contractTemplate`;
 		private URL_CONTRACT_TEMPLATE_EDIT: string = `${environment.API_URL}/contractTemplate`;
+		private URL_CONTRACT_TEMPLATE_REMOVE: string = `${environment.API_URL}/contractTemplate`;
 		
 
 		constructor(
@@ -93,5 +94,25 @@ export class ContractTemplateService
 				);
 
 				return result;
+			}
+
+		async remove
+		(
+			contractTemplateId: string
+		):Promise<any>
+			{
+				{
+					let headers: HttpHeaders = new HttpHeaders();
+					
+					const url = `${this.URL_CONTRACT_TEMPLATE_REMOVE}/${contractTemplateId}`;
+					
+					const result = await this.httpInteceptor.deleteWithAuth_(
+						url,
+						headers,
+						{}
+					);
+
+					return result;
+				}
 			}
 	}

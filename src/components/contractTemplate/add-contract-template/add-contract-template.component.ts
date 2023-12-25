@@ -83,30 +83,30 @@ export class AddContractTemplateComponent implements OnInit
 				else
 					{
 						try
-						{
-	
-							this.isLoading = true;
-	
-							const data = await this.contractTemplateService
-								.add(
-									this.contractTemplate.title,
-									this.contractTemplate.htmlContent
-								);
-	
-							this.contractTemplate._id = data.contractTemplateId
-	
-							this.isLoading = false;
-	
-							this.navigate_contractTemplateList();
-						}
-					catch
-					(
-						error:any
-					)
-						{
-							this.isLoading = false;
-							this.errorHelper.showErrorAsAlert(error);
-						}
+							{
+		
+								this.isLoading = true;
+		
+								const data = await this.contractTemplateService
+									.add(
+										this.contractTemplate.title,
+										this.contractTemplate.htmlContent
+									);
+		
+								this.contractTemplate._id = data.contractTemplateId
+		
+								this.isLoading = false;
+		
+								this.navigate_contractTemplateList();
+							}
+						catch
+						(
+							error:any
+						)
+							{
+								this.isLoading = false;
+								this.errorHelper.showErrorAsAlert(error);
+							}
 					}
 			}
 

@@ -13,9 +13,11 @@ export class ErrorHelper
             error: any
         ):void
             {
+                
                 if
                 (
-                    error.status == 0
+                    error.status == 0 ||
+                    error.status == 404
                 )
                     {
                         alert("خطا در دسترسی به سرور. لطفا اتصال به اینترنت را بررسی کنید.")

@@ -24,6 +24,7 @@
     <contract-template-list
         *ngIf="!isLoading && contractTemplateList && contractTemplateList.length > 0"
         [contractTemplateList] = "contractTemplateList"
+        (onContractTemplateRemoved)="getAllContractTemplateList()"
     ></contract-template-list>
 
     <empty-list
