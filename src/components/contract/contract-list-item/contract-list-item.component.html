@@ -119,6 +119,15 @@
     </li>
 
     <li>
+        <button
+            *ngIf="contract.isDraft"
+            onclick="remove()"
+        >
+            حذف
+        </button>
+    </li>
+
+    <li>
         <a
             *ngIf="contract.isDraft && contractHelper.isContractDataCompleted(contract)"
             [routerLink]="['../../editContract','contractId',contract._id,'preview']"

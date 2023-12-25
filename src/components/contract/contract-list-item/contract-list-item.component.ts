@@ -12,6 +12,8 @@ export class ContractListItemComponent
 	{
 		@Input() contract: any={};
 
+		isLoading:boolean = false;
+
 		constructor
 		(
 			public contractHelper:ContractHelper
@@ -44,5 +46,11 @@ export class ContractListItemComponent
 				fileDownload.download = `${this.contract.contractNumber}.doc`;
 				fileDownload.click();
 				document.body.removeChild(fileDownload);
+			}
+
+		remove
+		():void
+			{
+				
 			}
 	}
