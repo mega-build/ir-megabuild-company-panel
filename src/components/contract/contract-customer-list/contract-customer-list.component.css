@@ -5,7 +5,7 @@ ul .contract-customer {
   position: relative;
   margin-bottom: 20px;
 }
-.contract-customer button {
+/* .contract-customer button {
   text-indent: -9000px;
   overflow: hidden;
   border: none;
@@ -22,4 +22,32 @@ ul .contract-customer {
   height: 24px;
   background-position: center;
   background-repeat: no-repeat;
+} */
+.remove-btn{
+  background: url("../../../assets/images/icons/trash-03.svg");
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -9000px;
+  overflow: hidden;
+  border: none;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+.edit-item{
+  background: url("../../../assets/images/icons/edit-01.svg");
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -9000px;
+  overflow: hidden;
+  border: none;
+  position: absolute;
+  left: 58px;
+  top: 8px;
 }

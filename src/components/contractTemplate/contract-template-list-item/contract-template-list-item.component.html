@@ -33,14 +33,17 @@
             ویرایش
         </a>
     </li>
-
     <li>
         <loading
-            *ngIf="isLoading"
-        ></loading>
+        *ngIf="isLoading"
+    ></loading>
+    </li>
+    <li>
+
         <button
             [disabled]="isLoading"
             (click)="remove()"
+            class="remove-btn"
         >
             حذف
         </button>
