@@ -122,10 +122,23 @@ dl ul.hide {
   display: block;
   color: rgba(0, 0, 0, 0);
 }
+.remove-btn{
+  text-indent: -9000px;
+  background: url("../../../assets/images/icons/trash-03.svg");
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 25px;
+  width: 25px;
+  display: block;
+  color: rgba(0, 0, 0, 0);
+  border: none;
+  background-color: transparent;
+}
 .listItemActionMenu {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 36px;
 }
 
 @media (max-width: 992.8px) {

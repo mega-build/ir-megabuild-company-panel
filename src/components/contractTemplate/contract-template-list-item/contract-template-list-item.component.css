@@ -25,3 +25,41 @@ section{
   font-size: 14px;
   color: #101828;
 }
+.listItemActionMenu{
+  display: flex;
+  align-items: flex-start;
+  width: 40%;
+  justify-content: space-between;
+  padding: 16px 0 0 16px;
+}
+
+.edit-btn{
+  background: url("../../../assets/images/icons/edit-01.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -9000px;
+  overflow: hidden;
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+.remove-btn{
+  border: none;
+  background-color: transparent;
+  background: url("../../../assets/images/icons/trash-03.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -9000px;
+  overflow: hidden;
+  display: flex;
+  width: 24px;
+  height: 24px;
+}
+loading{
+  position: absolute;
+    /* right: 0; */
+    /* top: 0; */
+    /* transform: translate(50%, -20%); */
+    left: 50%;
+    transform: translate(-50%, 36%);
+}

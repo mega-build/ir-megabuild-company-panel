@@ -40,22 +40,3 @@ label {
 li{
   position: relative;
 }
-#prgPreive {
-  text-align: justify;
-  -webkit-user-modify: read-write-plaintext-only;
-}
-#prgPreive:focus{
-  outline: none;
-}
-#prgPreive::after{
-  content: "";
-  opacity: 0;
-  background-color: #fff;
-  width: 100%;
-  height: 100%;
-  right: 0;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  top: 0;
-}
