@@ -38,6 +38,7 @@ import { UserCompanyAccessPanelComponent } from 'src/components/userCompanyAcces
 import { AddProjectItemGalleryComponent } from 'src/components/project-item-gallery/add-project-item-gallery/add-project-item-gallery.component';
 import { AddUserUserCompanyAccessComponent } from 'src/components/userCompanyAccess/add-user-user-company-access/add-user-user-company-access.component';
 import { EditContractTemplateComponent } from 'src/components/contractTemplate/edit-contract-template/edit-contract-template.component';
+import { EditContractCustomerComponent } from 'src/components/contractCustomer/edit-contract-customer/edit-contract-customer.component';
 
 
 export const routes: Routes = [
@@ -175,6 +176,10 @@ export const routes: Routes = [
                             {
                                 path: 'add',
                                 component: AddContractCustomerComponent
+                            },
+                            {
+                                path: 'edit',
+                                component: EditContractCustomerComponent
                             },
                         ]
                     },
