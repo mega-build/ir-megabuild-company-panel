@@ -178,7 +178,7 @@ export const routes: Routes = [
                                 component: AddContractCustomerComponent
                             },
                             {
-                                path: 'edit',
+                                path: 'edit/:customerId',
                                 component: EditContractCustomerComponent
                             },
                         ]

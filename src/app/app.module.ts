@@ -134,6 +134,7 @@ import { AddUserUserCompanyAccessComponent } from 'src/components/userCompanyAcc
 import { CompanyLabelComponent } from '../components/company/company-label/company-label.component';
 import { EditContractTemplateComponent } from '../components/contractTemplate/edit-contract-template/edit-contract-template.component';
 import { EditContractCustomerComponent } from '../components/contractCustomer/edit-contract-customer/edit-contract-customer.component';
+import { EditCustomerComponent } from '../components/customer/edit-customer/edit-customer.component';
 
 
 
@@ -268,7 +269,8 @@ import { EditContractCustomerComponent } from '../components/contractCustomer/ed
     AddUserUserCompanyAccessComponent,
     CompanyLabelComponent,
     EditContractTemplateComponent,
-    EditContractCustomerComponent
+    EditContractCustomerComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,

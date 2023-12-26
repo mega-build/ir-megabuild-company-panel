@@ -1,1 +1,23 @@
-<p>edit-contract-customer works!</p>
+<section>
+    <loading
+        *ngIf="isLoading"
+    ></loading>
+
+    <edit-customer
+        *ngIf="customer"
+        [customer]="customer"
+        (onCustomerEdited)="navigate_contractCustomerList()"
+    ></edit-customer>
+
+    <ul class="action-list">
+        <li>
+            <a
+                [routerLink]="['../../list']"
+                role="button"
+                class="secondary"
+            >
+              انصراف  
+            </a>
+        </li>
+    </ul>
+</section>

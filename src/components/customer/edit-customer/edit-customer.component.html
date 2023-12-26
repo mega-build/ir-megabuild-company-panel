@@ -1,0 +1,155 @@
+<form>
+    <legend>
+        ویرایش اطلاعات خریدار
+    </legend>
+    <fieldset
+        [disabled]="isLoading"
+    >
+        <ul>
+            <li>
+                <label
+                    for="txtFirstname"
+                >
+                    نام:
+                </label>
+
+                <input
+                    type="text"
+                    id="txtFirstname"
+                    name="txtFirstname"
+                    maxlength="200"
+                    [(ngModel)]="customer.firstname"
+                    required
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtLastname"
+                >
+                    نام خانوادگی:
+                </label>
+
+                <input
+                    type="text"
+                    id="txtLastname"
+                    name="txtLastname"
+                    maxlength="200"
+                    [(ngModel)]="customer.lastname"
+                    required
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtNatinalCode"
+                >
+                    کد ملی:
+                </label>
+
+                <input
+                    type="tel"
+                    id="txtNatinalCode"
+                    name="txtNatinalCode"
+                    maxlength="10"
+                    minlength="10"
+                    [(ngModel)]="customer.nationalCode"
+                    required
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtPostalCode"
+                >
+                    کد پستی:
+                </label>
+
+                <input
+                    type="tel"
+                    id="txtPostalCode"
+                    name="txtPostalCode"
+                    maxlength="10"
+                    minlength="10"
+                    [(ngModel)]= "customer.postalCode"
+                    required
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtMobileNumber"
+                >
+                    شماره موبایل:
+                </label>
+
+                <input
+                    type="tel"
+                    id="txtMobileNumber"
+                    name="txtMobileNumber"
+                    maxlength="11"
+                    minlength="11"
+                    [(ngModel)]= "customer.mobileNumber"
+                    required
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtPhoneNumber"
+                >
+                    تلفن ثابت:
+                </label>
+
+                <input
+                    type="tel"
+                    id="txtPhoneNumber"
+                    name="txtPhoneNumber"
+                    maxlength="11"
+                    minlength="11"
+                    [(ngModel)]= "customer.phoneNumber"
+                    required
+                >
+            </li>
+
+            <li>
+                <label
+                    for="txtAddress"
+                >
+                    آدرس:
+                </label>
+
+                <textarea
+                    id="txtAddress"
+                    name="txtAddress"
+                    [(ngModel)]= "customer.address"
+                    column="4"
+                    required
+                ></textarea>
+            </li>
+        </ul>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
+
+        <ul
+            class="action-list"
+        >
+            <li>
+                <button
+                    type="button"
+                    (click)="save()"
+                    class="primary"
+                >
+                    ثبت
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>
