@@ -24,11 +24,13 @@ export class ContractService {
 	private URL_CONTRACT_REJECT_REQUESTED_CONTRACT: string = `${environment.API_URL}/contract/rejectRequestedContract`;
 	private URL_CONTRACT_SET_CONTENT: string = `${environment.API_URL}/contract/setContent`;
 	private URL_CONTRACT_GET_ALL_BY_FILTER: string =  `${environment.API_URL}/contract/filter`;
+	private URL_CONTRACT_REMOVE: string = `${environment.API_URL}/contract`;
+
 
 	constructor
 	(
 		private httpInteceptor: AuthHttpInterceptorService,
-	) { }
+	){}
 
 	async get
 		(
@@ -345,6 +347,26 @@ export class ContractService {
 			);
 
 			return result;
+		}
+
+	async remove
+	(
+		contractId: string
+	):Promise<any>
+		{
+			{
+				let headers: HttpHeaders = new HttpHeaders();
+				
+				const url = `${this.URL_CONTRACT_REMOVE}/${contractId}`;
+				
+				const result = await this.httpInteceptor.deleteWithAuth_(
+					url,
+					headers,
+					{}
+				);
+
+				return result;
+			}
 		}
 	
 }

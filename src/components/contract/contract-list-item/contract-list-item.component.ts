@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ContractHelper } from 'src/helper/contractHelper';
+import { ErrorHelper } from 'src/helper/errorHelper';
+import { ContractService } from 'src/services/contract/contract.service';
 
 @Component(
 	{
@@ -11,12 +13,16 @@ import { ContractHelper } from 'src/helper/contractHelper';
 export class ContractListItemComponent
 	{
 		@Input() contract: any={};
+		@Output() onContractRemoved = new EventEmitter();
 
 		isLoading:boolean = false;
 
+
 		constructor
 		(
-			public contractHelper:ContractHelper
+			public contractHelper: ContractHelper,
+			private contractService: ContractService,
+			private errorHelper: ErrorHelper
 		){}
 
 		downloadDoc
@@ -48,9 +54,32 @@ export class ContractListItemComponent
 				document.body.removeChild(fileDownload);
 			}
 
-		remove
-		():void
+			
+		async remove
+		():Promise<void>
 			{
 				
+				try
+					{
+
+						this.isLoading = true;
+
+						const data = await this.contractService.remove(
+							this.contract._id
+						)
+
+						this.isLoading = false;
+
+						this.onContractRemoved.emit();
+
+					}
+				catch
+				(
+					error:any
+				)
+					{
+						this.isLoading = false;
+						this.errorHelper.showErrorAsAlert(error);
+					}
 			}
 	}

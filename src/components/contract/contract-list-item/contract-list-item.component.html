@@ -119,9 +119,13 @@
     </li>
 
     <li>
+        <loading
+            *ngIf="isLoading"
+        ></loading>
         <button
-            *ngIf="contract.isDraft"
-            onclick="remove()"
+            *ngIf= "contract.isDraft"
+            [disabled]= "isLoading"
+            (click)= "remove()"
         >
             حذف
         </button>

@@ -37,8 +37,6 @@ export class ContractTemplateListItemComponent
 							this.contractTemplate._id
 						)
 
-						this.contractTemplate._id = data.contractTemplateId
-
 						this.isLoading = false;
 
 						this.onContractTemplateRemoved.emit();

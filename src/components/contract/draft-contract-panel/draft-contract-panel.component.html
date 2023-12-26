@@ -25,6 +25,7 @@
     <contract-list
         *ngIf="!isLoading && contractList && contractList.length > 0"
         [contractList]="contractList"
+        (onContractRemoved)="getAllDraftedContractList()"
     ></contract-list>
 
     <empty-list

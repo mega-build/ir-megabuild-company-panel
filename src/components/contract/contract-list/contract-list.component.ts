@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component(
 	{
@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
 export class ContractListComponent
 	{
 	 	@Input() contractList!: any[];
+		@Output() onContractRemoved = new EventEmitter();
 
 		contractDateSortType:number = 1;
 		contractFinishDateSortType:number = 1;
@@ -92,5 +93,11 @@ export class ContractListComponent
 					}
 
 				return 0;
+			}
+
+		contractRemoved
+		():void
+			{
+				this.onContractRemoved.emit();
 			}
 	}
