@@ -25,6 +25,8 @@ export class ContractService {
 	private URL_CONTRACT_SET_CONTENT: string = `${environment.API_URL}/contract/setContent`;
 	private URL_CONTRACT_GET_ALL_BY_FILTER: string =  `${environment.API_URL}/contract/filter`;
 	private URL_CONTRACT_REMOVE: string = `${environment.API_URL}/contract`;
+	private URL_CONTRACT_EDIT_CONTENT_BASE_INFO: string = `${environment.API_URL}/contract/editBaseInfo`;
+	
 
 
 	constructor
@@ -367,6 +369,36 @@ export class ContractService {
 
 				return result;
 			}
+		}
+
+	async editBaseInfo
+	(
+		contractId:string,
+		contractNumber:string,
+		contractDate:string,
+		contractDateShamsi:string,
+		contractFinishDate:string,
+		contractFinishDateShamsi:string,
+	):Promise<any>
+		{
+			let headers: HttpHeaders = new HttpHeaders();
+
+			let body: any = {
+				contractId: contractId,
+				contractNumber: contractNumber,
+				contractDate: contractDate,
+				contractDateShamsi: contractDateShamsi,
+				contractFinishDate: contractFinishDate,
+				contractFinishDateShamsi: contractFinishDateShamsi
+			};
+
+			const result = await this.httpInteceptor.postWithAuth_(
+				this.URL_CONTRACT_EDIT_CONTENT_BASE_INFO,
+				headers,
+				body
+			);
+
+			return result;
 		}
 	
 }

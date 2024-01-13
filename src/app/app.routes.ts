@@ -39,6 +39,7 @@ import { AddProjectItemGalleryComponent } from 'src/components/project-item-gall
 import { AddUserUserCompanyAccessComponent } from 'src/components/userCompanyAccess/add-user-user-company-access/add-user-user-company-access.component';
 import { EditContractTemplateComponent } from 'src/components/contractTemplate/edit-contract-template/edit-contract-template.component';
 import { EditContractCustomerComponent } from 'src/components/contractCustomer/edit-contract-customer/edit-contract-customer.component';
+import { EditContractBaseInfoComponent } from 'src/components/contract/edit-contract-base-info/edit-contract-base-info.component';
 
 
 export const routes: Routes = [
@@ -194,7 +195,12 @@ export const routes: Routes = [
                     {
                         path: 'preview',
                         component: ContractPreviewComponent
+                    },
+                    {
+                        path: 'baseInfo',
+                        component: EditContractBaseInfoComponent
                     }
+                    
                 ]
             },
             {

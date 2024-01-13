@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DateHelper } from 'src/helper/dateHelper';
 
 @Component(
 	{
@@ -8,11 +9,28 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 	}
 )
 
-export class ShmasiDatePickerComponent
+export class ShmasiDatePickerComponent implements OnInit
 	{
 
+		@Input() shamsiDate!:string;
 		@Output() setSelectedDate = new EventEmitter<any>()
-		constructor(){}
+
+		constructor(
+			private dateHelper:DateHelper
+		){}
+	
+		ngOnInit(): void {
+			console.log(this.shamsiDate)
+			if
+			(
+				this.shamsiDate
+			)
+				{
+					this.year = this.dateHelper.getYearFromShamsiDate(this.shamsiDate);
+					this.month = this.dateHelper.getMonthFromShamsiDate(this.shamsiDate);
+					this.day = this.dateHelper.getDayFromShamsiDate(this.shamsiDate);
+				}
+		}
 
 		year!:number;// = 1402;
 		month!: number;// = 1;

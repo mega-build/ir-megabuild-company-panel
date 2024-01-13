@@ -1,0 +1,99 @@
+<div>
+    
+<form
+    *ngIf="contract"
+    class="container"
+>
+    <legend
+        class="contract-legend"
+    >
+        ویرایش اطلاعات اولیه
+    </legend>
+
+
+    <fieldset
+        [disabled]="isLoading"
+    >
+        <ul>
+            <li>
+                <label
+                    for="txtContractNumber"
+                >
+                    شماره قرارداد
+                </label>
+
+                <input
+                    type="text"
+                    id="txtContractNumber"
+                    name="txtContractNumber"
+                    maxlength="50"
+                    [(ngModel)]="contract.contractNumber"
+                >
+            </li>
+
+
+            <li>
+                <label
+                    for="cmpContractDate"
+                >
+                    تاریخ قرارداد
+                </label>
+
+                <shmasi-date-picker
+                    id="cmpContractDate"
+                    name="cmpContractDate"
+                    (setSelectedDate)="setContractDate($event)"
+                    [shamsiDate]="contract.contractDateShamsi"
+                ></shmasi-date-picker>
+            </li>
+
+            <li>
+                <label
+                    for="cmpContractFinishDate"
+                >
+                    تاریخ تحویل
+                </label>
+
+                <shmasi-date-picker
+                    id = 'cmpContractFinishDate'
+                    name = 'cmpContractFinishDate'
+                    (setSelectedDate)="setcontractFinishDate($event)"
+                    [shamsiDate]="contract.contractFinishDateShamsi"
+                ></shmasi-date-picker>
+            </li>
+
+        </ul>
+
+        <loading
+            *ngIf="isLoading"
+        ></loading>
+
+        <validation-result
+            *ngIf="validationResult.hasError"
+            [validationResult]="validationResult"
+        ></validation-result>
+        
+        <ul class="action-list">
+            <li>
+                <button
+                    type="button"
+                    (click)="editContract()"
+                    class="primary"
+                >
+                    ذخیره
+                </button>
+            </li>
+
+            <li>
+                    
+                <a 
+                    [routerLink]="['/','contractManagement','list','draft']"
+                    class="secondary"
+                >
+                    انصراف
+                </a>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+</div>

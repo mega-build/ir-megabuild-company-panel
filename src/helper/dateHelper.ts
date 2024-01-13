@@ -85,4 +85,31 @@ export class DateHelper
                 }
                 return result
             }
+
+        getYearFromShamsiDate
+        (
+            shamsiDate:string
+        ):number{
+            const shamsiDateParts = shamsiDate.split('/');
+            
+            return parseInt(shamsiDateParts[0]);
+        }
+
+        getMonthFromShamsiDate
+        (
+            shamsiDate:string
+        ):number{
+            const shamsiDateParts = shamsiDate.split('/');
+            
+            return parseInt(shamsiDateParts[1]);
+        }
+
+        getDayFromShamsiDate
+        (
+            shamsiDate:string
+        ):number{
+            const shamsiDateParts = shamsiDate.split('/');
+            
+            return parseInt(shamsiDateParts[2]);
+        }
     }

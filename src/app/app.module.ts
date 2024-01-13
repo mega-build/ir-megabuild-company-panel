@@ -135,6 +135,7 @@ import { CompanyLabelComponent } from '../components/company/company-label/compa
 import { EditContractTemplateComponent } from '../components/contractTemplate/edit-contract-template/edit-contract-template.component';
 import { EditContractCustomerComponent } from '../components/contractCustomer/edit-contract-customer/edit-contract-customer.component';
 import { EditCustomerComponent } from '../components/customer/edit-customer/edit-customer.component';
+import { EditContractBaseInfoComponent } from '../components/contract/edit-contract-base-info/edit-contract-base-info.component';
 
 
 
@@ -270,7 +271,8 @@ import { EditCustomerComponent } from '../components/customer/edit-customer/edit
     CompanyLabelComponent,
     EditContractTemplateComponent,
     EditContractCustomerComponent,
-    EditCustomerComponent
+    EditCustomerComponent,
+    EditContractBaseInfoComponent
   ],
   imports: [
     BrowserModule,
