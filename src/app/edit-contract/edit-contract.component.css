@@ -11,8 +11,26 @@ section div {
   border-radius: 8px;
   overflow: hidden;
 }
-.closeModal {
+
+.action-list {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
   width: 63%;
-  padding: 32px;
-  margin: auto;
+  margin: 32px auto;
+}
+
+.action-list li:nth-child(2) a {
+  color: #7f56d9;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+.action-list li:nth-child(2) a::before {
+  content: "";
+  background: url("../../../dist/construction-company-panel/edit-01.44138be7af5755a5-p.svg");
+  width: 20px;
+  height: 20px;
 }

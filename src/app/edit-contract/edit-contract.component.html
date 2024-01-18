@@ -7,13 +7,23 @@
     [contract]= "contract"
 ></contract-detail>
 
-    <a
-    [routerLink]="['/','home']"
-    class="closeModal"
-    >
-            صفحه اصلی
-    </a>
-
+    <ul class="action-list">
+        <li>
+            <a
+        [routerLink]="['/','home']"
+        class="closeModal"
+        >
+                صفحه اصلی
+        </a>
+        </li>
+        <li>
+            <a
+            [routerLink]="['/','contractManagement','editContract','contractId',contract._id,'baseInfo']"
+        >
+            ویرایش
+        </a>
+        </li>
+    </ul>    
 
 <section>
     <div>
