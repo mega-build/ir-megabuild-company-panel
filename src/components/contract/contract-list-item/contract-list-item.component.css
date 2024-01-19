@@ -12,6 +12,9 @@ dl {
 dl dt {
   display: none;
 }
+li:empty{
+  display: none;
+}
 
 dl dd {
   color: #101828;
