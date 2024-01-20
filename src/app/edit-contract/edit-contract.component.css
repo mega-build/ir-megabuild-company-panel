@@ -30,7 +30,7 @@ section div {
 }
 .action-list li:nth-child(2) a::before {
   content: "";
-  background: url("../../../dist/construction-company-panel/edit-01.44138be7af5755a5-p.svg");
+  background: url("../../assets/images/icons/edit-01.svg");
   width: 20px;
   height: 20px;
 }
